@@ -23,9 +23,9 @@ MINE es una aplicación móvil que permite a los usuarios crear un **compañero 
 
 ## 📁 Estructura del Proyecto
 root/
-├── backend/ # API Node.js
-├── mobile/ # App Flutter
-├── docs/ # Documentación técnica y de usuario
+- ├── backend/ # API Node.js
+- ├── mobile/ # App Flutter
+- ├── docs/ # Documentación técnica y de usuario
 
 ## 📅 Plan de Desarrollo (40 días)
 
