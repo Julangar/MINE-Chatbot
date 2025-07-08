@@ -1,0 +1,19 @@
+# Node
+node_modules/
+.env
+.DS_Store
+
+# Flutter
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.idea/
+*.iml
+
+# Others
+*.log
+*.tmp
+*.swp
+.vscode/
