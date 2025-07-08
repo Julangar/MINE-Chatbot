@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const errorHandler = require('./middlewares/errorHandler');
 require('dotenv').config();
 
 const app = express();
@@ -8,12 +9,9 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Ruta de prueba
-app.get('/health', (req, res) => {
-  res.json({ status: 'OK', message: 'Backend funcionando correctamente.' });
-});
+app.use('/api', require('./routes/health'));
+app.use(errorHandler);
 
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
 });
-
