@@ -33,7 +33,10 @@ Consulta el documento `docs/Plan Paso a Paso.pdf` para ver el cronograma complet
 
 ## 🧪 Estado del Proyecto
 
-📍 **Día 1**: Configuración de herramientas, instalación de dependencias y estructura inicial del repositorio.
+| Día | Actividad                                                                                 | Estado      |
+|-----|-------------------------------------------------------------------------------------------|-------------|
+| 01  | Instalación de herramientas, Flutter, Git, VSCode, estructura de carpetas y GitHub       | ✅ Completado |
+| 02  | Configuración de APIs (OpenAI, ElevenLabs, D-ID/HeyGen), Firebase                        |  |
 
 ## 🔐 Licencia
 
