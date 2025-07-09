@@ -37,8 +37,8 @@ Consulta el documento `docs/Plan Paso a Paso.pdf` para ver el cronograma complet
 |-----|-------------------------------------------------------------------------------------------|-------------|
 | 01  | Instalación de herramientas, Flutter, Git, VSCode, estructura de carpetas y GitHub       | ✅ Completado |
 | 02  | Configuración de APIs (OpenAI, ElevenLabs, D-ID/HeyGen), Firebase                        | ✅ Completado |
-| 03  | Inicialización de proyecto backend con Express, estructura de carpetas y .env           |  |
-
+| 03  | Inicialización de proyecto backend con Express, estructura de carpetas y .env           | ✅ Completado |
+| 04  | Conexión de backend con Firebase y servicios IA                                          |  |
 ## 🔐 Licencia
 
 Este proyecto está licenciado bajo la **APACHE License**. Consulta el archivo [LICENSE](LICENSE) para más detalles.
