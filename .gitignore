@@ -10,7 +10,7 @@ yarn-error.log*
 /.DS_Store
 
 # Firebase private key
-backend/config/serviceAccountKey.json
+mine-chat-app/backend/config/serviceAccountKey.json
 
 # Logs
 logs/
