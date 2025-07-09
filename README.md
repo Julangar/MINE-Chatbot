@@ -23,9 +23,35 @@ MINE es una aplicación móvil que permite a los usuarios crear un **compañero 
 
 ## 📁 Estructura del Proyecto
 root/
-- ├── backend/ # API Node.js
-- ├── mobile/ # App Flutter
-- ├── docs/ # Documentación técnica y de usuario
+- backend/        # API Node.js (Express)
+    - index.js
+    - package.json
+    - config/
+        - firebase.js
+        - index.js
+        - serviceAccountKey.json
+    - controllers/
+        - healthController.js
+    - middlewares/
+        - errorHandler.js
+    - routes/
+        - health.js
+    - services/
+        - didService.js
+        - elevenlabsService.js
+        - openaiService.js
+    - utils/
+        - logger.js
+    - test-did.js
+    - test-elevenlabs.js
+    - test-firebase.js
+    - test-openai.js
+- mobile/         # App Flutter
+    - main.dart
+- docs/           # Documentación técnica y de usuario
+    - Plan Paso a Paso.docx
+    - Propuesta de Desarrollo.docx
+    - Readme_plan.md
 
 ## 📅 Plan de Desarrollo (40 días)
 
