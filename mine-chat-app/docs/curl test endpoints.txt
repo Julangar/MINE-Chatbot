@@ -1,0 +1,11 @@
+Prueba endpoint BD con usuario de prueba
+curl -Uri http://localhost:3000/api/user/register `
+     -Method Post `
+     -Headers @{ "Content-Type" = "application/json" } `
+     -Body '{ "email": "prueba@email.com", "nombre": "Julián" }'
+
+Prueba endpoint mensaje con openai
+curl -Uri http://localhost:3000/api/chat/message `
+     -Method Post `
+     -Headers @{ "Content-Type" = "application/json" } `
+     -Body '{ "messages": [ { "role": "user", "content": "Hola, ¿quién eres?" } ] }'
