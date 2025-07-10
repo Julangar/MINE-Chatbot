@@ -1,3 +1,6 @@
+Prueba de salud del servidor
+curl http://localhost:3000/api/health
+
 Prueba endpoint BD con usuario de prueba
 curl -Uri http://localhost:3000/api/user/register `
      -Method Post `
