@@ -12,6 +12,9 @@ app.use(express.json());
 app.use('/api', require('./routes/health'));
 app.use('/api/user', require('./routes/user'));
 app.use('/api/chat', require('./routes/chat'));
+app.use('/api/voice', require('./routes/voice'));
+app.use('/api/avatar', require('./routes/avatar'));
+
 app.use(errorHandler);
 
 app.listen(PORT, () => {

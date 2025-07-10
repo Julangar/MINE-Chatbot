@@ -12,3 +12,18 @@ curl -Uri http://localhost:3000/api/chat/message `
      -Method Post `
      -Headers @{ "Content-Type" = "application/json" } `
      -Body '{ "messages": [ { "role": "user", "content": "Hola, ¿quién eres?" } ] }'
+
+Prueba endpoint generar voz
+curl -Uri http://localhost:3000/api/voice/generate `
+     -Method Post `
+     -Headers @{ "Content-Type" = "application/json" } `
+     -Body '{ "text": "Hola, soy tu asistente virtual", "userId": "usuario1" }'
+
+Prueba endpoint generar video
+curl -Uri http://localhost:3000/api/avatar/generate `
+     -Method Post `
+     -Headers @{ "Content-Type" = "application/json" } `
+     -Body '{ "script": "Hola, soy tu avatar", "imageUrl": "URL_PUBLICA_IMAGEN", "voiceUrl": "URL_PUBLICA_AUDIO" }'
+
+Consultar el estado del video generado
+curl http://localhost:3000/api/avatar/TALK_ID
