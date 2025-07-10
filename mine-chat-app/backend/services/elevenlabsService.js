@@ -12,7 +12,7 @@ const api = axios.create({
 // Cambia "voice_id" por el de tu voz (puedes obtenerlo con listVoices)
 async function textToSpeech(text, userId) {
   const voice_id = 'EXAVITQu4vr4xnSDxMaL'; // usa tu voz o deja la por defecto
-  const url = `/text-to-speech/${voice_id}`;
+  //const url = `/text-to-speech/${voice_id}`;
   const response = await api.post(url,
     { text, model_id: 'eleven_multilingual_v2', voice_settings: { stability: 0.5, similarity_boost: 0.75 } },
     { responseType: 'arraybuffer' }

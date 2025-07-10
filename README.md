@@ -104,6 +104,43 @@ Consulta el documento `docs/Plan Paso a Paso.pdf` para ver el cronograma complet
 | 03  | Inicialización de proyecto backend con Express, estructura de carpetas y .env            | ✅ Completado |
 | 04  | Conexión de backend con Firebase y servicios IA                                          | ✅ Completado |
 | 05  | Diseño de wireframes, inicio de proyecto Flutter y estructura base                       |  |
+| 06  | Implementación de pantalla de bienvenida y autenticación con Firebase                    |   |
+| 07  | Captura y validación de fotos, subida a Firebase Storage                                 |   |
+| 08  | Grabación y reproducción de voz, almacenamiento en Firebase                              |   |
+| 09  | Cuestionario de personalidad (UI + backend + Firestore)                                  |   |
+| 10  | Endpoints para personalización: fotos, voz y personalidad                                |   |
+| 11  | Integración de OpenAI en backend con prompts dinámicos                                   |   |
+| 12  | Integración con ElevenLabs para clonación y reproducción de voz                          |   |
+| 13  | Creación de avatar animado desde fotos/audio con D-ID / HeyGen                          |   |
+| 14  | Almacenamiento y CRUD de perfiles de avatar                                              |   |
+| 15  | Pruebas completas del backend y documentación de API                                     |   |
+| 16  | Interfaz de resumen de avatar y proceso de generación visual                             |   |
+| 17  | Diseño de la pantalla de chat con avatar y campo de entrada                              |   |
+| 18  | Lógica de envío/recepción de mensajes y conexión con backend                             |   |
+| 19  | Visualización del avatar animado con reproductor de video                               |   |
+| 20  | Reproducción de respuestas de voz sincronizadas                                          |   |
+| 21  | Persistencia de historial de chat local y en Firestore                                   |   |
+| 22  | Animaciones, transiciones y microinteracciones                                           |   |
+| 23  | Mejora de prompts para mayor naturalidad conversacional                                  |   |
+| 24  | Sistema de memoria conversacional (corto y largo plazo)                                  |   |
+| 25  | Feedback visual, sonoro y táctil                                                         |   |
+| 26  | Optimización de tiempos de carga (precarga de recursos, caché)                          |   |
+| 27  | Mejora de accesibilidad y soporte para gestos                                            |   |
+| 28  | Ajustes de personalidad (UI + backend)                                                   |   |
+| 29  | Selección de temas de conversación e intereses                                           |   |
+| 30  | Personalización visual del avatar y la interfaz                                          |   |
+| 31  | Guardado y sincronización de configuraciones entre dispositivos                         |   |
+| 32  | Sistema de evolución relacional avatar-usuario                                           |   |
+| 33  | Pruebas de usuario con feedback documentado                                              |   |
+| 34  | Corrección de usabilidad basada en feedback                                              |   |
+| 35  | Optimización de rendimiento general                                                      |   |
+| 36  | Reducción de latencia, compresión, reintentos y feedback visual                          |   |
+| 37  | Pruebas en dispositivos reales (diversas pantallas y versiones Android)                 |   |
+| 38  | Corrección de bugs críticos y pruebas de regresión                                       |   |
+| 39  | Implementación de feedback final, textos, estilos y UX                                   |   |
+| 40  | Publicación en Google Play Store / App Store + sistema de monitoreo                     |   |
+
+
 ## 🔐 Licencia
 
 Este proyecto está licenciado bajo la **APACHE License**. Consulta el archivo [LICENSE](LICENSE) para más detalles.
