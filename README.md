@@ -21,6 +21,35 @@ MINE es una aplicación móvil que permite a los usuarios crear un **compañero 
   - ElevenLabs (voz)
   - D-ID o HeyGen (avatar animado)
 
+## 🧰 Herramientas necesarias para modificar el proyecto
+
+Para realizar cambios y contribuir al desarrollo de MINE-Chatbot, necesitas instalar y configurar las siguientes herramientas:
+
+- **Git:** Control de versiones y gestión de repositorios.  
+  [Descargar Git](https://git-scm.com/downloads)
+
+- **Visual Studio Code:** Editor de código recomendado para editar archivos, depurar y gestionar el proyecto.  
+  [Descargar VS Code](https://code.visualstudio.com/)
+
+- **Flutter SDK:** Framework para desarrollar la aplicación móvil.  
+  [Instalación Flutter](https://docs.flutter.dev/get-started/install)
+
+- **Node.js y npm:** Entorno de ejecución para el backend y gestor de paquetes.  
+  [Descargar Node.js](https://nodejs.org/)
+
+- **Firebase CLI:** Herramienta para administrar servicios de Firebase desde la terminal.  
+  Instala con:  
+  ```
+  npm install -g firebase-tools
+  ```
+
+- **Acceso a APIs externas:**  
+  - OpenAI (GPT): Necesitas una clave de API.
+  - ElevenLabs: Necesitas una clave de API.
+  - D-ID o HeyGen: Necesitas una clave de API.
+
+**Recomendación:** Consulta la documentación oficial de cada herramienta para detalles de instalación y configuración según tu sistema operativo.
+
 ## 📁 Estructura del Proyecto
 root/
 - backend/        # API Node.js (Express)
@@ -31,11 +60,19 @@ root/
         - index.js
         - serviceAccountKey.json
     - controllers/
+        - avatarController.js
+        - chatController.js
         - healthController.js
+        - userController.js
+        - voiceController.js
     - middlewares/
         - errorHandler.js
     - routes/
+        - avatar.js
+        - chat.js
         - health.js
+        - user.js
+        - voice.js
     - services/
         - didService.js
         - elevenlabsService.js
@@ -49,6 +86,7 @@ root/
 - mobile/         # App Flutter
     - main.dart
 - docs/           # Documentación técnica y de usuario
+    - curl test endpoints.txt
     - Plan Paso a Paso.docx
     - Propuesta de Desarrollo.docx
     - Readme_plan.md
