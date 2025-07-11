@@ -95,12 +95,17 @@ root/
         - openaiService.js
     - utils/
         - logger.js
-    - test-did.js
-    - test-elevenlabs.js
-    - test-firebase.js
-    - test-openai.js
 - mobile/         # App Flutter
-    - main.dart
+    - android
+    - ios
+    - lib
+        - screens
+            -  chat_screen.dart
+            -  crete_avatar_screen.dart
+            -  login_screen.dart
+            -  profile_screen.dart
+            -  splash_screen.dart
+        - main.dart
 - docs/           # Documentación técnica y de usuario
     - curl test endpoints.txt
     - Plan Paso a Paso.docx
@@ -114,11 +119,15 @@ Consulta el documento `mine-chat-app/docs/Plan Paso a Paso.pdf` para ver el cron
 ### 📐 Wireframes
 
 A continuación puedes ver los wireframes principales del proyecto, ubicados en la carpeta `docs/`:
-
+- Wireframe Pamtalla Principal
 ![Wireframe Pantalla Principal](mine-chat-app/docs/wireframe_splash_screen.jpg)
+- Wireframe Login
 ![Wireframe Login](mine-chat-app/docs/wireframe_login_screen.jpg)
+- Wireframe Crear Avatar
 ![Wireframe Crear Avatar](mine-chat-app/docs/wireframe_create_avatar_screen.jpg)
+- Wireframe Chat
 ![Wireframe Chat](mine-chat-app/docs/wireframe_chat_screen.jpg)
+- Wireframe Perfil
 ![Wireframe Perfil](mine-chat-app/docs/wireframe_profile_screen.jpg)
 
 ## 🧪 Estado del Proyecto
