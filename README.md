@@ -33,6 +33,22 @@ Para realizar cambios y contribuir al desarrollo de MINE-Chatbot, necesitas inst
 
 - **Flutter SDK:** Framework para desarrollar la aplicación móvil.  
   [Instalación Flutter](https://docs.flutter.dev/get-started/install)
+  # mobile
+
+A new Flutter project.
+
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
 
 - **Node.js y npm:** Entorno de ejecución para el backend y gestor de paquetes.  
   [Descargar Node.js](https://nodejs.org/)
@@ -95,6 +111,16 @@ root/
 
 Consulta el documento `docs/Plan Paso a Paso.pdf` para ver el cronograma completo por días y entregables.
 
+### 📐 Wireframes
+
+A continuación puedes ver los wireframes principales del proyecto, ubicados en la carpeta `docs/`:
+
+![Wireframe Pantalla Principal](docs/wireframe_splash_screen.jpg)
+![Wireframe Login](docs/wireframe_login_screen.jpg)
+![Wireframe Crear Avatar](docs/wireframe_create_avatar_screen.jpg)
+![Wireframe Chat](docs/wireframe_chat_screen.jpg)
+![Wireframe Perfil](docs/wireframe_profile_screen.jpg)
+
 ## 🧪 Estado del Proyecto
 
 | Día | Actividad                                                                                 | Estado      |
@@ -103,8 +129,8 @@ Consulta el documento `docs/Plan Paso a Paso.pdf` para ver el cronograma complet
 | 02  | Configuración de APIs (OpenAI, ElevenLabs, D-ID/HeyGen), Firebase                        | ✅ Completado |
 | 03  | Inicialización de proyecto backend con Express, estructura de carpetas y .env            | ✅ Completado |
 | 04  | Conexión de backend con Firebase y servicios IA                                          | ✅ Completado |
-| 05  | Diseño de wireframes, inicio de proyecto Flutter y estructura base                       |  |
-| 06  | Implementación de pantalla de bienvenida y autenticación con Firebase                    |   |
+| 05  | Diseño de wireframes, inicio de proyecto Flutter y estructura base                       | ✅ Completado |
+| 06  | Implementación de pantalla de bienvenida y autenticación con Firebase                    |  |
 | 07  | Captura y validación de fotos, subida a Firebase Storage                                 |   |
 | 08  | Grabación y reproducción de voz, almacenamiento en Firebase                              |   |
 | 09  | Cuestionario de personalidad (UI + backend + Firestore)                                  |   |
