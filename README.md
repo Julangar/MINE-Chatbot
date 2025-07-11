@@ -109,17 +109,17 @@ root/
 
 ## 📅 Plan de Desarrollo (40 días)
 
-Consulta el documento `docs/Plan Paso a Paso.pdf` para ver el cronograma completo por días y entregables.
+Consulta el documento `mine-chat-app/docs/Plan Paso a Paso.pdf` para ver el cronograma completo por días y entregables.
 
 ### 📐 Wireframes
 
 A continuación puedes ver los wireframes principales del proyecto, ubicados en la carpeta `docs/`:
 
-![Wireframe Pantalla Principal](docs/wireframe_splash_screen.jpg)
-![Wireframe Login](docs/wireframe_login_screen.jpg)
-![Wireframe Crear Avatar](docs/wireframe_create_avatar_screen.jpg)
-![Wireframe Chat](docs/wireframe_chat_screen.jpg)
-![Wireframe Perfil](docs/wireframe_profile_screen.jpg)
+![Wireframe Pantalla Principal](mine-chat-app/docs/wireframe_splash_screen.jpg)
+![Wireframe Login](mine-chat-app/docs/wireframe_login_screen.jpg)
+![Wireframe Crear Avatar](mine-chat-app/docs/wireframe_create_avatar_screen.jpg)
+![Wireframe Chat](mine-chat-app/docs/wireframe_chat_screen.jpg)
+![Wireframe Perfil](mine-chat-app/docs/wireframe_profile_screen.jpg)
 
 ## 🧪 Estado del Proyecto
 
