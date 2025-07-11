@@ -119,15 +119,15 @@ Consulta el documento `mine-chat-app/docs/Plan Paso a Paso.pdf` para ver el cron
 ### 📐 Wireframes
 
 A continuación puedes ver los wireframes principales del proyecto, ubicados en la carpeta `docs/`:
-- **Wireframe Pantalla Principal**
+**Wireframe Pantalla Principal**
 ![Wireframe Pantalla Principal](mine-chat-app/docs/wireframe_splash_screen.jpg)
-- **Wireframe Login**
+**Wireframe Login**
 ![Wireframe Login](mine-chat-app/docs/wireframe_login_screen.jpg)
-- **Wireframe Crear Avatar**
+**Wireframe Crear Avatar**
 ![Wireframe Crear Avatar](mine-chat-app/docs/wireframe_create_avatar_screen.jpg)
-- **Wireframe Chat**
+**Wireframe Chat**
 ![Wireframe Chat](mine-chat-app/docs/wireframe_chat_screen.jpg)
-- **Wireframe Perfil**
+**Wireframe Perfil**
 ![Wireframe Perfil](mine-chat-app/docs/wireframe_profile_screen.jpg)
 
 ## 🧪 Estado del Proyecto
