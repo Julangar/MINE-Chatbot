@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../providers/auth_provider.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final auth = Provider.of<AuthProvider>(context);
+  if (!auth.isLoggedIn) {
+    Future.microtask(() => Navigator.pushReplacementNamed(context, '/login'));
+    return const SizedBox(); // o un loader
+  }
+  // ... tu pantalla protegida aquí
     // Mensajes de ejemplo
     final List<Map<String, dynamic>> messages = [
       {

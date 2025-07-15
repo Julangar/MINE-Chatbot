@@ -31,12 +31,12 @@ class SplashScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 0),
                   child: Container(
-                    height: 120,
+                    height: 100,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(24),
                       image: const DecorationImage(
                         fit: BoxFit.cover,
-                        image: AssetImage("../docs/mineLogo.jfif"),
+                        image: AssetImage("assets/mineLogo.png"),
                       ),
                     ),
                   ),

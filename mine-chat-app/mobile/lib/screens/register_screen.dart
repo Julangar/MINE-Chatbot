@@ -1,23 +1,22 @@
 import 'dart:io' show Platform;
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   String? _error;
   bool _loading = false;
 
-  void _login() async {
+  void _register() async {
     setState(() {
       _error = null;
       _loading = true;
@@ -33,7 +32,14 @@ class _LoginScreenState extends State<LoginScreen> {
       });
       return;
     }
-    final err = await auth.loginWithEmail(email, pass);
+    if (pass.length < 8) {
+      setState(() {
+        _error = "Password must be at least 8 characters";
+        _loading = false;
+      });
+      return;
+    }
+    final err = await auth.registerWithEmail(email, pass);
     setState(() => _loading = false);
 
     if (err == null) {
@@ -85,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               const Center(
                 child: Text(
-                  "Sign In",
+                  "Register",
                   style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -122,19 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: const TextStyle(color: Colors.redAccent, fontSize: 14),
                   textAlign: TextAlign.center,
                 ),
-              const SizedBox(height: 8),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Forgot your password?",
-                  style: const TextStyle(
-                    color: Color(0xFFa59db8),
-                    fontSize: 14,
-                    decoration: TextDecoration.underline,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 16),
               _loading
                   ? const Center(child: CircularProgressIndicator())
                   : SizedBox(
@@ -145,9 +139,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           backgroundColor: const Color(0xFF5619e5),
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
                         ),
-                        onPressed: _login,
+                        onPressed: _register,
                         child: const Text(
-                          "Sign In with Email",
+                          "Register with Email",
                           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
                         ),
                       ),
@@ -174,7 +168,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
                   ),
                   icon: Image.asset('assets/google_logo.png', height: 24),
-                  label: const Text("Sign in with Google", style: TextStyle(color: Colors.black87)),
+                  label: const Text("Register with Google", style: TextStyle(color: Colors.black87)),
                   onPressed: _googleSignIn,
                 ),
               ),
@@ -189,17 +183,17 @@ class _LoginScreenState extends State<LoginScreen> {
                       backgroundColor: Colors.black,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
                     ),
-                    icon: const Icon(Icons.apple, color: Colors.white, size: 28),
-                    label: const Text("Sign in with Apple", style: TextStyle(color: Colors.white)),
+                    icon: Icon(Icons.apple, color: Colors.white, size: 28),
+                    label: const Text("Register with Apple", style: TextStyle(color: Colors.white)),
                     onPressed: _appleSignIn,
                   ),
                 ),
               const SizedBox(height: 24),
               Center(
                 child: TextButton(
-                  onPressed: () => Navigator.pushReplacementNamed(context, '/register'),
+                  onPressed: () => Navigator.pushReplacementNamed(context, '/login'),
                   child: const Text(
-                    "No account? Register",
+                    "Already have an account? Sign In",
                     style: TextStyle(color: Color(0xFFa59db8), fontSize: 14, decoration: TextDecoration.underline),
                   ),
                 ),

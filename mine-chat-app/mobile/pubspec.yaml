@@ -34,6 +34,19 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  firebase_auth: ^5.6.2
+  firebase_core: ^3.15.1
+  provider: ^6.1.5
+  google_sign_in: ^6.2.1
+  sign_in_with_apple: ^5.0.0
+  flutter_launcher_icons: ^0.13.1
+
+dependency_overrides:
+  sign_in_with_apple:
+    git:
+      url: https://github.com/aboutyou/dart_packages.git
+      path: packages/sign_in_with_apple/sign_in_with_apple
+
 
 dev_dependencies:
   flutter_test:
@@ -58,9 +71,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/google_logo.png
+    - assets/mineLogo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -87,3 +100,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/mineapplogo.png"
