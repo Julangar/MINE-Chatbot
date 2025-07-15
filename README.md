@@ -146,7 +146,7 @@ A continuación puedes ver los wireframes principales del proyecto, ubicados en 
 | 04  | Conexión de backend con Firebase y servicios IA                                          | ✅ Completado |
 | 05  | Diseño de wireframes, inicio de proyecto Flutter y estructura base                       | ✅ Completado |
 | 06  | Implementación de pantalla de bienvenida y autenticación con Firebase                    | ✅ Completado |
-| 07  | Captura y validación de fotos, subida a Firebase Storage                                 |  |
+| 07  | Captura y validación de fotos, subida a Firebase Storage                                 | ✅ Completado |
 | 08  | Grabación y reproducción de voz, almacenamiento en Firebase                              |   |
 | 09  | Cuestionario de personalidad (UI + backend + Firestore)                                  |   |
 | 10  | Endpoints para personalización: fotos, voz y personalidad                                |   |
