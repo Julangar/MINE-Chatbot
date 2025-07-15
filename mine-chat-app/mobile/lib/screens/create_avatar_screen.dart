@@ -1,118 +1,234 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:file_selector/file_selector.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
-class CreateAvatarScreen extends StatelessWidget {
+class CreateAvatarScreen extends StatefulWidget {
   const CreateAvatarScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFF131118),
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF131118),
-        elevation: 0,
-        title: const Text(
-          "Customize your avatar",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-        ),
-        centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
+  State<CreateAvatarScreen> createState() => _CreateAvatarScreenState();
+}
+
+class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
+  File? _photo;
+  File? _audio;
+  File? _video;
+  bool _loading = false;
+
+  // Foto desde cámara
+  Future<void> _takePhoto() async {
+    final picker = ImagePicker();
+    final picked = await picker.pickImage(source: ImageSource.camera);
+    if (picked != null) {
+      setState(() => _photo = File(picked.path));
+    }
+  }
+
+  // Foto desde galería
+  Future<void> _pickPhoto() async {
+    final picker = ImagePicker();
+    final picked = await picker.pickImage(source: ImageSource.gallery);
+    if (picked != null) {
+      setState(() => _photo = File(picked.path));
+    }
+  }
+
+  // Video (cámara o galería)
+  Future<void> _pickVideo() async {
+    final picker = ImagePicker();
+    final picked = await showModalBottomSheet<XFile?>(
+      context: context,
+      builder: (ctx) => SafeArea(
+        child: Wrap(
+          children: [
+            ListTile(
+              leading: const Icon(Icons.videocam),
+              title: const Text('Grabar video'),
+              onTap: () async {
+                final video = await picker.pickVideo(source: ImageSource.camera);
+                Navigator.pop(ctx, video);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.video_library),
+              title: const Text('Elegir de galería'),
+              onTap: () async {
+                final video = await picker.pickVideo(source: ImageSource.gallery);
+                Navigator.pop(ctx, video);
+              },
+            ),
+          ],
         ),
       ),
-      body: SafeArea(
+    );
+    if (picked != null) {
+      setState(() => _video = File(picked.path));
+    }
+  }
+
+  // Audio (solo selector)
+  Future<void> _pickAudio() async {
+    final file = await openFile(acceptedTypeGroups: [
+      XTypeGroup(label: 'audio', extensions: ['mp3', 'wav', 'aac']),
+    ]);
+    if (file != null && file.path != null) {
+      setState(() => _audio = File(file.path));
+    }
+  }
+
+  // Upload files to Firebase
+  Future<void> _uploadAll() async {
+    setState(() => _loading = true);
+    final user = FirebaseAuth.instance.currentUser;
+    final userId = user?.uid; 
+    if (userId == null) {
+      // Maneja el error de no tener usuario logueado
+      setState(() => _loading = false);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("No hay usuario autenticado")),
+      );
+      return;
+    }
+    final storage = FirebaseStorage.instanceFor(
+      bucket: "mine-app-test"
+    );
+    // Solo sube lo que el usuario agregó
+    if (_photo != null) {
+      final ref = storage.ref().child('avatars/$userId/photo.jpg');
+      await ref.putFile(_photo!);
+    }
+    if (_audio != null) {
+      final ref = storage.ref().child('avatars/$userId/audio.mp3');
+      await ref.putFile(_audio!);
+    }
+    if (_video != null) {
+      final ref = storage.ref().child('avatars/$userId/video.mp4');
+      await ref.putFile(_video!);
+    }
+    setState(() => _loading = false);
+    // Puedes mostrar un mensaje de éxito aquí o navegar a otra pantalla
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("¡Archivos subidos con éxito!"),
+          backgroundColor: Colors.green,
+          duration: Duration(seconds: 2),
+        ),
+      );
+
+      // Esperar 2 segundos para que el usuario vea el mensaje
+      await Future.delayed(const Duration(seconds: 2));
+
+    // Navegar a la ruta '/chat'
+      Navigator.pushNamed(context, '/chat');
+   }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // Habilita el botón si: (hay al menos 1 foto y 1 audio) O hay video
+    final canContinue = (!_loading && _photo != null && _audio != null) || (!_loading && _video != null);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Personaliza tu avatar', style: TextStyle(color: Colors.white)),
+        backgroundColor: const Color(0xFF131118),
+        iconTheme: const IconThemeData(color: Colors.white),
+      ),
+      backgroundColor: const Color(0xFF131118),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            // Previsualización avatar
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: Center(
-                child: Container(
-                  width: 180,
-                  height: 240,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(24),
-                    image: const DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage("https://lh3.googleusercontent.com/aida-public/AB6AXuAWloxKCctaMWxk4JCEKm_a2kT3NSFGj1zzkU7eT0-dPsMoeINzyqZ0VZaJ2hgohVbeVXDF4wBhWaAuenMNGsR7OO966eCfIwiZq94nb4qY-j4s2z-xAdmyW9PFxa3Oqhzsn-uLOtbq4twSdGIFdkqpSz84udv368cCI8suuDExAT9_UnL4iD3KKqjyuUYweNzhr-X1EoO4s7ZVHcpdF1Qk4bu7G21Bq5AmG0SNeJi7ElhQtwQyWdVFLeEEMmlQ3tgUz8ggVuVIOxex"),
+            // FOTO
+            Row(
+              children: [
+                Text('Foto:', style: const TextStyle(color: Colors.white)),
+                const Spacer(),
+                ElevatedButton(
+                  onPressed: _takePhoto,
+                  child: const Text("Tomar foto"),
+                ),
+                const SizedBox(width: 8),
+                ElevatedButton(
+                  onPressed: _pickPhoto,
+                  child: const Text("Elegir foto"),
+                ),
+              ],
+            ),
+            if (_photo != null)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Stack(
+                  children: [
+                    Image.file(_photo!, width: 96, height: 96, fit: BoxFit.cover),
+                    Positioned(
+                      right: 0,
+                      top: 0,
+                      child: GestureDetector(
+                        onTap: () => setState(() => _photo = null),
+                        child: const CircleAvatar(radius: 12, backgroundColor: Colors.red, child: Icon(Icons.close, size: 16, color: Colors.white)),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
               ),
+            const SizedBox(height: 16),
+
+            // AUDIO
+            Row(
+              children: [
+                Text('Audio:', style: const TextStyle(color: Colors.white)),
+                if (_audio != null) const Icon(Icons.check, color: Colors.green),
+                const Spacer(),
+                ElevatedButton(
+                  onPressed: _pickAudio,
+                  child: Text(_audio == null ? "Subir audio" : "Cambiar audio"),
+                ),
+              ],
             ),
-            // Botones para subir archivos
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Column(
-                children: [
-                  SizedBox(
-                    width: double.infinity,
-                    height: 48,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF2d2938),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
-                      ),
-                      onPressed: () {},
-                      child: const Text(
-                        "Upload Photo or Video",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  SizedBox(
-                    width: double.infinity,
-                    height: 48,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF2d2938),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
-                      ),
-                      onPressed: () {},
-                      child: const Text(
-                        "Upload Audio",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+            if (_audio != null)
+              Text('Archivo: ${_audio!.path.split('/').last}', style: const TextStyle(color: Colors.white70)),
+            const SizedBox(height: 16),
+
+            // VIDEO
+            Row(
+              children: [
+                Text('Video:', style: const TextStyle(color: Colors.white)),
+                if (_video != null) const Icon(Icons.check, color: Colors.green),
+                const Spacer(),
+                ElevatedButton(
+                  onPressed: _pickVideo,
+                  child: Text(_video == null ? "Agregar video" : "Cambiar video"),
+                ),
+              ],
             ),
+            if (_video != null)
+              Text('Archivo: ${_video!.path.split('/').last}', style: const TextStyle(color: Colors.white70)),
             const Spacer(),
-            // Botón Guardar
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
-              child: SizedBox(
-                width: double.infinity,
-                height: 48,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF5619e5),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
-                  ),
-                  onPressed: () {
-                    Navigator.pushReplacementNamed(context, '/chat');
-                  },
-                  child: const Text(
-                    "Save and continue",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
-                  ),
+
+            // BOTÓN GUARDAR Y CONTINUAR
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: canContinue ? const Color(0xFF5619e5) : Colors.grey,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
                 ),
+                onPressed: canContinue ? _uploadAll : null,
+                child: _loading
+                  ? const CircularProgressIndicator(color: Colors.white)
+                  : const Text("Guardar y continuar", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 4.0),
-              child: Text(
-                "Choose an image or video and a voice sample for your avatar.",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Color(0xFFa59db8),
-                  fontSize: 14,
-                ),
-              ),
+            const SizedBox(height: 16),
+            const Text(
+              'Agrega al menos una foto y un audio, o solo un video para tu avatar.',
+              style: TextStyle(color: Color(0xFFa59db8), fontSize: 14), textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 8),
           ],
         ),
       ),

@@ -5,7 +5,7 @@ import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 class AuthProvider extends ChangeNotifier {
   final _auth = FirebaseAuth.instance;
-
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
   User? get user => _auth.currentUser;
   bool get isLoggedIn => user != null;
 
