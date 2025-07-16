@@ -1,9 +1,12 @@
 import 'dart:io';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:file_selector/file_selector.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:record/record.dart';
 
 class CreateAvatarScreen extends StatefulWidget {
   const CreateAvatarScreen({super.key});
@@ -16,7 +19,9 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
   File? _photo;
   File? _audio;
   File? _video;
+  bool _isRecording = false;
   bool _loading = false;
+  final AudioRecorder _recorder = AudioRecorder();
 
   // Foto desde cámara
   Future<void> _takePhoto() async {
@@ -79,6 +84,45 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
     }
   }
 
+
+  // Grabar audio máximo 45 segundos
+  Future<void> _startRecording() async {
+    if (await _recorder.hasPermission()) {
+      Directory tempDir = await getTemporaryDirectory();
+      String filePath = '${tempDir.path}/audio_${DateTime.now().millisecondsSinceEpoch}.m4a';
+
+      await _recorder.start(const RecordConfig(), path: filePath);
+
+      setState(() {
+        _isRecording = true;
+      });
+
+      // Detener grabación automáticamente a los 45 segundos
+      Future.delayed(const Duration(seconds: 45), () async {
+        if (_isRecording) {
+          await _stopRecording();
+        }
+      });
+    }
+  }
+
+  // Detener grabación manualmente o automático
+  Future<void> _stopRecording() async {
+    final path = await _recorder.stop();
+    setState(() {
+      _isRecording = false;
+      if (path != null) _audio = File(path);
+    });
+  }
+  // Botón para grabar o parar
+  Widget _audioRecorderButton() {
+    return ElevatedButton.icon(
+      onPressed: _isRecording ? _stopRecording : _startRecording,
+      icon: Icon(_isRecording ? Icons.stop : Icons.mic),
+      label: Text(_isRecording ? "Detener" : "Grabar audio (máx 45s)"),
+      style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
+    );
+  }
   // Upload files to Firebase
   Future<void> _uploadAll() async {
     setState(() => _loading = true);
@@ -181,12 +225,12 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
             // AUDIO
             Row(
               children: [
-                Text('Audio:', style: const TextStyle(color: Colors.white)),
-                if (_audio != null) const Icon(Icons.check, color: Colors.green),
-                const Spacer(),
-                ElevatedButton(
-                  onPressed: _pickAudio,
-                  child: Text(_audio == null ? "Subir audio" : "Cambiar audio"),
+                _audioRecorderButton(),
+                const SizedBox(width: 8),
+                ElevatedButton.icon(
+                  onPressed: _pickAudio, // Tu función para elegir audio del dispositivo
+                  icon: const Icon(Icons.upload_file),
+                  label: Text(_audio == null ? "Subir audio" : "Cambiar audio"),
                 ),
               ],
             ),
