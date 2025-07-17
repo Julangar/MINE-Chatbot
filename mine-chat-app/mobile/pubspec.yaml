@@ -37,21 +37,20 @@ dependencies:
   path_provider: ^2.1.2
   image_picker: ^1.0.7
   file_selector: ^1.0.0
-  record: ^5.0.4
+  record: ^6.0.0
   firebase_storage: ^12.4.9
   firebase_auth: ^5.6.2
   firebase_core: ^3.15.1
   provider: ^6.1.5
-  google_sign_in: ^6.2.1
+  google_sign_in: 6.2.1
   sign_in_with_apple: ^5.0.0
-  flutter_launcher_icons: ^0.13.1
+  flutter_launcher_icons: ^0.14.4
 
 dependency_overrides:
   sign_in_with_apple:
     git:
       url: https://github.com/aboutyou/dart_packages.git
       path: packages/sign_in_with_apple/sign_in_with_apple
-
 
 dev_dependencies:
   flutter_test:
@@ -62,7 +61,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

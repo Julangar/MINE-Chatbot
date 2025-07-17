@@ -119,7 +119,7 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
     return ElevatedButton.icon(
       onPressed: _isRecording ? _stopRecording : _startRecording,
       icon: Icon(_isRecording ? Icons.stop : Icons.mic),
-      label: Text(_isRecording ? "Detener" : "Grabar audio (máx 45s)"),
+      label: Text(_isRecording ? "Detener" : "Grabar audio (45s)"),
       style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
     );
   }
@@ -225,6 +225,8 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
             // AUDIO
             Row(
               children: [
+                Text('Audio', style: const TextStyle(color: Colors.white)),
+                const Spacer(),
                 _audioRecorderButton(),
                 const SizedBox(width: 8),
                 ElevatedButton.icon(
@@ -270,7 +272,7 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
             ),
             const SizedBox(height: 16),
             const Text(
-              'Agrega al menos una foto y un audio, o solo un video para tu avatar.',
+              'Agrega al menos una foto y un audio de máximo 45 segundos, o solo un video para tu avatar.',
               style: TextStyle(color: Color(0xFFa59db8), fontSize: 14), textAlign: TextAlign.center,
             ),
           ],
