@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:mine_chatbot/l10n/app_localizations.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:file_selector/file_selector.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -167,7 +168,10 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
       await Future.delayed(const Duration(seconds: 2));
 
     // Navegar a la ruta '/chat'
-      Navigator.pushNamed(context, '/chat');
+      Navigator.pushNamed(context, '/avatar_personality');
+
+    // O puedes usar Navigator.pushReplacementNamed si no quieres que el usuario vuelva a esta pantalla
+    // Navigator.pushReplacementNamed(context, '/avatar_personality');
    }
   }
 
@@ -178,7 +182,7 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Personaliza tu avatar', style: TextStyle(color: Colors.white)),
+        title: Text(AppLocalizations.of(context)!.createAvatar, style: TextStyle(color: Colors.white)),
         backgroundColor: const Color(0xFF131118),
         iconTheme: const IconThemeData(color: Colors.white),
       ),
@@ -267,7 +271,7 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
                 onPressed: canContinue ? _uploadAll : null,
                 child: _loading
                   ? const CircularProgressIndicator(color: Colors.white)
-                  : const Text("Guardar y continuar", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+                  : Text(AppLocalizations.of(context)!.saveAndContinue, style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
               ),
             ),
             const SizedBox(height: 16),

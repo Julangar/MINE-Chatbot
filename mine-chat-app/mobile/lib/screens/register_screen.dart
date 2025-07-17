@@ -1,5 +1,6 @@
 import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
+import 'package:mine_chatbot/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
 
@@ -34,7 +35,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     }
     if (pass.length < 8) {
       setState(() {
-        _error = "Password must be at least 8 characters";
+        _error = "Password must be at least 8 characters and require uppercase letters, special characters, and numeric characters for registration in the app.";
         _loading = false;
       });
       return;
@@ -89,9 +90,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Center(
+              Center(
                 child: Text(
-                  "Register",
+                  AppLocalizations.of(context)!.register,
                   style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -103,7 +104,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: const Color(0xFF2d2938),
-                  hintText: "Email",
+                  hintText: AppLocalizations.of(context)!.email,
                   hintStyle: const TextStyle(color: Color(0xFFa59db8)),
                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(16), borderSide: BorderSide.none),
                 ),
@@ -116,7 +117,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: const Color(0xFF2d2938),
-                  hintText: "Password",
+                  hintText: AppLocalizations.of(context)!.password,
                   hintStyle: const TextStyle(color: Color(0xFFa59db8)),
                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(16), borderSide: BorderSide.none),
                 ),
@@ -140,9 +141,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
                         ),
                         onPressed: _register,
-                        child: const Text(
-                          "Register with Email",
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
+                        child: Text(
+                          AppLocalizations.of(context)!.register,
+                          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
                         ),
                       ),
                     ),

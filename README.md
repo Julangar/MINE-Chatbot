@@ -148,7 +148,7 @@ A continuación puedes ver los wireframes principales del proyecto, ubicados en 
 | 06  | Implementación de pantalla de bienvenida y autenticación con Firebase                    | ✅ Completado |
 | 07  | Captura y validación de fotos, subida a Firebase Storage                                 | ✅ Completado |
 | 08  | Grabación y reproducción de voz, almacenamiento en Firebase                              | ✅ Completado |
-| 09  | Cuestionario de personalidad (UI + backend + Firestore)                                  |   |
+| 09  | Cuestionario de personalidad (UI + backend + Firestore)                                  | ✅ Completado |
 | 10  | Endpoints para personalización: fotos, voz y personalidad                                |   |
 | 11  | Integración de OpenAI en backend con prompts dinámicos                                   |   |
 | 12  | Integración con ElevenLabs para clonación y reproducción de voz                          |   |

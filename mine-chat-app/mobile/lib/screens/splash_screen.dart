@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mine_chatbot/l10n/app_localizations.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:provider/provider.dart';
+import '../widgets/language_switcher.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -6,10 +11,16 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF131118), // Fondo personalizado
+      backgroundColor: const Color.fromARGB(255, 96, 76, 146), // Fondo personalizado
       body: SafeArea(
         child: Column(
           children: [
+            // Selector de idioma en la parte superior derecha
+            Positioned(
+              top: 16,
+              right: 16,
+              child: LanguageSwitcher(),
+            ),
             // LOGO ARRIBA
             Padding(
               padding: const EdgeInsets.only(top: 48.0),
@@ -26,7 +37,7 @@ class SplashScreen extends StatelessWidget {
                   'Recreate me, forever',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 24,
+                    fontSize: 30,
                     fontWeight: FontWeight.w400,
                     letterSpacing: 1,
                   ),
@@ -50,8 +61,8 @@ class SplashScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushReplacementNamed(context, '/login');
                   },
-                  child: const Text(
-                    'Get Started',
+                  child: Text(
+                    AppLocalizations.of(context)!.getStarted, // Usa el texto localizado
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18,

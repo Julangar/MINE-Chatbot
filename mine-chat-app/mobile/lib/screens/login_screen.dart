@@ -2,6 +2,7 @@ import 'dart:io' show Platform;
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:mine_chatbot/l10n/app_localizations.dart';
 import '../providers/auth_provider.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -83,9 +84,9 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Center(
+              Center(
                 child: Text(
-                  "Sign In",
+                  AppLocalizations.of(context)!.signIn,
                   style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -97,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: const Color(0xFF2d2938),
-                  hintText: "Email",
+                  hintText: AppLocalizations.of(context)!.email,
                   hintStyle: const TextStyle(color: Color(0xFFa59db8)),
                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(16), borderSide: BorderSide.none),
                 ),
@@ -110,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: const Color(0xFF2d2938),
-                  hintText: "Password",
+                  hintText: AppLocalizations.of(context)!.password,
                   hintStyle: const TextStyle(color: Color(0xFFa59db8)),
                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(16), borderSide: BorderSide.none),
                 ),
@@ -126,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Forgot your password?",
+                  AppLocalizations.of(context)!.forgotPassword,
                   style: const TextStyle(
                     color: Color(0xFFa59db8),
                     fontSize: 14,
@@ -146,8 +147,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
                         ),
                         onPressed: _login,
-                        child: const Text(
-                          "Sign In with Email",
+                        child: Text(
+                          AppLocalizations.of(context)!.signIn,
                           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
                         ),
                       ),
@@ -198,9 +199,9 @@ class _LoginScreenState extends State<LoginScreen> {
               Center(
                 child: TextButton(
                   onPressed: () => Navigator.pushReplacementNamed(context, '/register'),
-                  child: const Text(
-                    "No account? Register",
-                    style: TextStyle(color: Color(0xFFa59db8), fontSize: 14, decoration: TextDecoration.underline),
+                  child: Text(
+                    AppLocalizations.of(context)!.noAccountRegister,
+                    style: const TextStyle(color: Color(0xFFa59db8), fontSize: 14, decoration: TextDecoration.underline),
                   ),
                 ),
               ),

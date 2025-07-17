@@ -34,7 +34,7 @@ class AuthProvider extends ChangeNotifier {
   // Google Sign-In
   Future<String?> signInWithGoogle() async {
     try {
-      final googleUser = await GoogleSignIn().signIn();
+      final googleUser = await _googleSignIn.signIn();
       if (googleUser == null) return "Google sign in canceled";
       final googleAuth = await googleUser.authentication;
       final credential = GoogleAuthProvider.credential(
