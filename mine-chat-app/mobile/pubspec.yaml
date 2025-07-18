@@ -44,6 +44,7 @@ dependencies:
   provider: ^6.1.5
   google_sign_in: 6.2.1
   sign_in_with_apple: ^5.0.0
+  flutter_facebook_auth: ^7.1.2
   flutter_launcher_icons: ^0.14.4
 
   flutter_localizations:
@@ -83,6 +84,7 @@ flutter:
   assets:
     - assets/google_logo.png
     - assets/mineLogo.png
+    - assets/LogoMineTransparente.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

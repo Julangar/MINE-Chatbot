@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mine_chatbot/l10n/app_localizations.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
-import 'package:provider/provider.dart';
 import '../widgets/language_switcher.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -21,13 +18,15 @@ class SplashScreen extends StatelessWidget {
               right: 16,
               child: LanguageSwitcher(),
             ),
-            // LOGO ARRIBA
-            Padding(
-              padding: const EdgeInsets.only(top: 48.0),
-              child: Image.asset(
-                'assets/mineLogo.png', // Cambia a tu path
-                height: 120,
-                fit: BoxFit.contain,
+             // LOGO GRANDE
+            Expanded(
+              flex: 4,
+              child: Center(
+                child: Image.asset(
+                  'assets/LogoMineTransparente.png', // Usa aquí el nombre correcto del archivo
+                  width: MediaQuery.of(context).size.width * 0.6,
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
             // EXPANDED PARA CENTRAR EL SLOGAN
