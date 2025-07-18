@@ -12,6 +12,7 @@ class FriendQuestions extends StatefulWidget {
 class _FriendQuestionsState extends State<FriendQuestions> {
   late String _avatarName;
   late String _relationshipOrRole;
+  String? _customRelationshipOrRole;
   late String _userReference;
   String? _customUserReference;
   List<String> _selectedTone = [];
@@ -49,8 +50,8 @@ class _FriendQuestionsState extends State<FriendQuestions> {
   void _updateParent() {
     widget.onChanged({
       'avatarName': _avatarName,
-      'relationshipOrRole': _relationshipOptions.contains(_relationshipOrRole)
-        ? _relationshipOrRole
+      'relationshipOrRole': (_relationshipOrRole == 'Otro' )
+        ? _customRelationshipOrRole ?? ''
         : _relationshipOrRole,
       'userReference': (_userReference == 'Otro' || _userReference == 'Por tu nombre')
         ? _customUserReference ?? ''
@@ -81,9 +82,32 @@ class _FriendQuestionsState extends State<FriendQuestions> {
               .toList(),
           onChanged: (val) {
             setState(() { _relationshipOrRole = val ?? ''; _updateParent(); });
+            if (val != 'Otro') {
+              setState(() { _customRelationshipOrRole = null; });
+            }
           },
-          validator: (val) => val == null || val.isEmpty ? 'Obligatorio' : null,
+          validator: (val) {
+            if (val == null || val.isEmpty) return 'Obligatorio';
+            if ((val == 'Otro') && (_customRelationshipOrRole == null || _customRelationshipOrRole!.isEmpty)) {
+              return 'Por favor, especifica el tipo de amistad';
+            }
+            return null;
+          },
         ),
+        if (_relationshipOrRole == 'Otro')
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0),
+            child: TextFormField(
+              decoration: const InputDecoration(labelText: 'Escribe aquí tu referencia preferida'),
+              onChanged: (val) => setState(() { _customRelationshipOrRole = val; _updateParent(); }),
+              validator: (val) {
+                if ((_relationshipOrRole == 'Otro') && (val == null || val.isEmpty)) {
+                  return 'Este campo es obligatorio';
+                }
+                return null;
+              },
+            ),
+          ),
         DropdownButtonFormField<String>(
           decoration: const InputDecoration(labelText: '¿Cómo quieres que te llame?'),
           value: _userReference.isNotEmpty ? _userReference : null,

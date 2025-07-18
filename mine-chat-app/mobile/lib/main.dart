@@ -4,6 +4,7 @@ import 'package:mine_chatbot/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'providers/locale_provider.dart';
 import 'providers/auth_provider.dart';
+import 'controllers/avatar_controller.dart';
 import 'screens/splash_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/register_screen.dart';
@@ -18,6 +19,7 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (_) => AvatarController()),
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => LocaleProvider()),
       ],

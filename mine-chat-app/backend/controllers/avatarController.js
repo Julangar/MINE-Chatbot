@@ -1,33 +1,35 @@
-const { generateAvatarVideo, getVideoStatus } = require('../services/didService');
+const firebaseService = require('../services/firebaseService');
 
-async function createAvatarVideo(req, res) {
+exports.createAvatar = async (req, res) => {
   try {
-    const { script, imageUrl, voiceUrl } = req.body;
-    if (!script || !imageUrl || !voiceUrl)
-      return res.status(400).json({ error: 'Faltan campos requeridos' });
-
-    const video = await generateAvatarVideo({
-      script,
-      source_image_url: imageUrl,
-      voice_url: voiceUrl
-    });
-
-    res.json({ talkId: video.id, status: video.status });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+    const { userId, type, avatarName, personality } = req.body;
+    const avatarId = await firebaseService.createAvatar(userId, type, avatarName, personality);
+    res.status(201).json({ success: true, avatarId });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
   }
-}
+};
 
-// Endpoint para consultar el estado o URL final del video
-async function getAvatarVideo(req, res) {
+// Para fotos
+exports.uploadPhotos = async (req, res) => {
   try {
-    const { talkId } = req.params;
-    const video = await getVideoStatus(talkId);
-    res.json(video);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+    const { avatarId } = req.params;
+    const photos = req.files;
+    const urls = await firebaseService.saveAvatarPhotos(avatarId, photos);
+    res.status(200).json({ success: true, urls });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
   }
-}
+};
 
-module.exports = { createAvatarVideo, getAvatarVideo };
-// This file defines the avatarController which handles requests for generating avatar videos.
+// Para audio
+exports.uploadVoice = async (req, res) => {
+  try {
+    const { avatarId } = req.params;
+    const audio = req.file;
+    const url = await firebaseService.saveAvatarAudio(avatarId, audio);
+    res.status(200).json({ success: true, url });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+};

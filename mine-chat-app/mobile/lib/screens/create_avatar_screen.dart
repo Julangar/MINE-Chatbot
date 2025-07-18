@@ -8,6 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:record/record.dart';
+import '../widgets/banner_message.dart';
 
 class CreateAvatarScreen extends StatefulWidget {
   const CreateAvatarScreen({super.key});
@@ -117,11 +118,13 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
   }
   // Botón para grabar o parar
   Widget _audioRecorderButton() {
-    return ElevatedButton.icon(
-      onPressed: _isRecording ? _stopRecording : _startRecording,
-      icon: Icon(_isRecording ? Icons.stop : Icons.mic),
-      label: Text(_isRecording ? "Detener" : "Grabar audio (45s)"),
-      style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
+    return Flexible(
+      child: ElevatedButton.icon(
+        onPressed: _isRecording ? _stopRecording : _startRecording,
+        icon: Icon(_isRecording ? Icons.stop : Icons.mic),
+        label: Text(_isRecording ? "Detener" : "Grabar audio (45s)"),
+        style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 191, 62, 53)),
+      )
     );
   }
   // Upload files to Firebase
@@ -167,7 +170,7 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
       // Esperar 2 segundos para que el usuario vea el mensaje
       await Future.delayed(const Duration(seconds: 2));
 
-    // Navegar a la ruta '/chat'
+    // Navegar a la ruta '/avatar_personality'
       Navigator.pushNamed(context, '/avatar_personality');
 
     // O puedes usar Navigator.pushReplacementNamed si no quieres que el usuario vuelva a esta pantalla
@@ -191,20 +194,34 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
+            BannerMessage(
+              title: "¡Tómate tu tiempo para crear tu avatar!",
+              message: "Selecciona cuidadosamente la foto, el audio o el video que representará a tu avatar. "
+                  "Recuerda que la creación del avatar tiene un costo y, por seguridad, no podrás modificarlo después de ser creado. "
+                  "Elige los archivos que mejor reflejen tu personalidad y gustos.",
+              icon: Icons.info_outline,
+            ),
             // FOTO
             Row(
               children: [
                 Text('Foto:', style: const TextStyle(color: Colors.white)),
                 const Spacer(),
-                ElevatedButton(
-                  onPressed: _takePhoto,
-                  child: const Text("Tomar foto"),
+                Flexible(
+                  child: ElevatedButton(
+                    onPressed: _takePhoto,                   
+                    style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 8)),
+                    child: const Text("Tomar"),
+                  ),
                 ),
                 const SizedBox(width: 8),
-                ElevatedButton(
-                  onPressed: _pickPhoto,
-                  child: const Text("Elegir foto"),
+                Flexible(
+                  child: ElevatedButton(
+                    onPressed: _pickPhoto,                    
+                    style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 8)),
+                    child: const Text("Galería"),
+                  ),
                 ),
+                const SizedBox(width: 8),
               ],
             ),
             if (_photo != null)
@@ -233,11 +250,15 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
                 const Spacer(),
                 _audioRecorderButton(),
                 const SizedBox(width: 8),
-                ElevatedButton.icon(
-                  onPressed: _pickAudio, // Tu función para elegir audio del dispositivo
-                  icon: const Icon(Icons.upload_file),
-                  label: Text(_audio == null ? "Subir audio" : "Cambiar audio"),
+                Flexible(
+                  child: ElevatedButton.icon(
+                    onPressed: _pickAudio,
+                    icon: const Icon(Icons.upload_file, size: 18),
+                    label: Text(_audio == null ? "Subir" : "Cambiar"),
+                    style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 8)),
+                  ),
                 ),
+                const SizedBox(width: 8),
               ],
             ),
             if (_audio != null)
@@ -250,10 +271,14 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
                 Text('Video:', style: const TextStyle(color: Colors.white)),
                 if (_video != null) const Icon(Icons.check, color: Colors.green),
                 const Spacer(),
-                ElevatedButton(
-                  onPressed: _pickVideo,
-                  child: Text(_video == null ? "Agregar video" : "Cambiar video"),
+                Flexible(
+                child: ElevatedButton(
+                  onPressed: _pickVideo,                  
+                  style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 8)),
+                  child: Text(_video == null ? "Agregar" : "Cambiar"),
                 ),
+              ),
+              const SizedBox(width: 8),     
               ],
             ),
             if (_video != null)

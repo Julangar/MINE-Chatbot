@@ -1,9 +1,10 @@
 const express = require('express');
-const { createAvatarVideo, getAvatarVideo } = require('../controllers/avatarController');
 const router = express.Router();
+const avatarController = require('../controllers/avatarController');
+const { uploadPhotos, uploadAudio } = require('../middlewares/uploadMiddleware'); // Multer config
 
-router.post('/generate', createAvatarVideo);
-router.get('/:talkId', getAvatarVideo);
+router.post('/create', avatarController.createAvatar);
+router.post('/:avatarId/upload-photos', uploadPhotos.array('photos'), avatarController.uploadPhotos);
+router.post('/:avatarId/upload-voice', uploadAudio.single('voice'), avatarController.uploadVoice);
 
 module.exports = router;
-// This file defines the avatar routes for the Express application.

@@ -6,6 +6,7 @@ import '../widgets/avatar_questions/love_questions.dart';
 import '../widgets/avatar_questions/friend_questions.dart';
 import '../widgets/avatar_questions/relative_questions.dart';
 import '../widgets/avatar_questions/myself_questions.dart';
+import '../widgets/banner_message.dart';
 
 // Modelo para enviar a Firebase (ajusta según tu backend real)
 enum AvatarType { love, friend, relative, myself }
@@ -122,7 +123,9 @@ class _AvatarPersonalityFormScreenState extends State<AvatarPersonalityFormScree
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Crea tu avatar"),
+        title: const Text("Crea tu avatar", style: TextStyle(color: Colors.white)),
+        backgroundColor: const Color(0xFF131118),
+        iconTheme: const IconThemeData(color: Colors.white),
         leading: (_selectedType == null)
             ? null
             : IconButton(
@@ -136,6 +139,7 @@ class _AvatarPersonalityFormScreenState extends State<AvatarPersonalityFormScree
                 },
               ),
       ),
+      backgroundColor: const Color(0xFF131118),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
           : (_selectedType == null)
@@ -162,6 +166,15 @@ class _AvatarPersonalityFormScreenState extends State<AvatarPersonalityFormScree
                         key: _formKey,
                         child: ListView(
                           children: [
+                            // BANNER FIJO
+                            BannerMessage(
+                              title:"Personaliza tu avatar al máximo",
+                              message:
+                                  "Dedica unos minutos a responder el formulario con atención y sinceridad. "
+                                  "Tus respuestas definirán cómo interactuará tu avatar contigo. "
+                                  "No podrás modificar esta información después, así que selecciona cuidadosamente cada opción según tus preferencias.",
+                              icon: Icons.assignment_turned_in_outlined,
+                            ),
                             _questionWidget(),
                             const SizedBox(height: 20),
                             ElevatedButton(
