@@ -71,12 +71,14 @@ class _LoveQuestionsState extends State<LoveQuestions> {
       children: [
         TextFormField(
           decoration: const InputDecoration(labelText: 'Nombre del avatar',labelStyle: TextStyle(color: Colors.white)),
+          style: const TextStyle(color: Colors.white),
           initialValue: _avatarName,
           onChanged: (val) { setState(() { _avatarName = val; _updateParent(); }); },
           validator: (val) => val == null || val.isEmpty ? 'Obligatorio' : null,
         ),
         DropdownButtonFormField<String>(
-          decoration: const InputDecoration(labelText: 'Tipo de relación'),
+          decoration: const InputDecoration(labelText: 'Tipo de relación', labelStyle: TextStyle(color: Colors.white)),
+          style: const TextStyle(color: Colors.white),
           value: _relationshipOrRole.isNotEmpty ? _relationshipOrRole : null,
           items: _relationshipOptions
               .map((e) => DropdownMenuItem(value: e, child: Text(e)))
@@ -99,7 +101,8 @@ validator: (val) {
           Padding(
             padding: const EdgeInsets.only(top: 8.0),
             child: TextFormField(
-              decoration: const InputDecoration(labelText: 'Escribe aquí tu referencia preferida'),
+              decoration: const InputDecoration(labelText: 'Escribe aquí tu referencia preferida',labelStyle: TextStyle(color: Colors.white)),
+              style: const TextStyle(color: Colors.white),
               onChanged: (val) => setState(() { _customRelationshipOrRole = val; _updateParent(); }),
               validator: (val) {
                 if ((_relationshipOrRole == 'Otro') && (val == null || val.isEmpty)) {
@@ -111,6 +114,7 @@ validator: (val) {
           ),
         DropdownButtonFormField<String>(
           decoration: const InputDecoration(labelText: '¿Cómo quieres que te llame?',labelStyle: TextStyle(color: Colors.white)),
+          style: const TextStyle(color: Colors.white),
           value: _userReference.isNotEmpty ? _userReference : null,
           items: _referenceOptions
               .map((e) => DropdownMenuItem(value: e, child: Text(e)))
@@ -133,7 +137,8 @@ validator: (val) {
           Padding(
             padding: const EdgeInsets.only(top: 8.0),
             child: TextFormField(
-              decoration: const InputDecoration(labelText: 'Escribe aquí tu referencia preferida'),
+              decoration: const InputDecoration(labelText: 'Escribe aquí tu referencia preferida', labelStyle: TextStyle(color: Colors.white)),
+              style: const TextStyle(color: Colors.white),
               onChanged: (val) => setState(() { _customUserReference = val; _updateParent(); }),
               validator: (val) {
                 if ((_userReference == 'Otro' || _userReference == 'Por tu nombre') && (val == null || val.isEmpty)) {
