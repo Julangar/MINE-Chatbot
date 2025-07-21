@@ -8,8 +8,9 @@ MINE es una aplicación móvil que permite a los usuarios crear un **compañero 
 - 🔊 Voz clonada con entonación natural (ElevenLabs)
 - 🧠 Personalidad configurable mediante cuestionario
 - 🗣️ Chat en tiempo real con memoria contextual (OpenAI GPT)
-- 🎬 Respuestas animadas con video (D-ID/HeyGen)
+- 🎬 Respuestas animadas con video (D-ID)
 - ☁️ Sincronización en la nube con Firebase
+- 🌐 Multilenguaje: Soporte para varios idiomas (Arabic - Bulgarian - Chinese Simplified - Dutch - French - Greek - Hebrew - Hindi - Hungarian - Italian - Japanese - Korean - Polish - Portuguese - Portuguese, Brazilian - Russian - Spanish - Spanish, Latin America - Tagalog - Turkish - Vietnamese. Por el momento)
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -33,9 +34,10 @@ Para realizar cambios y contribuir al desarrollo de MINE-Chatbot, necesitas inst
 
 - **Flutter SDK:** Framework para desarrollar la aplicación móvil.  
   [Instalación Flutter](https://docs.flutter.dev/get-started/install)
-  # mobile
 
-A new Flutter project.
+- **Android Studio:** IDE para desarrollo Android, necesario para compilar y probar la app en dispositivos Android.  
+  [Descargar Android Studio](https://developer.android.com/studio)
+
 
 ## Getting Started
 
@@ -62,7 +64,7 @@ samples, guidance on mobile development, and a full API reference.
 - **Acceso a APIs externas:**  
   - OpenAI (GPT): Necesitas una clave de API.
   - ElevenLabs: Necesitas una clave de API.
-  - D-ID o HeyGen: Necesitas una clave de API.
+  - D-ID: Necesitas una clave de API.
 
 **Recomendación:** Consulta la documentación oficial de cada herramienta para detalles de instalación y configuración según tu sistema operativo.
 
