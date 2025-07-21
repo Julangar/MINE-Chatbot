@@ -78,7 +78,7 @@ class _RelativeQuestionsState extends State<RelativeQuestions> {
         ),
         DropdownButtonFormField<String>(
           decoration: const InputDecoration(labelText: 'Relación familiar',labelStyle: TextStyle(color: Colors.white)),
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.grey),
           value: _relationshipOrRole.isNotEmpty ? _relationshipOrRole : null,
           items: _relationshipOptions
               .map((e) => DropdownMenuItem(value: e, child: Text(e)))
@@ -102,7 +102,7 @@ class _RelativeQuestionsState extends State<RelativeQuestions> {
             padding: const EdgeInsets.only(top: 8.0),
             child: TextFormField(
               decoration: const InputDecoration(labelText: 'Escribe aquí tu referencia preferida', labelStyle: TextStyle(color: Colors.white)),
-              style: const TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.grey),
               onChanged: (val) => setState(() { _customRelationshipOrRole = val; _updateParent(); }),
               validator: (val) {
                 if ((_relationshipOrRole == 'Otro') && (val == null || val.isEmpty)) {
@@ -114,7 +114,7 @@ class _RelativeQuestionsState extends State<RelativeQuestions> {
           ),
         DropdownButtonFormField<String>(
           decoration: const InputDecoration(labelText: '¿Cómo quieres que te llame?',labelStyle: TextStyle(color: Colors.white)),
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.grey),
           value: _userReference.isNotEmpty ? _userReference : null,
           items: _referenceOptions
               .map((e) => DropdownMenuItem(value: e, child: Text(e)))
@@ -138,7 +138,7 @@ class _RelativeQuestionsState extends State<RelativeQuestions> {
             padding: const EdgeInsets.only(top: 8.0),
             child: TextFormField(
               decoration: const InputDecoration(labelText: 'Escribe aquí tu referencia preferida', labelStyle: TextStyle(color: Colors.white)),
-              style: const TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.grey),
               onChanged: (val) => setState(() { _customUserReference = val; _updateParent(); }),
               validator: (val) {
                 if ((_userReference == 'Otro' || _userReference == 'Por tu nombre') && (val == null || val.isEmpty)) {

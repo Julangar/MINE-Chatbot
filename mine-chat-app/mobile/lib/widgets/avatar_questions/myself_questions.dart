@@ -75,7 +75,7 @@ class _MyselfQuestionsState extends State<MyselfQuestions> {
         ),
         DropdownButtonFormField<String>(
           decoration: const InputDecoration(labelText: '¿Cómo te quieres referir a ti mismo?',labelStyle: TextStyle(color: Colors.white)),
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.grey),
           value: _userReference.isNotEmpty ? _userReference : null,
           items: _referenceOptions
               .map((e) => DropdownMenuItem(value: e, child: Text(e)))
@@ -99,7 +99,7 @@ class _MyselfQuestionsState extends State<MyselfQuestions> {
             padding: const EdgeInsets.only(top: 8.0),
             child: TextFormField(
               decoration: const InputDecoration(labelText: 'Escribe aquí tu referencia preferida', labelStyle: TextStyle(color: Colors.white)),
-              style: const TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.grey),
               onChanged: (val) => setState(() { _customUserReference = val; _updateParent(); }),
               validator: (val) {
                 if ((_userReference == 'Otro' || _userReference == 'Por tu nombre') && (val == null || val.isEmpty)) {

@@ -5,7 +5,7 @@ const openai = new OpenAI({ apiKey: openaiKey });
 
 async function getChatResponse(messages) {
   const response = await openai.chat.completions.create({
-    model: "gpt-4",
+    model: "gpt-4.1",
     messages
   });
   return response.choices[0].message.content;

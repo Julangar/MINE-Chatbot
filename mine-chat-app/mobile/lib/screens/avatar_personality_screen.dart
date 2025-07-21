@@ -99,6 +99,7 @@ class _AvatarPersonalityFormScreenState extends State<AvatarPersonalityFormScree
             ..._formData,
             'userId': user.uid,
             'createdAt': FieldValue.serverTimestamp(),
+            'type': _selectedType.toString(),
           }, SetOptions(merge: true));
 
       if (!mounted) return;
