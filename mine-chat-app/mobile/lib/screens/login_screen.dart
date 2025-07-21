@@ -126,12 +126,17 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 8),
               Align(
                 alignment: Alignment.centerLeft,
-                child: Text(
-                  AppLocalizations.of(context)!.forgotPassword,
-                  style: const TextStyle(
-                    color: Color(0xFFa59db8),
-                    fontSize: 14,
-                    decoration: TextDecoration.underline,
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/forgot_password');// Acción al presionar el botón de "Olvidé mi contraseña"
+                  },
+                  child: Text(
+                    AppLocalizations.of(context)!.forgotPassword,
+                    style: const TextStyle(
+                      color: Color(0xFFa59db8),
+                      fontSize: 14,
+                      decoration: TextDecoration.underline,
+                    ),
                   ),
                 ),
               ),

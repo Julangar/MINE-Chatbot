@@ -53,7 +53,7 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
           children: [
             ListTile(
               leading: const Icon(Icons.videocam),
-              title: const Text('Grabar video'),
+              title: Text(AppLocalizations.of(context)!.recordVideo),
               onTap: () async {
                 final video = await picker.pickVideo(source: ImageSource.camera);
                 Navigator.pop(ctx, video);
@@ -61,7 +61,7 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
             ),
             ListTile(
               leading: const Icon(Icons.video_library),
-              title: const Text('Elegir de galería'),
+              title: Text(AppLocalizations.of(context)!.chooseFromGallery),
               onTap: () async {
                 final video = await picker.pickVideo(source: ImageSource.gallery);
                 Navigator.pop(ctx, video);
@@ -122,8 +122,8 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
       child: ElevatedButton.icon(
         onPressed: _isRecording ? _stopRecording : _startRecording,
         icon: Icon(_isRecording ? Icons.stop : Icons.mic),
-        label: Text(_isRecording ? "Detener" : "Grabar audio (45s)"),
-        style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 191, 62, 53)),
+        label: Text(_isRecording ? AppLocalizations.of(context)!.stop : AppLocalizations.of(context)!.record45),
+        style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 191, 62, 53),padding: const EdgeInsets.symmetric(horizontal: 8)),
       )
     );
   }
@@ -136,7 +136,7 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
       // Maneja el error de no tener usuario logueado
       setState(() => _loading = false);
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("No hay usuario autenticado")),
+        SnackBar(content: Text(AppLocalizations.of(context)!.noUserAuthenticated)),
       );
       return;
     }
@@ -160,10 +160,10 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
     // Puedes mostrar un mensaje de éxito aquí o navegar a otra pantalla
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("¡Archivos subidos con éxito!"),
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.successUpload),
           backgroundColor: Colors.green,
-          duration: Duration(seconds: 2),
+          duration: const Duration(seconds: 2),
         ),
       );
 
@@ -195,22 +195,20 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
         child: Column(
           children: [
             BannerMessage(
-              title: "¡Tómate tu tiempo para crear tu avatar!",
-              message: "Selecciona cuidadosamente la foto, el audio o el video que representará a tu avatar. "
-                  "Recuerda que la creación del avatar tiene un costo y, por seguridad, no podrás modificarlo después de ser creado. "
-                  "Elige los archivos que mejor reflejen tu personalidad y gustos.",
+              title: AppLocalizations.of(context)!.takeYourTime,
+              message: AppLocalizations.of(context)!.carefullySelect,
               icon: Icons.info_outline,
             ),
             // FOTO
             Row(
               children: [
-                Text('Foto:', style: const TextStyle(color: Colors.white)),
+                Text('${AppLocalizations.of(context)!.photo}:', style: const TextStyle(color: Colors.white)),
                 const Spacer(),
                 Flexible(
                   child: ElevatedButton(
                     onPressed: _takePhoto,                   
                     style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 8)),
-                    child: const Text("Tomar"),
+                    child: Text(AppLocalizations.of(context)!.takePhoto),
                   ),
                 ),
                 const SizedBox(width: 8),
@@ -218,7 +216,7 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
                   child: ElevatedButton(
                     onPressed: _pickPhoto,                    
                     style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 8)),
-                    child: const Text("Galería"),
+                    child: Text(AppLocalizations.of(context)!.gallery),
                   ),
                 ),
                 const SizedBox(width: 8),
@@ -254,7 +252,7 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
                   child: ElevatedButton.icon(
                     onPressed: _pickAudio,
                     icon: const Icon(Icons.upload_file, size: 18),
-                    label: Text(_audio == null ? "Subir" : "Cambiar"),
+                    label: Text(_audio == null ? AppLocalizations.of(context)!.uploadAudio : AppLocalizations.of(context)!.change),
                     style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 8)),
                   ),
                 ),
@@ -262,27 +260,27 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
               ],
             ),
             if (_audio != null)
-              Text('Archivo: ${_audio!.path.split('/').last}', style: const TextStyle(color: Colors.white70)),
+              Text('${AppLocalizations.of(context)!.archive}: ${_audio!.path.split('/').last}', style: const TextStyle(color: Colors.white70)),
             const SizedBox(height: 16),
 
             // VIDEO
             Row(
               children: [
-                Text('Video:', style: const TextStyle(color: Colors.white)),
+                Text('${AppLocalizations.of(context)!.video}:', style: const TextStyle(color: Colors.white)),
                 if (_video != null) const Icon(Icons.check, color: Colors.green),
                 const Spacer(),
                 Flexible(
                 child: ElevatedButton(
                   onPressed: _pickVideo,                  
                   style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 8)),
-                  child: Text(_video == null ? "Agregar" : "Cambiar"),
+                  child: Text(_video == null ? AppLocalizations.of(context)!.uploadVideo : AppLocalizations.of(context)!.change),
                 ),
               ),
               const SizedBox(width: 8),     
               ],
             ),
             if (_video != null)
-              Text('Archivo: ${_video!.path.split('/').last}', style: const TextStyle(color: Colors.white70)),
+              Text('${AppLocalizations.of(context)!.video}: ${_video!.path.split('/').last}', style: const TextStyle(color: Colors.white70)),
             const Spacer(),
 
             // BOTÓN GUARDAR Y CONTINUAR
@@ -300,9 +298,9 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
               ),
             ),
             const SizedBox(height: 16),
-            const Text(
-              'Agrega al menos una foto y un audio de máximo 45 segundos, o solo un video para tu avatar.',
-              style: TextStyle(color: Color(0xFFa59db8), fontSize: 14), textAlign: TextAlign.center,
+            Text(
+              AppLocalizations.of(context)!.chooseAvatarInstruction,
+              style: const TextStyle(color: Color(0xFFa59db8), fontSize: 14), textAlign: TextAlign.center,
             ),
           ],
         ),

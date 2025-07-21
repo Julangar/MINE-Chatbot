@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mine_chatbot/l10n/app_localizations.dart';
 
 class MyselfQuestions extends StatefulWidget {
   final Function(Map<String, dynamic>) onChanged;
@@ -66,13 +67,13 @@ class _MyselfQuestionsState extends State<MyselfQuestions> {
     return Column(
       children: [
         TextFormField(
-          decoration: const InputDecoration(labelText: 'Nombre del avatar'),
+          decoration: const InputDecoration(labelText: 'Nombre del avatar',labelStyle: TextStyle(color: Colors.white)),
           initialValue: _avatarName,
           onChanged: (val) { setState(() { _avatarName = val; _updateParent(); }); },
           validator: (val) => val == null || val.isEmpty ? 'Obligatorio' : null,
         ),
         DropdownButtonFormField<String>(
-          decoration: const InputDecoration(labelText: '¿Cómo te quieres referir a ti mismo?'),
+          decoration: const InputDecoration(labelText: '¿Cómo te quieres referir a ti mismo?',labelStyle: TextStyle(color: Colors.white)),
           value: _userReference.isNotEmpty ? _userReference : null,
           items: _referenceOptions
               .map((e) => DropdownMenuItem(value: e, child: Text(e)))
@@ -107,7 +108,7 @@ class _MyselfQuestionsState extends State<MyselfQuestions> {
           ),
         const Padding(
           padding: EdgeInsets.only(top: 10, bottom: 4),
-          child: Text('Tono de conversación (elige al menos uno):'),
+          child: Text('Tono de conversación (elige al menos uno):',style: TextStyle(color: Colors.white)),
         ),
         Wrap(
           spacing: 6,
@@ -131,7 +132,7 @@ class _MyselfQuestionsState extends State<MyselfQuestions> {
         ),
         const Padding(
           padding: EdgeInsets.only(top: 10, bottom: 4),
-          child: Text('Temas preferidos (elige al menos uno):'),
+          child: Text('Temas preferidos (elige al menos uno):', style: TextStyle(color: Colors.white)),
         ),
         Wrap(
           spacing: 6,
@@ -155,7 +156,7 @@ class _MyselfQuestionsState extends State<MyselfQuestions> {
         ),
         const Padding(
           padding: EdgeInsets.only(top: 10, bottom: 4),
-          child: Text('Frases favoritas (elige al menos una):'),
+          child: Text('Frases favoritas (elige al menos una):',style: TextStyle(color: Colors.white)),
         ),
         Wrap(
           spacing: 6,
@@ -179,7 +180,7 @@ class _MyselfQuestionsState extends State<MyselfQuestions> {
         ),
         const Padding(
           padding: EdgeInsets.only(top: 10),
-          child: Text('Nivel de autoexigencia (1 = muy relajado, 5 = muy disciplinado):'),
+          child: Text('Nivel de autoexigencia (1 = muy relajado, 5 = muy disciplinado):',style: TextStyle(color: Colors.white)),
         ),
         Slider(
           value: _slider1.toDouble(),
@@ -195,13 +196,13 @@ class _MyselfQuestionsState extends State<MyselfQuestions> {
           },
         ),
         SwitchListTile(
-          title: const Text('¿Quieres recibir mensajes motivadores?'),
+          title: const Text('¿Quieres recibir mensajes motivadores?',style: TextStyle(color: Colors.white)),
           value: _extra1,
           onChanged: (val) => setState(() { _extra1 = val; _updateParent(); }),
         ),
         const Padding(
           padding: EdgeInsets.only(top: 10, bottom: 4),
-          child: Text('¿Sobre qué hábitos o metas te gustaría recibir recordatorios?'),
+          child: Text('¿Sobre qué hábitos o metas te gustaría recibir recordatorios?',style: TextStyle(color: Colors.white)),
         ),
         Wrap(
           spacing: 6,

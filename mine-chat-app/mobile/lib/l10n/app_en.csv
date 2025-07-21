@@ -1,0 +1,110 @@
+key,value
+appTitle,MINE Chat
+getStarted,Get Started
+signIn,Sign In
+register,Register
+welcome,Welcome
+slogan,"Recreate me, forever"
+email,Email
+password,Password
+forgotPassword,Forgot your password?
+enterEmailToReset,Enter your email to receive a password reset link.
+enterValidEmail,Please enter a valid email.
+sendResetLink,Send reset link
+resetLinkSent,"If this email exists, a password reset link has been sent."
+userNotFound,No user found with this email.
+invalidEmail,Invalid email address.
+errorOccurred,An error occurred. Please try again.
+enter,Enter
+noAccountRegister,No account? Register
+noUserAuthenticated,No User Authenticated
+createAvatar,Customize your avatar
+takePhoto,Take a Photo
+audio,Audio:
+photo,Photo:
+stop,Stop
+record45,Record 45s
+video,Video:
+chooseFromGallery,Choose from Gallery
+gallery,Gallery
+uploadVideo,Upload Video
+recordVideo,Record a Video
+uploadAudio,Upload Audio
+agregate,Agregate
+change,Change
+archive,Archive
+takeYourTime,Take your time to create your avatar!
+carefullySelect,"Carefully select the photo, audio, or video that will represent your avatar. Remember that creating the avatar has a cost and, for security reasons, you will not be able to modify it after it is created. Choose the files that best reflect your tastes and preferences."
+successUpload,Success Upload!
+errorSaving,Error saving: 
+createYourAvatar,Create your avatar
+avatarAlreadyExist,You already have an avatar of this type!
+goToChat,Go to chat
+customizeYourAvatar,Customize your avatar to the fullest
+takeAMinuteToAnswer,Take a few minutes to answer the form carefully and honestly.
+yourAnswersDefine,"Your answers will define how your avatar interacts with you. You won't be able to modify this information afterwards, so select each option carefully according to your preferences. "
+selectAvatarType,Select the type of avatar you want to create
+saveAndContinue,Save and continue
+chooseAvatarInstruction,"Choose an image and a voice, or video sample for your avatar."
+avatar_name_question,Choose a name for your avatar.
+avatar_name_hint,"Example: Alex, Sam"
+relationship_question,What relationship will this avatar have with you?
+relationship_option_partner,Partner
+relationship_option_spouse,Spouse
+relationship_option_boyfriend,Boyfriend/Girlfriend
+relationship_option_crush,Crush
+relationship_option_other,Other
+relationship_other_hint,Write another relationship
+response_style_question,How should the avatar respond to you?
+response_style_option_friendly,Friendly
+response_style_option_supportive,Supportive
+response_style_option_motivational,Motivational
+response_style_option_serious,Serious
+response_style_option_funny,Funny
+response_style_option_reflective,Reflective
+response_style_option_caring,Caring
+response_style_option_wise,Wise
+response_style_option_strict,Strict
+topics_question,Select the main topics you want to talk about.
+topics_option_daily,Daily life
+topics_option_feelings,Feelings
+topics_option_advice,Advice
+topics_option_plans,Plans
+topics_option_music,Music
+topics_option_movies,Movies
+topics_option_sports,Sports
+topics_option_travel,Travel
+topics_option_technology,Technology
+topics_option_family,Family
+topics_option_stories,Stories
+topics_option_support,Support
+topics_option_personal_growth,Personal growth
+topics_option_habits,Habits
+topics_option_dreams,Dreams
+topics_option_challenges,Challenges
+topics_option_other,Other
+topics_other_hint,Write another topic
+greeting_question,How do you want the avatar to greet you?
+greeting_option_hi,Hi
+greeting_option_hello,Hello
+greeting_option_hey,Hey
+greeting_option_other,Other
+greeting_other_hint,Write your own greeting
+communication_frequency_question,How often do you want the avatar to talk to you?
+communication_frequency_label,Days per week
+relationship_family_question,What family role will this avatar have?
+relationship_option_mother,Mother
+relationship_option_father,Father
+relationship_option_grandparent,Grandparent
+relationship_option_sibling,Sibling
+relationship_other_family_hint,Write another role
+successSave,Profile Saved Successfully!
+myProfile,My Profile
+name,Name
+saveChanges,Save Changes
+options,Options
+changePassword,Change Password
+logOut,Log Out
+helpContact,Help or Contact Us
+chat,Chat
+typeMessage,Type a message

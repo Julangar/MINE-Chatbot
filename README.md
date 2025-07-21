@@ -150,7 +150,7 @@ A continuación puedes ver los wireframes principales del proyecto, ubicados en 
 | 08  | Grabación y reproducción de voz, almacenamiento en Firebase                              | ✅ Completado |
 | 09  | Cuestionario de personalidad (UI + backend + Firestore)                                  | ✅ Completado |
 | 10  | Endpoints para personalización: fotos, voz y personalidad                                | ✅ Completado |
-| 11  | Integración de OpenAI en backend con prompts dinámicos                                   |   |
+| 11  | Integración de OpenAI en backend con prompts dinámicos                                   | ✅ Completado |
 | 12  | Integración con ElevenLabs para clonación y reproducción de voz                          |   |
 | 13  | Creación de avatar animado desde fotos/audio con D-ID / HeyGen                          |   |
 | 14  | Almacenamiento y CRUD de perfiles de avatar                                              |   |

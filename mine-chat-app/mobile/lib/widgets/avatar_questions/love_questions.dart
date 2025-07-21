@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mine_chatbot/l10n/app_localizations.dart';
 
 class LoveQuestions extends StatefulWidget {
   final Function(Map<String, dynamic>) onChanged;
@@ -69,7 +70,7 @@ class _LoveQuestionsState extends State<LoveQuestions> {
     return Column(
       children: [
         TextFormField(
-          decoration: const InputDecoration(labelText: 'Nombre del avatar'),
+          decoration: const InputDecoration(labelText: 'Nombre del avatar',labelStyle: TextStyle(color: Colors.white)),
           initialValue: _avatarName,
           onChanged: (val) { setState(() { _avatarName = val; _updateParent(); }); },
           validator: (val) => val == null || val.isEmpty ? 'Obligatorio' : null,
@@ -109,7 +110,7 @@ validator: (val) {
             ),
           ),
         DropdownButtonFormField<String>(
-          decoration: const InputDecoration(labelText: '¿Cómo quieres que te llame?'),
+          decoration: const InputDecoration(labelText: '¿Cómo quieres que te llame?',labelStyle: TextStyle(color: Colors.white)),
           value: _userReference.isNotEmpty ? _userReference : null,
           items: _referenceOptions
               .map((e) => DropdownMenuItem(value: e, child: Text(e)))
@@ -144,7 +145,7 @@ validator: (val) {
           ),
         const Padding(
           padding: EdgeInsets.only(top: 10, bottom: 4),
-          child: Text('Tono de conversación (elige al menos uno):'),
+          child: Text('Tono de conversación (elige al menos uno):',style: TextStyle(color: Colors.white)),
         ),
         Wrap(
           spacing: 6,
@@ -168,7 +169,7 @@ validator: (val) {
         ),
         const Padding(
           padding: EdgeInsets.only(top: 10, bottom: 4),
-          child: Text('Temas preferidos (elige al menos uno):'),
+          child: Text('Temas preferidos (elige al menos uno):',style: TextStyle(color: Colors.white)),
         ),
         Wrap(
           spacing: 6,
@@ -192,7 +193,7 @@ validator: (val) {
         ),
         const Padding(
           padding: EdgeInsets.only(top: 10, bottom: 4),
-          child: Text('Frases favoritas (elige al menos una):'),
+          child: Text('Frases favoritas (elige al menos una):',style: TextStyle(color: Colors.white)),
         ),
         Wrap(
           spacing: 6,
@@ -216,7 +217,7 @@ validator: (val) {
         ),
         const Padding(
           padding: EdgeInsets.only(top: 10),
-          child: Text('Frecuencia de mensajes románticos (1 = solo si preguntas, 5 = siempre):'),
+          child: Text('Frecuencia de mensajes románticos (1 = solo si preguntas, 5 = siempre):', style: TextStyle(color: Colors.white)),
         ),
         Slider(
           value: _slider1.toDouble(),
@@ -232,7 +233,7 @@ validator: (val) {
           },
         ),
         SwitchListTile(
-          title: const Text('¿Tu avatar debe usar apodos cariñosos?'),
+          title: const Text('¿Tu avatar debe usar apodos cariñosos?',style: TextStyle(color: Colors.white)),
           value: _extra1,
           onChanged: (val) => setState(() { _extra1 = val; _updateParent(); }),
         ),

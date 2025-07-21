@@ -1,17 +1,17 @@
 {
-  "@@locale": "es",
+  "@@locale": "es_419",
   "appTitle": "Chat MINE",
-  "getStarted": "Comenzar",
+  "getStarted": "Empezar",
   "@getStarted": {
-    "description": "Botón para comenzar la aplicación"
+    "description": "Botón para empezar la aplicación"
   },
   "signIn": "Iniciar sesión",
   "@signIn": {
-    "description": "Botón para ingresar a la aplicación"
+    "description": "Botón para acceder a la aplicación"
   },
   "register": "Registrarse",
   "@register": {
-    "description": "Botón para crear una nueva cuenta"
+    "description": "Botón para crear una cuenta nueva"
   },
   "forgotPassword": "¿Olvidaste tu contraseña?",
   "@forgotPassword": {
@@ -25,22 +25,22 @@
   "@password": {
     "description": "Campo para ingresar la contraseña"
   },
-  "sendResetLink": "Enviar enlace de restablecimiento",
+  "sendResetLink": "Enviar enlace para restablecer",
   "@sendResetLink": {
-    "description": "Botón para enviar enlace de restablecimiento de contraseña"
+    "description": "Botón para enviar el enlace de restablecimiento de contraseña"
   },
   "resetLinkSent": "Si este correo existe, se ha enviado un enlace para restablecer la contraseña.",
   "@resetLinkSent": {
-    "description": "Mensaje cuando el enlace de restablecimiento ha sido enviado"
+    "description": "Mensaje cuando se ha enviado el enlace de restablecimiento"
   },
   "userNotFound": "No se encontró un usuario con este correo.",
-  "invalidEmail": "Dirección de correo no válida.",
-  "errorOccurred": "Ocurrió un error. Por favor, inténtalo de nuevo.",
+  "invalidEmail": "Correo electrónico inválido.",
+  "errorOccurred": "Ocurrió un error. Por favor intenta de nuevo.",
   "enter": "Entrar",
   "noAccountRegister": "¿No tienes cuenta? Regístrate",
   "noUserAuthenticated": "Ningún usuario autenticado",
   "createAvatar": "Personaliza tu avatar",
-  "takePhoto": "Tomar una foto",
+  "takePhoto": "Tomar foto",
   "audio": "Audio",
   "photo": "Foto",
   "stop": "Detener",
@@ -62,23 +62,23 @@
   "avatarAlreadyExist": "¡Ya tienes un avatar de este tipo!",
   "goToChat": "Ir al chat",
   "customizeYourAvatar": "Personaliza tu avatar al máximo",
-  "takeAMinuteToAnswer": "Tómate unos minutos para responder el formulario con cuidado y honestidad.",
-  "yourAnswersDefine": "Tus respuestas definirán cómo tu avatar interactúa contigo. No podrás modificar esta información después, así que selecciona cada opción cuidadosamente según tus preferencias.",
+  "takeAMinuteToAnswer": "Tómate unos minutos para contestar el formulario con cuidado y honestidad.",
+  "yourAnswersDefine": "Tus respuestas definirán cómo tu avatar interactúa contigo. No podrás modificar esta información después, así que elige cada opción con cuidado según tus preferencias.",
   "selectAvatarType": "Selecciona el tipo de avatar que quieres crear",
   "saveAndContinue": "Guardar y continuar",
-  "chooseAvatarInstruction": "Elige una imagen y una voz, o una muestra de video para tu avatar.",
+  "chooseAvatarInstruction": "Elige una imagen y una voz, o un video para tu avatar.",
   "avatar_name_question": "Elige un nombre para tu avatar.",
   "avatar_name_hint": "Ejemplo: Alex, Sam",
   "relationship_question": "¿Qué relación tendrá este avatar contigo?",
   "relationship_option_partner": "Pareja",
   "relationship_option_spouse": "Esposo/a",
   "relationship_option_boyfriend": "Novio/a",
-  "relationship_option_crush": "Persona que te gusta",
+  "relationship_option_crush": "Crush",
   "relationship_option_other": "Otro",
   "relationship_other_hint": "Escribe otra relación",
-  "response_style_question": "¿Cómo debe responderte el avatar?",
-  "response_style_option_friendly": "Amistoso",
-  "response_style_option_supportive": "Apoyador",
+  "response_style_question": "¿Cómo quieres que el avatar te responda?",
+  "response_style_option_friendly": "Amigable",
+  "response_style_option_supportive": "Solidario",
   "response_style_option_motivational": "Motivador",
   "response_style_option_serious": "Serio",
   "response_style_option_funny": "Divertido",
@@ -107,8 +107,8 @@
   "topics_other_hint": "Escribe otro tema",
   "greeting_question": "¿Cómo quieres que el avatar te salude?",
   "greeting_option_hi": "Hola",
-  "greeting_option_hello": "Buenos días",
-  "greeting_option_hey": "Ey",
+  "greeting_option_hello": "Buen día",
+  "greeting_option_hey": "Hey",
   "greeting_option_other": "Otro",
   "greeting_other_hint": "Escribe tu propio saludo",
   "communication_frequency_question": "¿Con qué frecuencia quieres que el avatar hable contigo?",

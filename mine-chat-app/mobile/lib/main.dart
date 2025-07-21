@@ -8,6 +8,7 @@ import 'controllers/avatar_controller.dart';
 import 'screens/splash_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/register_screen.dart';
+import 'screens/forgot_password_screen.dart';
 import 'screens/create_avatar_screen.dart';
 import 'screens/avatar_personality_screen.dart';
 import 'screens/chat_screen.dart';
@@ -52,6 +53,7 @@ class MineApp extends StatelessWidget {
         '/avatar_personality': (context) => const AvatarPersonalityFormScreen(),
         '/chat': (context) => const ChatScreen(),
         '/profile': (context) => const ProfileScreen(),
+        '/forgot_password': (context) => const ForgotPasswordScreen(),
       },
     );
   }

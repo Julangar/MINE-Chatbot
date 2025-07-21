@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:mine_chatbot/l10n/app_localizations.dart';
 
 import '../widgets/avatar_questions/love_questions.dart';
 import '../widgets/avatar_questions/friend_questions.dart';
@@ -37,7 +38,7 @@ class _AvatarPersonalityFormScreenState extends State<AvatarPersonalityFormScree
 
     if (_selectedType != null) {
       String collectionName = _collectionForType(_selectedType!);
-      final doc = await FirebaseFirestore.instance.collection(collectionName).doc(user.uid).get();
+      final doc = await FirebaseFirestore.instance.collection(user.uid).doc(collectionName).get();
       setState(() => _avatarExists = doc.exists);
     }
   }
@@ -84,7 +85,7 @@ class _AvatarPersonalityFormScreenState extends State<AvatarPersonalityFormScree
     if (user == null) {
       setState(() => _loading = false);
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("No hay usuario autenticado")),
+        SnackBar(content: Text(AppLocalizations.of(context)!.noUserAuthenticated)),
       );
       return;
     }
@@ -92,8 +93,8 @@ class _AvatarPersonalityFormScreenState extends State<AvatarPersonalityFormScree
     String collectionName = _collectionForType(_selectedType!);
     try {
       await FirebaseFirestore.instance
-          .collection(collectionName)
-          .doc(user.uid)
+          .collection(user.uid)
+          .doc(collectionName)
           .set({
             ..._formData,
             'userId': user.uid,
@@ -102,8 +103,8 @@ class _AvatarPersonalityFormScreenState extends State<AvatarPersonalityFormScree
 
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('¡Perfil guardado exitosamente!'),
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.successSave),
           backgroundColor: Colors.green,
           duration: Duration(seconds: 2),
         ),
@@ -113,7 +114,7 @@ class _AvatarPersonalityFormScreenState extends State<AvatarPersonalityFormScree
       Navigator.of(context).pushReplacementNamed('/chat');
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error al guardar: $e')),
+        SnackBar(content: Text('${AppLocalizations.of(context)!.errorSaving} $e')),
       );
     }
     setState(() => _loading = false);
@@ -123,7 +124,7 @@ class _AvatarPersonalityFormScreenState extends State<AvatarPersonalityFormScree
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Crea tu avatar", style: TextStyle(color: Colors.white)),
+        title: Text(AppLocalizations.of(context)!.createYourAvatar, style: TextStyle(color: Colors.white)),
         backgroundColor: const Color(0xFF131118),
         iconTheme: const IconThemeData(color: Colors.white),
         leading: (_selectedType == null)
@@ -151,11 +152,11 @@ class _AvatarPersonalityFormScreenState extends State<AvatarPersonalityFormScree
                         children: [
                           const Icon(Icons.check_circle, color: Colors.green, size: 60),
                           const SizedBox(height: 16),
-                          const Text("¡Ya tienes un avatar de este tipo!"),
+                          Text(AppLocalizations.of(context)!.avatarAlreadyExist),
                           const SizedBox(height: 8),
                           ElevatedButton(
                             onPressed: () => Navigator.of(context).pushReplacementNamed('/chat'),
-                            child: const Text("Ir al chat"),
+                            child: Text(AppLocalizations.of(context)!.goToChat),
                           ),
                         ],
                       ),
@@ -168,18 +169,15 @@ class _AvatarPersonalityFormScreenState extends State<AvatarPersonalityFormScree
                           children: [
                             // BANNER FIJO
                             BannerMessage(
-                              title:"Personaliza tu avatar al máximo",
-                              message:
-                                  "Dedica unos minutos a responder el formulario con atención y sinceridad. "
-                                  "Tus respuestas definirán cómo interactuará tu avatar contigo. "
-                                  "No podrás modificar esta información después, así que selecciona cuidadosamente cada opción según tus preferencias.",
+                              title: AppLocalizations.of(context)!.customizeYourAvatar,
+                              message: AppLocalizations.of(context)!.takeAMinuteToAnswer +AppLocalizations.of(context)!.yourAnswersDefine,
                               icon: Icons.assignment_turned_in_outlined,
                             ),
                             _questionWidget(),
                             const SizedBox(height: 20),
                             ElevatedButton(
                               onPressed: _loading ? null : _saveToFirebase,
-                              child: const Text("Guardar y continuar"),
+                              child: Text(AppLocalizations.of(context)!.saveAndContinue),
                             ),
                           ],
                         ),
@@ -194,12 +192,12 @@ class _AvatarPersonalityFormScreenState extends State<AvatarPersonalityFormScree
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text(
-            "Selecciona el tipo de avatar que quieres crear",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          Text(
+            AppLocalizations.of(context)!.selectAvatarType,
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 32),
+          SizedBox(height: 32),
           Wrap(
             spacing: 20,
             runSpacing: 20,

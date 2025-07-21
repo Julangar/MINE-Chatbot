@@ -8,7 +8,6 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Quita backgroundColor, usa un Container con gradient
       body: SafeArea(
         child: Container(
           decoration: const BoxDecoration(

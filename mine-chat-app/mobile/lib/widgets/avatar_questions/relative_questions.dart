@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mine_chatbot/l10n/app_localizations.dart';
 
 class RelativeQuestions extends StatefulWidget {
   final Function(Map<String, dynamic>) onChanged;
@@ -69,13 +70,13 @@ class _RelativeQuestionsState extends State<RelativeQuestions> {
     return Column(
       children: [
         TextFormField(
-          decoration: const InputDecoration(labelText: 'Nombre del avatar'),
+          decoration: const InputDecoration(labelText: 'Nombre del avatar',labelStyle: TextStyle(color: Colors.white)),
           initialValue: _avatarName,
           onChanged: (val) { setState(() { _avatarName = val; _updateParent(); }); },
           validator: (val) => val == null || val.isEmpty ? 'Obligatorio' : null,
         ),
         DropdownButtonFormField<String>(
-          decoration: const InputDecoration(labelText: 'Relación familiar'),
+          decoration: const InputDecoration(labelText: 'Relación familiar',labelStyle: TextStyle(color: Colors.white)),
           value: _relationshipOrRole.isNotEmpty ? _relationshipOrRole : null,
           items: _relationshipOptions
               .map((e) => DropdownMenuItem(value: e, child: Text(e)))
@@ -109,7 +110,7 @@ class _RelativeQuestionsState extends State<RelativeQuestions> {
             ),
           ),
         DropdownButtonFormField<String>(
-          decoration: const InputDecoration(labelText: '¿Cómo quieres que te llame?'),
+          decoration: const InputDecoration(labelText: '¿Cómo quieres que te llame?',labelStyle: TextStyle(color: Colors.white)),
           value: _userReference.isNotEmpty ? _userReference : null,
           items: _referenceOptions
               .map((e) => DropdownMenuItem(value: e, child: Text(e)))
@@ -144,7 +145,7 @@ class _RelativeQuestionsState extends State<RelativeQuestions> {
           ),
         const Padding(
           padding: EdgeInsets.only(top: 10, bottom: 4),
-          child: Text('Tono de conversación (elige al menos uno):'),
+          child: Text('Tono de conversación (elige al menos uno):',style: TextStyle(color: Colors.white)),
         ),
         Wrap(
           spacing: 6,
@@ -168,7 +169,7 @@ class _RelativeQuestionsState extends State<RelativeQuestions> {
         ),
         const Padding(
           padding: EdgeInsets.only(top: 10, bottom: 4),
-          child: Text('Temas preferidos (elige al menos uno):'),
+          child: Text('Temas preferidos (elige al menos uno):',style: TextStyle(color: Colors.white)),
         ),
         Wrap(
           spacing: 6,
@@ -192,7 +193,7 @@ class _RelativeQuestionsState extends State<RelativeQuestions> {
         ),
         const Padding(
           padding: EdgeInsets.only(top: 10, bottom: 4),
-          child: Text('Frases favoritas (elige al menos una):'),
+          child: Text('Frases favoritas (elige al menos una):',style: TextStyle(color: Colors.white)),
         ),
         Wrap(
           spacing: 6,
@@ -216,7 +217,7 @@ class _RelativeQuestionsState extends State<RelativeQuestions> {
         ),
         const Padding(
           padding: EdgeInsets.only(top: 10),
-          child: Text('Nivel de cercanía (1 = formal, 5 = muy cercano):'),
+          child: Text('Nivel de cercanía (1 = formal, 5 = muy cercano):',style: TextStyle(color: Colors.white)),
         ),
         Slider(
           value: _slider1.toDouble(),
@@ -232,7 +233,7 @@ class _RelativeQuestionsState extends State<RelativeQuestions> {
           },
         ),
         SwitchListTile(
-          title: const Text('¿El avatar debe recordarte eventos familiares?'),
+          title: const Text('¿El avatar debe recordarte eventos familiares?',style: TextStyle(color: Colors.white)),
           value: _extra1,
           onChanged: (val) => setState(() { _extra1 = val; _updateParent(); }),
         ),
