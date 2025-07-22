@@ -1,5 +1,5 @@
 plugins {
-    id("com.sugestionsas.mineapp")
+    id("com.android.application")
     id("kotlin-android")
     id("com.google.gms.google-services")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
@@ -10,6 +10,8 @@ plugins {
 dependencies {
     // Import the Firebase BoM
     implementation(platform("com.google.firebase:firebase-bom:33.16.0"))
+    // Dependency para Facebook
+    // implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
 
     // TODO: Add the dependencies for Firebase products you want to use
     // When using the BoM, don't specify versions in Firebase dependencies
