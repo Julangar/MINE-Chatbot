@@ -1,18 +1,25 @@
-const { textToSpeech } = require('../services/elevenlabsService');
 
-async function generateVoice(req, res) {
+const { cloneVoice } = require('../services/elevenlabsService');
+
+async function handleVoiceClone(req, res) {
+  const { userId, avatarType, audioUrl } = req.body;
+
+  if (!userId || !avatarType || !audioUrl) {
+    return res.status(400).json({ error: 'Faltan campos requeridos.' });
+  }
+
   try {
-    const { text, userId } = req.body;
-    if (!text || !userId) return res.status(400).json({ error: 'Faltan campos requeridos' });
+    const admin = require('firebase-admin');
+    const db = admin.firestore();
 
-    const url = await textToSpeech(text, userId);
-    res.json({ audioUrl: url });
+    const voiceId = await cloneVoice(userId, audioUrl);
+    await db.collection(userId).doc(avatarType).update({ elevenlabs_voice_id: voiceId });
+
+    res.json({ success: true, voiceId });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    console.error(err);
+    res.status(500).json({ error: 'Error al clonar la voz' });
   }
 }
 
-module.exports = { generateVoice };
-// This file defines the voiceController which handles requests for generating voice audio from text.
-// It uses the ElevenLabs service to convert text to speech and returns the URL of the generated audio file.
-// The controller expects a POST request with 'text' and 'userId' in the body
+module.exports = { handleVoiceClone };

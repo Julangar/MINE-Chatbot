@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.application")
+    id("com.sugestionsas.mineapp")
     id("kotlin-android")
     id("com.google.gms.google-services")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
@@ -19,7 +19,7 @@ dependencies {
 }
 
 android {
-    namespace = "com.example.mobile"
+    namespace = "com.sugestionsas.mineapp"
     compileSdk = 36
     ndkVersion = "27.0.12077973"
 
@@ -34,7 +34,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.mobile"
+        applicationId = "com.sugestionsas.mineapp"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = 23

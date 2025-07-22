@@ -1,4 +1,4 @@
-package com.example.mobile
+package com.sugestionsas.mineapp
 
 import io.flutter.embedding.android.FlutterActivity
 

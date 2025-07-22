@@ -1,8 +1,7 @@
 const express = require('express');
-const { generateVoice } = require('../controllers/voiceController');
 const router = express.Router();
+const { handleVoiceClone } = require('../controllers/voiceController');
 
-router.post('/generate', generateVoice);
+router.post('/clone', handleVoiceClone);
 
 module.exports = router;
-// This file defines the voice routes for the Express application.

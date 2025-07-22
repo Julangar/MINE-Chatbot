@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:mine_chatbot/l10n/app_localizations.dart';
+import 'package:mine_app/l10n/app_localizations.dart';
 
 import '../widgets/avatar_questions/love_questions.dart';
 import '../widgets/avatar_questions/friend_questions.dart';

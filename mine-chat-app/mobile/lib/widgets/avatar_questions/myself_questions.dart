@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mine_chatbot/l10n/app_localizations.dart';
+import 'package:mine_app/l10n/app_localizations.dart';
 
 class MyselfQuestions extends StatefulWidget {
   final Function(Map<String, dynamic>) onChanged;

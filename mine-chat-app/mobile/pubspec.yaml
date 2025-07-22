@@ -1,5 +1,5 @@
-name: mine_chatbot
-description: "MINE Chatbot App."
+name: mine_app
+description: "MINE App chat hiperrealista con avatar."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -45,6 +45,9 @@ dependencies:
   file_selector: ^1.0.0
   record: ^6.0.0
 
+  # Reproductor de audio y video
+  audio_service: ^0.18.18
+  video_player: ^2.7.0
   # Permisos para cámara, micrófono, almacenamiento
   permission_handler: ^11.3.1
 
@@ -92,6 +95,7 @@ flutter:
   generate: true
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/mineLogo2.png
     - assets/google_logo.png
     - assets/mineLogo.png
     - assets/LogoMineTransparente.png
@@ -126,5 +130,5 @@ flutter:
 flutter_icons:
   android: true
   ios: true
-  image_path: "assets/mineLogo.png"
+  image_path: "assets/mineLogo2.png"
   remove_alpha_ios: true

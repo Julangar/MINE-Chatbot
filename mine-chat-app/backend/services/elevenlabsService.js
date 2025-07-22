@@ -1,3 +1,4 @@
+
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
@@ -9,12 +10,29 @@ const api = axios.create({
   headers: { 'xi-api-key': elevenlabsKey }
 });
 
-// Cambia "voice_id" por el de tu voz (puedes obtenerlo con listVoices)
-async function textToSpeech(text, userId) {
-  const voice_id = 'EXAVITQu4vr4xnSDxMaL'; // usa tu voz o deja la por defecto
-  //const url = `/text-to-speech/${voice_id}`;
+// Clona una voz desde un archivo público de Firebase Storage
+async function cloneVoice(userId, audioUrl) {
+  const response = await api.post('/voices/add', {
+    name: `voice-${userId}`,
+    description: 'Voice cloned from user sample',
+    files: [audioUrl]
+  });
+
+  return response.data.voice_id;
+}
+
+// Convierte texto a voz con un voice_id (sintetiza y guarda en Firebase Storage)
+async function textToSpeech(text, userId, voiceId = 'EXAVITQu4vr4xnSDxMaL') {
+  const url = `/text-to-speech/${voiceId}`;
   const response = await api.post(url,
-    { text, model_id: 'eleven_multilingual_v2', voice_settings: { stability: 0.5, similarity_boost: 0.75 } },
+    {
+      text,
+      model_id: 'eleven_multilingual_v2',
+      voice_settings: {
+        stability: 0.5,
+        similarity_boost: 0.75
+      }
+    },
     { responseType: 'arraybuffer' }
   );
 
@@ -25,13 +43,15 @@ async function textToSpeech(text, userId) {
 
   await bucket.upload(tempPath, { destination: fileName, public: true });
 
-  // Elimina archivo temporal
-  fs.unlinkSync(tempPath);
+  fs.unlinkSync(tempPath); // eliminar archivo temporal
 
-  // Obtén la URL pública del archivo subido
   const file = bucket.file(fileName);
-  const [url] = await file.getSignedUrl({ action: 'read', expires: Date.now() + 1000 * 60 * 60 }); // 1 hora
-  return url;
+  const [urlSigned] = await file.getSignedUrl({
+    action: 'read',
+    expires: Date.now() + 1000 * 60 * 60 // 1 hora
+  });
+
+  return urlSigned;
 }
 
-module.exports = { textToSpeech };
+module.exports = { cloneVoice, textToSpeech };

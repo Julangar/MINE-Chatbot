@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:mine_chatbot/l10n/app_localizations.dart'; // Para traducción
+import 'package:mine_app/l10n/app_localizations.dart'; // Para traducción
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({Key? key}) : super(key: key);
