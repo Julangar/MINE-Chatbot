@@ -154,7 +154,7 @@ A continuación puedes ver los wireframes principales del proyecto, ubicados en 
 | 10  | Endpoints para personalización: fotos, voz y personalidad                                | ✅ Completado |
 | 11  | Integración de OpenAI en backend con prompts dinámicos                                   | ✅ Completado |
 | 12  | Integración con ElevenLabs para clonación y reproducción de voz                          | ✅ Completado |
-| 13  | Creación de avatar animado desde fotos/audio con D-ID                                    |   |
+| 13  | Creación de avatar animado desde fotos/audio con D-ID                                    | ✅ Completado |
 | 14  | Almacenamiento y CRUD de perfiles de avatar                                              |   |
 | 15  | Pruebas completas del backend y documentación de API                                     |   |
 | 16  | Interfaz de resumen de avatar y proceso de generación visual                             |   |
