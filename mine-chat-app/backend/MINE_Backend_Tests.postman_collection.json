@@ -1,0 +1,139 @@
+{
+  "info": {
+    "name": "MINE Backend Tests",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Crear avatar",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/avatars/create",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "avatars",
+            "create"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": \"test_user\",\n  \"type\": \"love_avatar\",\n  \"avatarName\": \"Avatar de prueba\",\n  \"personality\": {\n    \"traits\": {\n      \"extroversion\": 0.8,\n      \"agreeableness\": 0.7,\n      \"conscientiousness\": 0.6\n    },\n    \"interests\": [\n      \"tecnolog\\u00eda\",\n      \"m\\u00fasica\"\n    ],\n    \"speakingStyle\": \"casual\",\n    \"commonPhrases\": [\n      \"\\u00a1Claro que s\\u00ed!\",\n      \"Vamos all\\u00e1\"\n    ]\n  }\n}"
+        }
+      }
+    },
+    {
+      "name": "2. Clonar voz",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/voice/clone",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "voice",
+            "clone"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": \"test_user\",\n  \"avatarType\": \"love_avatar\",\n  \"audioUrl\": \"https://storage.googleapis.com/mine-app-test/avatars/test_user/audio.mp3\"\n}"
+        }
+      }
+    },
+    {
+      "name": "3. Enviar mensaje (OpenAI)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/chat/send-message",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "chat",
+            "send-message"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": \"test_user\",\n  \"avatarType\": \"love_avatar\",\n  \"message\": \"\\u00bfCu\\u00e1l es tu hobby favorito?\"\n}"
+        }
+      }
+    },
+    {
+      "name": "4. Generar video avatar",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/avatar/generate-video",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "avatar",
+            "generate-video"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": \"test_user\",\n  \"avatarType\": \"love_avatar\"\n}"
+        }
+      }
+    },
+    {
+      "name": "5. Obtener perfil completo",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/api/avatar-profile/test_user/love_avatar",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "avatar-profile",
+            "test_user",
+            "love_avatar"
+          ]
+        }
+      }
+    }
+  ]
+}
