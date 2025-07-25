@@ -156,7 +156,7 @@ A continuación puedes ver los wireframes principales del proyecto, ubicados en 
 | 12  | Integración con ElevenLabs para clonación y reproducción de voz                          | ✅ Completado |
 | 13  | Creación de avatar animado desde fotos/audio con D-ID                                    | ✅ Completado |
 | 14  | Almacenamiento y CRUD de perfiles de avatar                                              | ✅ Completado |
-| 15  | Pruebas completas del backend y documentación de API                                     |   |
+| 15  | Pruebas completas del backend y documentación de API                                     | ✅ Completado |
 | 16  | Interfaz de resumen de avatar y proceso de generación visual                             |   |
 | 17  | Diseño de la pantalla de chat con avatar y campo de entrada                              |   |
 | 18  | Lógica de envío/recepción de mensajes y conexión con backend                             |   |
