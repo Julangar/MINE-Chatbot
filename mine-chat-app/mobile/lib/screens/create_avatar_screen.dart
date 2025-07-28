@@ -171,7 +171,7 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
       await Future.delayed(const Duration(seconds: 2));
 
     // Navegar a la ruta '/avatar_personality'
-      Navigator.pushNamed(context, '/avatar_personality');
+      Navigator.pushNamed(context, '/chat');
 
     // O puedes usar Navigator.pushReplacementNamed si no quieres que el usuario vuelva a esta pantalla
     // Navigator.pushReplacementNamed(context, '/avatar_personality');

@@ -1,0 +1,56 @@
+{
+  "info": {
+    "name": "MINE Backend Tests",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Crear avatar (simulado)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/avatar-profile/test_user/love_avatar",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "avatar-profile",
+            "test_user",
+            "love_avatar"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Luna\",\n  \"userReference\": \"Juli\\u00e1n\",\n  \"relationshipOrRole\": \"amiga imaginaria\",\n  \"interests\": [\n    \"m\\u00fasica\",\n    \"viajes\"\n  ],\n  \"speakingStyle\": \"tierno\",\n  \"commonPhrases\": [\n    \"\\u00a1Hola!\",\n    \"\\u00bfC\\u00f3mo te fue hoy?\"\n  ],\n  \"traits\": {\n    \"extroversion\": 0.8,\n    \"agreeableness\": 0.9,\n    \"conscientiousness\": 0.7\n  }\n}"
+        }
+      }
+    },
+    {
+      "name": "2. Obtener perfil con campos nuevos",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/api/avatar-profile/test_user/love_avatar",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "avatar-profile",
+            "test_user",
+            "love_avatar"
+          ]
+        }
+      }
+    }
+  ]
+}

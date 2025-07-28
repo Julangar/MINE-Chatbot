@@ -13,6 +13,7 @@ import 'screens/create_avatar_screen.dart';
 import 'screens/avatar_personality_screen.dart';
 import 'screens/chat_screen.dart';
 import 'screens/profile_screen.dart';
+import 'screens/avatar_summary_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -54,6 +55,7 @@ class MineApp extends StatelessWidget {
         '/chat': (context) => const ChatScreen(),
         '/profile': (context) => const ProfileScreen(),
         '/forgot_password': (context) => const ForgotPasswordScreen(),
+        '/avatar_summary': (context) => const AvatarSummaryScreen(),
       },
     );
   }

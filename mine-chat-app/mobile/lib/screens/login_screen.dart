@@ -38,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
     setState(() => _loading = false);
 
     if (err == null) {
-      Navigator.pushReplacementNamed(context, '/avatar');
+      Navigator.pushReplacementNamed(context, '/avatar_personality');
     } else {
       setState(() => _error = err);
     }
@@ -53,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final err = await auth.signInWithGoogle();
     setState(() => _loading = false);
     if (err == null) {
-      Navigator.pushReplacementNamed(context, '/avatar');
+      Navigator.pushReplacementNamed(context, '/avatar_personality');
     } else {
       setState(() => _error = err);
     }
@@ -68,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final err = await auth.signInWithApple();
     setState(() => _loading = false);
     if (err == null) {
-      Navigator.pushReplacementNamed(context, '/avatar');
+      Navigator.pushReplacementNamed(context, '/avatar_personality');
     } else {
       setState(() => _error = err);
     }

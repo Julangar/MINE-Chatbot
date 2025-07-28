@@ -1,27 +1,65 @@
-// controllers/avatar_controller.dart
+
 import 'package:flutter/material.dart';
-import '../services/avatar_service.dart';
+
+import '../models/avatar.dart';
 
 class AvatarController extends ChangeNotifier {
-  String? avatarId;
-  bool isLoading = false;
+  String userId = '';
+  String avatarType = '';
+  String name = '';
+  String userReference = '';
+  String relationshipOrRole = '';
+  List<String> interests = [];
+  String speakingStyle = '';
+  List<String> commonPhrases = [];
+  Map<String, double> traits = {};
 
-  Future<void> crearAvatar(Map<String, dynamic> data) async {
-    isLoading = true;
-    notifyListeners();
-    avatarId = await AvatarService.createAvatar(data);
-    isLoading = false;
-    notifyListeners();
+  String? imageUrl;
+  String? audioUrl;
+
+  void setBasicInfo({
+    required String user,
+    required String type,
+    required String displayName,
+  }) {
+    userId = user;
+    avatarType = type;
+    name = displayName;
   }
 
-  Future<void> subirFotos(List<String> filePaths) async {
-    if (avatarId == null) return;
-    isLoading = true;
-    notifyListeners();
-    await AvatarService.uploadPhotos(avatarId!, filePaths);
-    isLoading = false;
-    notifyListeners();
+  void setPersonality({
+    required List<String> interestsInput,
+    required String style,
+    required List<String> phrases,
+    required Map<String, double> traitMap,
+  }) {
+    interests = interestsInput;
+    speakingStyle = style;
+    commonPhrases = phrases;
+    traits = traitMap;
   }
 
-  // Lo mismo para subir audio y personalidad
+  void saveAvatarImage(String url) {
+    imageUrl = url;
+  }
+
+  void saveAvatarVoice(String url) {
+    audioUrl = url;
+  }
+
+  Avatar toAvatar() {
+    return Avatar(
+      userId: userId,
+      avatarType: avatarType,
+      name: name,
+      userReference: userReference,
+      relationshipOrRole: relationshipOrRole,
+      interests: interests,
+      speakingStyle: speakingStyle,
+      commonPhrases: commonPhrases,
+      traits: traits,
+      imageUrl: imageUrl,
+      audioUrl: audioUrl,
+    );
+  }
 }

@@ -1,31 +1,44 @@
-import 'api_service.dart';
+
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 class AvatarService {
-  // Crear perfil de avatar (personalidad)
-  static Future<String> createAvatar(Map<String, dynamic> data) async {
-    final resp = await ApiService.post('/avatars/create', data);
-    return resp['avatarId']; // Asumiendo que la respuesta es { avatarId: ... }
-  }
+  static const String baseUrl = 'http://localhost:3000'; // Cambiar en producción
 
-  // Subir fotos (multipart)
-  static Future<List<String>> uploadPhotos(String avatarId, List<String> filePaths) async {
-    Map<String, String> files = {};
-    for (var i = 0; i < filePaths.length; i++) {
-      files['photos[$i]'] = filePaths[i];
+  static Future<String?> generateAvatarVideo(String userId, String avatarType) async {
+    final url = Uri.parse('$baseUrl/api/avatar/generate-video');
+    final response = await http.post(
+      url,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({'userId': userId, 'avatarType': avatarType}),
+    );
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      return data['talkId'];
+    } else {
+      print('Error al generar video: ${response.body}');
+      return null;
     }
-    final resp = await ApiService.postMultipart('/avatars/$avatarId/upload-photos', {}, files);
-    return List<String>.from(resp['urls']);
   }
 
-  // Subir audio
-  static Future<String> uploadVoice(String avatarId, String audioPath) async {
-    final resp = await ApiService.postMultipart('/avatars/$avatarId/upload-voice', {}, {'voice': audioPath});
-    return resp['url'];
-  }
+  static Future<String?> pollForVideoUrl(String talkId, {int maxRetries = 10, Duration interval = const Duration(seconds: 5)}) async {
+    final url = Uri.parse('$baseUrl/api/avatar/video-status/$talkId');
 
-  // Enviar cuestionario de personalidad
-  static Future<bool> submitPersonality(String avatarId, Map<String, dynamic> data) async {
-    final resp = await ApiService.post('/avatars/$avatarId/personality', data);
-    return resp['success'] == true;
+    for (int i = 0; i < maxRetries; i++) {
+      final response = await http.get(url);
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        if (data['ready'] == true && data['videoUrl'] != null) {
+          return data['videoUrl'];
+        }
+      } else {
+        print('Error al verificar estado del video: ${response.body}');
+      }
+
+      await Future.delayed(interval);
+    }
+
+    return null;
   }
 }

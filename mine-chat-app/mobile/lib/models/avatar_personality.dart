@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 enum AvatarType { love, friend, relative, myself }
 
 class AvatarPersonality {

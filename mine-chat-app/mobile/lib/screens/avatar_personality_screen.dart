@@ -112,7 +112,7 @@ class _AvatarPersonalityFormScreenState extends State<AvatarPersonalityFormScree
       );
       await Future.delayed(const Duration(seconds: 2));
       // Navega y no permite volver a crear el avatar de este tipo
-      Navigator.of(context).pushReplacementNamed('/chat');
+      Navigator.of(context).pushReplacementNamed('/avatar');
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('${AppLocalizations.of(context)!.errorSaving} $e')),
@@ -156,7 +156,7 @@ class _AvatarPersonalityFormScreenState extends State<AvatarPersonalityFormScree
                           Text(AppLocalizations.of(context)!.avatarAlreadyExist),
                           const SizedBox(height: 8),
                           ElevatedButton(
-                            onPressed: () => Navigator.of(context).pushReplacementNamed('/chat'),
+                            onPressed: () => Navigator.of(context).pushReplacementNamed('/avatar'),
                             child: Text(AppLocalizations.of(context)!.goToChat),
                           ),
                         ],
