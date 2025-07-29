@@ -1,159 +1,176 @@
-import 'package:flutter/material.dart';
-import 'package:mine_app/l10n/app_localizations.dart';
-import 'package:provider/provider.dart';
-import '../providers/auth_provider.dart';
 
-class ChatScreen extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:provider/provider.dart';
+import 'package:video_player/video_player.dart';
+import 'package:audioplayers/audioplayers.dart';
+import '../models/avatar.dart';
+import '../providers/avatar_provider.dart';
+
+class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final auth = Provider.of<AuthProvider>(context);
-  if (!auth.isLoggedIn) {
-    Future.microtask(() => Navigator.pushReplacementNamed(context, '/login'));
-    return const SizedBox(); // o un loader
+  State<ChatScreen> createState() => _ChatScreenState();
+}
+
+class _ChatScreenState extends State<ChatScreen> {
+  final TextEditingController _controller = TextEditingController();
+  final List<Map<String, String>> _messages = [];
+  bool _isLoading = false;
+  late AudioPlayer _audioPlayer;
+  VideoPlayerController? _videoController;
+
+  @override
+  void initState() {
+    super.initState();
+    _audioPlayer = AudioPlayer();
+    final avatar = Provider.of<AvatarProvider>(context, listen: false).avatar;
+    if (avatar != null && avatar.videoUrl != null) {
+      _videoController = VideoPlayerController.networkUrl(Uri.parse(avatar.videoUrl!))
+        ..initialize().then((_) {
+          setState(() {});
+        });
+    }
   }
-  // ... tu pantalla protegida aquí
-    // Mensajes de ejemplo
-    final List<Map<String, dynamic>> messages = [
-      {
-        "from": "Sophia",
-        "avatar":
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAzANiXBGLqBdeZsVQt_k9iMhseo2EV1nDTxBLSgEZMGk74ZV0mqE26DdEZJteDGl1goz_M9GsUymFrZcNqmrhfMnqDUflIYiS4jGaYpNJbt2q43Mdhh_XA3CXScYztnCbPvZyOCKfjV_nxPipuiWyU8R_j_MvgQptTPr9kmvq3NqyEiiGsWYftsmR8dHBXGc5vuzqJIzHyzG_D4NsFF-nIJDoJ-eo7UYIZD0_xvOHT1H8gncHK4d5YqSe5BotTnuNWV3DV5NSUETdv",
-        "text": "Hey there! How can I help you today?",
-        "isUser": false
-      },
-      {
-        "from": "User",
-        "avatar":
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuC-OajMIYab03QGBnnkZI3mvuK26WqKLD-k6QxttDoKpNBO7Mlc-zFe470pcijcbQ8csQFmlOf-CW2bjcIF8IIp1o2-xjA_qYjY0YYQA6_3ldP1PQNaADGiHiXou1L59SPXe6Tk0v3wFTdE9xBH9frm9vKpECyDyCTTsv1lUUKJNnFhXBoytPl3g8LhYncEK9JgTgIfgWk488GP_f581mWcLCDSGlNZdbDdtsS5cpRS8PVelDjlQSCX57xF1M__HkiUa1u-JjwMUaEr",
-        "text":
-            "Hi Sophia, I'm looking for some advice on managing my time better.",
-        "isUser": true
-      },
-      // Más mensajes...
-    ];
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    _audioPlayer.dispose();
+    _videoController?.dispose();
+    super.dispose();
+  }
+
+  Future<void> _sendMessage() async {
+    final avatar = Provider.of<AvatarProvider>(context, listen: false).avatar;
+    if (avatar == null) return;
+
+    final message = _controller.text.trim();
+    if (message.isEmpty) return;
+
+    setState(() {
+      _messages.add({'role': 'user', 'content': message});
+      _controller.clear();
+      _isLoading = true;
+    });
+
+    final url = Uri.parse("http://localhost:3000/api/chat/send-message");
+
+    final response = await http.post(
+      url,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'userId': avatar.userId,
+        'avatarType': avatar.avatarType,
+        'message': message,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      final reply = data['response'] ?? '[Empty reply]';
+      setState(() {
+        _messages.add({'role': 'avatar', 'content': reply});
+        _isLoading = false;
+      });
+
+      // Reproducir audio si existe
+      if (avatar.audioUrl != null) {
+        await _audioPlayer.play(UrlSource(avatar.audioUrl!));
+      }
+
+      // Reproducir video si está listo
+      if (_videoController != null && _videoController!.value.isInitialized) {
+        await _videoController!.seekTo(Duration.zero);
+        await _videoController!.play();
+      }
+    } else {
+      setState(() => _isLoading = false);
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text('Error al comunicarse con el servidor.'),
+      ));
+    }
+  }
+
+  Widget _buildMessage(Map<String, String> msg) {
+    final isUser = msg['role'] == 'user';
+    return Align(
+      alignment: isUser ? Alignment.centerRight : Alignment.centerLeft,
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 12),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 14),
+        decoration: BoxDecoration(
+          color: isUser ? Colors.blue[200] : Colors.grey[300],
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Text(msg['content'] ?? '',
+            style: const TextStyle(fontSize: 16)),
+      ),
+    );
+  }
+
+  Widget _buildAvatarMedia(Avatar avatar) {
+    return Column(
+      children: [
+        if (_videoController != null && _videoController!.value.isInitialized)
+          AspectRatio(
+            aspectRatio: _videoController!.value.aspectRatio,
+            child: VideoPlayer(_videoController!),
+          ),
+        if (avatar.audioUrl != null)
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: Text("🎧 Audio generado"),
+          ),
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final avatar = Provider.of<AvatarProvider>(context).avatar;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF141216),
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF141216),
-        elevation: 0,
-        title: Row(
-          children: [
-            CircleAvatar(
-              backgroundImage: NetworkImage(
-                  "https://lh3.googleusercontent.com/aida-public/AB6AXuCyGf3L_moyY2K0WZ_tp2Jmr1PNRSaiJO3o5uomwcVV2K5lFBBBCDu4t3CNxtIn4omgrmklH1kv5D7rvmJYUV9ZKZte396u43GIEaS1SPs8ki4U-nPW5WrP6fJwJWo8_ThPUkW_8Kqy1Fu0Css9tJMHEj36JQVn0ZnCG87VGd7vA0ergNu7d071ZXacbiu8Sg-1VpVnH1_XJjA_NHvB1mDjSTKJIeWn0ws_wcqtH6ll8VaySyYs3pGc5Ij00GCx7UwIPAnVjvHzKZAV"),
-              radius: 18,
-            ),
-            const SizedBox(width: 10),
-            const Text("MINE", style: TextStyle(color: Colors.white)),
-          ],
-        ),
-        centerTitle: false,
-      ),
+      appBar: AppBar(title: const Text("Chat")),
       body: Column(
         children: [
+          if (avatar != null) _buildAvatarMedia(avatar),
           Expanded(
             child: ListView.builder(
-              padding: const EdgeInsets.all(8),
-              itemCount: messages.length,
-              itemBuilder: (context, idx) {
-                final msg = messages[idx];
-                final isUser = msg['isUser'] as bool;
-                return Row(
-                  mainAxisAlignment:
-                      isUser ? MainAxisAlignment.end : MainAxisAlignment.start,
-                  children: [
-                    if (!isUser)
-                      CircleAvatar(
-                        backgroundImage: NetworkImage(msg['avatar']),
-                        radius: 20,
-                      ),
-                    if (!isUser) const SizedBox(width: 8),
-                    Container(
-                      constraints: const BoxConstraints(maxWidth: 260),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 12),
-                      margin: const EdgeInsets.symmetric(
-                          vertical: 4, horizontal: 4),
-                      decoration: BoxDecoration(
-                        color: isUser
-                            ? const Color(0xFFc1b2e5)
-                            : const Color(0xFF2f2c35),
-                        borderRadius: BorderRadius.circular(18),
-                      ),
-                      child: Text(
-                        msg['text'],
-                        style: TextStyle(
-                          color: isUser
-                              ? const Color(0xFF141216)
-                              : Colors.white,
-                        ),
-                      ),
-                    ),
-                    if (isUser) const SizedBox(width: 8),
-                    if (isUser)
-                      CircleAvatar(
-                        backgroundImage: NetworkImage(msg['avatar']),
-                        radius: 20,
-                      ),
-                  ],
-                );
-              },
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              itemCount: _messages.length,
+              itemBuilder: (_, index) => _buildMessage(_messages[index]),
             ),
           ),
-          // Input
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-            color: const Color(0xFF201e24),
+          if (_isLoading)
+            const Padding(
+              padding: EdgeInsets.only(bottom: 8),
+              child: CircularProgressIndicator(),
+            ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
             child: Row(
               children: [
                 Expanded(
                   child: TextField(
-                    style: const TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: const Color(0xFF2f2c35),
-                      hintText: "Type a message",
-                      hintStyle: const TextStyle(color: Color(0xFFa7a2b3)),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(18),
-                          borderSide: BorderSide.none),
-                      contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 0),
+                    controller: _controller,
+                    onSubmitted: (_) => _sendMessage(),
+                    decoration: const InputDecoration(
+                      hintText: "Escribe tu mensaje...",
+                      border: OutlineInputBorder(),
                     ),
                   ),
                 ),
+                const SizedBox(width: 8),
                 IconButton(
-                  icon: const Icon(Icons.mic, color: Color(0xFFa7a2b3)),
-                  onPressed: () {},
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFc1b2e5),
-                      foregroundColor: const Color(0xFF141216),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(24))),
-                  child: const Text("Send"),
-                ),
+                  icon: const Icon(Icons.send),
+                  onPressed: _sendMessage,
+                )
               ],
             ),
           ),
-          // Barra de navegación inferior (sólo estructura visual)
-          Container(
-            color: const Color(0xFF201e24),
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Icon(Icons.chat_bubble, color: Colors.white),
-                Icon(Icons.history, color: Color(0xFFa7a2b3)),
-                Icon(Icons.person, color: Color(0xFFa7a2b3)),
-              ],
-            ),
-          )
         ],
       ),
     );

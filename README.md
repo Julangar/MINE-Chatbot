@@ -10,7 +10,7 @@ MINE es una aplicación móvil que permite a los usuarios crear un **compañero 
 - 🗣️ Chat en tiempo real con memoria contextual (OpenAI GPT)
 - 🎬 Respuestas animadas con video (D-ID)
 - ☁️ Sincronización en la nube con Firebase
-- 🌐 Multilenguaje: Soporte para varios idiomas (Arabic - Bulgarian - Chinese Simplified - Dutch - French - Greek - Hebrew - Hindi - Hungarian - Italian - Japanese - Korean - Polish - Portuguese - Portuguese, Brazilian - Russian - Spanish - Spanish, Latin America - Tagalog - Turkish - Vietnamese. Por el momento)
+- 🌐 Multilenguaje: Soporte para varios idiomas (Arabic (ar) - Bulgarian (bl) - Chinese Simplified (zh) - Dutch (de) - French (fr) - Greek (el) - Hebrew (he) - Hindi (hi) - Hungarian (hu) - Italian (it) - Japanese (ja) - Korean (ko) - Polish (pl) - Portuguese (pt) - Portuguese, Brazilian (pt-BR) - Russian (ru) - Spanish (es) - Spanish, Latin America (es-419) - Tagalog (tl) - Turkish (tr) - Vietnamese (vi). Por el momento)
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -158,7 +158,7 @@ A continuación puedes ver los wireframes principales del proyecto, ubicados en 
 | 14  | Almacenamiento y CRUD de perfiles de avatar                                              | ✅ Completado |
 | 15  | Pruebas completas del backend y documentación de API                                     | ✅ Completado |
 | 16  | Interfaz de resumen de avatar y proceso de generación visual                             | ✅ Completado |
-| 17  | Diseño de la pantalla de chat con avatar y campo de entrada                              |   |
+| 17  | Diseño de la pantalla de chat con avatar y campo de entrada                              | ✅ Completado |
 | 18  | Lógica de envío/recepción de mensajes y conexión con backend                             |   |
 | 19  | Visualización del avatar animado con reproductor de video                               |   |
 | 20  | Reproducción de respuestas de voz sincronizadas                                          |   |

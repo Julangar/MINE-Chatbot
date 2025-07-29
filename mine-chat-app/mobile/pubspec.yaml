@@ -48,6 +48,8 @@ dependencies:
   # Reproductor de audio y video
   audio_service: ^0.18.18
   video_player: ^2.7.0
+  audioplayers: ^5.2.1
+  
   # Permisos para cámara, micrófono, almacenamiento
   permission_handler: ^11.3.1
 
