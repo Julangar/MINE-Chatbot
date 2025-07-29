@@ -150,160 +150,10 @@ class AppLocalizationsIt extends AppLocalizations {
   String get chooseAvatarInstruction => 'Scegli un\'immagine e una voce, oppure un video per il tuo avatar.';
 
   @override
-  String get avatar_name_question => 'Scegli un nome per il tuo avatar.';
+  String get avatar_name_question => 'Choose a name for your avatar.';
 
   @override
-  String get avatar_name_hint => 'Esempio: Alex, Sam';
-
-  @override
-  String get relationship_question => 'Che relazione avrà questo avatar con te?';
-
-  @override
-  String get relationship_option_partner => 'Partner';
-
-  @override
-  String get relationship_option_spouse => 'Coniuge';
-
-  @override
-  String get relationship_option_boyfriend => 'Fidanzato/a';
-
-  @override
-  String get relationship_option_crush => 'Cotta';
-
-  @override
-  String get relationship_option_other => 'Altro';
-
-  @override
-  String get relationship_other_hint => 'Scrivi un\'altra relazione';
-
-  @override
-  String get response_style_question => 'Come dovrebbe risponderti l\'avatar?';
-
-  @override
-  String get response_style_option_friendly => 'Amichevole';
-
-  @override
-  String get response_style_option_supportive => 'Di supporto';
-
-  @override
-  String get response_style_option_motivational => 'Motivazionale';
-
-  @override
-  String get response_style_option_serious => 'Serio';
-
-  @override
-  String get response_style_option_funny => 'Divertente';
-
-  @override
-  String get response_style_option_reflective => 'Riflessivo';
-
-  @override
-  String get response_style_option_caring => 'Premuroso';
-
-  @override
-  String get response_style_option_wise => 'Saggio';
-
-  @override
-  String get response_style_option_strict => 'Severo';
-
-  @override
-  String get topics_question => 'Seleziona i principali argomenti di cui vuoi parlare.';
-
-  @override
-  String get topics_option_daily => 'Vita quotidiana';
-
-  @override
-  String get topics_option_feelings => 'Sentimenti';
-
-  @override
-  String get topics_option_advice => 'Consigli';
-
-  @override
-  String get topics_option_plans => 'Piani';
-
-  @override
-  String get topics_option_music => 'Musica';
-
-  @override
-  String get topics_option_movies => 'Film';
-
-  @override
-  String get topics_option_sports => 'Sport';
-
-  @override
-  String get topics_option_travel => 'Viaggi';
-
-  @override
-  String get topics_option_technology => 'Tecnologia';
-
-  @override
-  String get topics_option_family => 'Famiglia';
-
-  @override
-  String get topics_option_stories => 'Storie';
-
-  @override
-  String get topics_option_support => 'Supporto';
-
-  @override
-  String get topics_option_personal_growth => 'Crescita personale';
-
-  @override
-  String get topics_option_habits => 'Abitudini';
-
-  @override
-  String get topics_option_dreams => 'Sogni';
-
-  @override
-  String get topics_option_challenges => 'Sfide';
-
-  @override
-  String get topics_option_other => 'Altro';
-
-  @override
-  String get topics_other_hint => 'Scrivi un altro argomento';
-
-  @override
-  String get greeting_question => 'Come vuoi che l\'avatar ti saluti?';
-
-  @override
-  String get greeting_option_hi => 'Ciao';
-
-  @override
-  String get greeting_option_hello => 'Buongiorno';
-
-  @override
-  String get greeting_option_hey => 'Ehi';
-
-  @override
-  String get greeting_option_other => 'Altro';
-
-  @override
-  String get greeting_other_hint => 'Scrivi il tuo saluto';
-
-  @override
-  String get communication_frequency_question => 'Con quale frequenza vuoi che l\'avatar parli con te?';
-
-  @override
-  String get communication_frequency_label => 'Giorni a settimana';
-
-  @override
-  String get relationship_family_question => 'Che ruolo familiare avrà questo avatar?';
-
-  @override
-  String get relationship_option_mother => 'Madre';
-
-  @override
-  String get relationship_option_father => 'Padre';
-
-  @override
-  String get relationship_option_grandparent => 'Nonno/a';
-
-  @override
-  String get relationship_option_sibling => 'Fratello/Sorella';
-
-  @override
-  String get relationship_other_family_hint => 'Scrivi un altro ruolo';
+  String get avatar_name_hint => 'Example: Alex, Sam';
 
   @override
   String get successSave => 'Profilo salvato con successo!';
@@ -334,4 +184,118 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get typeMessage => 'Scrivi un messaggio';
+
+  @override
+  String get avatar_form_title => 'Personalizza il tuo avatar';
+
+  @override
+  String get avatar_form_name_label => 'Nome avatar';
+
+  @override
+  String get avatar_form_user_reference_label => 'Nome utente o riferimento';
+
+  @override
+  String get avatar_form_relationship_label => 'Relazione o ruolo (es. amico, coach)';
+
+  @override
+  String get avatar_form_speaking_style_label => 'Stile di conversazione';
+
+  @override
+  String get avatar_form_interests_label => 'Interessi';
+
+  @override
+  String get avatar_form_common_phrases_label => 'Frasi comuni';
+
+  @override
+  String get avatar_form_traits_label => 'Tratti della personalità';
+
+  @override
+  String get avatar_form_extroversion => 'Estroversione';
+
+  @override
+  String get avatar_form_agreeableness => 'Gradevolezza';
+
+  @override
+  String get avatar_form_conscientiousness => 'Coscienziosità';
+
+  @override
+  String get avatar_form_add_phrase_hint => 'es. Ciao!';
+
+  @override
+  String get avatar_form_continue_button => 'Continua';
+
+  @override
+  String get avatar_summary_title => 'Riepilogo avatar';
+
+  @override
+  String get avatar_summary_user => 'Utente';
+
+  @override
+  String get avatar_summary_relationship => 'Relazione';
+
+  @override
+  String get avatar_summary_style => 'Stile';
+
+  @override
+  String get avatar_summary_interests => 'Interessi';
+
+  @override
+  String get avatar_summary_phrases => 'Frasi comuni';
+
+  @override
+  String get avatar_summary_traits => 'Tratti';
+
+  @override
+  String get avatar_summary_create_button => 'Crea il mio avatar';
+
+  @override
+  String get avatar_summary_back_button => 'Torna a modificare la personalità';
+
+  @override
+  String get avatar_summary_extroversion => 'Estroversione';
+
+  @override
+  String get avatar_summary_agreeableness => 'Gradevolezza';
+
+  @override
+  String get avatar_summary_conscientiousness => 'Coscienziosità';
+
+  @override
+  String get avatar_loading_generating => 'Generazione avatar in corso...';
+
+  @override
+  String get avatar_error_video => 'Impossibile generare il video.';
+
+  @override
+  String get avatar_error_timeout => 'Il video non è stato generato in tempo.';
+
+  @override
+  String get avatar_not_available => 'Avatar non disponibile';
+
+  @override
+  String get style_casual => 'Casuale';
+
+  @override
+  String get style_formal => 'Formale';
+
+  @override
+  String get style_tierno => 'Affettuoso';
+
+  @override
+  String get style_divertido => 'Divertente';
+
+  @override
+  String get interest_music => 'Musica';
+
+  @override
+  String get interest_tech => 'Tecnologia';
+
+  @override
+  String get interest_travel => 'Viaggi';
+
+  @override
+  String get interest_books => 'Libri';
+
+  @override
+  String get interest_nature => 'Natura';
 }

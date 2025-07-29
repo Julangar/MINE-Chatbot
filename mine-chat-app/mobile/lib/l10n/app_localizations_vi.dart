@@ -150,160 +150,10 @@ class AppLocalizationsVi extends AppLocalizations {
   String get chooseAvatarInstruction => 'Chọn hình ảnh và giọng nói hoặc video mẫu cho avatar của bạn.';
 
   @override
-  String get avatar_name_question => 'Chọn tên cho avatar của bạn.';
+  String get avatar_name_question => 'Choose a name for your avatar.';
 
   @override
-  String get avatar_name_hint => 'Ví dụ: Alex, Sam';
-
-  @override
-  String get relationship_question => 'Avatar này sẽ có mối quan hệ gì với bạn?';
-
-  @override
-  String get relationship_option_partner => 'Người yêu';
-
-  @override
-  String get relationship_option_spouse => 'Vợ/Chồng';
-
-  @override
-  String get relationship_option_boyfriend => 'Bạn trai/Bạn gái';
-
-  @override
-  String get relationship_option_crush => 'Người thầm thích';
-
-  @override
-  String get relationship_option_other => 'Khác';
-
-  @override
-  String get relationship_other_hint => 'Viết mối quan hệ khác';
-
-  @override
-  String get response_style_question => 'Avatar nên trả lời bạn như thế nào?';
-
-  @override
-  String get response_style_option_friendly => 'Thân thiện';
-
-  @override
-  String get response_style_option_supportive => 'Hỗ trợ';
-
-  @override
-  String get response_style_option_motivational => 'Truyền cảm hứng';
-
-  @override
-  String get response_style_option_serious => 'Nghiêm túc';
-
-  @override
-  String get response_style_option_funny => 'Hài hước';
-
-  @override
-  String get response_style_option_reflective => 'Suy tư';
-
-  @override
-  String get response_style_option_caring => 'Quan tâm';
-
-  @override
-  String get response_style_option_wise => 'Thông thái';
-
-  @override
-  String get response_style_option_strict => 'Nghiêm khắc';
-
-  @override
-  String get topics_question => 'Chọn những chủ đề chính bạn muốn nói chuyện.';
-
-  @override
-  String get topics_option_daily => 'Cuộc sống hàng ngày';
-
-  @override
-  String get topics_option_feelings => 'Cảm xúc';
-
-  @override
-  String get topics_option_advice => 'Lời khuyên';
-
-  @override
-  String get topics_option_plans => 'Kế hoạch';
-
-  @override
-  String get topics_option_music => 'Âm nhạc';
-
-  @override
-  String get topics_option_movies => 'Phim ảnh';
-
-  @override
-  String get topics_option_sports => 'Thể thao';
-
-  @override
-  String get topics_option_travel => 'Du lịch';
-
-  @override
-  String get topics_option_technology => 'Công nghệ';
-
-  @override
-  String get topics_option_family => 'Gia đình';
-
-  @override
-  String get topics_option_stories => 'Câu chuyện';
-
-  @override
-  String get topics_option_support => 'Hỗ trợ';
-
-  @override
-  String get topics_option_personal_growth => 'Phát triển cá nhân';
-
-  @override
-  String get topics_option_habits => 'Thói quen';
-
-  @override
-  String get topics_option_dreams => 'Giấc mơ';
-
-  @override
-  String get topics_option_challenges => 'Thử thách';
-
-  @override
-  String get topics_option_other => 'Khác';
-
-  @override
-  String get topics_other_hint => 'Viết chủ đề khác';
-
-  @override
-  String get greeting_question => 'Bạn muốn avatar chào bạn như thế nào?';
-
-  @override
-  String get greeting_option_hi => 'Chào';
-
-  @override
-  String get greeting_option_hello => 'Xin chào';
-
-  @override
-  String get greeting_option_hey => 'Hey';
-
-  @override
-  String get greeting_option_other => 'Khác';
-
-  @override
-  String get greeting_other_hint => 'Viết lời chào riêng';
-
-  @override
-  String get communication_frequency_question => 'Bạn muốn avatar nói chuyện với bạn thường xuyên như thế nào?';
-
-  @override
-  String get communication_frequency_label => 'Ngày mỗi tuần';
-
-  @override
-  String get relationship_family_question => 'Avatar này sẽ có vai trò gia đình gì?';
-
-  @override
-  String get relationship_option_mother => 'Mẹ';
-
-  @override
-  String get relationship_option_father => 'Bố';
-
-  @override
-  String get relationship_option_grandparent => 'Ông/Bà';
-
-  @override
-  String get relationship_option_sibling => 'Anh/Chị/Em';
-
-  @override
-  String get relationship_other_family_hint => 'Viết vai trò khác';
+  String get avatar_name_hint => 'Example: Alex, Sam';
 
   @override
   String get successSave => 'Lưu hồ sơ thành công!';
@@ -334,4 +184,118 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get typeMessage => 'Nhập tin nhắn';
+
+  @override
+  String get avatar_form_title => 'Tùy chỉnh avatar của bạn';
+
+  @override
+  String get avatar_form_name_label => 'Tên avatar';
+
+  @override
+  String get avatar_form_user_reference_label => 'Tên người dùng hoặc tham chiếu';
+
+  @override
+  String get avatar_form_relationship_label => 'Mối quan hệ hoặc vai trò (ví dụ: bạn, huấn luyện viên)';
+
+  @override
+  String get avatar_form_speaking_style_label => 'Kiểu nói chuyện';
+
+  @override
+  String get avatar_form_interests_label => 'Sở thích';
+
+  @override
+  String get avatar_form_common_phrases_label => 'Cụm từ thường dùng';
+
+  @override
+  String get avatar_form_traits_label => 'Đặc điểm tính cách';
+
+  @override
+  String get avatar_form_extroversion => 'Hướng ngoại';
+
+  @override
+  String get avatar_form_agreeableness => 'Hòa đồng';
+
+  @override
+  String get avatar_form_conscientiousness => 'Tận tâm';
+
+  @override
+  String get avatar_form_add_phrase_hint => 'ví dụ: Xin chào!';
+
+  @override
+  String get avatar_form_continue_button => 'Tiếp tục';
+
+  @override
+  String get avatar_summary_title => 'Tóm tắt avatar';
+
+  @override
+  String get avatar_summary_user => 'Người dùng';
+
+  @override
+  String get avatar_summary_relationship => 'Mối quan hệ';
+
+  @override
+  String get avatar_summary_style => 'Phong cách';
+
+  @override
+  String get avatar_summary_interests => 'Sở thích';
+
+  @override
+  String get avatar_summary_phrases => 'Cụm từ thường dùng';
+
+  @override
+  String get avatar_summary_traits => 'Đặc điểm';
+
+  @override
+  String get avatar_summary_create_button => 'Tạo avatar của tôi';
+
+  @override
+  String get avatar_summary_back_button => 'Quay lại chỉnh sửa tính cách';
+
+  @override
+  String get avatar_summary_extroversion => 'Hướng ngoại';
+
+  @override
+  String get avatar_summary_agreeableness => 'Hòa đồng';
+
+  @override
+  String get avatar_summary_conscientiousness => 'Tận tâm';
+
+  @override
+  String get avatar_loading_generating => 'Đang tạo avatar...';
+
+  @override
+  String get avatar_error_video => 'Không thể tạo video.';
+
+  @override
+  String get avatar_error_timeout => 'Không tạo được video kịp thời.';
+
+  @override
+  String get avatar_not_available => 'Avatar không khả dụng';
+
+  @override
+  String get style_casual => 'Thoải mái';
+
+  @override
+  String get style_formal => 'Trang trọng';
+
+  @override
+  String get style_tierno => 'Ân cần';
+
+  @override
+  String get style_divertido => 'Vui vẻ';
+
+  @override
+  String get interest_music => 'Âm nhạc';
+
+  @override
+  String get interest_tech => 'Công nghệ';
+
+  @override
+  String get interest_travel => 'Du lịch';
+
+  @override
+  String get interest_books => 'Sách';
+
+  @override
+  String get interest_nature => 'Thiên nhiên';
 }

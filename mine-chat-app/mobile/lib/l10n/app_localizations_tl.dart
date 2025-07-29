@@ -150,160 +150,10 @@ class AppLocalizationsTl extends AppLocalizations {
   String get chooseAvatarInstruction => 'Pumili ng larawan at boses, o sample na video para sa iyong avatar.';
 
   @override
-  String get avatar_name_question => 'Pumili ng pangalan para sa iyong avatar.';
+  String get avatar_name_question => 'Choose a name for your avatar.';
 
   @override
-  String get avatar_name_hint => 'Hal: Alex, Sam';
-
-  @override
-  String get relationship_question => 'Anong relasyon ang magkakaroon ng avatar na ito sa iyo?';
-
-  @override
-  String get relationship_option_partner => 'Partner';
-
-  @override
-  String get relationship_option_spouse => 'Asawa';
-
-  @override
-  String get relationship_option_boyfriend => 'Nobyo/Nobya';
-
-  @override
-  String get relationship_option_crush => 'Crush';
-
-  @override
-  String get relationship_option_other => 'Iba pa';
-
-  @override
-  String get relationship_other_hint => 'Isulat ang ibang relasyon';
-
-  @override
-  String get response_style_question => 'Paano dapat tumugon ang avatar sa iyo?';
-
-  @override
-  String get response_style_option_friendly => 'Palakaibigan';
-
-  @override
-  String get response_style_option_supportive => 'Sumusuporta';
-
-  @override
-  String get response_style_option_motivational => 'Nagpapalakas ng loob';
-
-  @override
-  String get response_style_option_serious => 'Seryoso';
-
-  @override
-  String get response_style_option_funny => 'Nakakatawa';
-
-  @override
-  String get response_style_option_reflective => 'Mapagmuni-muni';
-
-  @override
-  String get response_style_option_caring => 'Maalaga';
-
-  @override
-  String get response_style_option_wise => 'Matalino';
-
-  @override
-  String get response_style_option_strict => 'Mahigpit';
-
-  @override
-  String get topics_question => 'Piliin ang pangunahing mga paksa na gusto mong pag-usapan.';
-
-  @override
-  String get topics_option_daily => 'Pang-araw-araw na buhay';
-
-  @override
-  String get topics_option_feelings => 'Damdamin';
-
-  @override
-  String get topics_option_advice => 'Payo';
-
-  @override
-  String get topics_option_plans => 'Plano';
-
-  @override
-  String get topics_option_music => 'Musika';
-
-  @override
-  String get topics_option_movies => 'Pelikula';
-
-  @override
-  String get topics_option_sports => 'Isports';
-
-  @override
-  String get topics_option_travel => 'Paglalakbay';
-
-  @override
-  String get topics_option_technology => 'Teknolohiya';
-
-  @override
-  String get topics_option_family => 'Pamilya';
-
-  @override
-  String get topics_option_stories => 'Mga kuwento';
-
-  @override
-  String get topics_option_support => 'Suporta';
-
-  @override
-  String get topics_option_personal_growth => 'Personal na paglago';
-
-  @override
-  String get topics_option_habits => 'Mga gawain';
-
-  @override
-  String get topics_option_dreams => 'Mga pangarap';
-
-  @override
-  String get topics_option_challenges => 'Mga hamon';
-
-  @override
-  String get topics_option_other => 'Iba pa';
-
-  @override
-  String get topics_other_hint => 'Isulat ang ibang paksa';
-
-  @override
-  String get greeting_question => 'Paano mo gustong batiin ka ng avatar?';
-
-  @override
-  String get greeting_option_hi => 'Hi';
-
-  @override
-  String get greeting_option_hello => 'Magandang araw';
-
-  @override
-  String get greeting_option_hey => 'Hey';
-
-  @override
-  String get greeting_option_other => 'Iba pa';
-
-  @override
-  String get greeting_other_hint => 'Isulat ang iyong sariling pagbati';
-
-  @override
-  String get communication_frequency_question => 'Gaano kadalas mo gustong kausapin ka ng avatar?';
-
-  @override
-  String get communication_frequency_label => 'Araw kada linggo';
-
-  @override
-  String get relationship_family_question => 'Anong papel sa pamilya ang gagampanan ng avatar na ito?';
-
-  @override
-  String get relationship_option_mother => 'Ina';
-
-  @override
-  String get relationship_option_father => 'Ama';
-
-  @override
-  String get relationship_option_grandparent => 'Lolo/Lola';
-
-  @override
-  String get relationship_option_sibling => 'Kapatid';
-
-  @override
-  String get relationship_other_family_hint => 'Isulat ang ibang papel';
+  String get avatar_name_hint => 'Example: Alex, Sam';
 
   @override
   String get successSave => 'Matagumpay na nasave ang profile!';
@@ -334,4 +184,118 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get typeMessage => 'Mag-type ng mensahe';
+
+  @override
+  String get avatar_form_title => 'I-customize ang iyong avatar';
+
+  @override
+  String get avatar_form_name_label => 'Pangalan ng avatar';
+
+  @override
+  String get avatar_form_user_reference_label => 'Pangalan ng user o reference';
+
+  @override
+  String get avatar_form_relationship_label => 'Relasyon o papel (hal. kaibigan, coach)';
+
+  @override
+  String get avatar_form_speaking_style_label => 'Estilo ng pagsasalita';
+
+  @override
+  String get avatar_form_interests_label => 'Mga interes';
+
+  @override
+  String get avatar_form_common_phrases_label => 'Karaniwang mga parirala';
+
+  @override
+  String get avatar_form_traits_label => 'Mga katangian ng personalidad';
+
+  @override
+  String get avatar_form_extroversion => 'Pagiging extrovert';
+
+  @override
+  String get avatar_form_agreeableness => 'Pagiging madaling makisama';
+
+  @override
+  String get avatar_form_conscientiousness => 'Pagiging responsable';
+
+  @override
+  String get avatar_form_add_phrase_hint => 'hal. Hi!';
+
+  @override
+  String get avatar_form_continue_button => 'Magpatuloy';
+
+  @override
+  String get avatar_summary_title => 'Buod ng avatar';
+
+  @override
+  String get avatar_summary_user => 'User';
+
+  @override
+  String get avatar_summary_relationship => 'Relasyon';
+
+  @override
+  String get avatar_summary_style => 'Estilo';
+
+  @override
+  String get avatar_summary_interests => 'Mga interes';
+
+  @override
+  String get avatar_summary_phrases => 'Karaniwang mga parirala';
+
+  @override
+  String get avatar_summary_traits => 'Mga katangian';
+
+  @override
+  String get avatar_summary_create_button => 'Gumawa ng aking avatar';
+
+  @override
+  String get avatar_summary_back_button => 'Bumalik sa pag-edit ng personalidad';
+
+  @override
+  String get avatar_summary_extroversion => 'Pagiging extrovert';
+
+  @override
+  String get avatar_summary_agreeableness => 'Pagiging madaling makisama';
+
+  @override
+  String get avatar_summary_conscientiousness => 'Pagiging responsable';
+
+  @override
+  String get avatar_loading_generating => 'Gumagawa ng avatar...';
+
+  @override
+  String get avatar_error_video => 'Nabigong gumawa ng video.';
+
+  @override
+  String get avatar_error_timeout => 'Hindi nagawang mag-generate ng video sa oras.';
+
+  @override
+  String get avatar_not_available => 'Hindi available ang avatar';
+
+  @override
+  String get style_casual => 'Kaswal';
+
+  @override
+  String get style_formal => 'Pormal';
+
+  @override
+  String get style_tierno => 'Malambing';
+
+  @override
+  String get style_divertido => 'Nakakatawa';
+
+  @override
+  String get interest_music => 'Musika';
+
+  @override
+  String get interest_tech => 'Teknolohiya';
+
+  @override
+  String get interest_travel => 'Paglalakbay';
+
+  @override
+  String get interest_books => 'Mga libro';
+
+  @override
+  String get interest_nature => 'Kalikasan';
 }

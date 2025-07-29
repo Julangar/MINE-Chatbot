@@ -150,160 +150,10 @@ class AppLocalizationsHu extends AppLocalizations {
   String get chooseAvatarInstruction => 'Válasszon képet és hangot vagy videót az avatarjához.';
 
   @override
-  String get avatar_name_question => 'Válasszon nevet az avatarjának.';
+  String get avatar_name_question => 'Choose a name for your avatar.';
 
   @override
-  String get avatar_name_hint => 'Például: Alex, Sam';
-
-  @override
-  String get relationship_question => 'Milyen kapcsolatban lesz az avatar Önnel?';
-
-  @override
-  String get relationship_option_partner => 'Partner';
-
-  @override
-  String get relationship_option_spouse => 'Házastárs';
-
-  @override
-  String get relationship_option_boyfriend => 'Barát/barátnő';
-
-  @override
-  String get relationship_option_crush => 'Szerelmi érdeklődés';
-
-  @override
-  String get relationship_option_other => 'Egyéb';
-
-  @override
-  String get relationship_other_hint => 'Írjon más kapcsolatot';
-
-  @override
-  String get response_style_question => 'Hogyan válaszoljon Önnek az avatar?';
-
-  @override
-  String get response_style_option_friendly => 'Barátságos';
-
-  @override
-  String get response_style_option_supportive => 'Támogató';
-
-  @override
-  String get response_style_option_motivational => 'Motiváló';
-
-  @override
-  String get response_style_option_serious => 'Komoly';
-
-  @override
-  String get response_style_option_funny => 'Vicces';
-
-  @override
-  String get response_style_option_reflective => 'Elmélkedő';
-
-  @override
-  String get response_style_option_caring => 'Gondoskodó';
-
-  @override
-  String get response_style_option_wise => 'Bölcs';
-
-  @override
-  String get response_style_option_strict => 'Szigorú';
-
-  @override
-  String get topics_question => 'Válassza ki a főbb témákat, amelyekről beszélni szeretne.';
-
-  @override
-  String get topics_option_daily => 'Mindennapi élet';
-
-  @override
-  String get topics_option_feelings => 'Érzelmek';
-
-  @override
-  String get topics_option_advice => 'Tanácsok';
-
-  @override
-  String get topics_option_plans => 'Tervek';
-
-  @override
-  String get topics_option_music => 'Zene';
-
-  @override
-  String get topics_option_movies => 'Filmek';
-
-  @override
-  String get topics_option_sports => 'Sport';
-
-  @override
-  String get topics_option_travel => 'Utazás';
-
-  @override
-  String get topics_option_technology => 'Technológia';
-
-  @override
-  String get topics_option_family => 'Család';
-
-  @override
-  String get topics_option_stories => 'Történetek';
-
-  @override
-  String get topics_option_support => 'Támogatás';
-
-  @override
-  String get topics_option_personal_growth => 'Személyes fejlődés';
-
-  @override
-  String get topics_option_habits => 'Szokások';
-
-  @override
-  String get topics_option_dreams => 'Álmok';
-
-  @override
-  String get topics_option_challenges => 'Kihívások';
-
-  @override
-  String get topics_option_other => 'Egyéb';
-
-  @override
-  String get topics_other_hint => 'Írjon más témát';
-
-  @override
-  String get greeting_question => 'Hogyan üdvözölje Önt az avatar?';
-
-  @override
-  String get greeting_option_hi => 'Szia';
-
-  @override
-  String get greeting_option_hello => 'Jó napot';
-
-  @override
-  String get greeting_option_hey => 'Helló';
-
-  @override
-  String get greeting_option_other => 'Egyéb';
-
-  @override
-  String get greeting_other_hint => 'Írja be saját üdvözletét';
-
-  @override
-  String get communication_frequency_question => 'Milyen gyakran beszéljen Önnel az avatar?';
-
-  @override
-  String get communication_frequency_label => 'Napok hetente';
-
-  @override
-  String get relationship_family_question => 'Milyen családi szerepe lesz ennek az avatarnak?';
-
-  @override
-  String get relationship_option_mother => 'Anya';
-
-  @override
-  String get relationship_option_father => 'Apa';
-
-  @override
-  String get relationship_option_grandparent => 'Nagyszülő';
-
-  @override
-  String get relationship_option_sibling => 'Testvér';
-
-  @override
-  String get relationship_other_family_hint => 'Írjon más szerepet';
+  String get avatar_name_hint => 'Example: Alex, Sam';
 
   @override
   String get successSave => 'A profil sikeresen mentve!';
@@ -334,4 +184,118 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get typeMessage => 'Írjon üzenetet';
+
+  @override
+  String get avatar_form_title => 'Avatar testreszabása';
+
+  @override
+  String get avatar_form_name_label => 'Avatar neve';
+
+  @override
+  String get avatar_form_user_reference_label => 'Felhasználónév vagy hivatkozás';
+
+  @override
+  String get avatar_form_relationship_label => 'Kapcsolat vagy szerep (pl. barát, edző)';
+
+  @override
+  String get avatar_form_speaking_style_label => 'Beszédstílus';
+
+  @override
+  String get avatar_form_interests_label => 'Érdeklődési körök';
+
+  @override
+  String get avatar_form_common_phrases_label => 'Gyakori kifejezések';
+
+  @override
+  String get avatar_form_traits_label => 'Személyiségjegyek';
+
+  @override
+  String get avatar_form_extroversion => 'Extroverzió';
+
+  @override
+  String get avatar_form_agreeableness => 'Barátságosság';
+
+  @override
+  String get avatar_form_conscientiousness => 'Lelkiismeretesség';
+
+  @override
+  String get avatar_form_add_phrase_hint => 'pl. Helló!';
+
+  @override
+  String get avatar_form_continue_button => 'Folytatás';
+
+  @override
+  String get avatar_summary_title => 'Avatar összegzés';
+
+  @override
+  String get avatar_summary_user => 'Felhasználó';
+
+  @override
+  String get avatar_summary_relationship => 'Kapcsolat';
+
+  @override
+  String get avatar_summary_style => 'Stílus';
+
+  @override
+  String get avatar_summary_interests => 'Érdeklődés';
+
+  @override
+  String get avatar_summary_phrases => 'Gyakori kifejezések';
+
+  @override
+  String get avatar_summary_traits => 'Jellemzők';
+
+  @override
+  String get avatar_summary_create_button => 'Avatar létrehozása';
+
+  @override
+  String get avatar_summary_back_button => 'Vissza a személyiség szerkesztéséhez';
+
+  @override
+  String get avatar_summary_extroversion => 'Extroverzió';
+
+  @override
+  String get avatar_summary_agreeableness => 'Barátságosság';
+
+  @override
+  String get avatar_summary_conscientiousness => 'Lelkiismeretesség';
+
+  @override
+  String get avatar_loading_generating => 'Avatar generálása...';
+
+  @override
+  String get avatar_error_video => 'A videó generálása sikertelen.';
+
+  @override
+  String get avatar_error_timeout => 'A videó nem készült el időben.';
+
+  @override
+  String get avatar_not_available => 'Az avatar nem érhető el';
+
+  @override
+  String get style_casual => 'Laza';
+
+  @override
+  String get style_formal => 'Formális';
+
+  @override
+  String get style_tierno => 'Gyengéd';
+
+  @override
+  String get style_divertido => 'Vicces';
+
+  @override
+  String get interest_music => 'Zene';
+
+  @override
+  String get interest_tech => 'Technológia';
+
+  @override
+  String get interest_travel => 'Utazás';
+
+  @override
+  String get interest_books => 'Könyvek';
+
+  @override
+  String get interest_nature => 'Természet';
 }

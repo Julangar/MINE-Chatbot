@@ -427,306 +427,6 @@ abstract class AppLocalizations {
   /// **'Example: Alex, Sam'**
   String get avatar_name_hint;
 
-  /// No description provided for @relationship_question.
-  ///
-  /// In en, this message translates to:
-  /// **'What relationship will this avatar have with you?'**
-  String get relationship_question;
-
-  /// No description provided for @relationship_option_partner.
-  ///
-  /// In en, this message translates to:
-  /// **'Partner'**
-  String get relationship_option_partner;
-
-  /// No description provided for @relationship_option_spouse.
-  ///
-  /// In en, this message translates to:
-  /// **'Spouse'**
-  String get relationship_option_spouse;
-
-  /// No description provided for @relationship_option_boyfriend.
-  ///
-  /// In en, this message translates to:
-  /// **'Boyfriend/Girlfriend'**
-  String get relationship_option_boyfriend;
-
-  /// No description provided for @relationship_option_crush.
-  ///
-  /// In en, this message translates to:
-  /// **'Crush'**
-  String get relationship_option_crush;
-
-  /// No description provided for @relationship_option_other.
-  ///
-  /// In en, this message translates to:
-  /// **'Other'**
-  String get relationship_option_other;
-
-  /// No description provided for @relationship_other_hint.
-  ///
-  /// In en, this message translates to:
-  /// **'Write another relationship'**
-  String get relationship_other_hint;
-
-  /// No description provided for @response_style_question.
-  ///
-  /// In en, this message translates to:
-  /// **'How should the avatar respond to you?'**
-  String get response_style_question;
-
-  /// No description provided for @response_style_option_friendly.
-  ///
-  /// In en, this message translates to:
-  /// **'Friendly'**
-  String get response_style_option_friendly;
-
-  /// No description provided for @response_style_option_supportive.
-  ///
-  /// In en, this message translates to:
-  /// **'Supportive'**
-  String get response_style_option_supportive;
-
-  /// No description provided for @response_style_option_motivational.
-  ///
-  /// In en, this message translates to:
-  /// **'Motivational'**
-  String get response_style_option_motivational;
-
-  /// No description provided for @response_style_option_serious.
-  ///
-  /// In en, this message translates to:
-  /// **'Serious'**
-  String get response_style_option_serious;
-
-  /// No description provided for @response_style_option_funny.
-  ///
-  /// In en, this message translates to:
-  /// **'Funny'**
-  String get response_style_option_funny;
-
-  /// No description provided for @response_style_option_reflective.
-  ///
-  /// In en, this message translates to:
-  /// **'Reflective'**
-  String get response_style_option_reflective;
-
-  /// No description provided for @response_style_option_caring.
-  ///
-  /// In en, this message translates to:
-  /// **'Caring'**
-  String get response_style_option_caring;
-
-  /// No description provided for @response_style_option_wise.
-  ///
-  /// In en, this message translates to:
-  /// **'Wise'**
-  String get response_style_option_wise;
-
-  /// No description provided for @response_style_option_strict.
-  ///
-  /// In en, this message translates to:
-  /// **'Strict'**
-  String get response_style_option_strict;
-
-  /// No description provided for @topics_question.
-  ///
-  /// In en, this message translates to:
-  /// **'Select the main topics you want to talk about.'**
-  String get topics_question;
-
-  /// No description provided for @topics_option_daily.
-  ///
-  /// In en, this message translates to:
-  /// **'Daily life'**
-  String get topics_option_daily;
-
-  /// No description provided for @topics_option_feelings.
-  ///
-  /// In en, this message translates to:
-  /// **'Feelings'**
-  String get topics_option_feelings;
-
-  /// No description provided for @topics_option_advice.
-  ///
-  /// In en, this message translates to:
-  /// **'Advice'**
-  String get topics_option_advice;
-
-  /// No description provided for @topics_option_plans.
-  ///
-  /// In en, this message translates to:
-  /// **'Plans'**
-  String get topics_option_plans;
-
-  /// No description provided for @topics_option_music.
-  ///
-  /// In en, this message translates to:
-  /// **'Music'**
-  String get topics_option_music;
-
-  /// No description provided for @topics_option_movies.
-  ///
-  /// In en, this message translates to:
-  /// **'Movies'**
-  String get topics_option_movies;
-
-  /// No description provided for @topics_option_sports.
-  ///
-  /// In en, this message translates to:
-  /// **'Sports'**
-  String get topics_option_sports;
-
-  /// No description provided for @topics_option_travel.
-  ///
-  /// In en, this message translates to:
-  /// **'Travel'**
-  String get topics_option_travel;
-
-  /// No description provided for @topics_option_technology.
-  ///
-  /// In en, this message translates to:
-  /// **'Technology'**
-  String get topics_option_technology;
-
-  /// No description provided for @topics_option_family.
-  ///
-  /// In en, this message translates to:
-  /// **'Family'**
-  String get topics_option_family;
-
-  /// No description provided for @topics_option_stories.
-  ///
-  /// In en, this message translates to:
-  /// **'Stories'**
-  String get topics_option_stories;
-
-  /// No description provided for @topics_option_support.
-  ///
-  /// In en, this message translates to:
-  /// **'Support'**
-  String get topics_option_support;
-
-  /// No description provided for @topics_option_personal_growth.
-  ///
-  /// In en, this message translates to:
-  /// **'Personal growth'**
-  String get topics_option_personal_growth;
-
-  /// No description provided for @topics_option_habits.
-  ///
-  /// In en, this message translates to:
-  /// **'Habits'**
-  String get topics_option_habits;
-
-  /// No description provided for @topics_option_dreams.
-  ///
-  /// In en, this message translates to:
-  /// **'Dreams'**
-  String get topics_option_dreams;
-
-  /// No description provided for @topics_option_challenges.
-  ///
-  /// In en, this message translates to:
-  /// **'Challenges'**
-  String get topics_option_challenges;
-
-  /// No description provided for @topics_option_other.
-  ///
-  /// In en, this message translates to:
-  /// **'Other'**
-  String get topics_option_other;
-
-  /// No description provided for @topics_other_hint.
-  ///
-  /// In en, this message translates to:
-  /// **'Write another topic'**
-  String get topics_other_hint;
-
-  /// No description provided for @greeting_question.
-  ///
-  /// In en, this message translates to:
-  /// **'How do you want the avatar to greet you?'**
-  String get greeting_question;
-
-  /// No description provided for @greeting_option_hi.
-  ///
-  /// In en, this message translates to:
-  /// **'Hi'**
-  String get greeting_option_hi;
-
-  /// No description provided for @greeting_option_hello.
-  ///
-  /// In en, this message translates to:
-  /// **'Hello'**
-  String get greeting_option_hello;
-
-  /// No description provided for @greeting_option_hey.
-  ///
-  /// In en, this message translates to:
-  /// **'Hey'**
-  String get greeting_option_hey;
-
-  /// No description provided for @greeting_option_other.
-  ///
-  /// In en, this message translates to:
-  /// **'Other'**
-  String get greeting_option_other;
-
-  /// No description provided for @greeting_other_hint.
-  ///
-  /// In en, this message translates to:
-  /// **'Write your own greeting'**
-  String get greeting_other_hint;
-
-  /// No description provided for @communication_frequency_question.
-  ///
-  /// In en, this message translates to:
-  /// **'How often do you want the avatar to talk to you?'**
-  String get communication_frequency_question;
-
-  /// No description provided for @communication_frequency_label.
-  ///
-  /// In en, this message translates to:
-  /// **'Days per week'**
-  String get communication_frequency_label;
-
-  /// No description provided for @relationship_family_question.
-  ///
-  /// In en, this message translates to:
-  /// **'What family role will this avatar have?'**
-  String get relationship_family_question;
-
-  /// No description provided for @relationship_option_mother.
-  ///
-  /// In en, this message translates to:
-  /// **'Mother'**
-  String get relationship_option_mother;
-
-  /// No description provided for @relationship_option_father.
-  ///
-  /// In en, this message translates to:
-  /// **'Father'**
-  String get relationship_option_father;
-
-  /// No description provided for @relationship_option_grandparent.
-  ///
-  /// In en, this message translates to:
-  /// **'Grandparent'**
-  String get relationship_option_grandparent;
-
-  /// No description provided for @relationship_option_sibling.
-  ///
-  /// In en, this message translates to:
-  /// **'Sibling'**
-  String get relationship_option_sibling;
-
-  /// No description provided for @relationship_other_family_hint.
-  ///
-  /// In en, this message translates to:
-  /// **'Write another role'**
-  String get relationship_other_family_hint;
-
   /// No description provided for @successSave.
   ///
   /// In en, this message translates to:
@@ -786,6 +486,234 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Type a message'**
   String get typeMessage;
+
+  /// No description provided for @avatar_form_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Customize your avatar'**
+  String get avatar_form_title;
+
+  /// No description provided for @avatar_form_name_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Avatar name'**
+  String get avatar_form_name_label;
+
+  /// No description provided for @avatar_form_user_reference_label.
+  ///
+  /// In en, this message translates to:
+  /// **'User name or reference'**
+  String get avatar_form_user_reference_label;
+
+  /// No description provided for @avatar_form_relationship_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Relationship or role (e.g. friend, coach)'**
+  String get avatar_form_relationship_label;
+
+  /// No description provided for @avatar_form_speaking_style_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Speaking style'**
+  String get avatar_form_speaking_style_label;
+
+  /// No description provided for @avatar_form_interests_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Interests'**
+  String get avatar_form_interests_label;
+
+  /// No description provided for @avatar_form_common_phrases_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Common phrases'**
+  String get avatar_form_common_phrases_label;
+
+  /// No description provided for @avatar_form_traits_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Personality traits'**
+  String get avatar_form_traits_label;
+
+  /// No description provided for @avatar_form_extroversion.
+  ///
+  /// In en, this message translates to:
+  /// **'Extroversion'**
+  String get avatar_form_extroversion;
+
+  /// No description provided for @avatar_form_agreeableness.
+  ///
+  /// In en, this message translates to:
+  /// **'Agreeableness'**
+  String get avatar_form_agreeableness;
+
+  /// No description provided for @avatar_form_conscientiousness.
+  ///
+  /// In en, this message translates to:
+  /// **'Conscientiousness'**
+  String get avatar_form_conscientiousness;
+
+  /// No description provided for @avatar_form_add_phrase_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Hello!'**
+  String get avatar_form_add_phrase_hint;
+
+  /// No description provided for @avatar_form_continue_button.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get avatar_form_continue_button;
+
+  /// No description provided for @avatar_summary_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Avatar Summary'**
+  String get avatar_summary_title;
+
+  /// No description provided for @avatar_summary_user.
+  ///
+  /// In en, this message translates to:
+  /// **'User'**
+  String get avatar_summary_user;
+
+  /// No description provided for @avatar_summary_relationship.
+  ///
+  /// In en, this message translates to:
+  /// **'Relationship'**
+  String get avatar_summary_relationship;
+
+  /// No description provided for @avatar_summary_style.
+  ///
+  /// In en, this message translates to:
+  /// **'Style'**
+  String get avatar_summary_style;
+
+  /// No description provided for @avatar_summary_interests.
+  ///
+  /// In en, this message translates to:
+  /// **'Interests'**
+  String get avatar_summary_interests;
+
+  /// No description provided for @avatar_summary_phrases.
+  ///
+  /// In en, this message translates to:
+  /// **'Common phrases'**
+  String get avatar_summary_phrases;
+
+  /// No description provided for @avatar_summary_traits.
+  ///
+  /// In en, this message translates to:
+  /// **'Traits'**
+  String get avatar_summary_traits;
+
+  /// No description provided for @avatar_summary_create_button.
+  ///
+  /// In en, this message translates to:
+  /// **'Create my avatar'**
+  String get avatar_summary_create_button;
+
+  /// No description provided for @avatar_summary_back_button.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to edit personality'**
+  String get avatar_summary_back_button;
+
+  /// No description provided for @avatar_summary_extroversion.
+  ///
+  /// In en, this message translates to:
+  /// **'Extroversion'**
+  String get avatar_summary_extroversion;
+
+  /// No description provided for @avatar_summary_agreeableness.
+  ///
+  /// In en, this message translates to:
+  /// **'Agreeableness'**
+  String get avatar_summary_agreeableness;
+
+  /// No description provided for @avatar_summary_conscientiousness.
+  ///
+  /// In en, this message translates to:
+  /// **'Conscientiousness'**
+  String get avatar_summary_conscientiousness;
+
+  /// No description provided for @avatar_loading_generating.
+  ///
+  /// In en, this message translates to:
+  /// **'Generating avatar...'**
+  String get avatar_loading_generating;
+
+  /// No description provided for @avatar_error_video.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to generate the video.'**
+  String get avatar_error_video;
+
+  /// No description provided for @avatar_error_timeout.
+  ///
+  /// In en, this message translates to:
+  /// **'The video could not be generated in time.'**
+  String get avatar_error_timeout;
+
+  /// No description provided for @avatar_not_available.
+  ///
+  /// In en, this message translates to:
+  /// **'Avatar not available'**
+  String get avatar_not_available;
+
+  /// No description provided for @style_casual.
+  ///
+  /// In en, this message translates to:
+  /// **'Casual'**
+  String get style_casual;
+
+  /// No description provided for @style_formal.
+  ///
+  /// In en, this message translates to:
+  /// **'Formal'**
+  String get style_formal;
+
+  /// No description provided for @style_tierno.
+  ///
+  /// In en, this message translates to:
+  /// **'Tender'**
+  String get style_tierno;
+
+  /// No description provided for @style_divertido.
+  ///
+  /// In en, this message translates to:
+  /// **'Funny'**
+  String get style_divertido;
+
+  /// No description provided for @interest_music.
+  ///
+  /// In en, this message translates to:
+  /// **'Music'**
+  String get interest_music;
+
+  /// No description provided for @interest_tech.
+  ///
+  /// In en, this message translates to:
+  /// **'Technology'**
+  String get interest_tech;
+
+  /// No description provided for @interest_travel.
+  ///
+  /// In en, this message translates to:
+  /// **'Travel'**
+  String get interest_travel;
+
+  /// No description provided for @interest_books.
+  ///
+  /// In en, this message translates to:
+  /// **'Books'**
+  String get interest_books;
+
+  /// No description provided for @interest_nature.
+  ///
+  /// In en, this message translates to:
+  /// **'Nature'**
+  String get interest_nature;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

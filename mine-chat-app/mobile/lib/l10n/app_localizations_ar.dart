@@ -150,160 +150,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get chooseAvatarInstruction => 'اختر صورة وصوتًا أو فيديو لصورتك الرمزية.';
 
   @override
-  String get avatar_name_question => 'اختر اسمًا لصورتك الرمزية.';
+  String get avatar_name_question => 'Choose a name for your avatar.';
 
   @override
-  String get avatar_name_hint => 'مثال: Alex, Sam';
-
-  @override
-  String get relationship_question => 'ما العلاقة التي ستكون لهذه الصورة معك؟';
-
-  @override
-  String get relationship_option_partner => 'شريك/ة';
-
-  @override
-  String get relationship_option_spouse => 'زوج/ة';
-
-  @override
-  String get relationship_option_boyfriend => 'حبيب/ة';
-
-  @override
-  String get relationship_option_crush => 'معجب/ة';
-
-  @override
-  String get relationship_option_other => 'أخرى';
-
-  @override
-  String get relationship_other_hint => 'اكتب علاقة أخرى';
-
-  @override
-  String get response_style_question => 'كيف تريد أن ترد عليك الصورة الرمزية؟';
-
-  @override
-  String get response_style_option_friendly => 'ودود';
-
-  @override
-  String get response_style_option_supportive => 'داعم';
-
-  @override
-  String get response_style_option_motivational => 'محفز';
-
-  @override
-  String get response_style_option_serious => 'جاد';
-
-  @override
-  String get response_style_option_funny => 'مضحك';
-
-  @override
-  String get response_style_option_reflective => 'تفكري';
-
-  @override
-  String get response_style_option_caring => 'مراعٍ';
-
-  @override
-  String get response_style_option_wise => 'حكيم';
-
-  @override
-  String get response_style_option_strict => 'صارم';
-
-  @override
-  String get topics_question => 'اختر المواضيع الرئيسية التي تريد الحديث عنها.';
-
-  @override
-  String get topics_option_daily => 'الحياة اليومية';
-
-  @override
-  String get topics_option_feelings => 'المشاعر';
-
-  @override
-  String get topics_option_advice => 'نصائح';
-
-  @override
-  String get topics_option_plans => 'خطط';
-
-  @override
-  String get topics_option_music => 'موسيقى';
-
-  @override
-  String get topics_option_movies => 'أفلام';
-
-  @override
-  String get topics_option_sports => 'رياضة';
-
-  @override
-  String get topics_option_travel => 'سفر';
-
-  @override
-  String get topics_option_technology => 'تكنولوجيا';
-
-  @override
-  String get topics_option_family => 'عائلة';
-
-  @override
-  String get topics_option_stories => 'قصص';
-
-  @override
-  String get topics_option_support => 'دعم';
-
-  @override
-  String get topics_option_personal_growth => 'نمو شخصي';
-
-  @override
-  String get topics_option_habits => 'عادات';
-
-  @override
-  String get topics_option_dreams => 'أحلام';
-
-  @override
-  String get topics_option_challenges => 'تحديات';
-
-  @override
-  String get topics_option_other => 'أخرى';
-
-  @override
-  String get topics_other_hint => 'اكتب موضوعًا آخر';
-
-  @override
-  String get greeting_question => 'كيف تريد أن ترحب بك الصورة الرمزية؟';
-
-  @override
-  String get greeting_option_hi => 'مرحبًا';
-
-  @override
-  String get greeting_option_hello => 'صباح الخير';
-
-  @override
-  String get greeting_option_hey => 'أهلاً';
-
-  @override
-  String get greeting_option_other => 'أخرى';
-
-  @override
-  String get greeting_other_hint => 'اكتب تحية خاصة بك';
-
-  @override
-  String get communication_frequency_question => 'كم مرة تريد أن تتحدث معك الصورة الرمزية؟';
-
-  @override
-  String get communication_frequency_label => 'أيام في الأسبوع';
-
-  @override
-  String get relationship_family_question => 'ما الدور العائلي الذي ستكون عليه هذه الصورة؟';
-
-  @override
-  String get relationship_option_mother => 'أم';
-
-  @override
-  String get relationship_option_father => 'أب';
-
-  @override
-  String get relationship_option_grandparent => 'جد/جدة';
-
-  @override
-  String get relationship_option_sibling => 'أخ/أخت';
-
-  @override
-  String get relationship_other_family_hint => 'اكتب دورًا آخر';
+  String get avatar_name_hint => 'Example: Alex, Sam';
 
   @override
   String get successSave => 'تم حفظ الملف الشخصي بنجاح!';
@@ -334,4 +184,118 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get typeMessage => 'اكتب رسالة';
+
+  @override
+  String get avatar_form_title => 'خصص صورتك الرمزية';
+
+  @override
+  String get avatar_form_name_label => 'اسم الصورة الرمزية';
+
+  @override
+  String get avatar_form_user_reference_label => 'اسم المستخدم أو المرجع';
+
+  @override
+  String get avatar_form_relationship_label => 'العلاقة أو الدور (مثال: صديق، مدرب)';
+
+  @override
+  String get avatar_form_speaking_style_label => 'أسلوب التحدث';
+
+  @override
+  String get avatar_form_interests_label => 'الاهتمامات';
+
+  @override
+  String get avatar_form_common_phrases_label => 'عبارات شائعة';
+
+  @override
+  String get avatar_form_traits_label => 'سمات الشخصية';
+
+  @override
+  String get avatar_form_extroversion => 'انبساطية';
+
+  @override
+  String get avatar_form_agreeableness => 'الود';
+
+  @override
+  String get avatar_form_conscientiousness => 'الضمير الحي';
+
+  @override
+  String get avatar_form_add_phrase_hint => 'مثال: مرحبًا!';
+
+  @override
+  String get avatar_form_continue_button => 'متابعة';
+
+  @override
+  String get avatar_summary_title => 'ملخص الصورة الرمزية';
+
+  @override
+  String get avatar_summary_user => 'المستخدم';
+
+  @override
+  String get avatar_summary_relationship => 'العلاقة';
+
+  @override
+  String get avatar_summary_style => 'الأسلوب';
+
+  @override
+  String get avatar_summary_interests => 'الاهتمامات';
+
+  @override
+  String get avatar_summary_phrases => 'عبارات شائعة';
+
+  @override
+  String get avatar_summary_traits => 'السمات';
+
+  @override
+  String get avatar_summary_create_button => 'أنشئ صورتي الرمزية';
+
+  @override
+  String get avatar_summary_back_button => 'العودة لتعديل الشخصية';
+
+  @override
+  String get avatar_summary_extroversion => 'انبساطية';
+
+  @override
+  String get avatar_summary_agreeableness => 'الود';
+
+  @override
+  String get avatar_summary_conscientiousness => 'الضمير الحي';
+
+  @override
+  String get avatar_loading_generating => 'جارٍ إنشاء الصورة الرمزية...';
+
+  @override
+  String get avatar_error_video => 'فشل في إنشاء الفيديو.';
+
+  @override
+  String get avatar_error_timeout => 'تعذر إنشاء الفيديو في الوقت المحدد.';
+
+  @override
+  String get avatar_not_available => 'الصورة الرمزية غير متوفرة';
+
+  @override
+  String get style_casual => 'غير رسمي';
+
+  @override
+  String get style_formal => 'رسمي';
+
+  @override
+  String get style_tierno => 'ودود';
+
+  @override
+  String get style_divertido => 'ممتع';
+
+  @override
+  String get interest_music => 'الموسيقى';
+
+  @override
+  String get interest_tech => 'التقنية';
+
+  @override
+  String get interest_travel => 'السفر';
+
+  @override
+  String get interest_books => 'الكتب';
+
+  @override
+  String get interest_nature => 'الطبيعة';
 }

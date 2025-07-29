@@ -50,12 +50,12 @@ class MineApp extends StatelessWidget {
         '/': (context) => const SplashScreen(),
         '/login': (context) => const LoginScreen(),
         '/register': (context) => const RegisterScreen(),
-        '/avatar': (context) => const CreateAvatarScreen(),
+        '/forgot_password': (context) => const ForgotPasswordScreen(),
         '/avatar_personality': (context) => const AvatarPersonalityFormScreen(),
+        '/avatar': (context) => const CreateAvatarScreen(),
+        '/avatar_summary': (context) => const AvatarSummaryScreen(),
         '/chat': (context) => const ChatScreen(),
         '/profile': (context) => const ProfileScreen(),
-        '/forgot_password': (context) => const ForgotPasswordScreen(),
-        '/avatar_summary': (context) => const AvatarSummaryScreen(),
       },
     );
   }

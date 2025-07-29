@@ -150,160 +150,10 @@ class AppLocalizationsHe extends AppLocalizations {
   String get chooseAvatarInstruction => 'בחר תמונה וקול, או דוגמת וידאו לאווטאר שלך.';
 
   @override
-  String get avatar_name_question => 'בחר שם לאווטאר שלך.';
+  String get avatar_name_question => 'Choose a name for your avatar.';
 
   @override
-  String get avatar_name_hint => 'לדוג\' Alex, Sam';
-
-  @override
-  String get relationship_question => 'איזה קשר יהיה לאווטאר הזה איתך?';
-
-  @override
-  String get relationship_option_partner => 'בן/בת זוג';
-
-  @override
-  String get relationship_option_spouse => 'בעל/אישה';
-
-  @override
-  String get relationship_option_boyfriend => 'חבר/ה';
-
-  @override
-  String get relationship_option_crush => 'קראש';
-
-  @override
-  String get relationship_option_other => 'אחר';
-
-  @override
-  String get relationship_other_hint => 'כתוב קשר אחר';
-
-  @override
-  String get response_style_question => 'איך אתה רוצה שהאווטאר יגיב לך?';
-
-  @override
-  String get response_style_option_friendly => 'ידידותי';
-
-  @override
-  String get response_style_option_supportive => 'תומך';
-
-  @override
-  String get response_style_option_motivational => 'מוטיבציוני';
-
-  @override
-  String get response_style_option_serious => 'רציני';
-
-  @override
-  String get response_style_option_funny => 'מצחיק';
-
-  @override
-  String get response_style_option_reflective => 'הרהורי';
-
-  @override
-  String get response_style_option_caring => 'אכפתי';
-
-  @override
-  String get response_style_option_wise => 'חכם';
-
-  @override
-  String get response_style_option_strict => 'קפדן';
-
-  @override
-  String get topics_question => 'בחר את הנושאים המרכזיים שתרצה לשוחח עליהם.';
-
-  @override
-  String get topics_option_daily => 'חיי יומיום';
-
-  @override
-  String get topics_option_feelings => 'רגשות';
-
-  @override
-  String get topics_option_advice => 'עצות';
-
-  @override
-  String get topics_option_plans => 'תוכניות';
-
-  @override
-  String get topics_option_music => 'מוזיקה';
-
-  @override
-  String get topics_option_movies => 'סרטים';
-
-  @override
-  String get topics_option_sports => 'ספורט';
-
-  @override
-  String get topics_option_travel => 'טיולים';
-
-  @override
-  String get topics_option_technology => 'טכנולוגיה';
-
-  @override
-  String get topics_option_family => 'משפחה';
-
-  @override
-  String get topics_option_stories => 'סיפורים';
-
-  @override
-  String get topics_option_support => 'תמיכה';
-
-  @override
-  String get topics_option_personal_growth => 'התפתחות אישית';
-
-  @override
-  String get topics_option_habits => 'הרגלים';
-
-  @override
-  String get topics_option_dreams => 'חלומות';
-
-  @override
-  String get topics_option_challenges => 'אתגרים';
-
-  @override
-  String get topics_option_other => 'אחר';
-
-  @override
-  String get topics_other_hint => 'כתוב נושא אחר';
-
-  @override
-  String get greeting_question => 'איך תרצה שהאווטאר יברך אותך?';
-
-  @override
-  String get greeting_option_hi => 'שלום';
-
-  @override
-  String get greeting_option_hello => 'בוקר טוב';
-
-  @override
-  String get greeting_option_hey => 'היי';
-
-  @override
-  String get greeting_option_other => 'אחר';
-
-  @override
-  String get greeting_other_hint => 'כתוב ברכה משלך';
-
-  @override
-  String get communication_frequency_question => 'באיזו תדירות תרצה שהאווטאר ישוחח איתך?';
-
-  @override
-  String get communication_frequency_label => 'ימים בשבוע';
-
-  @override
-  String get relationship_family_question => 'איזה תפקיד משפחתי יהיה לאווטאר הזה?';
-
-  @override
-  String get relationship_option_mother => 'אמא';
-
-  @override
-  String get relationship_option_father => 'אבא';
-
-  @override
-  String get relationship_option_grandparent => 'סבא/סבתא';
-
-  @override
-  String get relationship_option_sibling => 'אח/ות';
-
-  @override
-  String get relationship_other_family_hint => 'כתוב תפקיד אחר';
+  String get avatar_name_hint => 'Example: Alex, Sam';
 
   @override
   String get successSave => 'הפרופיל נשמר בהצלחה!';
@@ -334,4 +184,118 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get typeMessage => 'כתוב הודעה';
+
+  @override
+  String get avatar_form_title => 'התאם אישית את האווטאר שלך';
+
+  @override
+  String get avatar_form_name_label => 'שם האווטאר';
+
+  @override
+  String get avatar_form_user_reference_label => 'שם משתמש או התייחסות';
+
+  @override
+  String get avatar_form_relationship_label => 'קשר או תפקיד (לדוג\' חבר, מאמן)';
+
+  @override
+  String get avatar_form_speaking_style_label => 'סגנון דיבור';
+
+  @override
+  String get avatar_form_interests_label => 'תחומי עניין';
+
+  @override
+  String get avatar_form_common_phrases_label => 'ביטויים נפוצים';
+
+  @override
+  String get avatar_form_traits_label => 'תכונות אופי';
+
+  @override
+  String get avatar_form_extroversion => 'מוחצנות';
+
+  @override
+  String get avatar_form_agreeableness => 'נעימות';
+
+  @override
+  String get avatar_form_conscientiousness => 'מצפוניות';
+
+  @override
+  String get avatar_form_add_phrase_hint => 'לדוג\': שלום!';
+
+  @override
+  String get avatar_form_continue_button => 'המשך';
+
+  @override
+  String get avatar_summary_title => 'סיכום אווטאר';
+
+  @override
+  String get avatar_summary_user => 'משתמש';
+
+  @override
+  String get avatar_summary_relationship => 'קשר';
+
+  @override
+  String get avatar_summary_style => 'סגנון';
+
+  @override
+  String get avatar_summary_interests => 'תחומי עניין';
+
+  @override
+  String get avatar_summary_phrases => 'ביטויים נפוצים';
+
+  @override
+  String get avatar_summary_traits => 'תכונות';
+
+  @override
+  String get avatar_summary_create_button => 'צור את האווטאר שלי';
+
+  @override
+  String get avatar_summary_back_button => 'חזרה לעריכת אישיות';
+
+  @override
+  String get avatar_summary_extroversion => 'מוחצנות';
+
+  @override
+  String get avatar_summary_agreeableness => 'נעימות';
+
+  @override
+  String get avatar_summary_conscientiousness => 'מצפוניות';
+
+  @override
+  String get avatar_loading_generating => 'יוצר אווטאר...';
+
+  @override
+  String get avatar_error_video => 'נכשל ביצירת הווידאו.';
+
+  @override
+  String get avatar_error_timeout => 'הווידאו לא נוצר בזמן.';
+
+  @override
+  String get avatar_not_available => 'האווטאר אינו זמין';
+
+  @override
+  String get style_casual => 'לא רשמי';
+
+  @override
+  String get style_formal => 'רשמי';
+
+  @override
+  String get style_tierno => 'עדין';
+
+  @override
+  String get style_divertido => 'מצחיק';
+
+  @override
+  String get interest_music => 'מוזיקה';
+
+  @override
+  String get interest_tech => 'טכנולוגיה';
+
+  @override
+  String get interest_travel => 'טיולים';
+
+  @override
+  String get interest_books => 'ספרים';
+
+  @override
+  String get interest_nature => 'טבע';
 }

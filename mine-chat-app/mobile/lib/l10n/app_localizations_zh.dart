@@ -150,160 +150,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get chooseAvatarInstruction => '为你的头像选择一张图片和一个声音，或一个视频。';
 
   @override
-  String get avatar_name_question => '为你的头像选择一个名字。';
+  String get avatar_name_question => 'Choose a name for your avatar.';
 
   @override
-  String get avatar_name_hint => '例如：Alex, Sam';
-
-  @override
-  String get relationship_question => '这个头像与你是什么关系？';
-
-  @override
-  String get relationship_option_partner => '伴侣';
-
-  @override
-  String get relationship_option_spouse => '配偶';
-
-  @override
-  String get relationship_option_boyfriend => '男/女朋友';
-
-  @override
-  String get relationship_option_crush => '喜欢的人';
-
-  @override
-  String get relationship_option_other => '其他';
-
-  @override
-  String get relationship_other_hint => '写下其他关系';
-
-  @override
-  String get response_style_question => '你希望头像如何回应你？';
-
-  @override
-  String get response_style_option_friendly => '友好';
-
-  @override
-  String get response_style_option_supportive => '支持';
-
-  @override
-  String get response_style_option_motivational => '激励';
-
-  @override
-  String get response_style_option_serious => '严肃';
-
-  @override
-  String get response_style_option_funny => '有趣';
-
-  @override
-  String get response_style_option_reflective => '深思';
-
-  @override
-  String get response_style_option_caring => '关心';
-
-  @override
-  String get response_style_option_wise => '睿智';
-
-  @override
-  String get response_style_option_strict => '严格';
-
-  @override
-  String get topics_question => '请选择你想要讨论的主要话题。';
-
-  @override
-  String get topics_option_daily => '日常生活';
-
-  @override
-  String get topics_option_feelings => '感受';
-
-  @override
-  String get topics_option_advice => '建议';
-
-  @override
-  String get topics_option_plans => '计划';
-
-  @override
-  String get topics_option_music => '音乐';
-
-  @override
-  String get topics_option_movies => '电影';
-
-  @override
-  String get topics_option_sports => '体育';
-
-  @override
-  String get topics_option_travel => '旅行';
-
-  @override
-  String get topics_option_technology => '科技';
-
-  @override
-  String get topics_option_family => '家庭';
-
-  @override
-  String get topics_option_stories => '故事';
-
-  @override
-  String get topics_option_support => '支持';
-
-  @override
-  String get topics_option_personal_growth => '个人成长';
-
-  @override
-  String get topics_option_habits => '习惯';
-
-  @override
-  String get topics_option_dreams => '梦想';
-
-  @override
-  String get topics_option_challenges => '挑战';
-
-  @override
-  String get topics_option_other => '其他';
-
-  @override
-  String get topics_other_hint => '写下其他话题';
-
-  @override
-  String get greeting_question => '你希望头像如何向你打招呼？';
-
-  @override
-  String get greeting_option_hi => '嗨';
-
-  @override
-  String get greeting_option_hello => '你好';
-
-  @override
-  String get greeting_option_hey => '嘿';
-
-  @override
-  String get greeting_option_other => '其他';
-
-  @override
-  String get greeting_other_hint => '写下你自己的问候';
-
-  @override
-  String get communication_frequency_question => '你希望头像多久和你交流一次？';
-
-  @override
-  String get communication_frequency_label => '每周天数';
-
-  @override
-  String get relationship_family_question => '这个头像将是什么家庭角色？';
-
-  @override
-  String get relationship_option_mother => '母亲';
-
-  @override
-  String get relationship_option_father => '父亲';
-
-  @override
-  String get relationship_option_grandparent => '祖父母';
-
-  @override
-  String get relationship_option_sibling => '兄弟姐妹';
-
-  @override
-  String get relationship_other_family_hint => '写下其他角色';
+  String get avatar_name_hint => 'Example: Alex, Sam';
 
   @override
   String get successSave => '资料保存成功！';
@@ -334,4 +184,118 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get typeMessage => '输入消息';
+
+  @override
+  String get avatar_form_title => '自定义你的头像';
+
+  @override
+  String get avatar_form_name_label => '头像名称';
+
+  @override
+  String get avatar_form_user_reference_label => '用户名或参考';
+
+  @override
+  String get avatar_form_relationship_label => '关系或角色（如朋友、教练）';
+
+  @override
+  String get avatar_form_speaking_style_label => '说话风格';
+
+  @override
+  String get avatar_form_interests_label => '兴趣';
+
+  @override
+  String get avatar_form_common_phrases_label => '常用语句';
+
+  @override
+  String get avatar_form_traits_label => '性格特征';
+
+  @override
+  String get avatar_form_extroversion => '外向性';
+
+  @override
+  String get avatar_form_agreeableness => '宜人性';
+
+  @override
+  String get avatar_form_conscientiousness => '尽责性';
+
+  @override
+  String get avatar_form_add_phrase_hint => '例如：你好！';
+
+  @override
+  String get avatar_form_continue_button => '继续';
+
+  @override
+  String get avatar_summary_title => '头像摘要';
+
+  @override
+  String get avatar_summary_user => '用户';
+
+  @override
+  String get avatar_summary_relationship => '关系';
+
+  @override
+  String get avatar_summary_style => '风格';
+
+  @override
+  String get avatar_summary_interests => '兴趣';
+
+  @override
+  String get avatar_summary_phrases => '常用语句';
+
+  @override
+  String get avatar_summary_traits => '特征';
+
+  @override
+  String get avatar_summary_create_button => '创建我的头像';
+
+  @override
+  String get avatar_summary_back_button => '返回编辑个性';
+
+  @override
+  String get avatar_summary_extroversion => '外向性';
+
+  @override
+  String get avatar_summary_agreeableness => '宜人性';
+
+  @override
+  String get avatar_summary_conscientiousness => '尽责性';
+
+  @override
+  String get avatar_loading_generating => '正在生成头像...';
+
+  @override
+  String get avatar_error_video => '视频生成失败。';
+
+  @override
+  String get avatar_error_timeout => '视频未能及时生成。';
+
+  @override
+  String get avatar_not_available => '头像不可用';
+
+  @override
+  String get style_casual => '随意';
+
+  @override
+  String get style_formal => '正式';
+
+  @override
+  String get style_tierno => '温柔';
+
+  @override
+  String get style_divertido => '有趣';
+
+  @override
+  String get interest_music => '音乐';
+
+  @override
+  String get interest_tech => '科技';
+
+  @override
+  String get interest_travel => '旅行';
+
+  @override
+  String get interest_books => '书籍';
+
+  @override
+  String get interest_nature => '自然';
 }

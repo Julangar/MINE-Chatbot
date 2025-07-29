@@ -150,160 +150,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get chooseAvatarInstruction => '아바타용 사진, 음성 또는 동영상을 선택하세요.';
 
   @override
-  String get avatar_name_question => '아바타의 이름을 정하세요.';
+  String get avatar_name_question => 'Choose a name for your avatar.';
 
   @override
-  String get avatar_name_hint => '예시: Alex, Sam';
-
-  @override
-  String get relationship_question => '이 아바타와의 관계는 무엇인가요?';
-
-  @override
-  String get relationship_option_partner => '파트너';
-
-  @override
-  String get relationship_option_spouse => '배우자';
-
-  @override
-  String get relationship_option_boyfriend => '남/여자친구';
-
-  @override
-  String get relationship_option_crush => '짝사랑';
-
-  @override
-  String get relationship_option_other => '기타';
-
-  @override
-  String get relationship_other_hint => '다른 관계를 입력하세요';
-
-  @override
-  String get response_style_question => '아바타가 어떻게 응답하길 원하시나요?';
-
-  @override
-  String get response_style_option_friendly => '친근함';
-
-  @override
-  String get response_style_option_supportive => '지지적';
-
-  @override
-  String get response_style_option_motivational => '동기부여';
-
-  @override
-  String get response_style_option_serious => '진지함';
-
-  @override
-  String get response_style_option_funny => '재미있음';
-
-  @override
-  String get response_style_option_reflective => '사색적';
-
-  @override
-  String get response_style_option_caring => '배려심';
-
-  @override
-  String get response_style_option_wise => '현명함';
-
-  @override
-  String get response_style_option_strict => '엄격함';
-
-  @override
-  String get topics_question => '대화하고 싶은 주요 주제를 선택하세요.';
-
-  @override
-  String get topics_option_daily => '일상';
-
-  @override
-  String get topics_option_feelings => '감정';
-
-  @override
-  String get topics_option_advice => '조언';
-
-  @override
-  String get topics_option_plans => '계획';
-
-  @override
-  String get topics_option_music => '음악';
-
-  @override
-  String get topics_option_movies => '영화';
-
-  @override
-  String get topics_option_sports => '스포츠';
-
-  @override
-  String get topics_option_travel => '여행';
-
-  @override
-  String get topics_option_technology => '기술';
-
-  @override
-  String get topics_option_family => '가족';
-
-  @override
-  String get topics_option_stories => '이야기';
-
-  @override
-  String get topics_option_support => '지원';
-
-  @override
-  String get topics_option_personal_growth => '자기계발';
-
-  @override
-  String get topics_option_habits => '습관';
-
-  @override
-  String get topics_option_dreams => '꿈';
-
-  @override
-  String get topics_option_challenges => '도전';
-
-  @override
-  String get topics_option_other => '기타';
-
-  @override
-  String get topics_other_hint => '다른 주제를 입력하세요';
-
-  @override
-  String get greeting_question => '아바타가 어떻게 인사하길 원하시나요?';
-
-  @override
-  String get greeting_option_hi => '안녕';
-
-  @override
-  String get greeting_option_hello => '안녕하세요';
-
-  @override
-  String get greeting_option_hey => '헤이';
-
-  @override
-  String get greeting_option_other => '기타';
-
-  @override
-  String get greeting_other_hint => '직접 인사말을 작성하세요';
-
-  @override
-  String get communication_frequency_question => '아바타가 얼마나 자주 대화하길 원하시나요?';
-
-  @override
-  String get communication_frequency_label => '주당 일수';
-
-  @override
-  String get relationship_family_question => '이 아바타는 어떤 가족 역할을 할까요?';
-
-  @override
-  String get relationship_option_mother => '어머니';
-
-  @override
-  String get relationship_option_father => '아버지';
-
-  @override
-  String get relationship_option_grandparent => '조부모';
-
-  @override
-  String get relationship_option_sibling => '형제/자매';
-
-  @override
-  String get relationship_other_family_hint => '다른 역할을 입력하세요';
+  String get avatar_name_hint => 'Example: Alex, Sam';
 
   @override
   String get successSave => '프로필이 성공적으로 저장되었습니다!';
@@ -334,4 +184,118 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get typeMessage => '메시지 입력';
+
+  @override
+  String get avatar_form_title => '아바타 맞춤 설정';
+
+  @override
+  String get avatar_form_name_label => '아바타 이름';
+
+  @override
+  String get avatar_form_user_reference_label => '사용자 이름 또는 참조';
+
+  @override
+  String get avatar_form_relationship_label => '관계 또는 역할(예: 친구, 코치)';
+
+  @override
+  String get avatar_form_speaking_style_label => '말하기 스타일';
+
+  @override
+  String get avatar_form_interests_label => '관심사';
+
+  @override
+  String get avatar_form_common_phrases_label => '자주 쓰는 문구';
+
+  @override
+  String get avatar_form_traits_label => '성격 특성';
+
+  @override
+  String get avatar_form_extroversion => '외향성';
+
+  @override
+  String get avatar_form_agreeableness => '친화성';
+
+  @override
+  String get avatar_form_conscientiousness => '성실성';
+
+  @override
+  String get avatar_form_add_phrase_hint => '예: 안녕하세요!';
+
+  @override
+  String get avatar_form_continue_button => '계속';
+
+  @override
+  String get avatar_summary_title => '아바타 요약';
+
+  @override
+  String get avatar_summary_user => '사용자';
+
+  @override
+  String get avatar_summary_relationship => '관계';
+
+  @override
+  String get avatar_summary_style => '스타일';
+
+  @override
+  String get avatar_summary_interests => '관심사';
+
+  @override
+  String get avatar_summary_phrases => '자주 쓰는 문구';
+
+  @override
+  String get avatar_summary_traits => '특성';
+
+  @override
+  String get avatar_summary_create_button => '내 아바타 만들기';
+
+  @override
+  String get avatar_summary_back_button => '성격 수정으로 돌아가기';
+
+  @override
+  String get avatar_summary_extroversion => '외향성';
+
+  @override
+  String get avatar_summary_agreeableness => '친화성';
+
+  @override
+  String get avatar_summary_conscientiousness => '성실성';
+
+  @override
+  String get avatar_loading_generating => '아바타 생성 중...';
+
+  @override
+  String get avatar_error_video => '비디오 생성 실패.';
+
+  @override
+  String get avatar_error_timeout => '시간 내에 비디오를 생성할 수 없습니다.';
+
+  @override
+  String get avatar_not_available => '아바타를 사용할 수 없음';
+
+  @override
+  String get style_casual => '캐주얼';
+
+  @override
+  String get style_formal => '포멀';
+
+  @override
+  String get style_tierno => '다정한';
+
+  @override
+  String get style_divertido => '재미있는';
+
+  @override
+  String get interest_music => '음악';
+
+  @override
+  String get interest_tech => '기술';
+
+  @override
+  String get interest_travel => '여행';
+
+  @override
+  String get interest_books => '책';
+
+  @override
+  String get interest_nature => '자연';
 }

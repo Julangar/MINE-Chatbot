@@ -150,160 +150,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get chooseAvatarInstruction => 'अपने अवतार के लिए एक छवि और एक आवाज़ या वीडियो चुनें।';
 
   @override
-  String get avatar_name_question => 'अपने अवतार के लिए नाम चुनें।';
+  String get avatar_name_question => 'Choose a name for your avatar.';
 
   @override
-  String get avatar_name_hint => 'उदाहरण: Alex, Sam';
-
-  @override
-  String get relationship_question => 'इस अवतार का आपके साथ क्या संबंध होगा?';
-
-  @override
-  String get relationship_option_partner => 'साथी';
-
-  @override
-  String get relationship_option_spouse => 'पति/पत्नी';
-
-  @override
-  String get relationship_option_boyfriend => 'प्रेमी/प्रेमिका';
-
-  @override
-  String get relationship_option_crush => 'क्रश';
-
-  @override
-  String get relationship_option_other => 'अन्य';
-
-  @override
-  String get relationship_other_hint => 'अन्य संबंध लिखें';
-
-  @override
-  String get response_style_question => 'अवतार को आपको कैसे जवाब देना चाहिए?';
-
-  @override
-  String get response_style_option_friendly => 'मित्रवत';
-
-  @override
-  String get response_style_option_supportive => 'सहायक';
-
-  @override
-  String get response_style_option_motivational => 'प्रेरणादायक';
-
-  @override
-  String get response_style_option_serious => 'गंभीर';
-
-  @override
-  String get response_style_option_funny => 'मज़ाकिया';
-
-  @override
-  String get response_style_option_reflective => 'विचारशील';
-
-  @override
-  String get response_style_option_caring => 'सहृदय';
-
-  @override
-  String get response_style_option_wise => 'बुद्धिमान';
-
-  @override
-  String get response_style_option_strict => 'सख्त';
-
-  @override
-  String get topics_question => 'मुख्य विषय चुनें जिन पर आप बात करना चाहते हैं।';
-
-  @override
-  String get topics_option_daily => 'दैनिक जीवन';
-
-  @override
-  String get topics_option_feelings => 'भावनाएँ';
-
-  @override
-  String get topics_option_advice => 'सलाह';
-
-  @override
-  String get topics_option_plans => 'योजनाएँ';
-
-  @override
-  String get topics_option_music => 'संगीत';
-
-  @override
-  String get topics_option_movies => 'फ़िल्में';
-
-  @override
-  String get topics_option_sports => 'खेल';
-
-  @override
-  String get topics_option_travel => 'यात्रा';
-
-  @override
-  String get topics_option_technology => 'प्रौद्योगिकी';
-
-  @override
-  String get topics_option_family => 'परिवार';
-
-  @override
-  String get topics_option_stories => 'कहानियाँ';
-
-  @override
-  String get topics_option_support => 'सहायता';
-
-  @override
-  String get topics_option_personal_growth => 'व्यक्तिगत विकास';
-
-  @override
-  String get topics_option_habits => 'आदतें';
-
-  @override
-  String get topics_option_dreams => 'सपने';
-
-  @override
-  String get topics_option_challenges => 'चुनौतियाँ';
-
-  @override
-  String get topics_option_other => 'अन्य';
-
-  @override
-  String get topics_other_hint => 'कोई और विषय लिखें';
-
-  @override
-  String get greeting_question => 'आप चाहते हैं कि अवतार आपको कैसे अभिवादन करे?';
-
-  @override
-  String get greeting_option_hi => 'नमस्ते';
-
-  @override
-  String get greeting_option_hello => 'सुप्रभात';
-
-  @override
-  String get greeting_option_hey => 'हाय';
-
-  @override
-  String get greeting_option_other => 'अन्य';
-
-  @override
-  String get greeting_other_hint => 'अपना अभिवादन लिखें';
-
-  @override
-  String get communication_frequency_question => 'आप चाहते हैं कि अवतार आपसे कितनी बार बात करे?';
-
-  @override
-  String get communication_frequency_label => 'सप्ताह में दिन';
-
-  @override
-  String get relationship_family_question => 'इस अवतार की क्या पारिवारिक भूमिका होगी?';
-
-  @override
-  String get relationship_option_mother => 'माँ';
-
-  @override
-  String get relationship_option_father => 'पिता';
-
-  @override
-  String get relationship_option_grandparent => 'दादा/दादी';
-
-  @override
-  String get relationship_option_sibling => 'भाई/बहन';
-
-  @override
-  String get relationship_other_family_hint => 'अन्य भूमिका लिखें';
+  String get avatar_name_hint => 'Example: Alex, Sam';
 
   @override
   String get successSave => 'प्रोफ़ाइल सफलतापूर्वक सहेजा गया!';
@@ -334,4 +184,118 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get typeMessage => 'संदेश लिखें';
+
+  @override
+  String get avatar_form_title => 'अपने अवतार को अनुकूलित करें';
+
+  @override
+  String get avatar_form_name_label => 'अवतार का नाम';
+
+  @override
+  String get avatar_form_user_reference_label => 'उपयोगकर्ता नाम या संदर्भ';
+
+  @override
+  String get avatar_form_relationship_label => 'संबंध या भूमिका (जैसे मित्र, कोच)';
+
+  @override
+  String get avatar_form_speaking_style_label => 'बोलने की शैली';
+
+  @override
+  String get avatar_form_interests_label => 'रुचियाँ';
+
+  @override
+  String get avatar_form_common_phrases_label => 'आम वाक्यांश';
+
+  @override
+  String get avatar_form_traits_label => 'व्यक्तित्व विशेषताएँ';
+
+  @override
+  String get avatar_form_extroversion => 'बहिर्मुखता';
+
+  @override
+  String get avatar_form_agreeableness => 'सहमतिपूर्णता';
+
+  @override
+  String get avatar_form_conscientiousness => 'जागरूकता';
+
+  @override
+  String get avatar_form_add_phrase_hint => 'जैसे: नमस्ते!';
+
+  @override
+  String get avatar_form_continue_button => 'जारी रखें';
+
+  @override
+  String get avatar_summary_title => 'अवतार सारांश';
+
+  @override
+  String get avatar_summary_user => 'उपयोगकर्ता';
+
+  @override
+  String get avatar_summary_relationship => 'संबंध';
+
+  @override
+  String get avatar_summary_style => 'शैली';
+
+  @override
+  String get avatar_summary_interests => 'रुचियाँ';
+
+  @override
+  String get avatar_summary_phrases => 'आम वाक्यांश';
+
+  @override
+  String get avatar_summary_traits => 'विशेषताएँ';
+
+  @override
+  String get avatar_summary_create_button => 'मेरा अवतार बनाएं';
+
+  @override
+  String get avatar_summary_back_button => 'व्यक्तित्व संपादित करने के लिए वापस जाएं';
+
+  @override
+  String get avatar_summary_extroversion => 'बहिर्मुखता';
+
+  @override
+  String get avatar_summary_agreeableness => 'सहमतिपूर्णता';
+
+  @override
+  String get avatar_summary_conscientiousness => 'जागरूकता';
+
+  @override
+  String get avatar_loading_generating => 'अवतार तैयार किया जा रहा है...';
+
+  @override
+  String get avatar_error_video => 'वीडियो बनाने में विफल।';
+
+  @override
+  String get avatar_error_timeout => 'समय पर वीडियो नहीं बनाया जा सका।';
+
+  @override
+  String get avatar_not_available => 'अवतार उपलब्ध नहीं है';
+
+  @override
+  String get style_casual => 'अनौपचारिक';
+
+  @override
+  String get style_formal => 'औपचारिक';
+
+  @override
+  String get style_tierno => 'कोमल';
+
+  @override
+  String get style_divertido => 'मज़ेदार';
+
+  @override
+  String get interest_music => 'संगीत';
+
+  @override
+  String get interest_tech => 'प्रौद्योगिकी';
+
+  @override
+  String get interest_travel => 'यात्रा';
+
+  @override
+  String get interest_books => 'किताबें';
+
+  @override
+  String get interest_nature => 'प्रकृति';
 }

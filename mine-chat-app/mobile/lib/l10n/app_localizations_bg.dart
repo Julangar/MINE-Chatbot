@@ -150,160 +150,10 @@ class AppLocalizationsBg extends AppLocalizations {
   String get chooseAvatarInstruction => 'Изберете изображение и глас или видео за вашия аватар.';
 
   @override
-  String get avatar_name_question => 'Изберете име за аватара си.';
+  String get avatar_name_question => 'Choose a name for your avatar.';
 
   @override
-  String get avatar_name_hint => 'Пример: Alex, Sam';
-
-  @override
-  String get relationship_question => 'Каква връзка ще има този аватар с вас?';
-
-  @override
-  String get relationship_option_partner => 'Партньор';
-
-  @override
-  String get relationship_option_spouse => 'Съпруг/а';
-
-  @override
-  String get relationship_option_boyfriend => 'Гадже';
-
-  @override
-  String get relationship_option_crush => 'Симпатия';
-
-  @override
-  String get relationship_option_other => 'Друго';
-
-  @override
-  String get relationship_other_hint => 'Напишете друга връзка';
-
-  @override
-  String get response_style_question => 'Как трябва да ви отговаря аватарът?';
-
-  @override
-  String get response_style_option_friendly => 'Приятелски';
-
-  @override
-  String get response_style_option_supportive => 'Подкрепящ';
-
-  @override
-  String get response_style_option_motivational => 'Мотивиращ';
-
-  @override
-  String get response_style_option_serious => 'Сериозен';
-
-  @override
-  String get response_style_option_funny => 'Забавен';
-
-  @override
-  String get response_style_option_reflective => 'Размишляващ';
-
-  @override
-  String get response_style_option_caring => 'Грижовен';
-
-  @override
-  String get response_style_option_wise => 'Мъдър';
-
-  @override
-  String get response_style_option_strict => 'Строг';
-
-  @override
-  String get topics_question => 'Изберете основните теми, за които искате да говорите.';
-
-  @override
-  String get topics_option_daily => 'Ежедневие';
-
-  @override
-  String get topics_option_feelings => 'Чувства';
-
-  @override
-  String get topics_option_advice => 'Съвети';
-
-  @override
-  String get topics_option_plans => 'Планове';
-
-  @override
-  String get topics_option_music => 'Музика';
-
-  @override
-  String get topics_option_movies => 'Филми';
-
-  @override
-  String get topics_option_sports => 'Спорт';
-
-  @override
-  String get topics_option_travel => 'Пътуване';
-
-  @override
-  String get topics_option_technology => 'Технологии';
-
-  @override
-  String get topics_option_family => 'Семейство';
-
-  @override
-  String get topics_option_stories => 'Истории';
-
-  @override
-  String get topics_option_support => 'Подкрепа';
-
-  @override
-  String get topics_option_personal_growth => 'Лично развитие';
-
-  @override
-  String get topics_option_habits => 'Навици';
-
-  @override
-  String get topics_option_dreams => 'Мечти';
-
-  @override
-  String get topics_option_challenges => 'Предизвикателства';
-
-  @override
-  String get topics_option_other => 'Друго';
-
-  @override
-  String get topics_other_hint => 'Напишете друга тема';
-
-  @override
-  String get greeting_question => 'Как искате да ви поздравява аватарът?';
-
-  @override
-  String get greeting_option_hi => 'Здравей';
-
-  @override
-  String get greeting_option_hello => 'Добър ден';
-
-  @override
-  String get greeting_option_hey => 'Хей';
-
-  @override
-  String get greeting_option_other => 'Друго';
-
-  @override
-  String get greeting_other_hint => 'Напишете свое поздравление';
-
-  @override
-  String get communication_frequency_question => 'Колко често искате аватарът да говори с вас?';
-
-  @override
-  String get communication_frequency_label => 'Дни в седмицата';
-
-  @override
-  String get relationship_family_question => 'Каква семейна роля ще има този аватар?';
-
-  @override
-  String get relationship_option_mother => 'Майка';
-
-  @override
-  String get relationship_option_father => 'Баща';
-
-  @override
-  String get relationship_option_grandparent => 'Дядо/Баба';
-
-  @override
-  String get relationship_option_sibling => 'Брат/Сестра';
-
-  @override
-  String get relationship_other_family_hint => 'Напишете друга роля';
+  String get avatar_name_hint => 'Example: Alex, Sam';
 
   @override
   String get successSave => 'Профилът е запазен успешно!';
@@ -334,4 +184,118 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get typeMessage => 'Въведете съобщение';
+
+  @override
+  String get avatar_form_title => 'Персонализирайте своя аватар';
+
+  @override
+  String get avatar_form_name_label => 'Име на аватара';
+
+  @override
+  String get avatar_form_user_reference_label => 'Потребителско име или референция';
+
+  @override
+  String get avatar_form_relationship_label => 'Връзка или роля (напр. приятел, треньор)';
+
+  @override
+  String get avatar_form_speaking_style_label => 'Стил на говорене';
+
+  @override
+  String get avatar_form_interests_label => 'Интереси';
+
+  @override
+  String get avatar_form_common_phrases_label => 'Чести фрази';
+
+  @override
+  String get avatar_form_traits_label => 'Личностни черти';
+
+  @override
+  String get avatar_form_extroversion => 'Екстраверсия';
+
+  @override
+  String get avatar_form_agreeableness => 'Добронамереност';
+
+  @override
+  String get avatar_form_conscientiousness => 'Съвестност';
+
+  @override
+  String get avatar_form_add_phrase_hint => 'напр. Здравей!';
+
+  @override
+  String get avatar_form_continue_button => 'Продължи';
+
+  @override
+  String get avatar_summary_title => 'Обобщение на аватара';
+
+  @override
+  String get avatar_summary_user => 'Потребител';
+
+  @override
+  String get avatar_summary_relationship => 'Връзка';
+
+  @override
+  String get avatar_summary_style => 'Стил';
+
+  @override
+  String get avatar_summary_interests => 'Интереси';
+
+  @override
+  String get avatar_summary_phrases => 'Чести фрази';
+
+  @override
+  String get avatar_summary_traits => 'Черти';
+
+  @override
+  String get avatar_summary_create_button => 'Създай моя аватар';
+
+  @override
+  String get avatar_summary_back_button => 'Назад към редакция на личността';
+
+  @override
+  String get avatar_summary_extroversion => 'Екстраверсия';
+
+  @override
+  String get avatar_summary_agreeableness => 'Добронамереност';
+
+  @override
+  String get avatar_summary_conscientiousness => 'Съвестност';
+
+  @override
+  String get avatar_loading_generating => 'Генериране на аватара...';
+
+  @override
+  String get avatar_error_video => 'Неуспешно генериране на видео.';
+
+  @override
+  String get avatar_error_timeout => 'Видеото не можа да се генерира навреме.';
+
+  @override
+  String get avatar_not_available => 'Аватарът не е наличен';
+
+  @override
+  String get style_casual => 'Неформален';
+
+  @override
+  String get style_formal => 'Формален';
+
+  @override
+  String get style_tierno => 'Нежен';
+
+  @override
+  String get style_divertido => 'Забавен';
+
+  @override
+  String get interest_music => 'Музика';
+
+  @override
+  String get interest_tech => 'Технологии';
+
+  @override
+  String get interest_travel => 'Пътуване';
+
+  @override
+  String get interest_books => 'Книги';
+
+  @override
+  String get interest_nature => 'Природа';
 }

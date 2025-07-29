@@ -150,160 +150,10 @@ class AppLocalizationsEl extends AppLocalizations {
   String get chooseAvatarInstruction => 'Επιλέξτε μια εικόνα και μια φωνή ή ένα δείγμα βίντεο για το avatar σας.';
 
   @override
-  String get avatar_name_question => 'Επιλέξτε όνομα για το avatar σας.';
+  String get avatar_name_question => 'Choose a name for your avatar.';
 
   @override
-  String get avatar_name_hint => 'Παράδειγμα: Alex, Sam';
-
-  @override
-  String get relationship_question => 'Τι σχέση θα έχει αυτό το avatar μαζί σας;';
-
-  @override
-  String get relationship_option_partner => 'Σύντροφος';
-
-  @override
-  String get relationship_option_spouse => 'Σύζυγος';
-
-  @override
-  String get relationship_option_boyfriend => 'Αγόρι/Κορίτσι';
-
-  @override
-  String get relationship_option_crush => 'Καψούρα';
-
-  @override
-  String get relationship_option_other => 'Άλλο';
-
-  @override
-  String get relationship_other_hint => 'Γράψτε άλλη σχέση';
-
-  @override
-  String get response_style_question => 'Πώς θέλετε να σας απαντά το avatar;';
-
-  @override
-  String get response_style_option_friendly => 'Φιλικό';
-
-  @override
-  String get response_style_option_supportive => 'Υποστηρικτικό';
-
-  @override
-  String get response_style_option_motivational => 'Παρακινήτικό';
-
-  @override
-  String get response_style_option_serious => 'Σοβαρό';
-
-  @override
-  String get response_style_option_funny => 'Αστείο';
-
-  @override
-  String get response_style_option_reflective => 'Στοχαστικό';
-
-  @override
-  String get response_style_option_caring => 'Φροντιστικό';
-
-  @override
-  String get response_style_option_wise => 'Σοφό';
-
-  @override
-  String get response_style_option_strict => 'Αυστηρό';
-
-  @override
-  String get topics_question => 'Επιλέξτε τα κύρια θέματα που θέλετε να συζητήσετε.';
-
-  @override
-  String get topics_option_daily => 'Καθημερινή ζωή';
-
-  @override
-  String get topics_option_feelings => 'Συναισθήματα';
-
-  @override
-  String get topics_option_advice => 'Συμβουλές';
-
-  @override
-  String get topics_option_plans => 'Σχέδια';
-
-  @override
-  String get topics_option_music => 'Μουσική';
-
-  @override
-  String get topics_option_movies => 'Ταινίες';
-
-  @override
-  String get topics_option_sports => 'Αθλήματα';
-
-  @override
-  String get topics_option_travel => 'Ταξίδια';
-
-  @override
-  String get topics_option_technology => 'Τεχνολογία';
-
-  @override
-  String get topics_option_family => 'Οικογένεια';
-
-  @override
-  String get topics_option_stories => 'Ιστορίες';
-
-  @override
-  String get topics_option_support => 'Υποστήριξη';
-
-  @override
-  String get topics_option_personal_growth => 'Προσωπική ανάπτυξη';
-
-  @override
-  String get topics_option_habits => 'Συνήθειες';
-
-  @override
-  String get topics_option_dreams => 'Όνειρα';
-
-  @override
-  String get topics_option_challenges => 'Προκλήσεις';
-
-  @override
-  String get topics_option_other => 'Άλλο';
-
-  @override
-  String get topics_other_hint => 'Γράψτε άλλο θέμα';
-
-  @override
-  String get greeting_question => 'Πώς θέλετε να σας χαιρετά το avatar;';
-
-  @override
-  String get greeting_option_hi => 'Γεια';
-
-  @override
-  String get greeting_option_hello => 'Καλημέρα';
-
-  @override
-  String get greeting_option_hey => 'Χαίρετε';
-
-  @override
-  String get greeting_option_other => 'Άλλο';
-
-  @override
-  String get greeting_other_hint => 'Γράψτε το δικό σας χαιρετισμό';
-
-  @override
-  String get communication_frequency_question => 'Πόσο συχνά θέλετε να σας μιλάει το avatar;';
-
-  @override
-  String get communication_frequency_label => 'Ημέρες ανά εβδομάδα';
-
-  @override
-  String get relationship_family_question => 'Ποιος θα είναι ο οικογενειακός ρόλος αυτού του avatar;';
-
-  @override
-  String get relationship_option_mother => 'Μητέρα';
-
-  @override
-  String get relationship_option_father => 'Πατέρας';
-
-  @override
-  String get relationship_option_grandparent => 'Παππούς/Γιαγιά';
-
-  @override
-  String get relationship_option_sibling => 'Αδελφός/Αδελφή';
-
-  @override
-  String get relationship_other_family_hint => 'Γράψτε άλλο ρόλο';
+  String get avatar_name_hint => 'Example: Alex, Sam';
 
   @override
   String get successSave => 'Το προφίλ αποθηκεύτηκε με επιτυχία!';
@@ -334,4 +184,118 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get typeMessage => 'Γράψτε ένα μήνυμα';
+
+  @override
+  String get avatar_form_title => 'Εξατομικεύστε το avatar σας';
+
+  @override
+  String get avatar_form_name_label => 'Όνομα avatar';
+
+  @override
+  String get avatar_form_user_reference_label => 'Όνομα χρήστη ή αναφορά';
+
+  @override
+  String get avatar_form_relationship_label => 'Σχέση ή ρόλος (π.χ. φίλος, προπονητής)';
+
+  @override
+  String get avatar_form_speaking_style_label => 'Στυλ ομιλίας';
+
+  @override
+  String get avatar_form_interests_label => 'Ενδιαφέροντα';
+
+  @override
+  String get avatar_form_common_phrases_label => 'Κοινές φράσεις';
+
+  @override
+  String get avatar_form_traits_label => 'Χαρακτηριστικά προσωπικότητας';
+
+  @override
+  String get avatar_form_extroversion => 'Εξωστρέφεια';
+
+  @override
+  String get avatar_form_agreeableness => 'Καλοσύνη';
+
+  @override
+  String get avatar_form_conscientiousness => 'Συνειδητότητα';
+
+  @override
+  String get avatar_form_add_phrase_hint => 'π.χ. Γεια!';
+
+  @override
+  String get avatar_form_continue_button => 'Συνέχεια';
+
+  @override
+  String get avatar_summary_title => 'Σύνοψη avatar';
+
+  @override
+  String get avatar_summary_user => 'Χρήστης';
+
+  @override
+  String get avatar_summary_relationship => 'Σχέση';
+
+  @override
+  String get avatar_summary_style => 'Στυλ';
+
+  @override
+  String get avatar_summary_interests => 'Ενδιαφέροντα';
+
+  @override
+  String get avatar_summary_phrases => 'Κοινές φράσεις';
+
+  @override
+  String get avatar_summary_traits => 'Χαρακτηριστικά';
+
+  @override
+  String get avatar_summary_create_button => 'Δημιουργία avatar';
+
+  @override
+  String get avatar_summary_back_button => 'Επιστροφή στην επεξεργασία προσωπικότητας';
+
+  @override
+  String get avatar_summary_extroversion => 'Εξωστρέφεια';
+
+  @override
+  String get avatar_summary_agreeableness => 'Καλοσύνη';
+
+  @override
+  String get avatar_summary_conscientiousness => 'Συνειδητότητα';
+
+  @override
+  String get avatar_loading_generating => 'Γίνεται δημιουργία avatar...';
+
+  @override
+  String get avatar_error_video => 'Αποτυχία δημιουργίας βίντεο.';
+
+  @override
+  String get avatar_error_timeout => 'Το βίντεο δεν δημιουργήθηκε εγκαίρως.';
+
+  @override
+  String get avatar_not_available => 'Το avatar δεν είναι διαθέσιμο';
+
+  @override
+  String get style_casual => 'Καθημερινό';
+
+  @override
+  String get style_formal => 'Επίσημο';
+
+  @override
+  String get style_tierno => 'Τρυφερό';
+
+  @override
+  String get style_divertido => 'Αστείο';
+
+  @override
+  String get interest_music => 'Μουσική';
+
+  @override
+  String get interest_tech => 'Τεχνολογία';
+
+  @override
+  String get interest_travel => 'Ταξίδια';
+
+  @override
+  String get interest_books => 'Βιβλία';
+
+  @override
+  String get interest_nature => 'Φύση';
 }

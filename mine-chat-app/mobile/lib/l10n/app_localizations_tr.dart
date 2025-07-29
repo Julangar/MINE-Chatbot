@@ -150,160 +150,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get chooseAvatarInstruction => 'Avatarın için bir görsel ve ses veya video seç.';
 
   @override
-  String get avatar_name_question => 'Avatarın için bir isim seç.';
+  String get avatar_name_question => 'Choose a name for your avatar.';
 
   @override
-  String get avatar_name_hint => 'Örnek: Alex, Sam';
-
-  @override
-  String get relationship_question => 'Bu avatar seninle nasıl bir ilişkiye sahip olacak?';
-
-  @override
-  String get relationship_option_partner => 'Partner';
-
-  @override
-  String get relationship_option_spouse => 'Eş';
-
-  @override
-  String get relationship_option_boyfriend => 'Erkek/Kız arkadaş';
-
-  @override
-  String get relationship_option_crush => 'Hoşlandığın kişi';
-
-  @override
-  String get relationship_option_other => 'Diğer';
-
-  @override
-  String get relationship_other_hint => 'Başka bir ilişki yaz';
-
-  @override
-  String get response_style_question => 'Avatar sana nasıl cevap vermeli?';
-
-  @override
-  String get response_style_option_friendly => 'Dostça';
-
-  @override
-  String get response_style_option_supportive => 'Destekleyici';
-
-  @override
-  String get response_style_option_motivational => 'Motivasyonel';
-
-  @override
-  String get response_style_option_serious => 'Ciddi';
-
-  @override
-  String get response_style_option_funny => 'Komik';
-
-  @override
-  String get response_style_option_reflective => 'Düşünceli';
-
-  @override
-  String get response_style_option_caring => 'İlgili';
-
-  @override
-  String get response_style_option_wise => 'Bilge';
-
-  @override
-  String get response_style_option_strict => 'Katı';
-
-  @override
-  String get topics_question => 'Konuşmak istediğin ana konuları seç.';
-
-  @override
-  String get topics_option_daily => 'Günlük hayat';
-
-  @override
-  String get topics_option_feelings => 'Duygular';
-
-  @override
-  String get topics_option_advice => 'Tavsiyeler';
-
-  @override
-  String get topics_option_plans => 'Planlar';
-
-  @override
-  String get topics_option_music => 'Müzik';
-
-  @override
-  String get topics_option_movies => 'Filmler';
-
-  @override
-  String get topics_option_sports => 'Spor';
-
-  @override
-  String get topics_option_travel => 'Seyahat';
-
-  @override
-  String get topics_option_technology => 'Teknoloji';
-
-  @override
-  String get topics_option_family => 'Aile';
-
-  @override
-  String get topics_option_stories => 'Hikayeler';
-
-  @override
-  String get topics_option_support => 'Destek';
-
-  @override
-  String get topics_option_personal_growth => 'Kişisel gelişim';
-
-  @override
-  String get topics_option_habits => 'Alışkanlıklar';
-
-  @override
-  String get topics_option_dreams => 'Hayaller';
-
-  @override
-  String get topics_option_challenges => 'Zorluklar';
-
-  @override
-  String get topics_option_other => 'Diğer';
-
-  @override
-  String get topics_other_hint => 'Başka bir konu yaz';
-
-  @override
-  String get greeting_question => 'Avatarın seni nasıl selamlamasını istersin?';
-
-  @override
-  String get greeting_option_hi => 'Merhaba';
-
-  @override
-  String get greeting_option_hello => 'Günaydın';
-
-  @override
-  String get greeting_option_hey => 'Hey';
-
-  @override
-  String get greeting_option_other => 'Diğer';
-
-  @override
-  String get greeting_other_hint => 'Kendi selamlamanı yaz';
-
-  @override
-  String get communication_frequency_question => 'Avatarın seninle ne sıklıkla konuşmasını istersin?';
-
-  @override
-  String get communication_frequency_label => 'Haftada gün';
-
-  @override
-  String get relationship_family_question => 'Bu avatar hangi aile rolüne sahip olacak?';
-
-  @override
-  String get relationship_option_mother => 'Anne';
-
-  @override
-  String get relationship_option_father => 'Baba';
-
-  @override
-  String get relationship_option_grandparent => 'Büyükanne/Büyükbaba';
-
-  @override
-  String get relationship_option_sibling => 'Kardeş';
-
-  @override
-  String get relationship_other_family_hint => 'Başka bir rol yaz';
+  String get avatar_name_hint => 'Example: Alex, Sam';
 
   @override
   String get successSave => 'Profil başarıyla kaydedildi!';
@@ -334,4 +184,118 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get typeMessage => 'Mesaj yaz';
+
+  @override
+  String get avatar_form_title => 'Avatarını özelleştir';
+
+  @override
+  String get avatar_form_name_label => 'Avatar adı';
+
+  @override
+  String get avatar_form_user_reference_label => 'Kullanıcı adı veya referans';
+
+  @override
+  String get avatar_form_relationship_label => 'İlişki veya rol (ör. arkadaş, koç)';
+
+  @override
+  String get avatar_form_speaking_style_label => 'Konuşma tarzı';
+
+  @override
+  String get avatar_form_interests_label => 'İlgi alanları';
+
+  @override
+  String get avatar_form_common_phrases_label => 'Yaygın ifadeler';
+
+  @override
+  String get avatar_form_traits_label => 'Kişilik özellikleri';
+
+  @override
+  String get avatar_form_extroversion => 'Dışadönüklük';
+
+  @override
+  String get avatar_form_agreeableness => 'Uyumluluk';
+
+  @override
+  String get avatar_form_conscientiousness => 'Sorumluluk';
+
+  @override
+  String get avatar_form_add_phrase_hint => 'ör. Merhaba!';
+
+  @override
+  String get avatar_form_continue_button => 'Devam et';
+
+  @override
+  String get avatar_summary_title => 'Avatar Özeti';
+
+  @override
+  String get avatar_summary_user => 'Kullanıcı';
+
+  @override
+  String get avatar_summary_relationship => 'İlişki';
+
+  @override
+  String get avatar_summary_style => 'Tarz';
+
+  @override
+  String get avatar_summary_interests => 'İlgi alanları';
+
+  @override
+  String get avatar_summary_phrases => 'Yaygın ifadeler';
+
+  @override
+  String get avatar_summary_traits => 'Özellikler';
+
+  @override
+  String get avatar_summary_create_button => 'Avatarımı oluştur';
+
+  @override
+  String get avatar_summary_back_button => 'Kişiliği düzenlemeye geri dön';
+
+  @override
+  String get avatar_summary_extroversion => 'Dışadönüklük';
+
+  @override
+  String get avatar_summary_agreeableness => 'Uyumluluk';
+
+  @override
+  String get avatar_summary_conscientiousness => 'Sorumluluk';
+
+  @override
+  String get avatar_loading_generating => 'Avatar oluşturuluyor...';
+
+  @override
+  String get avatar_error_video => 'Video oluşturulamadı.';
+
+  @override
+  String get avatar_error_timeout => 'Video zamanında oluşturulamadı.';
+
+  @override
+  String get avatar_not_available => 'Avatar mevcut değil';
+
+  @override
+  String get style_casual => 'Gündelik';
+
+  @override
+  String get style_formal => 'Resmi';
+
+  @override
+  String get style_tierno => 'Nazik';
+
+  @override
+  String get style_divertido => 'Eğlenceli';
+
+  @override
+  String get interest_music => 'Müzik';
+
+  @override
+  String get interest_tech => 'Teknoloji';
+
+  @override
+  String get interest_travel => 'Seyahat';
+
+  @override
+  String get interest_books => 'Kitaplar';
+
+  @override
+  String get interest_nature => 'Doğa';
 }
