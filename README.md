@@ -159,7 +159,7 @@ A continuación puedes ver los wireframes principales del proyecto, ubicados en 
 | 15  | Pruebas completas del backend y documentación de API                                     | ✅ Completado |
 | 16  | Interfaz de resumen de avatar y proceso de generación visual                             | ✅ Completado |
 | 17  | Diseño de la pantalla de chat con avatar y campo de entrada                              | ✅ Completado |
-| 18  | Lógica de envío/recepción de mensajes y conexión con backend                             |   |
+| 18  | Lógica de envío/recepción de mensajes y conexión con backend                             | ✅ Completado |
 | 19  | Visualización del avatar animado con reproductor de video                               |   |
 | 20  | Reproducción de respuestas de voz sincronizadas                                          |   |
 | 21  | Persistencia de historial de chat local y en Firestore                                   |   |
