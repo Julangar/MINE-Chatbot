@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mine_app/l10n/app_localizations.dart';
 import '../services/avatar_service.dart';
 import '../widgets/avatar_personality_form.dart';
+import '../widgets/banner_message.dart';
 
 enum AvatarType { myself, love, friend, relative }
 
@@ -46,8 +47,15 @@ class _AvatarPersonalityScreenState extends State<AvatarPersonalityScreen> {
     await AvatarService.saveAvatarPersonality(userId, _getAvatarTypeString(_selectedType!), data);
 
     setState(() => _isSaving = false);
-
-    Navigator.pushNamed(context, '/create');
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(AppLocalizations.of(context)!.successSave),
+        backgroundColor: Colors.green,
+        duration: Duration(seconds: 2),
+      ),
+    );
+    await Future.delayed(const Duration(seconds: 2));
+    Navigator.pushNamed(context, '/avatar');
   }
 
   Widget _typeSelector() {
@@ -144,7 +152,18 @@ class _AvatarPersonalityScreenState extends State<AvatarPersonalityScreen> {
                       ),
                     ),
                     Expanded(
-                      child: AvatarPersonalityForm(onSubmit: _savePersonality),
+                      child: ListView(
+                        padding: const EdgeInsets.all(16),
+                        children: [
+                          BannerMessage(
+                            title: AppLocalizations.of(context)!.customizeYourAvatar,
+                            message: AppLocalizations.of(context)!.takeAMinuteToAnswer + AppLocalizations.of(context)!.yourAnswersDefine,
+                            icon: Icons.assignment_turned_in_outlined,
+                          ),
+                          const SizedBox(height: 20),
+                          AvatarPersonalityForm(onSubmit: _savePersonality),
+                        ],
+                      ),
                     ),
                   ],
                 ),

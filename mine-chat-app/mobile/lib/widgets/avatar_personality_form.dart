@@ -15,6 +15,7 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
   final _formKey = GlobalKey<FormState>();
 
   String name = '';
+  String avatarType = '';
   String userReference = '';
   String relationshipOrRole = '';
   String speakingStyle = 'casual';
@@ -41,6 +42,7 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
       widget.onSubmit({
         'name': name,
         'userReference': userReference,
+        'avatarType': avatarType,
         'relationshipOrRole': relationshipOrRole,
         'speakingStyle': speakingStyle,
         'interests': interests,
@@ -177,7 +179,7 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
               child: ElevatedButton.icon(
                 onPressed: _submitForm,
                 icon: const Icon(Icons.arrow_forward),
-                label: const Text("Continuar"),
+                label: Text(AppLocalizations.of(context)!.saveAndContinue),
               ),
             ),
           ],
