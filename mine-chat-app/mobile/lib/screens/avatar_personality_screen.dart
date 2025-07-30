@@ -1,6 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:mine_app/l10n/app_localizations.dart';
 import '../services/avatar_service.dart';
 import '../widgets/avatar_personality_form.dart';
@@ -18,6 +19,7 @@ class AvatarPersonalityScreen extends StatefulWidget {
 class _AvatarPersonalityScreenState extends State<AvatarPersonalityScreen> {
   AvatarType? _selectedType;
   bool _isSaving = false;
+  bool _avatarExists = false;
 
   String _getAvatarTypeString(AvatarType type) {
     switch (type) {
@@ -31,11 +33,20 @@ class _AvatarPersonalityScreenState extends State<AvatarPersonalityScreen> {
         return 'relative_avatar';
     }
   }
+  Future<void> _checkIfAvatarExists() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return;
 
+    if (_selectedType != null) {
+      String collectionName = _getAvatarTypeString(_selectedType!);
+      final doc = await FirebaseFirestore.instance.collection(user.uid).doc(collectionName).get();
+      setState(() => _avatarExists = doc.exists);
+    }
+  }
   void _savePersonality(Map<String, dynamic> data) async {
     final user = FirebaseAuth.instance.currentUser;
     final userId = user?.uid;
-
+    final locale = Localizations.localeOf(context).languageCode;
     if (userId == null || _selectedType == null) {
       ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Usuario no autenticado o tipo de avatar no seleccionado')));
@@ -44,7 +55,13 @@ class _AvatarPersonalityScreenState extends State<AvatarPersonalityScreen> {
 
     setState(() => _isSaving = true);
 
-    await AvatarService.saveAvatarPersonality(userId, _getAvatarTypeString(_selectedType!), data);
+    await AvatarService.saveAvatarPersonality(userId, _getAvatarTypeString(_selectedType!), {
+      ...data, 
+      'userLanguage': locale,
+      'userId': userId,
+      'createdAt': FieldValue.serverTimestamp(),
+      'avatarType': _getAvatarTypeString(_selectedType!),
+    });
 
     setState(() => _isSaving = false);
     ScaffoldMessenger.of(context).showSnackBar(
@@ -54,7 +71,6 @@ class _AvatarPersonalityScreenState extends State<AvatarPersonalityScreen> {
         duration: Duration(seconds: 2),
       ),
     );
-    await Future.delayed(const Duration(seconds: 2));
     Navigator.pushNamed(context, '/avatar');
   }
 
@@ -98,7 +114,13 @@ class _AvatarPersonalityScreenState extends State<AvatarPersonalityScreen> {
     final isSelected = _selectedType == type;
 
     return GestureDetector(
-      onTap: () => setState(() => _selectedType = type),
+      onTap: () async {
+        setState(() {
+          _selectedType = type;
+          _avatarExists = false;
+        });
+        await _checkIfAvatarExists();
+      },
       child: Container(
         width: 140,
         padding: const EdgeInsets.all(12),
