@@ -11,7 +11,7 @@ import 'screens/login_screen.dart';
 import 'screens/register_screen.dart';
 import 'screens/forgot_password_screen.dart';
 import 'screens/create_avatar_screen.dart';
-import 'screens/avatar_personality_screen.dart';
+import 'screens/avatar_personality_screen_v2.dart';
 import 'screens/chat_screen.dart';
 import 'screens/profile_screen.dart';
 import 'screens/avatar_summary_screen.dart';
@@ -52,7 +52,7 @@ class MineApp extends StatelessWidget {
         '/login': (context) => const LoginScreen(),
         '/register': (context) => const RegisterScreen(),
         '/forgot_password': (context) => const ForgotPasswordScreen(),
-        '/avatar_personality': (context) => const AuthGuard(child: AvatarPersonalityFormScreen()),
+        '/avatar_personality': (context) => const AuthGuard(child: AvatarPersonalityScreen()),
         '/avatar': (context) => const AuthGuard(child: CreateAvatarScreen()),
         '/avatar_summary': (context) => const AuthGuard(child: AvatarSummaryScreen()),
         '/chat': (context) => const AuthGuard(child: ChatScreen()),
