@@ -114,5 +114,10 @@
   "interest_tech": "Teknolohiya",
   "interest_travel": "Paglalakbay",
   "interest_books": "Mga libro",
-  "interest_nature": "Kalikasan"
+  "interest_nature": "Kalikasan",
+  "myself_avatar": "Isang avatar na kumakatawan sa iyong sarili, kasama ang iyong sariling interes at istilo.",
+  "love_avatar": "Isang avatar na kumakatawan sa isang partner o romantikong interes.",
+  "friend_avatar": "Isang avatar na kumakatawan sa isang malapit na kaibigan.",
+  "relative_avatar": "Isang avatar na kumakatawan sa isang kamag-anak, tulad ng magulang o lolo/lola.",
+  "change_avatar_type": "Palitan ang avatar"
 }

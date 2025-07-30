@@ -11,7 +11,7 @@ import 'screens/login_screen.dart';
 import 'screens/register_screen.dart';
 import 'screens/forgot_password_screen.dart';
 import 'screens/create_avatar_screen.dart';
-import 'screens/avatar_personality_screen_v2.dart';
+import 'screens/avatar_personality_screen.dart';
 import 'screens/chat_screen.dart';
 import 'screens/profile_screen.dart';
 import 'screens/avatar_summary_screen.dart';

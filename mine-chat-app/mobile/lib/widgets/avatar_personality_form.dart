@@ -1,17 +1,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:mine_app/l10n/app_localizations.dart';
-import '../services/avatar_service.dart';
 
 class AvatarPersonalityForm extends StatefulWidget {
-  final String userId;
-  final Function()? onSaved;
+  final Function(Map<String, dynamic>) onSubmit;
 
-  const AvatarPersonalityForm({
-    super.key,
-    required this.userId,
-    this.onSaved,
-  });
+  const AvatarPersonalityForm({super.key, required this.onSubmit});
 
   @override
   State<AvatarPersonalityForm> createState() => _AvatarPersonalityFormState();
@@ -20,7 +14,6 @@ class AvatarPersonalityForm extends StatefulWidget {
 class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
   final _formKey = GlobalKey<FormState>();
 
-  String avatarType = 'myself_avatar';
   String name = '';
   String userReference = '';
   String relationshipOrRole = '';
@@ -43,9 +36,9 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
     }
   }
 
-  Future<void> _submitForm() async {
+  void _submitForm() {
     if (_formKey.currentState!.validate()) {
-      final data = {
+      widget.onSubmit({
         'name': name,
         'userReference': userReference,
         'relationshipOrRole': relationshipOrRole,
@@ -57,11 +50,7 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
           'agreeableness': agreeableness,
           'conscientiousness': conscientiousness,
         },
-      };
-
-      await AvatarService.saveAvatarPersonality(widget.userId, avatarType, data);
-
-      if (widget.onSaved != null) widget.onSaved!();
+      });
     }
   }
 
@@ -86,67 +75,79 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
 
     return Form(
       key: _formKey,
-      child: SingleChildScrollView(
+      child: Container(
+        color: Colors.black,
         padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            DropdownButtonFormField(
-              value: avatarType,
-              decoration: const InputDecoration(labelText: "Tipo de avatar"),
-              items: {
-                'myself_avatar': 'Yo',
-                'love_avatar': 'Pareja',
-                'friend_avatar': 'Amigo/a',
-                'relative_avatar': 'Familiar',
-              }.entries.map((e) =>
-                  DropdownMenuItem(value: e.key, child: Text(e.value))).toList(),
-              onChanged: (val) => setState(() => avatarType = val!),
-            ),
-            const SizedBox(height: 16),
             TextFormField(
-              decoration: InputDecoration(labelText: t.avatar_form_name_label),
+              style: const TextStyle(color: Colors.grey),
+              decoration: InputDecoration(
+                labelText: t.avatar_form_name_label,
+                labelStyle: const TextStyle(color: Colors.white),
+                enabledBorder: const UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey),
+                ),
+              ),
               onChanged: (value) => name = value,
               validator: (value) => value!.isEmpty ? 'Required' : null,
             ),
             const SizedBox(height: 16),
             TextFormField(
-              decoration: InputDecoration(labelText: t.avatar_form_user_reference_label),
+              style: const TextStyle(color: Colors.grey),
+              decoration: InputDecoration(
+                labelText: t.avatar_form_user_reference_label,
+                labelStyle: const TextStyle(color: Colors.white),
+              ),
               onChanged: (value) => userReference = value,
             ),
             const SizedBox(height: 16),
             TextFormField(
-              decoration: InputDecoration(labelText: t.avatar_form_relationship_label),
+              style: const TextStyle(color: Colors.grey),
+              decoration: InputDecoration(
+                labelText: t.avatar_form_relationship_label,
+                labelStyle: const TextStyle(color: Colors.white),
+              ),
               onChanged: (value) => relationshipOrRole = value,
             ),
             const SizedBox(height: 24),
             DropdownButtonFormField(
               value: speakingStyle,
-              items: styleOptions.entries.map((entry) =>
-                  DropdownMenuItem(value: entry.key, child: Text(entry.value))
-              ).toList(),
+              dropdownColor: Colors.black,
+              decoration: InputDecoration(
+                labelText: t.avatar_form_speaking_style_label,
+                labelStyle: const TextStyle(color: Colors.white),
+              ),
+              items: styleOptions.entries
+                  .map((entry) => DropdownMenuItem(
+                      value: entry.key,
+                      child: Text(entry.value, style: const TextStyle(color: Colors.grey))))
+                  .toList(),
               onChanged: (value) => setState(() => speakingStyle = value!),
-              decoration: InputDecoration(labelText: t.avatar_form_speaking_style_label),
             ),
             const SizedBox(height: 24),
-            Text(t.avatar_form_interests_label, style: Theme.of(context).textTheme.titleMedium),
+            Text(t.avatar_form_interests_label, style: const TextStyle(color: Colors.white)),
             const SizedBox(height: 8),
             ...interestOptions.entries.map((entry) => CheckboxListTile(
-              title: Text(entry.value),
-              value: interests.contains(entry.key),
-              onChanged: (val) {
-                setState(() {
-                  val == true ? interests.add(entry.key) : interests.remove(entry.key);
-                });
-              },
-            )),
+                  title: Text(entry.value, style: const TextStyle(color: Colors.white)),
+                  value: interests.contains(entry.key),
+                  activeColor: Colors.white,
+                  checkColor: Colors.black,
+                  onChanged: (val) {
+                    setState(() {
+                      val == true ? interests.add(entry.key) : interests.remove(entry.key);
+                    });
+                  },
+                )),
             const SizedBox(height: 24),
-            Text(t.avatar_form_common_phrases_label, style: Theme.of(context).textTheme.titleMedium),
+            Text(t.avatar_form_common_phrases_label, style: const TextStyle(color: Colors.white)),
             Row(
               children: [
                 Expanded(
                   child: TextField(
                     controller: phraseController,
+                    style: const TextStyle(color: Colors.grey),
                     decoration: InputDecoration(hintText: t.avatar_form_add_phrase_hint),
                   ),
                 ),
@@ -157,27 +158,26 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
               spacing: 8,
               children: commonPhrases
                   .map((phrase) => Chip(
-                label: Text(phrase),
-                onDeleted: () => setState(() => commonPhrases.remove(phrase)),
-              ))
+                        label: Text(phrase),
+                        onDeleted: () => setState(() => commonPhrases.remove(phrase)),
+                      ))
                   .toList(),
             ),
             const SizedBox(height: 24),
-            Text(t.avatar_form_traits_label, style: Theme.of(context).textTheme.titleMedium),
+            Text(t.avatar_form_traits_label, style: const TextStyle(color: Colors.white)),
             const SizedBox(height: 8),
-            Text(t.avatar_form_extroversion),
+            Text(t.avatar_form_extroversion, style: const TextStyle(color: Colors.white)),
             Slider(value: extroversion, onChanged: (v) => setState(() => extroversion = v)),
-            Text(t.avatar_form_agreeableness),
+            Text(t.avatar_form_agreeableness, style: const TextStyle(color: Colors.white)),
             Slider(value: agreeableness, onChanged: (v) => setState(() => agreeableness = v)),
-            Text(t.avatar_form_conscientiousness),
+            Text(t.avatar_form_conscientiousness, style: const TextStyle(color: Colors.white)),
             Slider(value: conscientiousness, onChanged: (v) => setState(() => conscientiousness = v)),
             const SizedBox(height: 32),
             Center(
               child: ElevatedButton.icon(
                 onPressed: _submitForm,
-                icon: const Icon(Icons.save),
-                label: const Text("Guardar y continuar"),
-                style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12)),
+                icon: const Icon(Icons.arrow_forward),
+                label: const Text("Continuar"),
               ),
             ),
           ],

@@ -150,12 +150,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get chooseAvatarInstruction => '아바타용 사진, 음성 또는 동영상을 선택하세요.';
 
   @override
-  String get avatar_name_question => 'Choose a name for your avatar.';
-
-  @override
-  String get avatar_name_hint => 'Example: Alex, Sam';
-
-  @override
   String get successSave => '프로필이 성공적으로 저장되었습니다!';
 
   @override
@@ -298,4 +292,19 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get interest_nature => '자연';
+
+  @override
+  String get myself_avatar => '자신의 관심사와 스타일을 가진 나 자신을 나타내는 아바타입니다.';
+
+  @override
+  String get love_avatar => '연인 또는 로맨틱한 관심 대상을 나타내는 아바타입니다.';
+
+  @override
+  String get friend_avatar => '가까운 친구를 나타내는 아바타입니다.';
+
+  @override
+  String get relative_avatar => '부모님이나 조부모 등 가족을 나타내는 아바타입니다.';
+
+  @override
+  String get change_avatar_type => '아바타 변경';
 }

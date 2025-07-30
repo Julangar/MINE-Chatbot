@@ -150,12 +150,6 @@ class AppLocalizationsBg extends AppLocalizations {
   String get chooseAvatarInstruction => 'Изберете изображение и глас или видео за вашия аватар.';
 
   @override
-  String get avatar_name_question => 'Choose a name for your avatar.';
-
-  @override
-  String get avatar_name_hint => 'Example: Alex, Sam';
-
-  @override
   String get successSave => 'Профилът е запазен успешно!';
 
   @override
@@ -298,4 +292,19 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get interest_nature => 'Природа';
+
+  @override
+  String get myself_avatar => 'Аватар, който представлява самия теб с твоите интереси и стил.';
+
+  @override
+  String get love_avatar => 'Аватар, който представлява партньор или романтичен интерес.';
+
+  @override
+  String get friend_avatar => 'Аватар, който представлява близък приятел.';
+
+  @override
+  String get relative_avatar => 'Аватар, който представлява роднина, като родител или дядо/баба.';
+
+  @override
+  String get change_avatar_type => 'Смени аватара';
 }

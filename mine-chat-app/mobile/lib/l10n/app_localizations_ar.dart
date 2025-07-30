@@ -150,12 +150,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get chooseAvatarInstruction => 'اختر صورة وصوتًا أو فيديو لصورتك الرمزية.';
 
   @override
-  String get avatar_name_question => 'Choose a name for your avatar.';
-
-  @override
-  String get avatar_name_hint => 'Example: Alex, Sam';
-
-  @override
   String get successSave => 'تم حفظ الملف الشخصي بنجاح!';
 
   @override
@@ -298,4 +292,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get interest_nature => 'الطبيعة';
+
+  @override
+  String get myself_avatar => 'صورة رمزية تمثلك أنت بنفسك، مع اهتماماتك وأسلوبك الخاص.';
+
+  @override
+  String get love_avatar => 'صورة رمزية تمثل شريكًا أو اهتمامًا عاطفيًا.';
+
+  @override
+  String get friend_avatar => 'صورة رمزية تمثل صديقًا أو صديقة مقربة.';
+
+  @override
+  String get relative_avatar => 'صورة رمزية تمثل أحد الأقارب، مثل الأب أو الأم أو الجد/الجدة.';
+
+  @override
+  String get change_avatar_type => 'تغيير الصورة الرمزية';
 }

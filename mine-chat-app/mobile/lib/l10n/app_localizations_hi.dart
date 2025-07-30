@@ -150,12 +150,6 @@ class AppLocalizationsHi extends AppLocalizations {
   String get chooseAvatarInstruction => 'अपने अवतार के लिए एक छवि और एक आवाज़ या वीडियो चुनें।';
 
   @override
-  String get avatar_name_question => 'Choose a name for your avatar.';
-
-  @override
-  String get avatar_name_hint => 'Example: Alex, Sam';
-
-  @override
   String get successSave => 'प्रोफ़ाइल सफलतापूर्वक सहेजा गया!';
 
   @override
@@ -298,4 +292,19 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get interest_nature => 'प्रकृति';
+
+  @override
+  String get myself_avatar => 'एक ऐसा अवतार जो आपको खुद को, आपके अपने रुचियों और शैली के साथ दर्शाता है।';
+
+  @override
+  String get love_avatar => 'एक ऐसा अवतार जो साथी या रोमांटिक रुचि को दर्शाता है।';
+
+  @override
+  String get friend_avatar => 'एक ऐसा अवतार जो करीबी दोस्त को दर्शाता है।';
+
+  @override
+  String get relative_avatar => 'एक ऐसा अवतार जो परिवार के सदस्य, जैसे माता-पिता या दादा-दादी को दर्शाता है।';
+
+  @override
+  String get change_avatar_type => 'अवतार बदलें';
 }

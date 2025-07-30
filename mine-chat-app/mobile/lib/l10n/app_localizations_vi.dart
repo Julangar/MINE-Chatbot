@@ -150,12 +150,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String get chooseAvatarInstruction => 'Chọn hình ảnh và giọng nói hoặc video mẫu cho avatar của bạn.';
 
   @override
-  String get avatar_name_question => 'Choose a name for your avatar.';
-
-  @override
-  String get avatar_name_hint => 'Example: Alex, Sam';
-
-  @override
   String get successSave => 'Lưu hồ sơ thành công!';
 
   @override
@@ -298,4 +292,19 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get interest_nature => 'Thiên nhiên';
+
+  @override
+  String get myself_avatar => 'Một avatar đại diện cho chính bạn, với sở thích và phong cách riêng.';
+
+  @override
+  String get love_avatar => 'Một avatar đại diện cho người yêu hoặc người bạn quan tâm.';
+
+  @override
+  String get friend_avatar => 'Một avatar đại diện cho một người bạn thân.';
+
+  @override
+  String get relative_avatar => 'Một avatar đại diện cho người thân, như cha mẹ hoặc ông bà.';
+
+  @override
+  String get change_avatar_type => 'Thay đổi avatar';
 }

@@ -114,5 +114,10 @@
   "interest_tech": "기술",
   "interest_travel": "여행",
   "interest_books": "책",
-  "interest_nature": "자연"
+  "interest_nature": "자연",
+  "myself_avatar": "자신의 관심사와 스타일을 가진 나 자신을 나타내는 아바타입니다.",
+  "love_avatar": "연인 또는 로맨틱한 관심 대상을 나타내는 아바타입니다.",
+  "friend_avatar": "가까운 친구를 나타내는 아바타입니다.",
+  "relative_avatar": "부모님이나 조부모 등 가족을 나타내는 아바타입니다.",
+  "change_avatar_type": "아바타 변경"
 }

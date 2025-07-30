@@ -415,18 +415,6 @@ abstract class AppLocalizations {
   /// **'Choose an image and a voice, or video sample for your avatar.'**
   String get chooseAvatarInstruction;
 
-  /// No description provided for @avatar_name_question.
-  ///
-  /// In en, this message translates to:
-  /// **'Choose a name for your avatar.'**
-  String get avatar_name_question;
-
-  /// No description provided for @avatar_name_hint.
-  ///
-  /// In en, this message translates to:
-  /// **'Example: Alex, Sam'**
-  String get avatar_name_hint;
-
   /// No description provided for @successSave.
   ///
   /// In en, this message translates to:
@@ -714,6 +702,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Nature'**
   String get interest_nature;
+
+  /// No description provided for @myself_avatar.
+  ///
+  /// In en, this message translates to:
+  /// **'An avatar that represents yourself, with your own interests and style.'**
+  String get myself_avatar;
+
+  /// No description provided for @love_avatar.
+  ///
+  /// In en, this message translates to:
+  /// **'An avatar that represents a partner or romantic interest.'**
+  String get love_avatar;
+
+  /// No description provided for @friend_avatar.
+  ///
+  /// In en, this message translates to:
+  /// **'An avatar that represents a close friend.'**
+  String get friend_avatar;
+
+  /// No description provided for @relative_avatar.
+  ///
+  /// In en, this message translates to:
+  /// **'An avatar that represents a relative, such as a parent or grandparent.'**
+  String get relative_avatar;
+
+  /// No description provided for @change_avatar_type.
+  ///
+  /// In en, this message translates to:
+  /// **'Change avatar'**
+  String get change_avatar_type;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

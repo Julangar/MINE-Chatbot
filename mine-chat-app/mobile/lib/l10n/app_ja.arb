@@ -114,5 +114,10 @@
   "interest_tech": "テクノロジー",
   "interest_travel": "旅行",
   "interest_books": "本",
-  "interest_nature": "自然"
+  "interest_nature": "自然",
+  "myself_avatar": "自分自身を表すアバター。あなた自身の興味やスタイルで。",
+  "love_avatar": "パートナーや恋愛対象を表すアバター。",
+  "friend_avatar": "親しい友人を表すアバター。",
+  "relative_avatar": "家族（父、母、祖父母など）を表すアバター。",
+  "change_avatar_type": "アバターを変更"
 }

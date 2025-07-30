@@ -150,12 +150,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get chooseAvatarInstruction => 'Escolhe uma imagem e uma voz, ou um vídeo para o teu avatar.';
 
   @override
-  String get avatar_name_question => 'Choose a name for your avatar.';
-
-  @override
-  String get avatar_name_hint => 'Example: Alex, Sam';
-
-  @override
   String get successSave => 'Perfil guardado com sucesso!';
 
   @override
@@ -298,6 +292,21 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get interest_nature => 'Natureza';
+
+  @override
+  String get myself_avatar => 'Um avatar que representa você mesmo, com seus próprios interesses e estilo.';
+
+  @override
+  String get love_avatar => 'Um avatar que representa um parceiro ou interesse romântico.';
+
+  @override
+  String get friend_avatar => 'Um avatar que representa um amigo ou amiga próximo.';
+
+  @override
+  String get relative_avatar => 'Um avatar que representa um parente, como pai, mãe ou avô/avó.';
+
+  @override
+  String get change_avatar_type => 'Alterar avatar';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -576,4 +585,19 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get interest_nature => 'Natureza';
+
+  @override
+  String get myself_avatar => 'Um avatar que representa você mesmo, com seus próprios interesses e estilo.';
+
+  @override
+  String get love_avatar => 'Um avatar que representa um parceiro ou interesse romântico.';
+
+  @override
+  String get friend_avatar => 'Um avatar que representa um amigo ou amiga próximo.';
+
+  @override
+  String get relative_avatar => 'Um avatar que representa um parente, como pai, mãe ou avô/avó.';
+
+  @override
+  String get change_avatar_type => 'Alterar avatar';
 }

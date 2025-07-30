@@ -150,12 +150,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get chooseAvatarInstruction => '为你的头像选择一张图片和一个声音，或一个视频。';
 
   @override
-  String get avatar_name_question => 'Choose a name for your avatar.';
-
-  @override
-  String get avatar_name_hint => 'Example: Alex, Sam';
-
-  @override
   String get successSave => '资料保存成功！';
 
   @override
@@ -298,4 +292,19 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get interest_nature => '自然';
+
+  @override
+  String get myself_avatar => '代表你自己的头像，拥有你自己的兴趣和风格。';
+
+  @override
+  String get love_avatar => '代表伴侣或浪漫对象的头像。';
+
+  @override
+  String get friend_avatar => '代表亲密朋友的头像。';
+
+  @override
+  String get relative_avatar => '代表亲人的头像，例如父母或祖父母。';
+
+  @override
+  String get change_avatar_type => '更换头像';
 }

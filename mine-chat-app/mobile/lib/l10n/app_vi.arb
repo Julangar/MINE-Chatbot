@@ -114,5 +114,10 @@
   "interest_tech": "Công nghệ",
   "interest_travel": "Du lịch",
   "interest_books": "Sách",
-  "interest_nature": "Thiên nhiên"
+  "interest_nature": "Thiên nhiên",
+  "myself_avatar": "Một avatar đại diện cho chính bạn, với sở thích và phong cách riêng.",
+  "love_avatar": "Một avatar đại diện cho người yêu hoặc người bạn quan tâm.",
+  "friend_avatar": "Một avatar đại diện cho một người bạn thân.",
+  "relative_avatar": "Một avatar đại diện cho người thân, như cha mẹ hoặc ông bà.",
+  "change_avatar_type": "Thay đổi avatar"
 }

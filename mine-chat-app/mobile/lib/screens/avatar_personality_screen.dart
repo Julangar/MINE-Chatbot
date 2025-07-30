@@ -1,213 +1,84 @@
+
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mine_app/l10n/app_localizations.dart';
+import '../services/avatar_service.dart';
+import '../widgets/avatar_personality_form.dart';
 
-import '../widgets/avatar_questions/love_questions.dart';
-import '../widgets/avatar_questions/friend_questions.dart';
-import '../widgets/avatar_questions/relative_questions.dart';
-import '../widgets/avatar_questions/myself_questions.dart';
-import '../widgets/banner_message.dart';
+enum AvatarType { myself, love, friend, relative }
 
-// Modelo para enviar a Firebase (ajusta según tu backend real)
-enum AvatarType { love, friend, relative, myself }
-
-class AvatarPersonalityFormScreen extends StatefulWidget {
-  const AvatarPersonalityFormScreen({Key? key}) : super(key: key);
+class AvatarPersonalityScreen extends StatefulWidget {
+  const AvatarPersonalityScreen({super.key});
 
   @override
-  State<AvatarPersonalityFormScreen> createState() => _AvatarPersonalityFormScreenState();
+  State<AvatarPersonalityScreen> createState() => _AvatarPersonalityScreenState();
 }
 
-class _AvatarPersonalityFormScreenState extends State<AvatarPersonalityFormScreen> {
+class _AvatarPersonalityScreenState extends State<AvatarPersonalityScreen> {
   AvatarType? _selectedType;
-  final _formKey = GlobalKey<FormState>();
-  Map<String, dynamic> _formData = {};
-  bool _loading = false;
-  bool _avatarExists = false;
+  bool _isSaving = false;
 
-  @override
-  void initState() {
-    super.initState();
-    _checkIfAvatarExists();
-  }
-
-  Future<void> _checkIfAvatarExists() async {
-    final user = FirebaseAuth.instance.currentUser;
-    if (user == null) return;
-
-    if (_selectedType != null) {
-      String collectionName = _collectionForType(_selectedType!);
-      final doc = await FirebaseFirestore.instance.collection(user.uid).doc(collectionName).get();
-      setState(() => _avatarExists = doc.exists);
-    }
-  }
-
-  String _collectionForType(AvatarType type) {
+  String _getAvatarTypeString(AvatarType type) {
     switch (type) {
-      case AvatarType.love:
-        return 'love_avatars';
-      case AvatarType.friend:
-        return 'friend_avatars';
-      case AvatarType.relative:
-        return 'relative_avatars';
       case AvatarType.myself:
-        return 'myself_avatars';
+        return 'myself_avatar';
+      case AvatarType.love:
+        return 'love_avatar';
+      case AvatarType.friend:
+        return 'friend_avatar';
+      case AvatarType.relative:
+        return 'relative_avatar';
     }
   }
 
-  void _onFormChanged(Map<String, dynamic> newData) {
-    setState(() {
-      _formData = newData;
-    });
-  }
-
-  Widget _questionWidget() {
-    switch (_selectedType) {
-      case AvatarType.love:
-        return LoveQuestions(onChanged: _onFormChanged, initialData: _formData);
-      case AvatarType.friend:
-        return FriendQuestions(onChanged: _onFormChanged, initialData: _formData);
-      case AvatarType.relative:
-        return RelativeQuestions(onChanged: _onFormChanged, initialData: _formData);
-      case AvatarType.myself:
-        return MyselfQuestions(onChanged: _onFormChanged, initialData: _formData);
-      default:
-        return const SizedBox.shrink();
-    }
-  }
-
-  Future<void> _saveToFirebase() async {
-    if (!_formKey.currentState!.validate()) return;
-    setState(() => _loading = true);
-
+  void _savePersonality(Map<String, dynamic> data) async {
     final user = FirebaseAuth.instance.currentUser;
-    if (user == null) {
-      setState(() => _loading = false);
+    final userId = user?.uid;
+
+    if (userId == null || _selectedType == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.noUserAuthenticated)),
-      );
+          const SnackBar(content: Text('Usuario no autenticado o tipo de avatar no seleccionado')));
       return;
     }
 
-    String collectionName = _collectionForType(_selectedType!);
-    try {
-      await FirebaseFirestore.instance
-          .collection(user.uid)
-          .doc(collectionName)
-          .set({
-            ..._formData,
-            'userId': user.uid,
-            'createdAt': FieldValue.serverTimestamp(),
-            'type': _selectedType.toString(),
-          }, SetOptions(merge: true));
+    setState(() => _isSaving = true);
 
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(AppLocalizations.of(context)!.successSave),
-          backgroundColor: Colors.green,
-          duration: Duration(seconds: 2),
-        ),
-      );
-      await Future.delayed(const Duration(seconds: 2));
-      // Navega y no permite volver a crear el avatar de este tipo
-      Navigator.of(context).pushReplacementNamed('/avatar');
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${AppLocalizations.of(context)!.errorSaving} $e')),
-      );
-    }
-    setState(() => _loading = false);
-  }
+    await AvatarService.saveAvatarPersonality(userId, _getAvatarTypeString(_selectedType!), data);
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.createYourAvatar, style: TextStyle(color: Colors.white)),
-        backgroundColor: const Color(0xFF131118),
-        iconTheme: const IconThemeData(color: Colors.white),
-        leading: (_selectedType == null)
-            ? null
-            : IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () {
-                  // Permite cambiar de tipo antes de guardar, borra lo seleccionado
-                  setState(() {
-                    _selectedType = null;
-                    _formData = {};
-                  });
-                },
-              ),
-      ),
-      backgroundColor: const Color(0xFF131118),
-      body: _loading
-          ? const Center(child: CircularProgressIndicator())
-          : (_selectedType == null)
-              ? _typeSelector()
-              : _avatarExists
-                  ? Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Icon(Icons.check_circle, color: Colors.green, size: 60),
-                          const SizedBox(height: 16),
-                          Text(AppLocalizations.of(context)!.avatarAlreadyExist),
-                          const SizedBox(height: 8),
-                          ElevatedButton(
-                            onPressed: () => Navigator.of(context).pushReplacementNamed('/avatar'),
-                            child: Text(AppLocalizations.of(context)!.goToChat),
-                          ),
-                        ],
-                      ),
-                    )
-                  : Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Form(
-                        key: _formKey,
-                        child: ListView(
-                          children: [
-                            // BANNER FIJO
-                            BannerMessage(
-                              title: AppLocalizations.of(context)!.customizeYourAvatar,
-                              message: AppLocalizations.of(context)!.takeAMinuteToAnswer +AppLocalizations.of(context)!.yourAnswersDefine,
-                              icon: Icons.assignment_turned_in_outlined,
-                            ),
-                            _questionWidget(),
-                            const SizedBox(height: 20),
-                            ElevatedButton(
-                              onPressed: _loading ? null : _saveToFirebase,
-                              child: Text(AppLocalizations.of(context)!.saveAndContinue),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-    );
+    setState(() => _isSaving = false);
+
+    Navigator.pushNamed(context, '/create');
   }
 
   Widget _typeSelector() {
+    final t = AppLocalizations.of(context)!;
+    final descriptions = {
+      AvatarType.myself: t.myself_avatar,
+      AvatarType.love: t.love_avatar,
+      AvatarType.friend: t.friend_avatar,
+      AvatarType.relative: t.relative_avatar,
+    };
+
     return Padding(
       padding: const EdgeInsets.all(32.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            AppLocalizations.of(context)!.selectAvatarType,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+            t.selectAvatarType,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 32),
+          const SizedBox(height: 32),
           Wrap(
             spacing: 20,
             runSpacing: 20,
             alignment: WrapAlignment.center,
             children: [
-              _typeButton(AvatarType.love, "Love of Mine", Icons.favorite),
-              _typeButton(AvatarType.friend, "Friend of Mine", Icons.people),
-              _typeButton(AvatarType.relative, "Relative of Mine", Icons.family_restroom),
-              _typeButton(AvatarType.myself, "Myself", Icons.person),
+              _typeButton(AvatarType.love, "Love of Mine", Icons.favorite, descriptions[AvatarType.love]!),
+              _typeButton(AvatarType.friend, "Friend of Mine", Icons.people, descriptions[AvatarType.friend]!),
+              _typeButton(AvatarType.relative, "Relative of Mine", Icons.family_restroom, descriptions[AvatarType.relative]!),
+              _typeButton(AvatarType.myself, "Myself", Icons.person, descriptions[AvatarType.myself]!),
             ],
           ),
         ],
@@ -215,22 +86,68 @@ class _AvatarPersonalityFormScreenState extends State<AvatarPersonalityFormScree
     );
   }
 
-  Widget _typeButton(AvatarType type, String label, IconData icon) {
-    return ElevatedButton.icon(
-      icon: Icon(icon),
-      label: Text(label),
-      style: ElevatedButton.styleFrom(
-        minimumSize: const Size(140, 50),
-        textStyle: const TextStyle(fontSize: 16),
+  Widget _typeButton(AvatarType type, String title, IconData icon, String description) {
+    final isSelected = _selectedType == type;
+
+    return GestureDetector(
+      onTap: () => setState(() => _selectedType = type),
+      child: Container(
+        width: 140,
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          color: isSelected ? Colors.white : Colors.grey[850],
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: Colors.white70),
+        ),
+        child: Column(
+          children: [
+            Icon(icon, size: 36, color: isSelected ? Colors.black : Colors.white),
+            const SizedBox(height: 8),
+            Text(title,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: isSelected ? Colors.black : Colors.white),
+                textAlign: TextAlign.center),
+            const SizedBox(height: 6),
+            Text(description,
+                style: TextStyle(fontSize: 12, color: isSelected ? Colors.black87 : Colors.white70),
+                textAlign: TextAlign.center),
+          ],
+        ),
       ),
-      onPressed: () async {
-        setState(() {
-          _selectedType = type;
-          _formData = {};
-          _avatarExists = false;
-        });
-        await _checkIfAvatarExists();
-      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context)!.avatar_form_title),
+        backgroundColor: Colors.black,
+      ),
+      body: _isSaving
+          ? const Center(child: CircularProgressIndicator())
+          : _selectedType == null
+              ? _typeSelector()
+              : Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: TextButton.icon(
+                          onPressed: () => setState(() => _selectedType = null),
+                          icon: const Icon(Icons.arrow_back, color: Colors.white),
+                          label: Text(AppLocalizations.of(context)!.change_avatar_type, style: const TextStyle(color: Colors.white)),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: AvatarPersonalityForm(onSubmit: _savePersonality),
+                    ),
+                  ],
+                ),
     );
   }
 }

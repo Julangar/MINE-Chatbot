@@ -150,12 +150,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get chooseAvatarInstruction => 'Wähle ein Bild und eine Stimme oder ein Video für deinen Avatar aus.';
 
   @override
-  String get avatar_name_question => 'Choose a name for your avatar.';
-
-  @override
-  String get avatar_name_hint => 'Example: Alex, Sam';
-
-  @override
   String get successSave => 'Profil erfolgreich gespeichert!';
 
   @override
@@ -298,4 +292,19 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get interest_nature => 'Natur';
+
+  @override
+  String get myself_avatar => 'Ein Avatar, der dich selbst mit deinen eigenen Interessen und deinem Stil repräsentiert.';
+
+  @override
+  String get love_avatar => 'Ein Avatar, der einen Partner oder eine romantische Beziehung repräsentiert.';
+
+  @override
+  String get friend_avatar => 'Ein Avatar, der einen engen Freund oder eine enge Freundin repräsentiert.';
+
+  @override
+  String get relative_avatar => 'Ein Avatar, der einen Verwandten wie einen Elternteil oder Großelternteil repräsentiert.';
+
+  @override
+  String get change_avatar_type => 'Avatar ändern';
 }

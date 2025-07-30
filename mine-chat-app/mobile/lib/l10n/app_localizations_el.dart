@@ -150,12 +150,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get chooseAvatarInstruction => 'Επιλέξτε μια εικόνα και μια φωνή ή ένα δείγμα βίντεο για το avatar σας.';
 
   @override
-  String get avatar_name_question => 'Choose a name for your avatar.';
-
-  @override
-  String get avatar_name_hint => 'Example: Alex, Sam';
-
-  @override
   String get successSave => 'Το προφίλ αποθηκεύτηκε με επιτυχία!';
 
   @override
@@ -298,4 +292,19 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get interest_nature => 'Φύση';
+
+  @override
+  String get myself_avatar => 'Ένα avatar που αντιπροσωπεύει εσένα, με τα δικά σου ενδιαφέροντα και στυλ.';
+
+  @override
+  String get love_avatar => 'Ένα avatar που αντιπροσωπεύει έναν σύντροφο ή ρομαντικό ενδιαφέρον.';
+
+  @override
+  String get friend_avatar => 'Ένα avatar που αντιπροσωπεύει έναν στενό φίλο ή φίλη.';
+
+  @override
+  String get relative_avatar => 'Ένα avatar που αντιπροσωπεύει ένα συγγενικό πρόσωπο, όπως γονέα ή παππού/γιαγιά.';
+
+  @override
+  String get change_avatar_type => 'Αλλαγή avatar';
 }

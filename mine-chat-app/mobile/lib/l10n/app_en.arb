@@ -47,9 +47,6 @@
   "selectAvatarType": "Select the type of avatar you want to create",
   "saveAndContinue": "Save and continue",
   "chooseAvatarInstruction": "Choose an image and a voice, or video sample for your avatar.",
-  "avatar_name_question": "Choose a name for your avatar.",
-  "avatar_name_hint": "Example: Alex, Sam",
- 
   "successSave" : "Profile Saved Successfully!",
   "myProfile": "My Profile",
   "name": "Name",
@@ -97,5 +94,10 @@
   "interest_tech": "Technology",
   "interest_travel": "Travel",
   "interest_books": "Books",
-  "interest_nature": "Nature"
+  "interest_nature": "Nature",
+  "myself_avatar": "An avatar that represents yourself, with your own interests and style.",
+  "love_avatar": "An avatar that represents a partner or romantic interest.",
+  "friend_avatar": "An avatar that represents a close friend.",
+  "relative_avatar": "An avatar that represents a relative, such as a parent or grandparent.",
+  "change_avatar_type" : "Change avatar"
 }

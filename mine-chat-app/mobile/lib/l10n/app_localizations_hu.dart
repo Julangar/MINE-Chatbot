@@ -150,12 +150,6 @@ class AppLocalizationsHu extends AppLocalizations {
   String get chooseAvatarInstruction => 'Válasszon képet és hangot vagy videót az avatarjához.';
 
   @override
-  String get avatar_name_question => 'Choose a name for your avatar.';
-
-  @override
-  String get avatar_name_hint => 'Example: Alex, Sam';
-
-  @override
   String get successSave => 'A profil sikeresen mentve!';
 
   @override
@@ -298,4 +292,19 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get interest_nature => 'Természet';
+
+  @override
+  String get myself_avatar => 'Egy avatar, amely téged képvisel, a saját érdeklődési köröddel és stílusoddal.';
+
+  @override
+  String get love_avatar => 'Egy avatar, amely egy párt vagy romantikus érdeklődést képvisel.';
+
+  @override
+  String get friend_avatar => 'Egy avatar, amely egy közeli barátot képvisel.';
+
+  @override
+  String get relative_avatar => 'Egy avatar, amely egy családtagot képvisel, például szülőt vagy nagyszülőt.';
+
+  @override
+  String get change_avatar_type => 'Avatar módosítása';
 }

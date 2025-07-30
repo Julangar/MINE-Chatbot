@@ -114,5 +114,10 @@
   "interest_tech": "Technológia",
   "interest_travel": "Utazás",
   "interest_books": "Könyvek",
-  "interest_nature": "Természet"
+  "interest_nature": "Természet",
+  "myself_avatar": "Egy avatar, amely téged képvisel, a saját érdeklődési köröddel és stílusoddal.",
+  "love_avatar": "Egy avatar, amely egy párt vagy romantikus érdeklődést képvisel.",
+  "friend_avatar": "Egy avatar, amely egy közeli barátot képvisel.",
+  "relative_avatar": "Egy avatar, amely egy családtagot képvisel, például szülőt vagy nagyszülőt.",
+  "change_avatar_type": "Avatar módosítása"
 }

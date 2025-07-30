@@ -114,5 +114,10 @@
   "interest_tech": "Tecnología",
   "interest_travel": "Viajes",
   "interest_books": "Libros",
-  "interest_nature": "Naturaleza"
+  "interest_nature": "Naturaleza",
+  "myself_avatar": "Un avatar que representa a ti mismo, con tus propios intereses y estilo.",
+  "love_avatar": "Un avatar que representa a una pareja o interés romántico.",
+  "friend_avatar": "Un avatar que representa a un amigo o amiga cercano.",
+  "relative_avatar": "Un avatar que representa a un familiar, como un padre, madre o abuelo/a.",
+  "change_avatar_type": "Cambiar avatar"
 }

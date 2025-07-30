@@ -50,10 +50,10 @@ class L10n {
       case 'en':
         return 'English';
       case 'es':
-        if (countryCode == '419') return 'Español (Latinoamérica)';
+        if (countryCode == '419') return 'Español (Lat)';
         return 'Español';
       case 'pt':
-        if (countryCode == 'BR') return 'Português (Brasil)';
+        if (countryCode == 'BR') return 'Português (Br)';
         return 'Português';
       case 'fr':
         return 'Français';

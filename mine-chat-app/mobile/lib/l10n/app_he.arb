@@ -114,5 +114,10 @@
   "interest_tech": "טכנולוגיה",
   "interest_travel": "טיולים",
   "interest_books": "ספרים",
-  "interest_nature": "טבע"
+  "interest_nature": "טבע",
+  "myself_avatar": "דמות שמייצגת את עצמך, עם תחומי העניין והסגנון שלך.",
+  "love_avatar": "דמות שמייצגת בן/בת זוג או עניין רומנטי.",
+  "friend_avatar": "דמות שמייצגת חבר או חברה קרובים.",
+  "relative_avatar": "דמות שמייצגת קרוב משפחה, כמו הורה או סבא/סבתא.",
+  "change_avatar_type": "שנה דמות"
 }

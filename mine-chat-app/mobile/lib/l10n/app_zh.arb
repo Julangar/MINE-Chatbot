@@ -114,5 +114,10 @@
   "interest_tech": "科技",
   "interest_travel": "旅行",
   "interest_books": "书籍",
-  "interest_nature": "自然"
+  "interest_nature": "自然",
+  "myself_avatar": "代表你自己的头像，拥有你自己的兴趣和风格。",
+  "love_avatar": "代表伴侣或浪漫对象的头像。",
+  "friend_avatar": "代表亲密朋友的头像。",
+  "relative_avatar": "代表亲人的头像，例如父母或祖父母。",
+  "change_avatar_type": "更换头像"
 }

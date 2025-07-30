@@ -150,12 +150,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get chooseAvatarInstruction => 'Выберите изображение и голос или видео для своего аватара.';
 
   @override
-  String get avatar_name_question => 'Choose a name for your avatar.';
-
-  @override
-  String get avatar_name_hint => 'Example: Alex, Sam';
-
-  @override
   String get successSave => 'Профиль успешно сохранен!';
 
   @override
@@ -298,4 +292,19 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get interest_nature => 'Природа';
+
+  @override
+  String get myself_avatar => 'Аватар, который представляет вас, с вашими интересами и стилем.';
+
+  @override
+  String get love_avatar => 'Аватар, который представляет партнера или романтический интерес.';
+
+  @override
+  String get friend_avatar => 'Аватар, который представляет близкого друга.';
+
+  @override
+  String get relative_avatar => 'Аватар, который представляет родственника, например, родителя или бабушку/дедушку.';
+
+  @override
+  String get change_avatar_type => 'Сменить аватар';
 }

@@ -114,5 +114,10 @@
   "interest_tech": "Teknoloji",
   "interest_travel": "Seyahat",
   "interest_books": "Kitaplar",
-  "interest_nature": "Doğa"
+  "interest_nature": "Doğa",
+  "myself_avatar": "Kendi ilgi alanlarınız ve tarzınızla sizi temsil eden bir avatar.",
+  "love_avatar": "Bir partneri veya romantik ilgiyi temsil eden bir avatar.",
+  "friend_avatar": "Yakın bir arkadaşı temsil eden bir avatar.",
+  "relative_avatar": "Bir ebeveyn veya büyükanne/büyükbaba gibi aile üyesini temsil eden bir avatar.",
+  "change_avatar_type": "Avatarı değiştir"
 }

@@ -150,12 +150,6 @@ class AppLocalizationsTl extends AppLocalizations {
   String get chooseAvatarInstruction => 'Pumili ng larawan at boses, o sample na video para sa iyong avatar.';
 
   @override
-  String get avatar_name_question => 'Choose a name for your avatar.';
-
-  @override
-  String get avatar_name_hint => 'Example: Alex, Sam';
-
-  @override
   String get successSave => 'Matagumpay na nasave ang profile!';
 
   @override
@@ -298,4 +292,19 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get interest_nature => 'Kalikasan';
+
+  @override
+  String get myself_avatar => 'Isang avatar na kumakatawan sa iyong sarili, kasama ang iyong sariling interes at istilo.';
+
+  @override
+  String get love_avatar => 'Isang avatar na kumakatawan sa isang partner o romantikong interes.';
+
+  @override
+  String get friend_avatar => 'Isang avatar na kumakatawan sa isang malapit na kaibigan.';
+
+  @override
+  String get relative_avatar => 'Isang avatar na kumakatawan sa isang kamag-anak, tulad ng magulang o lolo/lola.';
+
+  @override
+  String get change_avatar_type => 'Palitan ang avatar';
 }

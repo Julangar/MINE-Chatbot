@@ -150,12 +150,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get chooseAvatarInstruction => 'Elige una imagen y una voz, o una muestra de video para tu avatar.';
 
   @override
-  String get avatar_name_question => 'Choose a name for your avatar.';
-
-  @override
-  String get avatar_name_hint => 'Example: Alex, Sam';
-
-  @override
   String get successSave => '¡Perfil guardado con éxito!';
 
   @override
@@ -298,6 +292,21 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get interest_nature => 'Naturaleza';
+
+  @override
+  String get myself_avatar => 'Un avatar que representa a ti mismo, con tus propios intereses y estilo.';
+
+  @override
+  String get love_avatar => 'Un avatar que representa a una pareja o interés romántico.';
+
+  @override
+  String get friend_avatar => 'Un avatar que representa a un amigo o amiga cercano.';
+
+  @override
+  String get relative_avatar => 'Un avatar que representa a un familiar, como un padre, madre o abuelo/a.';
+
+  @override
+  String get change_avatar_type => 'Cambiar avatar';
 }
 
 /// The translations for Spanish Castilian, as used in Latin America and the Caribbean (`es_419`).
@@ -576,4 +585,19 @@ class AppLocalizationsEs419 extends AppLocalizationsEs {
 
   @override
   String get interest_nature => 'Naturaleza';
+
+  @override
+  String get myself_avatar => 'Un avatar que te representa, con tus propios intereses y estilo.';
+
+  @override
+  String get love_avatar => 'Un avatar que representa a una pareja o alguien especial.';
+
+  @override
+  String get friend_avatar => 'Un avatar que representa a un amigo o amiga cercano.';
+
+  @override
+  String get relative_avatar => 'Un avatar que representa a un familiar, como mamá, papá o abuelito/a.';
+
+  @override
+  String get change_avatar_type => 'Cambiar avatar';
 }
