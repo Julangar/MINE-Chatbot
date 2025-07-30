@@ -15,6 +15,7 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
   final _formKey = GlobalKey<FormState>();
 
   String name = '';
+  String avatarType = '';
   String userReference = '';
   String relationshipOrRole = '';
   String speakingStyle = 'casual';
@@ -40,6 +41,7 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
     if (_formKey.currentState!.validate()) {
       widget.onSubmit({
         'name': name,
+        'avatarType': avatarType,
         'userReference': userReference,
         'relationshipOrRole': relationshipOrRole,
         'speakingStyle': speakingStyle,

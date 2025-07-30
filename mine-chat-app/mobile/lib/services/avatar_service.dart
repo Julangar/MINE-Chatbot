@@ -1,5 +1,6 @@
 
 import 'dart:convert';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:http/http.dart' as http;
 
 class AvatarService {
@@ -40,5 +41,14 @@ class AvatarService {
     }
 
     return null;
+  }
+
+  static Future<void> saveAvatarPersonality(
+    String userId, String avatarType, Map<String, dynamic> data) async {
+    final docRef = FirebaseFirestore.instance
+      .collection(userId)
+      .doc(avatarType);
+
+    await docRef.set(data);
   }
 }

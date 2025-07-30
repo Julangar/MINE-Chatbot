@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mine_app/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'widgets/auth_guard.dart';
 import 'providers/locale_provider.dart';
 import 'providers/auth_provider.dart';
 import 'controllers/avatar_controller.dart';
@@ -51,11 +52,11 @@ class MineApp extends StatelessWidget {
         '/login': (context) => const LoginScreen(),
         '/register': (context) => const RegisterScreen(),
         '/forgot_password': (context) => const ForgotPasswordScreen(),
-        '/avatar_personality': (context) => const AvatarPersonalityFormScreen(),
-        '/avatar': (context) => const CreateAvatarScreen(),
-        '/avatar_summary': (context) => const AvatarSummaryScreen(),
-        '/chat': (context) => const ChatScreen(),
-        '/profile': (context) => const ProfileScreen(),
+        '/avatar_personality': (context) => const AuthGuard(child: AvatarPersonalityFormScreen()),
+        '/avatar': (context) => const AuthGuard(child: CreateAvatarScreen()),
+        '/avatar_summary': (context) => const AuthGuard(child: AvatarSummaryScreen()),
+        '/chat': (context) => const AuthGuard(child: ChatScreen()),
+        '/profile': (context) => const AuthGuard(child: ProfileScreen()),
       },
     );
   }

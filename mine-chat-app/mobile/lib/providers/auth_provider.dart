@@ -72,6 +72,17 @@ class AuthProvider extends ChangeNotifier {
 
   // Cerrar sesión
   Future<void> logout() async {
+    // Logout de Google
+    try {
+      await _googleSignIn.signOut();
+    } catch (e) {
+      debugPrint("Error cerrando sesión de Google: $e");
+    }
+
+    // Logout de Apple (normalmente no se requiere más)
+    // Puedes limpiar preferencias, tokens, etc. aquí si usas algún paquete adicional
+
+    // Logout de Firebase
     await _auth.signOut();
     notifyListeners();
   }
