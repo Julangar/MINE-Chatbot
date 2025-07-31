@@ -19,6 +19,6 @@ app.use('/api/avatar-profile', require('./routes/avatarProfile'));
 
 app.use(errorHandler);
 
-app.listen(PORT, () => {
-  console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 Servidor escuchando en http://0.0.0.0:${PORT}`);
 });

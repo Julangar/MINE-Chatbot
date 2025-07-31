@@ -4,10 +4,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:http/http.dart' as http;
 
 class AvatarService {
-  static const String baseUrl = 'http://localhost:3000'; // Cambiar en producción
+  static const String baseUrl = 'http://192.168.1.11:3000'; // Cambiar en producción
 
   static Future<String?> generateAvatarVideo(String userId, String avatarType) async {
-    final url = Uri.parse('$baseUrl/api/avatar/generate-video');
+    final url = Uri.parse('$baseUrl/api/avatarVideo/generate-video');
     final response = await http.post(
       url,
       headers: {'Content-Type': 'application/json'},
