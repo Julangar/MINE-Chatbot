@@ -310,4 +310,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get avatar_button_generate => '生成视频';
+
+  @override
+  String get avatar_summary_no_avatar => '未找到头像';
 }

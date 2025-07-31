@@ -310,4 +310,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get avatar_button_generate => 'Tạo video';
+
+  @override
+  String get avatar_summary_no_avatar => 'Không tìm thấy avatar';
 }

@@ -67,7 +67,7 @@ class _AvatarSummaryScreenState extends State<AvatarSummaryScreen> {
       return Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(title: Text(t.avatar_summary_title)),
-        body: const Center(child: Text("No se ha encontrado el avatar")),
+        body: Center(child: Text(t.avatar_summary_no_avatar))
       );
     }
 

@@ -120,5 +120,6 @@
   "friend_avatar": "Egy avatar, amely egy közeli barátot képvisel.",
   "relative_avatar": "Egy avatar, amely egy családtagot képvisel, például szülőt vagy nagyszülőt.",
   "change_avatar_type": "Avatar módosítása",
-  "avatar_button_generate": "Videó generálása"
+  "avatar_button_generate": "Videó generálása",
+  "avatar_summary_no_avatar": "Nem található avatar"
 }

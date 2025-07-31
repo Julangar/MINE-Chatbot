@@ -120,5 +120,6 @@
   "friend_avatar": "Một avatar đại diện cho một người bạn thân.",
   "relative_avatar": "Một avatar đại diện cho người thân, như cha mẹ hoặc ông bà.",
   "change_avatar_type": "Thay đổi avatar",
-  "avatar_button_generate": "Tạo video"
+  "avatar_button_generate": "Tạo video",
+  "avatar_summary_no_avatar": "Không tìm thấy avatar"
 }

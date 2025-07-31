@@ -310,4 +310,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get avatar_button_generate => 'Δημιουργία βίντεο';
+
+  @override
+  String get avatar_summary_no_avatar => 'Δεν βρέθηκε το avatar';
 }

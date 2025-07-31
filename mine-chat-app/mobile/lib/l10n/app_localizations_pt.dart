@@ -310,6 +310,9 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get avatar_button_generate => 'Gerar vídeo';
+
+  @override
+  String get avatar_summary_no_avatar => 'Avatar não encontrado';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -606,4 +609,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get avatar_button_generate => 'Gerar vídeo';
+
+  @override
+  String get avatar_summary_no_avatar => 'Avatar não encontrado';
 }

@@ -310,4 +310,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get avatar_button_generate => 'إنشاء فيديو';
+
+  @override
+  String get avatar_summary_no_avatar => 'لم يتم العثور على الصورة الرمزية';
 }

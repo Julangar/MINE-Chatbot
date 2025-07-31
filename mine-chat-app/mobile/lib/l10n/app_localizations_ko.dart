@@ -310,4 +310,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get avatar_button_generate => '비디오 생성';
+
+  @override
+  String get avatar_summary_no_avatar => '아바타를 찾을 수 없습니다';
 }

@@ -738,6 +738,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Generate Video'**
   String get avatar_button_generate;
+
+  /// No description provided for @avatar_summary_no_avatar.
+  ///
+  /// In en, this message translates to:
+  /// **'Avatar not found'**
+  String get avatar_summary_no_avatar;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

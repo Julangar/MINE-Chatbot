@@ -120,5 +120,6 @@
   "friend_avatar": "Yakın bir arkadaşı temsil eden bir avatar.",
   "relative_avatar": "Bir ebeveyn veya büyükanne/büyükbaba gibi aile üyesini temsil eden bir avatar.",
   "change_avatar_type": "Avatarı değiştir",
-  "avatar_button_generate": "Video oluştur"
+  "avatar_button_generate": "Video oluştur",
+  "avatar_summary_no_avatar": "Avatar bulunamadı"
 }

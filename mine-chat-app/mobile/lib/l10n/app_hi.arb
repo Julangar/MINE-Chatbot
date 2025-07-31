@@ -120,5 +120,6 @@
   "friend_avatar": "एक ऐसा अवतार जो करीबी दोस्त को दर्शाता है।",
   "relative_avatar": "एक ऐसा अवतार जो परिवार के सदस्य, जैसे माता-पिता या दादा-दादी को दर्शाता है।",
   "change_avatar_type": "अवतार बदलें",
-  "avatar_button_generate": "वीडियो बनाएं"
+  "avatar_button_generate": "वीडियो बनाएं",
+  "avatar_summary_no_avatar": "अवतार नहीं मिला"
 }

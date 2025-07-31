@@ -120,5 +120,6 @@
   "friend_avatar": "صورة رمزية تمثل صديقًا أو صديقة مقربة.",
   "relative_avatar": "صورة رمزية تمثل أحد الأقارب، مثل الأب أو الأم أو الجد/الجدة.",
   "change_avatar_type": "تغيير الصورة الرمزية",
-  "avatar_button_generate": "إنشاء فيديو"
+  "avatar_button_generate": "إنشاء فيديو",
+  "avatar_summary_no_avatar": "لم يتم العثور على الصورة الرمزية"
 }

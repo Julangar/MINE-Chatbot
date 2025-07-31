@@ -120,5 +120,6 @@
   "friend_avatar": "Аватар, который представляет близкого друга.",
   "relative_avatar": "Аватар, который представляет родственника, например, родителя или бабушку/дедушку.",
   "change_avatar_type": "Сменить аватар",
-  "avatar_button_generate": "Создать видео"
+  "avatar_button_generate": "Создать видео",
+  "avatar_summary_no_avatar": "Аватар не найден"
 }

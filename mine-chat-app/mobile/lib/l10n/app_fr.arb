@@ -120,5 +120,6 @@
   "friend_avatar": "Un avatar qui représente un ami proche.",
   "relative_avatar": "Un avatar qui représente un membre de la famille, comme un parent ou un grand-parent.",
   "change_avatar_type": "Changer d’avatar",
-  "avatar_button_generate": "Générer une vidéo"
+  "avatar_button_generate": "Générer une vidéo",
+  "avatar_summary_no_avatar": "Avatar non trouvé"
 }

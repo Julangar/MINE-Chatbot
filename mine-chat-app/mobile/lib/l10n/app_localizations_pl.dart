@@ -310,4 +310,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get avatar_button_generate => 'Generuj wideo';
+
+  @override
+  String get avatar_summary_no_avatar => 'Nie znaleziono awatara';
 }

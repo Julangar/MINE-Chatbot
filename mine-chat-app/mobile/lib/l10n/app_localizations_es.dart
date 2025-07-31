@@ -310,6 +310,9 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get avatar_button_generate => 'Generar video';
+
+  @override
+  String get avatar_summary_no_avatar => 'No se ha encontrado el avatar';
 }
 
 /// The translations for Spanish Castilian, as used in Latin America and the Caribbean (`es_419`).
@@ -606,4 +609,7 @@ class AppLocalizationsEs419 extends AppLocalizationsEs {
 
   @override
   String get avatar_button_generate => 'Generar video';
+
+  @override
+  String get avatar_summary_no_avatar => 'No se encontró el avatar';
 }
