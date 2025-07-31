@@ -119,5 +119,6 @@
   "love_avatar": "Awatar, który przedstawia partnera lub zainteresowanie romantyczne.",
   "friend_avatar": "Awatar, który przedstawia bliskiego przyjaciela.",
   "relative_avatar": "Awatar, który przedstawia krewnego, np. rodzica lub dziadka/babcię.",
-  "change_avatar_type": "Zmień awatara"
+  "change_avatar_type": "Zmień awatara",
+  "avatar_button_generate": "Generuj wideo"
 }

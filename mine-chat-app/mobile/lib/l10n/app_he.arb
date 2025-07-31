@@ -119,5 +119,6 @@
   "love_avatar": "דמות שמייצגת בן/בת זוג או עניין רומנטי.",
   "friend_avatar": "דמות שמייצגת חבר או חברה קרובים.",
   "relative_avatar": "דמות שמייצגת קרוב משפחה, כמו הורה או סבא/סבתא.",
-  "change_avatar_type": "שנה דמות"
+  "change_avatar_type": "שנה דמות",
+  "avatar_button_generate": "צור וידאו"
 }

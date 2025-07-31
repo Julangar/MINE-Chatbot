@@ -307,4 +307,7 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get change_avatar_type => 'Palitan ang avatar';
+
+  @override
+  String get avatar_button_generate => 'Gumawa ng video';
 }

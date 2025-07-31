@@ -170,8 +170,8 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
       // Esperar 2 segundos para que el usuario vea el mensaje
       await Future.delayed(const Duration(seconds: 2));
 
-    // Navegar a la ruta '/avatar_personality'
-      Navigator.pushNamed(context, '/chat');
+    // Navegar a la ruta '/avatar_summary' después de subir los archivos
+      Navigator.pushNamed(context, '/avatar_summary');
 
     // O puedes usar Navigator.pushReplacementNamed si no quieres que el usuario vuelva a esta pantalla
     // Navigator.pushReplacementNamed(context, '/avatar_personality');

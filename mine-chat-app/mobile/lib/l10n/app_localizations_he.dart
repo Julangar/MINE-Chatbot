@@ -307,4 +307,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get change_avatar_type => 'שנה דמות';
+
+  @override
+  String get avatar_button_generate => 'צור וידאו';
 }

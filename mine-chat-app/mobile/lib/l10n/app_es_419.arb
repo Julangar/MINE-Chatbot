@@ -119,5 +119,6 @@
   "love_avatar": "Un avatar que representa a una pareja o alguien especial.",
   "friend_avatar": "Un avatar que representa a un amigo o amiga cercano.",
   "relative_avatar": "Un avatar que representa a un familiar, como mamá, papá o abuelito/a.",
-  "change_avatar_type": "Cambiar avatar"
+  "change_avatar_type": "Cambiar avatar",
+  "avatar_button_generate": "Generar video"
 }

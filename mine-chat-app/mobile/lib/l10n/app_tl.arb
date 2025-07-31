@@ -119,5 +119,6 @@
   "love_avatar": "Isang avatar na kumakatawan sa isang partner o romantikong interes.",
   "friend_avatar": "Isang avatar na kumakatawan sa isang malapit na kaibigan.",
   "relative_avatar": "Isang avatar na kumakatawan sa isang kamag-anak, tulad ng magulang o lolo/lola.",
-  "change_avatar_type": "Palitan ang avatar"
+  "change_avatar_type": "Palitan ang avatar",
+  "avatar_button_generate": "Gumawa ng video"
 }

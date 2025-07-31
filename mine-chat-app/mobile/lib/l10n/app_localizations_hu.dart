@@ -307,4 +307,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get change_avatar_type => 'Avatar módosítása';
+
+  @override
+  String get avatar_button_generate => 'Videó generálása';
 }

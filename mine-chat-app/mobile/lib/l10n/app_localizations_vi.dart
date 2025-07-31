@@ -307,4 +307,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get change_avatar_type => 'Thay đổi avatar';
+
+  @override
+  String get avatar_button_generate => 'Tạo video';
 }

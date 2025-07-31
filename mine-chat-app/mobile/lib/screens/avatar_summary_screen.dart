@@ -54,21 +54,25 @@ class _AvatarSummaryScreenState extends State<AvatarSummaryScreen> {
   void _showError(String message) {
     setState(() {
       _isLoading = false;
-      _statusMessage = '';
+      _statusMessage = message;
     });
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
   }
 
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
-    final avatar = Provider.of<AvatarProvider>(context).avatar;
+    final avatar = context.watch<AvatarProvider>().avatar;
 
     if (avatar == null) {
-      return Scaffold(body: Center(child: Text(t.avatar_not_available)));
+      return Scaffold(
+        backgroundColor: Colors.black,
+        appBar: AppBar(title: Text(t.avatar_summary_title)),
+        body: const Center(child: Text("No se ha encontrado el avatar")),
+      );
     }
 
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(title: Text(t.avatar_summary_title)),
       body: _isLoading
           ? Center(
@@ -77,52 +81,49 @@ class _AvatarSummaryScreenState extends State<AvatarSummaryScreen> {
                 children: [
                   const CircularProgressIndicator(),
                   const SizedBox(height: 16),
-                  Text(_statusMessage),
+                  Text(_statusMessage, style: const TextStyle(color: Colors.white)),
                 ],
               ),
             )
-          : SingleChildScrollView(
-              padding: const EdgeInsets.all(24),
+          : Padding(
+              padding: const EdgeInsets.all(20),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+                  Text(
+                    avatar.name,
+                    style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 16),
                   if (avatar.imageUrl != null)
                     Center(
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(12),
                         child: Image.network(avatar.imageUrl!, height: 200),
                       ),
                     ),
-                  const SizedBox(height: 20),
-                  Text("👤 ${avatar.name}", style: Theme.of(context).textTheme.bodyLarge),
-                  Text("🧑 ${t.avatar_summary_user}: ${avatar.userReference}"),
-                  Text("🔗 ${t.avatar_summary_relationship}: ${avatar.relationshipOrRole}"),
-                  Text("🗣️ ${t.avatar_summary_style}: ${avatar.speakingStyle}"),
-                  Text("🎯 ${t.avatar_summary_interests}: ${avatar.interests.join(', ')}"),
-                  Text("💬 ${t.avatar_summary_phrases}: ${avatar.commonPhrases.join(', ')}"),
-                  const SizedBox(height: 12),
-                  Text("🎭 ${t.avatar_summary_traits}:", style: Theme.of(context).textTheme.titleMedium),
-                  Text("• ${t.avatar_summary_extroversion}: ${avatar.traits['extroversion'] ?? 0}"),
-                  Text("• ${t.avatar_summary_agreeableness}: ${avatar.traits['agreeableness'] ?? 0}"),
-                  Text("• ${t.avatar_summary_conscientiousness}: ${avatar.traits['conscientiousness'] ?? 0}"),
-                  const SizedBox(height: 32),
-                  Center(
-                    child: ElevatedButton.icon(
-                      icon: const Icon(Icons.movie_creation_outlined),
-                      label: Text(t.avatar_summary_create_button),
-                      onPressed: () => _generateAvatar(avatar),
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                      ),
+                  const SizedBox(height: 16),
+                  if (avatar.audioUrl != null)
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Audio:", style: const TextStyle(color: Colors.white)),
+                        const SizedBox(height: 8),
+                        Text(avatar.audioUrl!, style: const TextStyle(color: Colors.grey)),
+                      ],
                     ),
+                  const SizedBox(height: 16),
+                  Text(t.avatar_summary_interests, style: const TextStyle(color: Colors.white)),
+                  Wrap(
+                    spacing: 8,
+                    children: avatar.interests.map((i) => Chip(label: Text(i))).toList(),
                   ),
                   const SizedBox(height: 16),
-                  Center(
-                    child: TextButton.icon(
-                      onPressed: () => Navigator.pop(context),
-                      icon: const Icon(Icons.arrow_back),
-                      label: Text(t.avatar_summary_back_button),
-                    ),
+                  ElevatedButton.icon(
+                    onPressed: () => _generateAvatar(avatar),
+                    icon: const Icon(Icons.play_circle_fill),
+                    label: Text(t.avatar_button_generate),
                   )
                 ],
               ),

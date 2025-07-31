@@ -307,4 +307,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get change_avatar_type => '更换头像';
+
+  @override
+  String get avatar_button_generate => '生成视频';
 }

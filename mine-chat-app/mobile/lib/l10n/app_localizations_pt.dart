@@ -307,6 +307,9 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get change_avatar_type => 'Alterar avatar';
+
+  @override
+  String get avatar_button_generate => 'Gerar vídeo';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -600,4 +603,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get change_avatar_type => 'Alterar avatar';
+
+  @override
+  String get avatar_button_generate => 'Gerar vídeo';
 }

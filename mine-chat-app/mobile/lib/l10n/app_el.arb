@@ -119,5 +119,6 @@
   "love_avatar": "Ένα avatar που αντιπροσωπεύει έναν σύντροφο ή ρομαντικό ενδιαφέρον.",
   "friend_avatar": "Ένα avatar που αντιπροσωπεύει έναν στενό φίλο ή φίλη.",
   "relative_avatar": "Ένα avatar που αντιπροσωπεύει ένα συγγενικό πρόσωπο, όπως γονέα ή παππού/γιαγιά.",
-  "change_avatar_type": "Αλλαγή avatar"
+  "change_avatar_type": "Αλλαγή avatar",
+  "avatar_button_generate": "Δημιουργία βίντεο"
 }

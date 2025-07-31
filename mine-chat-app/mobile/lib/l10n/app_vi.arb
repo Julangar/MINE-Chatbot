@@ -119,5 +119,6 @@
   "love_avatar": "Một avatar đại diện cho người yêu hoặc người bạn quan tâm.",
   "friend_avatar": "Một avatar đại diện cho một người bạn thân.",
   "relative_avatar": "Một avatar đại diện cho người thân, như cha mẹ hoặc ông bà.",
-  "change_avatar_type": "Thay đổi avatar"
+  "change_avatar_type": "Thay đổi avatar",
+  "avatar_button_generate": "Tạo video"
 }

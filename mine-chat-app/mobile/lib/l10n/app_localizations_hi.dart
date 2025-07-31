@@ -307,4 +307,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get change_avatar_type => 'अवतार बदलें';
+
+  @override
+  String get avatar_button_generate => 'वीडियो बनाएं';
 }

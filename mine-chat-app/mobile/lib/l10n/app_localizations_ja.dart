@@ -307,4 +307,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get change_avatar_type => 'アバターを変更';
+
+  @override
+  String get avatar_button_generate => 'ビデオを生成';
 }

@@ -119,5 +119,6 @@
   "love_avatar": "Bir partneri veya romantik ilgiyi temsil eden bir avatar.",
   "friend_avatar": "Yakın bir arkadaşı temsil eden bir avatar.",
   "relative_avatar": "Bir ebeveyn veya büyükanne/büyükbaba gibi aile üyesini temsil eden bir avatar.",
-  "change_avatar_type": "Avatarı değiştir"
+  "change_avatar_type": "Avatarı değiştir",
+  "avatar_button_generate": "Video oluştur"
 }

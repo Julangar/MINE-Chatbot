@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'widgets/auth_guard.dart';
 import 'providers/locale_provider.dart';
 import 'providers/auth_provider.dart';
+import 'providers/avatar_provider.dart';
 import 'controllers/avatar_controller.dart';
 import 'screens/splash_screen.dart';
 import 'screens/login_screen.dart';
@@ -23,6 +24,7 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AvatarController()),
+        ChangeNotifierProvider(create: (_) => AvatarProvider()),
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => LocaleProvider()),
       ],

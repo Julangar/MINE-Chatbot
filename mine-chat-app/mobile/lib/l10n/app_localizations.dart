@@ -732,6 +732,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Change avatar'**
   String get change_avatar_type;
+
+  /// No description provided for @avatar_button_generate.
+  ///
+  /// In en, this message translates to:
+  /// **'Generate Video'**
+  String get avatar_button_generate;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

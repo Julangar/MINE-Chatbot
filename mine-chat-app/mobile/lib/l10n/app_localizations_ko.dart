@@ -307,4 +307,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get change_avatar_type => '아바타 변경';
+
+  @override
+  String get avatar_button_generate => '비디오 생성';
 }

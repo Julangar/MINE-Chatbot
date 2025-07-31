@@ -119,5 +119,6 @@
   "love_avatar": "Egy avatar, amely egy párt vagy romantikus érdeklődést képvisel.",
   "friend_avatar": "Egy avatar, amely egy közeli barátot képvisel.",
   "relative_avatar": "Egy avatar, amely egy családtagot képvisel, például szülőt vagy nagyszülőt.",
-  "change_avatar_type": "Avatar módosítása"
+  "change_avatar_type": "Avatar módosítása",
+  "avatar_button_generate": "Videó generálása"
 }

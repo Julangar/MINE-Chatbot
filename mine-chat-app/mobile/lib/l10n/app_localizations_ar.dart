@@ -307,4 +307,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get change_avatar_type => 'تغيير الصورة الرمزية';
+
+  @override
+  String get avatar_button_generate => 'إنشاء فيديو';
 }
