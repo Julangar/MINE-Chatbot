@@ -2,7 +2,7 @@ const { getFirestore, getStorage } = require('firebase-admin');
 
 exports.createAvatar = async (userId, type, avatarName, personality) => {
   const db = getFirestore();
-  const ref = db.collection(`${type}_avatars`).doc(); // Ej: love_avatars
+  const ref = db.collection(`${userId}`).doc(); // Ej: love_avatars
   await ref.set({
     userId, avatarName, personality, createdAt: new Date(),
   });

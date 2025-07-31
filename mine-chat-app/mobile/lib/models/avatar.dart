@@ -9,6 +9,7 @@ class Avatar {
   final String speakingStyle;
   final List<String> commonPhrases;
   final Map<String, double> traits;
+  final String? userLanguage;
   final String? imageUrl;
   final String? audioUrl;
   final String? videoUrl;
@@ -24,6 +25,7 @@ class Avatar {
     required this.speakingStyle,
     required this.commonPhrases,
     required this.traits,
+    required this.userLanguage,
     this.imageUrl,
     this.audioUrl,
     this.videoUrl,
@@ -46,6 +48,7 @@ class Avatar {
       speakingStyle: speakingStyle,
       commonPhrases: commonPhrases,
       traits: traits,
+      userLanguage: userLanguage,
       imageUrl: imageUrl ?? this.imageUrl,
       audioUrl: audioUrl ?? this.audioUrl,
       videoUrl: videoUrl ?? this.videoUrl,
@@ -68,6 +71,7 @@ class Avatar {
       audioUrl: json['audioUrl'],
       videoUrl: json['videoUrl'],
       talkId: json['talkId'],
+      userLanguage: json['userLanguage'],
     );
   }
 

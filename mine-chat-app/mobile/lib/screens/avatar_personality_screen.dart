@@ -71,7 +71,10 @@ class _AvatarPersonalityScreenState extends State<AvatarPersonalityScreen> {
         duration: Duration(seconds: 2),
       ),
     );
-    Navigator.pushNamed(context, '/avatar');
+    Navigator.pushNamed(context,
+     '/avatar',
+     arguments: _getAvatarTypeString(_selectedType!),
+     );
   }
 
   Widget _typeSelector() {

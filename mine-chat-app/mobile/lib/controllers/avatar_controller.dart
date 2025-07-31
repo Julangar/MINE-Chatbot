@@ -11,6 +11,7 @@ class AvatarController extends ChangeNotifier {
   String relationshipOrRole = '';
   List<String> interests = [];
   String speakingStyle = '';
+  String userLanguage = '';
   List<String> commonPhrases = [];
   Map<String, double> traits = {};
 
@@ -58,6 +59,7 @@ class AvatarController extends ChangeNotifier {
       speakingStyle: speakingStyle,
       commonPhrases: commonPhrases,
       traits: traits,
+      userLanguage: userLanguage,
       imageUrl: imageUrl,
       audioUrl: audioUrl,
     );

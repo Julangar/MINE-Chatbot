@@ -1,11 +1,15 @@
 import 'dart:io';
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../models/avatar.dart';
+import '../providers/avatar_provider.dart';
 import 'package:mine_app/l10n/app_localizations.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:file_selector/file_selector.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:record/record.dart';
 import '../widgets/banner_message.dart';
@@ -24,6 +28,13 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
   bool _isRecording = false;
   bool _loading = false;
   final AudioRecorder _recorder = AudioRecorder();
+  late String _avatarType;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _avatarType = ModalRoute.of(context)!.settings.arguments as String;
+  }
 
   // Foto desde cámara
   Future<void> _takePhoto() async {
@@ -132,6 +143,7 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
     setState(() => _loading = true);
     final user = FirebaseAuth.instance.currentUser;
     final userId = user?.uid; 
+
     if (userId == null) {
       // Maneja el error de no tener usuario logueado
       setState(() => _loading = false);
@@ -143,20 +155,47 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
     final storage = FirebaseStorage.instanceFor(
       bucket: "mine-app-test"
     );
+    dynamic imageUrl;
+    dynamic audioUrl;
+    dynamic videoUrl;
     // Solo sube lo que el usuario agregó
     if (_photo != null) {
-      final ref = storage.ref().child('avatars/$userId/photo.jpg');
+      final ref = storage.ref().child('avatars/$userId/$_avatarType/photo.jpg');
+      imageUrl = await ref.getDownloadURL();
       await ref.putFile(_photo!);
     }
     if (_audio != null) {
-      final ref = storage.ref().child('avatars/$userId/audio.mp3');
+      final ref = storage.ref().child('avatars/$userId/$_avatarType/audio.mp3');
+      audioUrl = await ref.getDownloadURL();
       await ref.putFile(_audio!);
     }
     if (_video != null) {
-      final ref = storage.ref().child('avatars/$userId/video.mp4');
+      final ref = storage.ref().child('avatars/$userId/$_avatarType/video.mp4');
+      videoUrl = await ref.getDownloadURL();
       await ref.putFile(_video!);
     }
     setState(() => _loading = false);
+    final doc = await FirebaseFirestore.instance.collection(userId!).doc(_avatarType).get();
+    final data = doc.data() ?? {};
+
+    final avatar = Avatar(
+      userId: userId,
+      avatarType: _avatarType,
+      name: data['name'] ?? '',
+      speakingStyle: data['speakingStyle'] ?? '',
+      commonPhrases: List<String>.from(data['commonPhrases'] ?? []),
+      traits: Map<String, double>.from(data['traits'] ?? {}),
+      interests: List<String>.from(data['interests'] ?? []),
+      relationshipOrRole: data['relationshipOrRole'] ?? '',
+      userReference: data['userReference'] ?? '',
+      imageUrl: imageUrl,
+      audioUrl: audioUrl,
+      videoUrl: videoUrl,
+      talkId: null,
+      userLanguage: data['userLanguage'] ?? '',
+    );
+
+    Provider.of<AvatarProvider>(context, listen: false).setAvatar(avatar);
     // Puedes mostrar un mensaje de éxito aquí o navegar a otra pantalla
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
