@@ -121,5 +121,7 @@
   "relative_avatar": "家族（父、母、祖父母など）を表すアバター。",
   "change_avatar_type": "アバターを変更",
   "avatar_button_generate": "ビデオを生成",
-  "avatar_summary_no_avatar": "アバターが見つかりませんでした"
+  "avatar_summary_no_avatar": "アバターが見つかりませんでした",
+  "avatar_summary_greeting_audio": "最初の挨拶",
+  "avatar_summary_play_audio": "音声を再生"
 }

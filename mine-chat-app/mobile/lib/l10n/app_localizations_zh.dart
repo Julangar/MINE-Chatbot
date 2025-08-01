@@ -313,4 +313,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get avatar_summary_no_avatar => '未找到头像';
+
+  @override
+  String get avatar_summary_greeting_audio => '初始问候';
+
+  @override
+  String get avatar_summary_play_audio => '播放音频';
 }

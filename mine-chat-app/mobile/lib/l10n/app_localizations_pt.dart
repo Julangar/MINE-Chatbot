@@ -313,6 +313,12 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get avatar_summary_no_avatar => 'Avatar não encontrado';
+
+  @override
+  String get avatar_summary_greeting_audio => 'Saudação inicial';
+
+  @override
+  String get avatar_summary_play_audio => 'Reproduzir áudio';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -612,4 +618,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get avatar_summary_no_avatar => 'Avatar não encontrado';
+
+  @override
+  String get avatar_summary_greeting_audio => 'Saudação inicial';
+
+  @override
+  String get avatar_summary_play_audio => 'Reproduzir áudio';
 }

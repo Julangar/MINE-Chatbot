@@ -121,5 +121,7 @@
   "relative_avatar": "Аватар, който представлява роднина, като родител или дядо/баба.",
   "change_avatar_type": "Смени аватара",
   "avatar_button_generate": "Генерирай видео",
-  "avatar_summary_no_avatar": "Аватарът не е намерен"
+  "avatar_summary_no_avatar": "Аватарът не е намерен",
+  "avatar_summary_greeting_audio": "Първоначален поздрав",
+  "avatar_summary_play_audio": "Възпроизвеждане на аудио"
 }

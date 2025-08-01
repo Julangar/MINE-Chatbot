@@ -313,4 +313,10 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get avatar_summary_no_avatar => 'Nem található avatar';
+
+  @override
+  String get avatar_summary_greeting_audio => 'Kezdő üdvözlet';
+
+  @override
+  String get avatar_summary_play_audio => 'Hang lejátszása';
 }

@@ -313,4 +313,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get avatar_summary_no_avatar => 'アバターが見つかりませんでした';
+
+  @override
+  String get avatar_summary_greeting_audio => '最初の挨拶';
+
+  @override
+  String get avatar_summary_play_audio => '音声を再生';
 }

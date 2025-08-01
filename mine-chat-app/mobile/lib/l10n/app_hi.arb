@@ -121,5 +121,7 @@
   "relative_avatar": "एक ऐसा अवतार जो परिवार के सदस्य, जैसे माता-पिता या दादा-दादी को दर्शाता है।",
   "change_avatar_type": "अवतार बदलें",
   "avatar_button_generate": "वीडियो बनाएं",
-  "avatar_summary_no_avatar": "अवतार नहीं मिला"
+  "avatar_summary_no_avatar": "अवतार नहीं मिला",
+  "avatar_summary_greeting_audio": "प्रारंभिक अभिवादन",
+  "avatar_summary_play_audio": "ऑडियो चलाएं"
 }

@@ -313,4 +313,10 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get avatar_summary_no_avatar => 'Walang nahanap na avatar';
+
+  @override
+  String get avatar_summary_greeting_audio => 'Paunang pagbati';
+
+  @override
+  String get avatar_summary_play_audio => 'I-play ang audio';
 }

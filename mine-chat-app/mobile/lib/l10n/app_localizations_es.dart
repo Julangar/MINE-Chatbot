@@ -313,6 +313,12 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get avatar_summary_no_avatar => 'No se ha encontrado el avatar';
+
+  @override
+  String get avatar_summary_greeting_audio => 'Saludo inicial';
+
+  @override
+  String get avatar_summary_play_audio => 'Reproducir audio';
 }
 
 /// The translations for Spanish Castilian, as used in Latin America and the Caribbean (`es_419`).
@@ -612,4 +618,10 @@ class AppLocalizationsEs419 extends AppLocalizationsEs {
 
   @override
   String get avatar_summary_no_avatar => 'No se encontró el avatar';
+
+  @override
+  String get avatar_summary_greeting_audio => 'Saludo inicial';
+
+  @override
+  String get avatar_summary_play_audio => 'Reproducir audio';
 }

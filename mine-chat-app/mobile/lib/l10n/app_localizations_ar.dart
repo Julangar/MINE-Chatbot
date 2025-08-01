@@ -313,4 +313,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get avatar_summary_no_avatar => 'لم يتم العثور على الصورة الرمزية';
+
+  @override
+  String get avatar_summary_greeting_audio => 'التحية الأولية';
+
+  @override
+  String get avatar_summary_play_audio => 'تشغيل الصوت';
 }

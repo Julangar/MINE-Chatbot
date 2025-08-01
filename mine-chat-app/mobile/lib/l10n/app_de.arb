@@ -121,5 +121,7 @@
   "relative_avatar": "Ein Avatar, der einen Verwandten wie einen Elternteil oder Großelternteil repräsentiert.",
   "change_avatar_type": "Avatar ändern",
   "avatar_button_generate": "Video generieren",
-  "avatar_summary_no_avatar": "Avatar nicht gefunden"
+  "avatar_summary_no_avatar": "Avatar nicht gefunden",
+  "avatar_summary_greeting_audio": "Begrüßung",
+  "avatar_summary_play_audio": "Audio abspielen"
 }

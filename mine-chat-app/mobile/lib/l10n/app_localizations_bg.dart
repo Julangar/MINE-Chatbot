@@ -313,4 +313,10 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get avatar_summary_no_avatar => 'Аватарът не е намерен';
+
+  @override
+  String get avatar_summary_greeting_audio => 'Първоначален поздрав';
+
+  @override
+  String get avatar_summary_play_audio => 'Възпроизвеждане на аудио';
 }

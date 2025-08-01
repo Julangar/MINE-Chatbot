@@ -121,5 +121,7 @@
   "relative_avatar": "Un avatar que representa a un familiar, como mamá, papá o abuelito/a.",
   "change_avatar_type": "Cambiar avatar",
   "avatar_button_generate": "Generar video",
-  "avatar_summary_no_avatar": "No se encontró el avatar"
+  "avatar_summary_no_avatar": "No se encontró el avatar",
+  "avatar_summary_greeting_audio": "Saludo inicial",
+  "avatar_summary_play_audio": "Reproducir audio"
 }

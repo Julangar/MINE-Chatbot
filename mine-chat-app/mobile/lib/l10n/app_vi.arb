@@ -121,5 +121,7 @@
   "relative_avatar": "Một avatar đại diện cho người thân, như cha mẹ hoặc ông bà.",
   "change_avatar_type": "Thay đổi avatar",
   "avatar_button_generate": "Tạo video",
-  "avatar_summary_no_avatar": "Không tìm thấy avatar"
+  "avatar_summary_no_avatar": "Không tìm thấy avatar",
+  "avatar_summary_greeting_audio": "Lời chào đầu tiên",
+  "avatar_summary_play_audio": "Phát âm thanh"
 }

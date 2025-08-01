@@ -101,5 +101,7 @@
   "relative_avatar": "An avatar that represents a relative, such as a parent or grandparent.",
   "change_avatar_type": "Change avatar",
   "avatar_button_generate": "Generate Video",
-  "avatar_summary_no_avatar": "Avatar not found"
+  "avatar_summary_no_avatar": "Avatar not found",
+  "avatar_summary_greeting_audio": "Initial greeting",
+  "avatar_summary_play_audio": "Play audio"
 }

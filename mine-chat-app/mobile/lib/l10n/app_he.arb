@@ -121,5 +121,7 @@
   "relative_avatar": "דמות שמייצגת קרוב משפחה, כמו הורה או סבא/סבתא.",
   "change_avatar_type": "שנה דמות",
   "avatar_button_generate": "צור וידאו",
-  "avatar_summary_no_avatar": "האווטאר לא נמצא"
+  "avatar_summary_no_avatar": "האווטאר לא נמצא",
+  "avatar_summary_greeting_audio": "ברכה ראשונית",
+  "avatar_summary_play_audio": "נגן אודיו"
 }

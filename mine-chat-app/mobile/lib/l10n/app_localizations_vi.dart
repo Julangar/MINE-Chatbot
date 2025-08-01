@@ -313,4 +313,10 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get avatar_summary_no_avatar => 'Không tìm thấy avatar';
+
+  @override
+  String get avatar_summary_greeting_audio => 'Lời chào đầu tiên';
+
+  @override
+  String get avatar_summary_play_audio => 'Phát âm thanh';
 }

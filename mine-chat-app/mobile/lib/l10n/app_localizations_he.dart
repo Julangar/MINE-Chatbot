@@ -313,4 +313,10 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get avatar_summary_no_avatar => 'האווטאר לא נמצא';
+
+  @override
+  String get avatar_summary_greeting_audio => 'ברכה ראשונית';
+
+  @override
+  String get avatar_summary_play_audio => 'נגן אודיו';
 }

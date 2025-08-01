@@ -121,5 +121,7 @@
   "relative_avatar": "Bir ebeveyn veya büyükanne/büyükbaba gibi aile üyesini temsil eden bir avatar.",
   "change_avatar_type": "Avatarı değiştir",
   "avatar_button_generate": "Video oluştur",
-  "avatar_summary_no_avatar": "Avatar bulunamadı"
+  "avatar_summary_no_avatar": "Avatar bulunamadı",
+  "avatar_summary_greeting_audio": "Başlangıç selamı",
+  "avatar_summary_play_audio": "Sesi oynat"
 }

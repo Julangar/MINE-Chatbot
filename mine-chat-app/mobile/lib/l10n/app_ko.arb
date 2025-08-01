@@ -121,5 +121,7 @@
   "relative_avatar": "부모님이나 조부모 등 가족을 나타내는 아바타입니다.",
   "change_avatar_type": "아바타 변경",
   "avatar_button_generate": "비디오 생성",
-  "avatar_summary_no_avatar": "아바타를 찾을 수 없습니다"
+  "avatar_summary_no_avatar": "아바타를 찾을 수 없습니다",
+  "avatar_summary_greeting_audio": "초기 인사",
+  "avatar_summary_play_audio": "오디오 재생"
 }

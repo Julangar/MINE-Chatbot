@@ -313,4 +313,10 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get avatar_summary_no_avatar => '아바타를 찾을 수 없습니다';
+
+  @override
+  String get avatar_summary_greeting_audio => '초기 인사';
+
+  @override
+  String get avatar_summary_play_audio => '오디오 재생';
 }

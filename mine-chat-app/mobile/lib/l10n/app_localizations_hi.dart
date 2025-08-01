@@ -313,4 +313,10 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get avatar_summary_no_avatar => 'अवतार नहीं मिला';
+
+  @override
+  String get avatar_summary_greeting_audio => 'प्रारंभिक अभिवादन';
+
+  @override
+  String get avatar_summary_play_audio => 'ऑडियो चलाएं';
 }

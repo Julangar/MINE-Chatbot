@@ -744,6 +744,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Avatar not found'**
   String get avatar_summary_no_avatar;
+
+  /// No description provided for @avatar_summary_greeting_audio.
+  ///
+  /// In en, this message translates to:
+  /// **'Initial greeting'**
+  String get avatar_summary_greeting_audio;
+
+  /// No description provided for @avatar_summary_play_audio.
+  ///
+  /// In en, this message translates to:
+  /// **'Play audio'**
+  String get avatar_summary_play_audio;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

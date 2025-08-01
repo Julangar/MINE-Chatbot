@@ -313,4 +313,10 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get avatar_summary_no_avatar => 'Δεν βρέθηκε το avatar';
+
+  @override
+  String get avatar_summary_greeting_audio => 'Αρχικός χαιρετισμός';
+
+  @override
+  String get avatar_summary_play_audio => 'Αναπαραγωγή ήχου';
 }

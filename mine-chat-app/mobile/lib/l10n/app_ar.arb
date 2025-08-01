@@ -121,5 +121,7 @@
   "relative_avatar": "صورة رمزية تمثل أحد الأقارب، مثل الأب أو الأم أو الجد/الجدة.",
   "change_avatar_type": "تغيير الصورة الرمزية",
   "avatar_button_generate": "إنشاء فيديو",
-  "avatar_summary_no_avatar": "لم يتم العثور على الصورة الرمزية"
+  "avatar_summary_no_avatar": "لم يتم العثور على الصورة الرمزية",
+  "avatar_summary_greeting_audio": "التحية الأولية",
+  "avatar_summary_play_audio": "تشغيل الصوت"
 }

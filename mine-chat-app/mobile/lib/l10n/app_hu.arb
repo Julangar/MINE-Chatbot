@@ -121,5 +121,7 @@
   "relative_avatar": "Egy avatar, amely egy családtagot képvisel, például szülőt vagy nagyszülőt.",
   "change_avatar_type": "Avatar módosítása",
   "avatar_button_generate": "Videó generálása",
-  "avatar_summary_no_avatar": "Nem található avatar"
+  "avatar_summary_no_avatar": "Nem található avatar",
+  "avatar_summary_greeting_audio": "Kezdő üdvözlet",
+  "avatar_summary_play_audio": "Hang lejátszása"
 }
