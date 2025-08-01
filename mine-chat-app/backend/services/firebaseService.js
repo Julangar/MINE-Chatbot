@@ -1,18 +1,41 @@
 const { getFirestore, getStorage } = require('firebase-admin');
+const { v4: uuidv4 } = require('uuid');
 
-exports.createAvatar = async (userId, type, avatarName, personality) => {
+const bucket = getStorage().bucket();
+
+exports.createAvatar = async (userId, avatarType, avatarName, personality) => {
   const db = getFirestore();
-  const ref = db.collection(`${userId}`).doc(); // Ej: love_avatars
+  const ref = db.collection('users').doc(userId).collection('avatars').doc(avatarType);
   await ref.set({
-    userId, avatarName, personality, createdAt: new Date(),
+    userId,
+    avatarType,
+    avatarName,
+    personality,
+    createdAt: new Date(),
   });
   return ref.id;
 };
 
-exports.saveAvatarPhotos = async (avatarId, photos) => {
-  // Implementa lógica para subir a Storage y guardar URL en Firestore
-};
+exports.saveAvatarMedia = async (userId, avatarType, filePath, fileBuffer, mimeType) => {
+  const fileName = `${filePath}/${uuidv4()}`;
+  const file = bucket.file(fileName);
 
-exports.saveAvatarAudio = async (avatarId, audio) => {
-  // Implementa lógica para subir audio a Storage y guardar URL en Firestore
+  await file.save(fileBuffer, {
+    metadata: {
+      contentType: mimeType,
+      metadata: {
+        firebaseStorageDownloadTokens: uuidv4(),
+      },
+    },
+  });
+
+  const publicUrl = `https://firebasestorage.googleapis.com/v0/b/${bucket.name}/o/${encodeURIComponent(fileName)}?alt=media`;
+
+  // Guardar referencia en Firestore
+  const db = getFirestore();
+  const mediaType = mimeType.startsWith('image') ? 'imageUrl' : mimeType.startsWith('audio') ? 'audioUrl' : 'videoUrl';
+  const ref = db.collection('users').doc(userId).collection('avatars').doc(avatarType);
+  await ref.set({ [mediaType]: publicUrl }, { merge: true });
+
+  return publicUrl;
 };

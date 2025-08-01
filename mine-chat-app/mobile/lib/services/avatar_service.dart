@@ -6,19 +6,42 @@ import 'package:http/http.dart' as http;
 class AvatarService {
   static const String baseUrl = 'http://192.168.1.11:3000'; // Cambiar en producción
 
-  static Future<String?> generateAvatarVideo(String userId, String avatarType) async {
-    final url = Uri.parse('$baseUrl/api/avatarVideo/generate-video');
-    final response = await http.post(
-      url,
-      headers: {'Content-Type': 'application/json'},
-      body: jsonEncode({'userId': userId, 'avatarType': avatarType}),
-    );
+  static Future<String?> generateAvatarVideo(String avatarType, String imageUrl, String voiceUrl, String language) async {
+    try {
+      final promptResponse = await http.post(
+        Uri.parse('$baseUrl/api/avatar/generate-greeting'),
+        body: jsonEncode({'language': language}),
+        headers: {'Content-Type': 'application/json'},
+      );
 
-    if (response.statusCode == 200) {
-      final data = jsonDecode(response.body);
-      return data['talkId'];
-    } else {
-      print('Error al generar video: ${response.body}');
+      final prompt = jsonDecode(promptResponse.body)['message'];
+
+      final voiceResponse = await http.post(
+        Uri.parse('$baseUrl/api/avatar/generate-voice'),
+        body: jsonEncode({'text': prompt, 'voiceUrl': voiceUrl}),
+        headers: {'Content-Type': 'application/json'},
+      );
+
+      final clonedVoiceUrl = jsonDecode(voiceResponse.body)['voiceUrl'];
+
+      final videoResponse = await http.post(
+        Uri.parse('$baseUrl/api/avatarVideo'),
+        body: jsonEncode({
+          'imageUrl': imageUrl,
+          'audioUrl': clonedVoiceUrl,
+          'type': avatarType,
+        }),
+        headers: {'Content-Type': 'application/json'},
+      );
+
+      if (videoResponse.statusCode == 200) {
+        return jsonDecode(videoResponse.body)['videoUrl'];
+      } else {
+        print("Error: ${videoResponse.body}");
+        return null;
+      }
+    } catch (e) {
+      print("Error general: $e");
       return null;
     }
   }

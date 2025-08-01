@@ -1,16 +1,16 @@
-
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 const { elevenlabsKey } = require('../config');
 const { bucket } = require('../config/firebase');
+const firebaseService = require('./firebaseService');
+const { v4: uuidv4 } = require('uuid');
 
 const api = axios.create({
   baseURL: 'https://api.elevenlabs.io/v1',
   headers: { 'xi-api-key': elevenlabsKey }
 });
 
-// Clona una voz desde un archivo público de Firebase Storage
 async function cloneVoice(userId, audioUrl) {
   const response = await api.post('/voices/add', {
     name: `voice-${userId}`,
@@ -21,7 +21,6 @@ async function cloneVoice(userId, audioUrl) {
   return response.data.voice_id;
 }
 
-// Convierte texto a voz con un voice_id (sintetiza y guarda en Firebase Storage)
 async function textToSpeech(text, userId, voiceId = 'EXAVITQu4vr4xnSDxMaL') {
   const url = `/text-to-speech/${voiceId}`;
   const response = await api.post(url,
@@ -36,22 +35,37 @@ async function textToSpeech(text, userId, voiceId = 'EXAVITQu4vr4xnSDxMaL') {
     { responseType: 'arraybuffer' }
   );
 
-  // Guarda el audio en Firebase Storage
   const fileName = `voices/${userId}-${Date.now()}.mp3`;
   const tempPath = path.join(__dirname, fileName);
   fs.writeFileSync(tempPath, response.data);
 
   await bucket.upload(tempPath, { destination: fileName, public: true });
-
-  fs.unlinkSync(tempPath); // eliminar archivo temporal
+  fs.unlinkSync(tempPath);
 
   const file = bucket.file(fileName);
   const [urlSigned] = await file.getSignedUrl({
     action: 'read',
-    expires: Date.now() + 1000 * 60 * 60 // 1 hora
+    expires: Date.now() + 1000 * 60 * 60
   });
 
   return urlSigned;
 }
 
-module.exports = { cloneVoice, textToSpeech };
+async function generateSpeechFromClonedVoice(text, userId, voiceId) {
+  const response = await api.post(`/text-to-speech/${voiceId}`, {
+    text,
+    model_id: 'eleven_monolingual_v1'
+  }, {
+    responseType: 'arraybuffer'
+  });
+
+  const buffer = Buffer.from(response.data, 'binary');
+  const audioUrl = await firebaseService.uploadBuffer(buffer, `voices/${userId}/${uuidv4()}.mp3`, 'audio/mpeg');
+  return audioUrl;
+}
+
+module.exports = {
+  cloneVoice,
+  textToSpeech,
+  generateSpeechFromClonedVoice
+};

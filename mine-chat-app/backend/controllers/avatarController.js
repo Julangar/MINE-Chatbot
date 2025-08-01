@@ -1,35 +1,63 @@
-const firebaseService = require('../services/firebaseService');
+const admin = require('firebase-admin');
+const { uploadFileAndGetURL } = require('../services/firebaseService');
+const { generateGreeting, generatePromptForVoice } = require('../utils/generatePrompt');
+const elevenlabsService = require('../services/elevenlabsService');
+const didService = require('../services/didService');
+const { extractVoiceIdFromUrl } = require('../utils/helpers');
 
-exports.createAvatar = async (req, res) => {
+// [POST] /api/avatar/generate-greeting
+exports.generateGreeting = async (req, res) => {
   try {
-    const { userId, type, avatarName, personality } = req.body;
-    const avatarId = await firebaseService.createAvatar(userId, type, avatarName, personality);
-    res.status(201).json({ success: true, avatarId });
+    const { data, userLanguage } = req.body;
+    const prompt = generateGreeting(data, userLanguage);
+    res.json({ greeting: prompt });
   } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
+    console.error('Error generating greeting:', error);
+    res.status(500).json({ error: 'Error generating greeting.' });
   }
 };
 
-// Para fotos
-exports.uploadPhotos = async (req, res) => {
+// [POST] /api/avatar/generate-voice
+exports.generateVoiceFromText = async (req, res) => {
   try {
-    const { avatarId } = req.params;
-    const photos = req.files;
-    const urls = await firebaseService.saveAvatarPhotos(avatarId, photos);
-    res.status(200).json({ success: true, urls });
+    const { greeting, voiceReference } = req.body;
+    const voiceId = extractVoiceIdFromUrl(voiceReference);
+    const voiceUrl = await elevenlabsService.speakWithVoiceId(greeting, voiceId);
+    res.json({ voiceUrl });
   } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
+    console.error('Error generating voice from greeting:', error);
+    res.status(500).json({ error: 'Error generating voice from greeting.' });
   }
 };
 
-// Para audio
-exports.uploadVoice = async (req, res) => {
+// [POST] /api/avatar/generate-video
+exports.generateAvatarVideo = async (req, res) => {
   try {
-    const { avatarId } = req.params;
-    const audio = req.file;
-    const url = await firebaseService.saveAvatarAudio(avatarId, audio);
-    res.status(200).json({ success: true, url });
+    const { avatarType, imageUrl, voiceUrl, userId } = req.body;
+
+    const videoUrl = await didService.createTalkingAvatar({
+      imageUrl,
+      audioUrl: voiceUrl,
+      userId,
+      avatarType
+    });
+
+    // Guardar video en Firebase o en Firestore
+    const videoDoc = admin
+      .firestore()
+      .collection('avatars')
+      .doc(userId)
+      .collection(avatarType)
+      .doc('video');
+
+    await videoDoc.set({
+      videoUrl,
+      createdAt: admin.firestore.FieldValue.serverTimestamp()
+    });
+
+    res.json({ videoUrl });
   } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
+    console.error('Error generating avatar video:', error);
+    res.status(500).json({ error: 'Error generating avatar video.' });
   }
 };

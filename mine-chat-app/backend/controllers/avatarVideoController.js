@@ -1,9 +1,8 @@
-
 const { generateAvatarVideo, getVideoStatus } = require('../services/didService');
 const admin = require('firebase-admin');
 
 async function generateAvatarVideoController(req, res) {
-  const { userId, avatarType } = req.body;
+  const { userId, avatarType, language } = req.body;
 
   if (!userId || !avatarType) {
     return res.status(400).json({ error: 'Faltan campos requeridos.' });
@@ -11,7 +10,7 @@ async function generateAvatarVideoController(req, res) {
 
   try {
     const db = admin.firestore();
-    const docRef = db.collection(userId).doc(avatarType);
+    const docRef = db.collection('avatars').doc(`${userId}_${avatarType}`);
     const docSnap = await docRef.get();
 
     if (!docSnap.exists) {
@@ -27,9 +26,9 @@ async function generateAvatarVideoController(req, res) {
     }
 
     const videoResp = await generateAvatarVideo({
-      script: '', // audioUrl será usado en vez de texto
       source_image_url: imageUrl,
-      voice_url: voiceUrl
+      voice_url: voiceUrl,
+      language
     });
 
     const talkId = videoResp.id;

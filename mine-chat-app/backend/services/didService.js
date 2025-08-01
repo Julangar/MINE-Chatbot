@@ -7,16 +7,15 @@ const api = axios.create({
 });
 
 async function generateAvatarVideo({ script, source_image_url, voice_url }) {
+  const scriptPayload = voice_url
+    ? { type: 'audio', audio_url: voice_url, subtitles: false }
+    : { type: 'text', input: script, subtitles: false, provider: { type: 'microsoft', voice_id: 'en-US-JennyNeural' } }; // ejemplo si se usara texto
+
   const response = await api.post('/talks', {
-    script: {
-      type: 'audio',  // Puedes usar 'text' si solo tienes texto
-      audio_url: voice_url, // O usa { type: 'text', input: script } si no tienes audio
-      subtitles: false
-    },
-    source_url: source_image_url // URL pública de la imagen avatar
+    script: scriptPayload,
+    source_url: source_image_url
   });
 
-  // response.data.id => ID del video generado
   return response.data;
 }
 

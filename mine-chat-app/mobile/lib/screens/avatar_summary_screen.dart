@@ -26,7 +26,11 @@ class _AvatarSummaryScreenState extends State<AvatarSummaryScreen> {
       _statusMessage = t.avatar_loading_generating;
     });
 
-    final talkId = await AvatarService.generateAvatarVideo(avatar.userId, avatar.avatarType);
+    final talkId = await AvatarService.generateAvatarVideo(
+      avatar.avatarType,
+      avatar.imageUrl!,
+      avatar.audioUrl!,
+      avatar.userLanguage!);
 
     if (talkId == null) {
       _showError(t.avatar_error_video);
