@@ -1,4 +1,5 @@
-
+import 'package:video_player/video_player.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:mine_app/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +18,17 @@ class AvatarSummaryScreen extends StatefulWidget {
 class _AvatarSummaryScreenState extends State<AvatarSummaryScreen> {
   bool _isLoading = false;
   String _statusMessage = '';
+  final AudioPlayer _audioPlayer = AudioPlayer();
+  bool _isAudioReady = false;
+  VideoPlayerController? _videoController;
+  bool _videoReady = false;
+
+  @override
+  void dispose() {
+    _audioPlayer.dispose();
+    _videoController?.dispose();
+    super.dispose();
+  }
 
   void _generateAvatar(Avatar avatar) async {
     final t = AppLocalizations.of(context)!;
@@ -33,6 +45,10 @@ class _AvatarSummaryScreenState extends State<AvatarSummaryScreen> {
       avatar.audioUrl!,
       avatar.userLanguage!);
 
+    // Espera a que el audio esté listo
+    await _audioPlayer.setUrl(avatar.audioUrl!);
+    setState(() => _isAudioReady = true);
+
     if (talkId == null) {
       _showError(t.avatar_error_video);
       return;
@@ -48,6 +64,16 @@ class _AvatarSummaryScreenState extends State<AvatarSummaryScreen> {
     final updated = avatar.copyWith(videoUrl: videoUrl, talkId: talkId);
     Provider.of<AvatarProvider>(context, listen: false).setAvatar(updated);
 
+    // Inicializa el reproductor
+    _videoController = VideoPlayerController.networkUrl(Uri.parse(videoUrl));
+    await _videoController!.initialize();
+    _videoController!.setLooping(true);
+    _videoController!.play();
+
+    setState(() {
+      _videoReady = true;
+      _isLoading = false;
+    });
     if (mounted) {
       Navigator.pushReplacement(
         context,
@@ -125,6 +151,23 @@ class _AvatarSummaryScreenState extends State<AvatarSummaryScreen> {
                     children: avatar.interests.map((i) => Chip(label: Text(i))).toList(),
                   ),
                   const SizedBox(height: 16),
+                  if (_isAudioReady)
+                    Column(
+                      children: [
+                        Text(t.avatar_summary_greeting_audio, style: const TextStyle(color: Colors.white)),
+                        const SizedBox(height: 8),
+                        ElevatedButton.icon(
+                          onPressed: () => _audioPlayer.play(),
+                          icon: const Icon(Icons.volume_up),
+                          label: Text(t.avatar_summary_play_audio),
+                        ),
+                      ],
+                    ),
+                  if (_videoReady && _videoController != null)
+                    AspectRatio(
+                      aspectRatio: _videoController!.value.aspectRatio,
+                      child: VideoPlayer(_videoController!),
+                    ),
                   ElevatedButton.icon(
                     onPressed: () => _generateAvatar(avatar),
                     icon: const Icon(Icons.play_circle_fill),

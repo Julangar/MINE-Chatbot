@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:http/http.dart' as http;
@@ -31,7 +30,7 @@ class AvatarService {
       final clonedVoiceUrl = jsonDecode(voiceResponse.body)['voiceUrl'];
 
       final videoResponse = await http.post(
-        Uri.parse('$baseUrl/api/avatar/video'),
+        Uri.parse('$baseUrl/api/avatar/generate-video'),
         body: jsonEncode({
           'imageUrl': imageUrl,
           'audioUrl': clonedVoiceUrl,

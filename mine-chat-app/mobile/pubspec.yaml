@@ -47,6 +47,7 @@ dependencies:
 
   # Reproductor de audio y video
   audio_service: ^0.18.18
+  just_audio: ^0.10.4
   video_player: ^2.7.0
   audioplayers: ^5.2.1
   

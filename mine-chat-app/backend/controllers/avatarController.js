@@ -1,63 +1,164 @@
+// controllers/avatarController.js
 const admin = require('firebase-admin');
-const { uploadFileAndGetURL } = require('../services/firebaseService');
-const { generateGreeting, generatePromptForVoice } = require('../utils/generatePrompt');
+const { generatePrompt } = require('../utils/generatePrompt');
+const openaiService = require('../services/openaiService');
 const elevenlabsService = require('../services/elevenlabsService');
 const didService = require('../services/didService');
-const { extractVoiceIdFromUrl } = require('../utils/helpers');
 
-// [POST] /api/avatar/generate-greeting
-exports.generateGreeting = async (req, res) => {
-  try {
-    const { data, userLanguage } = req.body;
-    const prompt = generateGreeting(data, userLanguage);
-    res.json({ greeting: prompt });
-  } catch (error) {
-    console.error('Error generating greeting:', error);
-    res.status(500).json({ error: 'Error generating greeting.' });
+// 1. Clonar voz
+exports.cloneVoice = async (req, res) => {
+  const { audioUrl, userId, avatarType } = req.body;
+
+  if (!audioUrl || !userId || !avatarType) {
+    return res.status(400).json({ error: 'Faltan campos requeridos' });
   }
-};
 
-// [POST] /api/avatar/generate-voice
-exports.generateVoiceFromText = async (req, res) => {
   try {
-    const { greeting, voiceReference } = req.body;
-    const voiceId = extractVoiceIdFromUrl(voiceReference);
-    const voiceUrl = await elevenlabsService.speakWithVoiceId(greeting, voiceId);
-    res.json({ voiceUrl });
-  } catch (error) {
-    console.error('Error generating voice from greeting:', error);
-    res.status(500).json({ error: 'Error generating voice from greeting.' });
-  }
-};
+    const voiceId = await elevenlabsService.cloneVoice(audioUrl);
 
-// [POST] /api/avatar/generate-video
-exports.generateAvatarVideo = async (req, res) => {
-  try {
-    const { avatarType, imageUrl, voiceUrl, userId } = req.body;
-
-    const videoUrl = await didService.createTalkingAvatar({
-      imageUrl,
-      audioUrl: voiceUrl,
-      userId,
-      avatarType
-    });
-
-    // Guardar video en Firebase o en Firestore
-    const videoDoc = admin
-      .firestore()
+    const ref = admin.firestore()
       .collection('avatars')
       .doc(userId)
       .collection(avatarType)
-      .doc('video');
+      .doc('audio');
 
-    await videoDoc.set({
-      videoUrl,
-      createdAt: admin.firestore.FieldValue.serverTimestamp()
+    await ref.set({ voiceId });
+
+    res.json({ success: true, voiceId });
+  } catch (err) {
+    console.error('Error al clonar voz:', err);
+    res.status(500).json({ error: 'Error al clonar voz' });
+  }
+};
+
+// 2. Generar saludo
+exports.generateGreeting = async (req, res) => {
+  const { userId, avatarType, language } = req.body;
+
+  if (!userId || !avatarType || !language) {
+    return res.status(400).json({ error: 'Faltan campos requeridos' });
+  }
+
+  try {
+    const docRef = admin.firestore()
+      .collection('avatars')
+      .doc(userId)
+      .collection(avatarType)
+      .doc('personality');
+    const snap = await docRef.get();
+    if (!snap.exists) return res.status(404).json({ error: 'Avatar no encontrado' });
+
+    const personality = snap.data();
+    const prompt = generatePrompt(personality, language);
+
+    const greeting = await openaiService.getChatResponse([{ role: 'system', content: prompt }, { role: 'user', content: 'Saluda al usuario con calidez.' }]);
+
+    await admin.firestore()
+      .collection('avatars')
+      .doc(userId)
+      .collection(avatarType)
+      .doc('greeting')
+      .set({ message: greeting });
+
+    res.json({ message: greeting });
+  } catch (err) {
+    console.error('Error al generar saludo:', err);
+    res.status(500).json({ error: 'Error al generar saludo' });
+  }
+};
+
+// 3. Generar audio del saludo
+exports.generateVoiceFromText = async (req, res) => {
+  const { userId, avatarType } = req.body;
+
+  if (!userId || !avatarType) {
+    return res.status(400).json({ error: 'Faltan campos requeridos' });
+  }
+
+  try {
+    const greetingSnap = await admin.firestore()
+      .collection('avatars')
+      .doc(userId)
+      .collection(avatarType)
+      .doc('greeting')
+      .get();
+    const audioSnap = await admin.firestore()
+      .collection('avatars')
+      .doc(userId)
+      .collection(avatarType)
+      .doc('audio')
+      .get();
+
+    if (!greetingSnap.exists || !audioSnap.exists) {
+      return res.status(404).json({ error: 'Faltan saludo o voz clonada' });
+    }
+
+    const text = greetingSnap.data().message;
+    const voiceId = audioSnap.data().voiceId;
+
+    const audioUrl = await elevenlabsService.generateSpeechFromClonedVoice(text, voiceId);
+
+    await admin.firestore()
+      .collection('avatars')
+      .doc(userId)
+      .collection(avatarType)
+      .doc('audio')
+      .update({ audioUrl });
+
+    res.json({ voiceUrl: audioUrl });
+  } catch (err) {
+    console.error('Error al generar voz:', err);
+    res.status(500).json({ error: 'Error al generar voz del saludo' });
+  }
+};
+
+// 4. Generar video
+exports.generateAvatarVideo = async (req, res) => {
+  const { userId, avatarType, language } = req.body;
+
+  if (!userId || !avatarType || !language) {
+    return res.status(400).json({ error: 'Faltan campos requeridos' });
+  }
+
+  try {
+    const docRef = admin.firestore()
+      .collection('avatars')
+      .doc(userId)
+      .collection(avatarType)
+      .doc('personality');
+    const snap = await docRef.get();
+    if (!snap.exists) return res.status(404).json({ error: 'Avatar no encontrado' });
+
+    const data = snap.data();
+    const imageUrl = data.imageUrl;
+
+    const audioSnap = await admin.firestore()
+      .collection('avatars')
+      .doc(userId)
+      .collection(avatarType)
+      .doc('audio')
+      .get();
+
+    const voiceUrl = audioSnap.data()?.audioUrl;
+
+    const videoResp = await didService.generateAvatarVideo({
+      source_image_url: imageUrl,
+      voice_url: voiceUrl,
+      language
     });
 
-    res.json({ videoUrl });
-  } catch (error) {
-    console.error('Error generating avatar video:', error);
-    res.status(500).json({ error: 'Error generating avatar video.' });
+    const videoUrl = videoResp?.result_url;
+
+    await admin.firestore()
+      .collection('avatars')
+      .doc(userId)
+      .collection(avatarType)
+      .doc('video')
+      .set({ videoUrl });
+
+    res.json({ success: true, videoUrl });
+  } catch (err) {
+    console.error('Error al generar video:', err);
+    res.status(500).json({ error: 'Error al generar video del avatar' });
   }
 };

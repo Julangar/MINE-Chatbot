@@ -1,7 +1,8 @@
-const { getFirestore, getStorage } = require('firebase-admin');
+const admin = require('firebase-admin');
+const { getFirestore } = require('firebase-admin');
 const { v4: uuidv4 } = require('uuid');
 
-const bucket = getStorage().bucket();
+const bucket = admin.storage().bucket();
 
 exports.createAvatar = async (userId, avatarType, avatarName, personality) => {
   const db = getFirestore();
