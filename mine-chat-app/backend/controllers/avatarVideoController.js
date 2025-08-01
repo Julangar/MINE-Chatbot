@@ -10,7 +10,7 @@ async function generateAvatarVideoController(req, res) {
 
   try {
     const db = admin.firestore();
-    const docRef = db.collection('avatars').doc(`${userId}_${avatarType}`);
+    const docRef = db.collection('avatars').doc(userId).collection(avatarType).doc('personality');
     const docSnap = await docRef.get();
 
     if (!docSnap.exists) {

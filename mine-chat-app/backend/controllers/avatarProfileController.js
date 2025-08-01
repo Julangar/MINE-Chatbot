@@ -10,7 +10,7 @@ async function getAvatarProfile(req, res) {
 
   try {
     //const docRef = admin.firestore().collection(userId).doc(avatarType);
-    const docRef = admin.firestore().collection('avatars').doc(userId).collection('types').doc(avatarType);
+    const docRef = admin.firestore().collection('avatars').doc(userId).collection(avatarType).doc('personality');
     const doc = await docRef.get();
 
     if (!doc.exists) {

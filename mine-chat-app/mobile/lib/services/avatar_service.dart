@@ -6,7 +6,13 @@ import 'package:http/http.dart' as http;
 class AvatarService {
   static const String baseUrl = 'http://192.168.1.11:3000'; // Cambiar en producción
 
-  static Future<String?> generateAvatarVideo(String avatarType, String imageUrl, String voiceUrl, String language) async {
+  static Future<String?> generateAvatarVideo(
+      String userId,
+      String avatarType,
+      String imageUrl,
+      String voiceId,
+      String language,
+  ) async {
     try {
       final promptResponse = await http.post(
         Uri.parse('$baseUrl/api/avatar/generate-greeting'),
@@ -18,18 +24,20 @@ class AvatarService {
 
       final voiceResponse = await http.post(
         Uri.parse('$baseUrl/api/avatar/generate-voice'),
-        body: jsonEncode({'text': prompt, 'voiceUrl': voiceUrl}),
+        body: jsonEncode({'text': prompt, 'voiceId': voiceId}),
         headers: {'Content-Type': 'application/json'},
       );
 
       final clonedVoiceUrl = jsonDecode(voiceResponse.body)['voiceUrl'];
 
       final videoResponse = await http.post(
-        Uri.parse('$baseUrl/api/avatarVideo'),
+        Uri.parse('$baseUrl/api/avatar/video'),
         body: jsonEncode({
           'imageUrl': imageUrl,
           'audioUrl': clonedVoiceUrl,
           'type': avatarType,
+          'language': language,
+          'userId': userId,
         }),
         headers: {'Content-Type': 'application/json'},
       );
@@ -45,6 +53,7 @@ class AvatarService {
       return null;
     }
   }
+
 
   static Future<String?> pollForVideoUrl(String talkId, {int maxRetries = 10, Duration interval = const Duration(seconds: 5)}) async {
     final url = Uri.parse('$baseUrl/api/avatar/video-status/$talkId');
@@ -69,8 +78,10 @@ class AvatarService {
   static Future<void> saveAvatarPersonality(
     String userId, String avatarType, Map<String, dynamic> data) async {
     final docRef = FirebaseFirestore.instance
-      .collection(userId)
-      .doc(avatarType);
+    .collection('avatars')
+    .doc(userId)
+    .collection(avatarType)
+    .doc('personality');
 
     await docRef.set(data);
   }

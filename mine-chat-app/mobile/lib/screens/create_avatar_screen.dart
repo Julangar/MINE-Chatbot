@@ -160,22 +160,33 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
     dynamic videoUrl;
     // Solo sube lo que el usuario agregó
     if (_photo != null) {
-      final ref = storage.ref().child('avatars/$userId/$_avatarType/photo.jpg');
+      final ref = storage.ref().child('avatars/$userId/$_avatarType/image/photo.jpg');
       await ref.putFile(_photo!);
       imageUrl = await ref.getDownloadURL();
     }
     if (_audio != null) {
-      final ref = storage.ref().child('avatars/$userId/$_avatarType/audio.mp3');
+      final ref = storage.ref().child('avatars/$userId/$_avatarType/audio/audio.mp3');
       await ref.putFile(_audio!);
       audioUrl = await ref.getDownloadURL();
     }
     if (_video != null) {
-      final ref = storage.ref().child('avatars/$userId/$_avatarType/video.mp4');
+      final ref = storage.ref().child('avatars/$userId/$_avatarType/video/video.mp4');
       await ref.putFile(_video!);
       videoUrl = await ref.getDownloadURL();
     }
     setState(() => _loading = false);
-    final doc = await FirebaseFirestore.instance.collection(userId!).doc(_avatarType).get();
+    final doc = await FirebaseFirestore.instance
+      .collection('avatars')
+      .doc(userId!)
+      .collection(_avatarType)
+      .doc('personality')
+      .get();
+
+    await FirebaseFirestore.instance.collection('avatars').doc(userId).collection(_avatarType).doc('personality').update({
+      'imageUrl': imageUrl,
+      'audioUrl': audioUrl,
+      'videoUrl': videoUrl,
+    });
     final data = doc.data() ?? {};
 
     final avatar = Avatar(

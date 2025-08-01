@@ -27,6 +27,7 @@ class _AvatarSummaryScreenState extends State<AvatarSummaryScreen> {
     });
 
     final talkId = await AvatarService.generateAvatarVideo(
+      avatar.userId,
       avatar.avatarType,
       avatar.imageUrl!,
       avatar.audioUrl!,
