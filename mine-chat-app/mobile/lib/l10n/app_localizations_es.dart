@@ -319,6 +319,18 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get avatar_summary_play_audio => 'Reproducir audio';
+
+  @override
+  String get avatar_warning_edit_locked => 'El avatar ya ha sido generado. No puedes editar la personalidad, imagen o audio nuevamente.';
+
+  @override
+  String get avatar_original_audio => 'Audio original del usuario';
+
+  @override
+  String get avatar_cloned_audio => 'Voz clonada generada por IA';
+
+  @override
+  String get avatar_video_result => 'Video de avatar generado';
 }
 
 /// The translations for Spanish Castilian, as used in Latin America and the Caribbean (`es_419`).
@@ -624,4 +636,16 @@ class AppLocalizationsEs419 extends AppLocalizationsEs {
 
   @override
   String get avatar_summary_play_audio => 'Reproducir audio';
+
+  @override
+  String get avatar_warning_edit_locked => 'El avatar ya fue generado. No puedes editar la personalidad, imagen ni audio otra vez.';
+
+  @override
+  String get avatar_original_audio => 'Audio original del usuario';
+
+  @override
+  String get avatar_cloned_audio => 'Voz clonada por IA';
+
+  @override
+  String get avatar_video_result => 'Video de avatar generado';
 }

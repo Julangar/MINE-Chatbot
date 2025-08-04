@@ -319,4 +319,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get avatar_summary_play_audio => 'Play audio';
+
+  @override
+  String get avatar_warning_edit_locked => 'The avatar has already been generated. You cannot edit the personality, image or audio again.';
+
+  @override
+  String get avatar_original_audio => 'User\'s original audio';
+
+  @override
+  String get avatar_cloned_audio => 'AI-generated cloned voice';
+
+  @override
+  String get avatar_video_result => 'Generated avatar video';
 }

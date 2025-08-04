@@ -123,5 +123,9 @@
   "avatar_button_generate": "生成视频",
   "avatar_summary_no_avatar": "未找到头像",
   "avatar_summary_greeting_audio": "初始问候",
-  "avatar_summary_play_audio": "播放音频"
+  "avatar_summary_play_audio": "播放音频",
+  "avatar_warning_edit_locked": "头像已生成，不能再次编辑个性、图片或音频。",
+  "avatar_original_audio": "用户的原始音频",
+  "avatar_cloned_audio": "AI生成的克隆语音",
+  "avatar_video_result": "生成的头像视频"
 }

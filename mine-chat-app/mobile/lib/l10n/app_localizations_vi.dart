@@ -319,4 +319,16 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get avatar_summary_play_audio => 'Phát âm thanh';
+
+  @override
+  String get avatar_warning_edit_locked => 'Avatar đã được tạo. Bạn không thể chỉnh sửa lại tính cách, hình ảnh hoặc âm thanh.';
+
+  @override
+  String get avatar_original_audio => 'Âm thanh gốc của người dùng';
+
+  @override
+  String get avatar_cloned_audio => 'Giọng nói nhân bản do AI tạo ra';
+
+  @override
+  String get avatar_video_result => 'Video avatar đã tạo';
 }

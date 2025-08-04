@@ -319,4 +319,16 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get avatar_summary_play_audio => 'Αναπαραγωγή ήχου';
+
+  @override
+  String get avatar_warning_edit_locked => 'Το avatar έχει ήδη δημιουργηθεί. Δεν μπορείτε να επεξεργαστείτε ξανά την προσωπικότητα, την εικόνα ή τον ήχο.';
+
+  @override
+  String get avatar_original_audio => 'Αρχικό ηχητικό χρήστη';
+
+  @override
+  String get avatar_cloned_audio => 'Κλωνοποιημένη φωνή από ΤΝ';
+
+  @override
+  String get avatar_video_result => 'Δημιουργημένο βίντεο avatar';
 }

@@ -6,22 +6,41 @@ const api = axios.create({
   headers: { Authorization: `Bearer ${didApiKey}` }
 });
 
-async function generateAvatarVideo({ script, source_image_url, voice_url }) {
-  const scriptPayload = voice_url
-    ? { type: 'audio', audio_url: voice_url, subtitles: false }
-    : { type: 'text', input: script, subtitles: false, provider: { type: 'microsoft', voice_id: 'en-US-JennyNeural' } }; // ejemplo si se usara texto
 
-  const response = await api.post('/talks', {
-    script: scriptPayload,
-    source_url: source_image_url
-  });
+async function generateAvatarVideo({ source_image_url, voice_url, language }) {
+  if (!source_image_url || !voice_url) {
+    throw new Error('Faltan parámetros requeridos para generar el video');
+  }
 
-  return response.data;
+  try {
+    const response = await api.post('/talks', {
+      source_url: source_image_url,
+      script: {
+        type: 'audio',
+        audio_url: voice_url,
+        subtitles: false
+      },
+      config: {
+        fluent: true,
+        pad_audio: 0.2
+      }
+    });
+
+    return response.data; // Este objeto contiene el `id` (talkId) y otros campos como `status_url`
+  } catch (error) {
+    console.error('❌ Error en generateAvatarVideo:', error.response?.data || error.message);
+    throw new Error('Error al generar video con D-ID');
+  }
 }
 
 async function getVideoStatus(talkId) {
-  const response = await api.get(`/talks/${talkId}`);
-  return response.data;
+  try {
+    const response = await api.get(`/talks/${talkId}`);
+    return response.data;
+  } catch (error) {
+    console.error('❌ Error en getVideoStatus:', error.response?.data || error.message);
+    throw new Error('Error al consultar el estado del video');
+  }
 }
 
 module.exports = { generateAvatarVideo, getVideoStatus };

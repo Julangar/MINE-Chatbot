@@ -1,5 +1,9 @@
 const axios = require('axios');
+const https = require('https');
+const FormData = require('form-data');
 const fs = require('fs');
+const { tmpdir } = require('os');
+const { createWriteStream } = require('fs');
 const path = require('path');
 const { elevenlabsKey } = require('../config');
 const { bucket } = require('../config/firebase');
@@ -11,17 +15,45 @@ const api = axios.create({
   headers: { 'xi-api-key': elevenlabsKey }
 });
 
-async function cloneVoice(userId, audioUrl) {
-  const response = await api.post('/voices/add', {
-    name: `voice-${userId}`,
-    description: 'Voice cloned from user sample',
-    files: [audioUrl]
+async function downloadAudio(url, outputPath) {
+  const writer = createWriteStream(outputPath);
+  return new Promise((resolve, reject) => {
+    https.get(url, response => {
+      if (response.statusCode !== 200) {
+        return reject(new Error(`HTTP ${response.statusCode}`));
+      }
+      response.pipe(writer);
+      writer.on('finish', () => resolve(outputPath));
+      writer.on('error', reject);
+    });
   });
-
-  return response.data.voice_id;
 }
 
-async function textToSpeech(text, userId, voiceId = 'EXAVITQu4vr4xnSDxMaL') {
+async function cloneVoice(audioUrl) {
+  try {
+    const tempPath = path.join(tmpdir(), `voice_${Date.now()}.mp3`);
+    await downloadAudio(audioUrl, tempPath);
+
+    const formData = new FormData();
+    formData.append('name', `voice_${Date.now()}`);
+    formData.append('description', 'Voice cloned from user sample');
+    formData.append('files', fs.createReadStream(tempPath));
+
+    const response = await axios.post('https://api.elevenlabs.io/v1/voices/add', formData, {
+      headers: {
+        ...formData.getHeaders(),
+        'xi-api-key': process.env.ELEVENLABS_API_KEY,
+      }
+    });
+
+    return response.data.voice_id;
+  } catch (err) {
+    console.error('❌ Error en cloneVoice:', err.response?.data || err.message);
+    throw new Error('Error al clonar voz');
+  }
+}
+
+async function textToSpeech(text, userId, voiceId) {
   const url = `/text-to-speech/${voiceId}`;
   const response = await api.post(url,
     {
@@ -51,18 +83,53 @@ async function textToSpeech(text, userId, voiceId = 'EXAVITQu4vr4xnSDxMaL') {
   return urlSigned;
 }
 
-async function generateSpeechFromClonedVoice(text, userId, voiceId) {
-  const response = await api.post(`/text-to-speech/${voiceId}`, {
-    text,
-    model_id: 'eleven_monolingual_v1'
-  }, {
-    responseType: 'arraybuffer'
-  });
+async function generateSpeechFromClonedVoice(text, userId, avatarType, voiceId) {
+  try {
+    const response = await api.post(
+      `/text-to-speech/${voiceId}`,
+      {
+        text,
+        model_id: 'eleven_monolingual_v1',
+      },
+      { responseType: 'arraybuffer' }
+    );
 
-  const buffer = Buffer.from(response.data, 'binary');
-  const audioUrl = await firebaseService.uploadBuffer(buffer, `voices/${userId}/${uuidv4()}.mp3`, 'audio/mpeg');
-  return audioUrl;
+    const buffer = Buffer.from(response.data, 'binary');
+
+    // 1. Guardar archivo temporalmente en el sistema local
+    const tempDir = os.tmpdir();
+    const filename = `audio_${uuidv4()}.mp3`;
+    const tempPath = path.join(tempDir, filename);
+    fs.writeFileSync(tempPath, buffer);
+
+    // 2. Definir ruta en Firebase Storage
+    const destinationPath = `avatars/${userId}/${avatarType}/audioClon/${filename}`;
+
+    const bucket = admin.storage().bucket();
+
+    // 3. Subir archivo
+    await bucket.upload(tempPath, {
+      destination: destinationPath,
+      contentType: 'audio/mpeg',
+    });
+
+    // 4. Eliminar archivo temporal
+    fs.unlinkSync(tempPath);
+
+    // 5. Obtener URL pública
+    const file = bucket.file(destinationPath);
+    const [url] = await file.getSignedUrl({
+      action: 'read',
+      expires: Date.now() + 1000 * 60 * 60 * 24 * 7, // 7 días
+    });
+
+    return url;
+  } catch (error) {
+    console.error('❌ Error en generateSpeechFromClonedVoice:', error?.response?.data || error.message);
+    throw new Error('Error al generar y subir el audio con voz clonada');
+  }
 }
+
 
 module.exports = {
   cloneVoice,

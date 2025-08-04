@@ -11,6 +11,7 @@ const { uploadPhotos, uploadAudio } = require('../middlewares/uploadMiddleware')
 //router.post('/:avatarId/upload-voice', uploadAudio.single('voice'), avatarController.uploadVoice);
 
 // Generar saludo y contenido del avatar
+router.post('/clone-voice', avatarController.cloneVoice);
 router.post('/generate-greeting', avatarController.generateGreeting);
 router.post('/generate-voice', avatarController.generateVoiceFromText);
 router.post('/generate-video', avatarController.generateAvatarVideo);

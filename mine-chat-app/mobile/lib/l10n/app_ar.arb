@@ -123,5 +123,9 @@
   "avatar_button_generate": "إنشاء فيديو",
   "avatar_summary_no_avatar": "لم يتم العثور على الصورة الرمزية",
   "avatar_summary_greeting_audio": "التحية الأولية",
-  "avatar_summary_play_audio": "تشغيل الصوت"
+  "avatar_summary_play_audio": "تشغيل الصوت",
+  "avatar_warning_edit_locked": "تم إنشاء الصورة الرمزية بالفعل. لا يمكنك تعديل الشخصية أو الصورة أو الصوت مرة أخرى.",
+  "avatar_original_audio": "الصوت الأصلي للمستخدم",
+  "avatar_cloned_audio": "صوت مستنسخ تم إنشاؤه بالذكاء الاصطناعي",
+  "avatar_video_result": "فيديو صورة رمزية تم إنشاؤه"
 }

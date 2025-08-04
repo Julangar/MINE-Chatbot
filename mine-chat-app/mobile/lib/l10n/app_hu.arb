@@ -123,5 +123,9 @@
   "avatar_button_generate": "Videó generálása",
   "avatar_summary_no_avatar": "Nem található avatar",
   "avatar_summary_greeting_audio": "Kezdő üdvözlet",
-  "avatar_summary_play_audio": "Hang lejátszása"
+  "avatar_summary_play_audio": "Hang lejátszása",
+  "avatar_warning_edit_locked": "Az avatar már létrejött. Nem lehet újra szerkeszteni a személyiséget, képet vagy hangot.",
+  "avatar_original_audio": "Felhasználó eredeti hangja",
+  "avatar_cloned_audio": "Mesterséges intelligencia által generált hang",
+  "avatar_video_result": "Generált avatar videó"
 }

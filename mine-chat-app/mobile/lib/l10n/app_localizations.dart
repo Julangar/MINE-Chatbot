@@ -756,6 +756,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Play audio'**
   String get avatar_summary_play_audio;
+
+  /// No description provided for @avatar_warning_edit_locked.
+  ///
+  /// In en, this message translates to:
+  /// **'The avatar has already been generated. You cannot edit the personality, image or audio again.'**
+  String get avatar_warning_edit_locked;
+
+  /// No description provided for @avatar_original_audio.
+  ///
+  /// In en, this message translates to:
+  /// **'User\'s original audio'**
+  String get avatar_original_audio;
+
+  /// No description provided for @avatar_cloned_audio.
+  ///
+  /// In en, this message translates to:
+  /// **'AI-generated cloned voice'**
+  String get avatar_cloned_audio;
+
+  /// No description provided for @avatar_video_result.
+  ///
+  /// In en, this message translates to:
+  /// **'Generated avatar video'**
+  String get avatar_video_result;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

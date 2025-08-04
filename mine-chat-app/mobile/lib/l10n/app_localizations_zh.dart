@@ -319,4 +319,16 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get avatar_summary_play_audio => '播放音频';
+
+  @override
+  String get avatar_warning_edit_locked => '头像已生成，不能再次编辑个性、图片或音频。';
+
+  @override
+  String get avatar_original_audio => '用户的原始音频';
+
+  @override
+  String get avatar_cloned_audio => 'AI生成的克隆语音';
+
+  @override
+  String get avatar_video_result => '生成的头像视频';
 }

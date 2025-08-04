@@ -319,4 +319,16 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get avatar_summary_play_audio => 'Hang lejátszása';
+
+  @override
+  String get avatar_warning_edit_locked => 'Az avatar már létrejött. Nem lehet újra szerkeszteni a személyiséget, képet vagy hangot.';
+
+  @override
+  String get avatar_original_audio => 'Felhasználó eredeti hangja';
+
+  @override
+  String get avatar_cloned_audio => 'Mesterséges intelligencia által generált hang';
+
+  @override
+  String get avatar_video_result => 'Generált avatar videó';
 }

@@ -123,5 +123,9 @@
   "avatar_button_generate": "비디오 생성",
   "avatar_summary_no_avatar": "아바타를 찾을 수 없습니다",
   "avatar_summary_greeting_audio": "초기 인사",
-  "avatar_summary_play_audio": "오디오 재생"
+  "avatar_summary_play_audio": "오디오 재생",
+  "avatar_warning_edit_locked": "아바타가 이미 생성되었습니다. 성격, 이미지 또는 오디오는 다시 편집할 수 없습니다.",
+  "avatar_original_audio": "사용자의 원본 오디오",
+  "avatar_cloned_audio": "AI로 생성된 클론 음성",
+  "avatar_video_result": "생성된 아바타 비디오"
 }

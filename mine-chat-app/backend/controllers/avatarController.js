@@ -1,6 +1,6 @@
 // controllers/avatarController.js
 const admin = require('firebase-admin');
-const { generatePrompt } = require('../utils/generatePrompt');
+const { buildSystemPrompt } = require('../utils/generatePrompt');
 const openaiService = require('../services/openaiService');
 const elevenlabsService = require('../services/elevenlabsService');
 const didService = require('../services/didService');
@@ -49,7 +49,7 @@ exports.generateGreeting = async (req, res) => {
     if (!snap.exists) return res.status(404).json({ error: 'Avatar no encontrado' });
 
     const personality = snap.data();
-    const prompt = generatePrompt(personality, language);
+    const prompt = buildSystemPrompt(personality, language);
 
     const greeting = await openaiService.getChatResponse([{ role: 'system', content: prompt }, { role: 'user', content: 'Saluda al usuario con calidez.' }]);
 
@@ -72,7 +72,7 @@ exports.generateVoiceFromText = async (req, res) => {
   const { userId, avatarType } = req.body;
 
   if (!userId || !avatarType) {
-    return res.status(400).json({ error: 'Faltan campos requeridos' });
+    return res.status(400).json({ error: 'Faltan campos requeridos(user/avatarType)' });
   }
 
   try {
@@ -82,12 +82,14 @@ exports.generateVoiceFromText = async (req, res) => {
       .collection(avatarType)
       .doc('greeting')
       .get();
+    console.log('Greeting Snap: ', greetingSnap.data());
     const audioSnap = await admin.firestore()
       .collection('avatars')
       .doc(userId)
       .collection(avatarType)
       .doc('audio')
       .get();
+      console.log('Audio Snap: ', audioSnap.data());
 
     if (!greetingSnap.exists || !audioSnap.exists) {
       return res.status(404).json({ error: 'Faltan saludo o voz clonada' });
@@ -96,14 +98,14 @@ exports.generateVoiceFromText = async (req, res) => {
     const text = greetingSnap.data().message;
     const voiceId = audioSnap.data().voiceId;
 
-    const audioUrl = await elevenlabsService.generateSpeechFromClonedVoice(text, voiceId);
+    const audioUrl = await elevenlabsService.generateSpeechFromClonedVoice(text, userId, avatarType, voiceId);
 
     await admin.firestore()
       .collection('avatars')
       .doc(userId)
       .collection(avatarType)
-      .doc('audio')
-      .update({ audioUrl });
+      .doc('audioClone')
+      .set({ audioUrl });
 
     res.json({ voiceUrl: audioUrl });
   } catch (err) {
@@ -136,7 +138,7 @@ exports.generateAvatarVideo = async (req, res) => {
       .collection('avatars')
       .doc(userId)
       .collection(avatarType)
-      .doc('audio')
+      .doc('audioClone')
       .get();
 
     const voiceUrl = audioSnap.data()?.audioUrl;

@@ -123,5 +123,9 @@
   "avatar_button_generate": "Генерирай видео",
   "avatar_summary_no_avatar": "Аватарът не е намерен",
   "avatar_summary_greeting_audio": "Първоначален поздрав",
-  "avatar_summary_play_audio": "Възпроизвеждане на аудио"
+  "avatar_summary_play_audio": "Възпроизвеждане на аудио",
+  "avatar_warning_edit_locked": "Аватарът вече е генериран. Не можете да редактирате личността, изображението или аудиото отново.",
+  "avatar_original_audio": "Оригинално аудио на потребителя",
+  "avatar_cloned_audio": "Клониран глас, генериран от ИИ",
+  "avatar_video_result": "Генерирано видео аватар"
 }

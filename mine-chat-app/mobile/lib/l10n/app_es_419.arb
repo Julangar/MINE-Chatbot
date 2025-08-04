@@ -123,5 +123,9 @@
   "avatar_button_generate": "Generar video",
   "avatar_summary_no_avatar": "No se encontró el avatar",
   "avatar_summary_greeting_audio": "Saludo inicial",
-  "avatar_summary_play_audio": "Reproducir audio"
+  "avatar_summary_play_audio": "Reproducir audio",
+  "avatar_warning_edit_locked": "El avatar ya fue generado. No puedes editar la personalidad, imagen ni audio otra vez.",
+  "avatar_original_audio": "Audio original del usuario",
+  "avatar_cloned_audio": "Voz clonada por IA",
+  "avatar_video_result": "Video de avatar generado"
 }

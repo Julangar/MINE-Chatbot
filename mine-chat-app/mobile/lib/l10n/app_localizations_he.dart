@@ -319,4 +319,16 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get avatar_summary_play_audio => 'נגן אודיו';
+
+  @override
+  String get avatar_warning_edit_locked => 'הדמות כבר נוצרה. לא ניתן לערוך שוב את האישיות, התמונה או האודיו.';
+
+  @override
+  String get avatar_original_audio => 'הקלטה המקורית של המשתמש';
+
+  @override
+  String get avatar_cloned_audio => 'קול משוכפל שנוצר על ידי בינה מלאכותית';
+
+  @override
+  String get avatar_video_result => 'וידאו דמות שנוצר';
 }

@@ -319,6 +319,18 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get avatar_summary_play_audio => 'Reproduzir áudio';
+
+  @override
+  String get avatar_warning_edit_locked => 'O avatar já foi gerado. Você não pode editar a personalidade, imagem ou áudio novamente.';
+
+  @override
+  String get avatar_original_audio => 'Áudio original do usuário';
+
+  @override
+  String get avatar_cloned_audio => 'Voz clonada gerada por IA';
+
+  @override
+  String get avatar_video_result => 'Vídeo de avatar gerado';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -624,4 +636,16 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get avatar_summary_play_audio => 'Reproduzir áudio';
+
+  @override
+  String get avatar_warning_edit_locked => 'O avatar já foi gerado. Você não pode editar a personalidade, imagem ou áudio novamente.';
+
+  @override
+  String get avatar_original_audio => 'Áudio original do usuário';
+
+  @override
+  String get avatar_cloned_audio => 'Voz clonada gerada por IA';
+
+  @override
+  String get avatar_video_result => 'Vídeo de avatar gerado';
 }

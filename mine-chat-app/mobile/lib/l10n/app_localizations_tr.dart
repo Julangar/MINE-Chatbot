@@ -319,4 +319,16 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get avatar_summary_play_audio => 'Sesi oynat';
+
+  @override
+  String get avatar_warning_edit_locked => 'Avatar zaten oluşturuldu. Kişilik, resim veya sesi tekrar düzenleyemezsiniz.';
+
+  @override
+  String get avatar_original_audio => 'Kullanıcının orijinal sesi';
+
+  @override
+  String get avatar_cloned_audio => 'Yapay zeka tarafından oluşturulan klon ses';
+
+  @override
+  String get avatar_video_result => 'Oluşturulan avatar videosu';
 }

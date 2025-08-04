@@ -319,4 +319,16 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get avatar_summary_play_audio => 'I-play ang audio';
+
+  @override
+  String get avatar_warning_edit_locked => 'Ang avatar ay nagawa na. Hindi mo na maaaring i-edit muli ang personalidad, larawan o audio.';
+
+  @override
+  String get avatar_original_audio => 'Orihinal na audio ng user';
+
+  @override
+  String get avatar_cloned_audio => 'AI-generated na kinopyang boses';
+
+  @override
+  String get avatar_video_result => 'Nabuong avatar na video';
 }

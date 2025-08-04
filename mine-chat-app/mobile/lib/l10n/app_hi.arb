@@ -123,5 +123,9 @@
   "avatar_button_generate": "वीडियो बनाएं",
   "avatar_summary_no_avatar": "अवतार नहीं मिला",
   "avatar_summary_greeting_audio": "प्रारंभिक अभिवादन",
-  "avatar_summary_play_audio": "ऑडियो चलाएं"
+  "avatar_summary_play_audio": "ऑडियो चलाएं",
+  "avatar_warning_edit_locked": "अवतार पहले ही बनाया जा चुका है। आप व्यक्तित्व, छवि या ऑडियो को फिर से संपादित नहीं कर सकते।",
+  "avatar_original_audio": "उपयोगकर्ता की मूल ऑडियो",
+  "avatar_cloned_audio": "एआई द्वारा जनित क्लोन आवाज़",
+  "avatar_video_result": "जनित अवतार वीडियो"
 }

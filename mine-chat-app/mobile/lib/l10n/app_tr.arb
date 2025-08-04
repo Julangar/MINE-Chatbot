@@ -123,5 +123,9 @@
   "avatar_button_generate": "Video oluştur",
   "avatar_summary_no_avatar": "Avatar bulunamadı",
   "avatar_summary_greeting_audio": "Başlangıç selamı",
-  "avatar_summary_play_audio": "Sesi oynat"
+  "avatar_summary_play_audio": "Sesi oynat",
+  "avatar_warning_edit_locked": "Avatar zaten oluşturuldu. Kişilik, resim veya sesi tekrar düzenleyemezsiniz.",
+  "avatar_original_audio": "Kullanıcının orijinal sesi",
+  "avatar_cloned_audio": "Yapay zeka tarafından oluşturulan klon ses",
+  "avatar_video_result": "Oluşturulan avatar videosu"
 }

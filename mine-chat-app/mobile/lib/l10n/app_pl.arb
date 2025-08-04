@@ -123,5 +123,9 @@
   "avatar_button_generate": "Generuj wideo",
   "avatar_summary_no_avatar": "Nie znaleziono awatara",
   "avatar_summary_greeting_audio": "Powitanie początkowe",
-  "avatar_summary_play_audio": "Odtwórz dźwięk"
+  "avatar_summary_play_audio": "Odtwórz dźwięk",
+  "avatar_warning_edit_locked": "Awatar został już wygenerowany. Nie możesz ponownie edytować osobowości, obrazu ani dźwięku.",
+  "avatar_original_audio": "Oryginalny dźwięk użytkownika",
+  "avatar_cloned_audio": "Sklonowany głos wygenerowany przez SI",
+  "avatar_video_result": "Wygenerowane wideo awatara"
 }

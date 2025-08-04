@@ -123,5 +123,9 @@
   "avatar_button_generate": "Gumawa ng video",
   "avatar_summary_no_avatar": "Walang nahanap na avatar",
   "avatar_summary_greeting_audio": "Paunang pagbati",
-  "avatar_summary_play_audio": "I-play ang audio"
+  "avatar_summary_play_audio": "I-play ang audio",
+  "avatar_warning_edit_locked": "Ang avatar ay nagawa na. Hindi mo na maaaring i-edit muli ang personalidad, larawan o audio.",
+  "avatar_original_audio": "Orihinal na audio ng user",
+  "avatar_cloned_audio": "AI-generated na kinopyang boses",
+  "avatar_video_result": "Nabuong avatar na video"
 }

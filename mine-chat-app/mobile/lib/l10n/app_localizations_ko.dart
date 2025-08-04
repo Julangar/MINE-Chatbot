@@ -319,4 +319,16 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get avatar_summary_play_audio => '오디오 재생';
+
+  @override
+  String get avatar_warning_edit_locked => '아바타가 이미 생성되었습니다. 성격, 이미지 또는 오디오는 다시 편집할 수 없습니다.';
+
+  @override
+  String get avatar_original_audio => '사용자의 원본 오디오';
+
+  @override
+  String get avatar_cloned_audio => 'AI로 생성된 클론 음성';
+
+  @override
+  String get avatar_video_result => '생성된 아바타 비디오';
 }

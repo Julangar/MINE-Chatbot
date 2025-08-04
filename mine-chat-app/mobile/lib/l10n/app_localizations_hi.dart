@@ -319,4 +319,16 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get avatar_summary_play_audio => 'ऑडियो चलाएं';
+
+  @override
+  String get avatar_warning_edit_locked => 'अवतार पहले ही बनाया जा चुका है। आप व्यक्तित्व, छवि या ऑडियो को फिर से संपादित नहीं कर सकते।';
+
+  @override
+  String get avatar_original_audio => 'उपयोगकर्ता की मूल ऑडियो';
+
+  @override
+  String get avatar_cloned_audio => 'एआई द्वारा जनित क्लोन आवाज़';
+
+  @override
+  String get avatar_video_result => 'जनित अवतार वीडियो';
 }

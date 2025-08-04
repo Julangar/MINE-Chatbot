@@ -123,5 +123,9 @@
   "avatar_button_generate": "ビデオを生成",
   "avatar_summary_no_avatar": "アバターが見つかりませんでした",
   "avatar_summary_greeting_audio": "最初の挨拶",
-  "avatar_summary_play_audio": "音声を再生"
+  "avatar_summary_play_audio": "音声を再生",
+  "avatar_warning_edit_locked": "アバターはすでに生成されています。性格、画像、または音声は再編集できません。",
+  "avatar_original_audio": "ユーザーの元の音声",
+  "avatar_cloned_audio": "AI生成のクローン音声",
+  "avatar_video_result": "生成されたアバター動画"
 }

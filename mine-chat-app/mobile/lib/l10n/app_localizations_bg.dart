@@ -319,4 +319,16 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get avatar_summary_play_audio => 'Възпроизвеждане на аудио';
+
+  @override
+  String get avatar_warning_edit_locked => 'Аватарът вече е генериран. Не можете да редактирате личността, изображението или аудиото отново.';
+
+  @override
+  String get avatar_original_audio => 'Оригинално аудио на потребителя';
+
+  @override
+  String get avatar_cloned_audio => 'Клониран глас, генериран от ИИ';
+
+  @override
+  String get avatar_video_result => 'Генерирано видео аватар';
 }

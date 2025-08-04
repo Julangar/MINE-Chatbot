@@ -13,30 +13,58 @@ class AvatarService {
       String language,
   ) async {
     try {
-      final promptResponse = await http.post(
-        Uri.parse('$baseUrl/api/avatar/generate-greeting'),
-        body: jsonEncode({'language': language}),
+      // Paso 0: Clonar la voz si es necesario
+      final cloneResponse = await http.post(
+        Uri.parse('$baseUrl/api/avatar/clone-voice'),
+        body: jsonEncode({
+          'audioUrl': voiceId, // Esto debe ser la URL del audio subido
+          'userId': userId,
+          'avatarType': avatarType,
+        }),
         headers: {'Content-Type': 'application/json'},
       );
 
-      final prompt = jsonDecode(promptResponse.body)['message'];
+      if (cloneResponse.statusCode != 200) {
+        throw Exception("Error al clonar la voz: ${cloneResponse.body}");
+      }
+
+      final promptResponse = await http.post(
+        Uri.parse('$baseUrl/api/avatar/generate-greeting'),
+        body: jsonEncode({
+          'userId': userId,
+          'avatarType': avatarType,
+          'language': language,
+        }),
+        headers: {'Content-Type': 'application/json'},
+      );
+
+      if (promptResponse.statusCode != 200) {
+        throw Exception("Error al generar el saludo: ${promptResponse.body}");
+      }
+
+      //final prompt = jsonDecode(promptResponse.body)['message'];
 
       final voiceResponse = await http.post(
         Uri.parse('$baseUrl/api/avatar/generate-voice'),
-        body: jsonEncode({'text': prompt, 'voiceId': voiceId}),
+        body: jsonEncode({
+          'userId': userId,
+          'avatarType': avatarType,
+        }),
         headers: {'Content-Type': 'application/json'},
       );
 
-      final clonedVoiceUrl = jsonDecode(voiceResponse.body)['voiceUrl'];
+      if (voiceResponse.statusCode != 200) {
+        throw Exception("Error al generar la voz: ${voiceResponse.body}");
+      }
+
+      //final clonedVoiceUrl = jsonDecode(voiceResponse.body)['voiceUrl'];
 
       final videoResponse = await http.post(
         Uri.parse('$baseUrl/api/avatar/generate-video'),
         body: jsonEncode({
-          'imageUrl': imageUrl,
-          'audioUrl': clonedVoiceUrl,
-          'type': avatarType,
-          'language': language,
           'userId': userId,
+          'avatarType': avatarType,
+          'language': language,    
         }),
         headers: {'Content-Type': 'application/json'},
       );
@@ -44,12 +72,10 @@ class AvatarService {
       if (videoResponse.statusCode == 200) {
         return jsonDecode(videoResponse.body)['videoUrl'];
       } else {
-        print("Error: ${videoResponse.body}");
-        return null;
+        throw Exception("Error: ${videoResponse.body}");
       }
     } catch (e) {
-      print("Error general: $e");
-      return null;
+      throw Exception("Error general: $e");
     }
   }
 
@@ -72,6 +98,16 @@ class AvatarService {
     }
 
     return null;
+  }
+
+static Future<String?> fetchClonedAudioUrl(String userId, String avatarType) async {
+    final doc = await FirebaseFirestore.instance
+        .collection('avatars')
+        .doc(userId)
+        .collection(avatarType)
+        .doc('audioClone')
+        .get();
+    return doc.data()?['audioUrl'];
   }
 
   static Future<void> saveAvatarPersonality(

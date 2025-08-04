@@ -319,4 +319,16 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get avatar_summary_play_audio => 'Audio abspielen';
+
+  @override
+  String get avatar_warning_edit_locked => 'Der Avatar wurde bereits erstellt. Du kannst Persönlichkeit, Bild oder Audio nicht mehr bearbeiten.';
+
+  @override
+  String get avatar_original_audio => 'Original-Audio des Nutzers';
+
+  @override
+  String get avatar_cloned_audio => 'KI-generierte Klonstimme';
+
+  @override
+  String get avatar_video_result => 'Generiertes Avatar-Video';
 }

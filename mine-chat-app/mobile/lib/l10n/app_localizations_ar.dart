@@ -319,4 +319,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get avatar_summary_play_audio => 'تشغيل الصوت';
+
+  @override
+  String get avatar_warning_edit_locked => 'تم إنشاء الصورة الرمزية بالفعل. لا يمكنك تعديل الشخصية أو الصورة أو الصوت مرة أخرى.';
+
+  @override
+  String get avatar_original_audio => 'الصوت الأصلي للمستخدم';
+
+  @override
+  String get avatar_cloned_audio => 'صوت مستنسخ تم إنشاؤه بالذكاء الاصطناعي';
+
+  @override
+  String get avatar_video_result => 'فيديو صورة رمزية تم إنشاؤه';
 }

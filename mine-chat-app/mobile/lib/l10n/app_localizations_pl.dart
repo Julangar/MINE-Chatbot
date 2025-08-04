@@ -319,4 +319,16 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get avatar_summary_play_audio => 'Odtwórz dźwięk';
+
+  @override
+  String get avatar_warning_edit_locked => 'Awatar został już wygenerowany. Nie możesz ponownie edytować osobowości, obrazu ani dźwięku.';
+
+  @override
+  String get avatar_original_audio => 'Oryginalny dźwięk użytkownika';
+
+  @override
+  String get avatar_cloned_audio => 'Sklonowany głos wygenerowany przez SI';
+
+  @override
+  String get avatar_video_result => 'Wygenerowane wideo awatara';
 }

@@ -319,4 +319,16 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get avatar_summary_play_audio => 'Воспроизвести аудио';
+
+  @override
+  String get avatar_warning_edit_locked => 'Аватар уже был создан. Вы не можете снова редактировать личность, изображение или аудио.';
+
+  @override
+  String get avatar_original_audio => 'Оригинальное аудио пользователя';
+
+  @override
+  String get avatar_cloned_audio => 'Синтезированный голос, созданный ИИ';
+
+  @override
+  String get avatar_video_result => 'Сгенерированное видео аватара';
 }
