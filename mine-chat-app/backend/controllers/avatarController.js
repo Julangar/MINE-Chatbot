@@ -1,6 +1,7 @@
 // controllers/avatarController.js
 const admin = require('firebase-admin');
 const { buildSystemPrompt } = require('../utils/generatePrompt');
+const firebaseService = require('../services/firebaseService');
 const openaiService = require('../services/openaiService');
 const elevenlabsService = require('../services/elevenlabsService');
 const didService = require('../services/didService');
@@ -51,7 +52,7 @@ exports.generateGreeting = async (req, res) => {
     const personality = snap.data();
     const prompt = buildSystemPrompt(personality, language);
 
-    const greeting = await openaiService.getChatResponse([{ role: 'system', content: prompt }, { role: 'user', content: 'Saluda al usuario con calidez.' }]);
+    const greeting = await openaiService.getChatResponse([{ role: 'system', content: prompt }, { role: 'user', content: 'Presentate y saluda al usuario con calidez.' }]);
 
     await admin.firestore()
       .collection('avatars')
@@ -129,10 +130,11 @@ exports.generateAvatarVideo = async (req, res) => {
       .collection(avatarType)
       .doc('personality');
     const snap = await docRef.get();
+    
     if (!snap.exists) return res.status(404).json({ error: 'Avatar no encontrado' });
 
     const data = snap.data();
-    const imageUrl = data.imageUrl;
+    const imageUrl = firebaseService.getPublicUrl(data.imageUrl);
 
     const audioSnap = await admin.firestore()
       .collection('avatars')
@@ -141,12 +143,31 @@ exports.generateAvatarVideo = async (req, res) => {
       .doc('audioClone')
       .get();
 
-    const voiceUrl = audioSnap.data()?.audioUrl;
+    const voice= audioSnap.data()?.audioUrl;
+    const voiceUrl = firebaseService.getPublicUrl(voice);
+
+    const greetingSnap = await admin.firestore()
+      .collection('avatars')
+      .doc(userId)
+      .collection(avatarType)
+      .doc('greeting')
+      .get();
+    console.log('Greeting Snap: ', greetingSnap.data());
+
+    const voiceSnap = await admin.firestore()
+      .collection('avatars')
+      .doc(userId)
+      .collection(avatarType)
+      .doc('audio')
+      .get();
+      console.log('Audio Snap: ', voiceSnap.data());
+    const voiceId = voiceSnap.data().voiceId;
 
     const videoResp = await didService.generateAvatarVideo({
       source_image_url: imageUrl,
-      voice_url: voiceUrl,
-      language
+      //voice_url: voiceUrl,
+      text: greetingSnap.data()?.message,
+      voice_id: voiceId
     });
 
     const videoUrl = videoResp?.result_url;

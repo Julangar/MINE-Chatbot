@@ -160,7 +160,7 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
     dynamic videoUrl;
     // Solo sube lo que el usuario agregó
     if (_photo != null) {
-      final ref = storage.ref().child('avatars/$userId/$_avatarType/image/photo.jpg');
+      final ref = storage.ref().child('avatars/$userId/$_avatarType/image/photo.jpeg');
       await ref.putFile(_photo!);
       imageUrl = await ref.getDownloadURL();
     }
@@ -177,12 +177,16 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
     setState(() => _loading = false);
     final doc = await FirebaseFirestore.instance
       .collection('avatars')
-      .doc(userId!)
+      .doc(userId)
       .collection(_avatarType)
       .doc('personality')
       .get();
 
-    await FirebaseFirestore.instance.collection('avatars').doc(userId).collection(_avatarType).doc('personality').update({
+    await FirebaseFirestore.instance
+    .collection('avatars')
+    .doc(userId)
+    .collection(_avatarType)
+    .doc('personality').update({
       'imageUrl': imageUrl,
       'audioUrl': audioUrl,
       'videoUrl': videoUrl,

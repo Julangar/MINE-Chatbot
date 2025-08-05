@@ -160,19 +160,19 @@ A continuación puedes ver los wireframes principales del proyecto, ubicados en 
 | 16  | Interfaz de resumen de avatar y proceso de generación visual                             | ✅ Completado |
 | 17  | Diseño de la pantalla de chat con avatar y campo de entrada                              | ✅ Completado |
 | 18  | Lógica de envío/recepción de mensajes y conexión con backend                             | ✅ Completado |
-| 19  | Visualización del avatar animado con reproductor de video                               |   |
+| 19  | Visualización del avatar animado con reproductor de video                                |   |
 | 20  | Reproducción de respuestas de voz sincronizadas                                          |   |
 | 21  | Persistencia de historial de chat local y en Firestore                                   |   |
 | 22  | Animaciones, transiciones y microinteracciones                                           |   |
 | 23  | Mejora de prompts para mayor naturalidad conversacional                                  |   |
 | 24  | Sistema de memoria conversacional (corto y largo plazo)                                  |   |
 | 25  | Feedback visual, sonoro y táctil                                                         |   |
-| 26  | Optimización de tiempos de carga (precarga de recursos, caché)                          |   |
+| 26  | Optimización de tiempos de carga (precarga de recursos, caché)                           |   |
 | 27  | Mejora de accesibilidad y soporte para gestos                                            |   |
 | 28  | Ajustes de personalidad (UI + backend)                                                   |   |
 | 29  | Selección de temas de conversación e intereses                                           |   |
 | 30  | Personalización visual del avatar y la interfaz                                          |   |
-| 31  | Guardado y sincronización de configuraciones entre dispositivos                         |   |
+| 31  | Guardado y sincronización de configuraciones entre dispositivos                          |   |
 | 32  | Sistema de evolución relacional avatar-usuario                                           |   |
 | 33  | Pruebas de usuario con feedback documentado                                              |   |
 | 34  | Corrección de usabilidad basada en feedback                                              |   |

@@ -1,8 +1,9 @@
 const axios = require('axios');
+const admin = require('firebase-admin');
 const https = require('https');
 const FormData = require('form-data');
 const fs = require('fs');
-const { tmpdir } = require('os');
+const os = require('os');
 const { createWriteStream } = require('fs');
 const path = require('path');
 const { elevenlabsKey } = require('../config');
@@ -31,7 +32,7 @@ async function downloadAudio(url, outputPath) {
 
 async function cloneVoice(audioUrl) {
   try {
-    const tempPath = path.join(tmpdir(), `voice_${Date.now()}.mp3`);
+    const tempPath = path.join(os.tmpdir(), `voice_${Date.now()}.mp3`);
     await downloadAudio(audioUrl, tempPath);
 
     const formData = new FormData();
@@ -42,7 +43,7 @@ async function cloneVoice(audioUrl) {
     const response = await axios.post('https://api.elevenlabs.io/v1/voices/add', formData, {
       headers: {
         ...formData.getHeaders(),
-        'xi-api-key': process.env.ELEVENLABS_API_KEY,
+        'xi-api-key': elevenlabsKey,
       }
     });
 
@@ -60,7 +61,6 @@ async function textToSpeech(text, userId, voiceId) {
       text,
       model_id: 'eleven_multilingual_v2',
       voice_settings: {
-        stability: 0.5,
         similarity_boost: 0.75
       }
     },
@@ -90,6 +90,10 @@ async function generateSpeechFromClonedVoice(text, userId, avatarType, voiceId) 
       {
         text,
         model_id: 'eleven_monolingual_v1',
+        voice_settings: {
+          stability: 0.5,
+          similarity_boost: 0.75
+        }
       },
       { responseType: 'arraybuffer' }
     );

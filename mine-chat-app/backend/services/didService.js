@@ -1,14 +1,26 @@
 const axios = require('axios');
-const { didApiKey } = require('../config');
+const { didApiKey , elevenlabsKey} = require('../config');
+
 
 const api = axios.create({
   baseURL: 'https://api.d-id.com',
-  headers: { Authorization: `Bearer ${didApiKey}` }
+  headers: { Authorization: `Basic ${didApiKey}`,
+  'x-api-key-external': `{"elevenlabs": "${elevenlabsKey}"}` 
+  }
 });
 
+async function uploadImage(params) {
+  try {
+    const response = await api.post('/images', params);
+    return response.data;
+  } catch (error) {
+    console.error('❌ Error en uploadImage:', error.response?.data || error.message);
+    throw new Error('Error al subir imagen');
+  }
+}
 
-async function generateAvatarVideo({ source_image_url, voice_url, language }) {
-  if (!source_image_url || !voice_url) {
+async function generateAvatarVideo({ source_image_url, voice_id, text }) {
+  if (!source_image_url || !voice_id || !text) {
     throw new Error('Faltan parámetros requeridos para generar el video');
   }
 
@@ -16,13 +28,13 @@ async function generateAvatarVideo({ source_image_url, voice_url, language }) {
     const response = await api.post('/talks', {
       source_url: source_image_url,
       script: {
-        type: 'audio',
-        audio_url: voice_url,
-        subtitles: false
+        type: 'text',
+        input: text,
+        subtitles: false,
+        provider: { type: 'elevenlabs', voice_id: voice_id }
       },
       config: {
-        fluent: true,
-        pad_audio: 0.2
+        fluent: false
       }
     });
 

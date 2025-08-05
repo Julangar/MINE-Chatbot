@@ -110,7 +110,6 @@ class _AvatarSummaryScreenState extends State<AvatarSummaryScreen> {
               icon: const Icon(Icons.stop, color: Colors.red),
               onPressed: () => player.stop(),
             ),
-            Expanded(child: Text(url, style: const TextStyle(color: Colors.grey, fontSize: 12))),
           ],
         ),
       ],
@@ -164,18 +163,17 @@ class _AvatarSummaryScreenState extends State<AvatarSummaryScreen> {
               padding: const EdgeInsets.all(20),
               child: ListView(
                 children: [
-                  if (!canGenerate)
-                    Container(
-                      padding: const EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: Colors.orange[800],
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Text(
-                        t.avatar_warning_edit_locked,
-                        style: const TextStyle(color: Colors.white),
-                      ),
+                  Container(
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: Colors.orange[800],
+                      borderRadius: BorderRadius.circular(8),
                     ),
+                    child: Text(
+                      t.avatar_warning_edit_locked,
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                  ),
                   const SizedBox(height: 12),
                   Text(
                     avatar.name,
