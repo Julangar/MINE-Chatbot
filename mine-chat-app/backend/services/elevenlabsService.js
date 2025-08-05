@@ -30,13 +30,13 @@ async function downloadAudio(url, outputPath) {
   });
 }
 
-async function cloneVoice(audioUrl) {
+async function cloneVoice(audioUrl, name) {
   try {
-    const tempPath = path.join(os.tmpdir(), `voice_${Date.now()}.mp3`);
+    const tempPath = path.join(os.tmpdir(), `${name}_${Date.now()}.mp3`);
     await downloadAudio(audioUrl, tempPath);
 
     const formData = new FormData();
-    formData.append('name', `voice_${Date.now()}`);
+    formData.append('name', `${name}_${Date.now()}`);
     formData.append('description', 'Voice cloned from user sample');
     formData.append('files', fs.createReadStream(tempPath));
 
@@ -89,10 +89,10 @@ async function generateSpeechFromClonedVoice(text, userId, avatarType, voiceId) 
       `/text-to-speech/${voiceId}`,
       {
         text,
-        model_id: 'eleven_monolingual_v1',
+        model_id: 'eleven_multilingual_v2',
         voice_settings: {
-          stability: 0.5,
-          similarity_boost: 0.75
+          stability: 0.4,
+          similarity_boost: 0.85
         }
       },
       { responseType: 'arraybuffer' }

@@ -14,8 +14,15 @@ exports.cloneVoice = async (req, res) => {
     return res.status(400).json({ error: 'Faltan campos requeridos' });
   }
 
+  const avatarPersonality = admin.firestore()
+    .collection('avatars')
+    .doc(userId)
+    .collection(avatarType)
+    .doc('personality');
+
+  const name = (await avatarPersonality.get()).data()?.name;
   try {
-    const voiceId = await elevenlabsService.cloneVoice(audioUrl);
+    const voiceId = await elevenlabsService.cloneVoice(audioUrl, name);
 
     const ref = admin.firestore()
       .collection('avatars')
