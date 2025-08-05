@@ -331,6 +331,33 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get avatar_video_result => 'Vídeo de avatar gerado';
+
+  @override
+  String get warning => 'Aviso';
+
+  @override
+  String get cancel => 'Cancelar';
+
+  @override
+  String get continueText => 'Continuar';
+
+  @override
+  String get avatar_generation_warning => 'Depois de gerado, o avatar não pode ser modificado devido ao custo de geração. Deseja continuar?';
+
+  @override
+  String get avatar_edit_locked_warning => 'Este avatar já foi gerado. Não é possível editar a personalidade, foto ou áudio.';
+
+  @override
+  String get avatar_summary_original_audio => 'Áudio original:';
+
+  @override
+  String get avatar_summary_cloned_audio => 'Áudio de voz clonada:';
+
+  @override
+  String get avatar_continue_chat => 'Continuar para o chat';
+
+  @override
+  String get play => 'Reproduzir';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -648,4 +675,31 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get avatar_video_result => 'Vídeo de avatar gerado';
+
+  @override
+  String get warning => 'Aviso';
+
+  @override
+  String get cancel => 'Cancelar';
+
+  @override
+  String get continueText => 'Continuar';
+
+  @override
+  String get avatar_generation_warning => 'Depois de gerar o avatar, não será possível modificar devido ao custo de geração. Deseja continuar?';
+
+  @override
+  String get avatar_edit_locked_warning => 'Este avatar já foi gerado. Não é possível editar a personalidade, foto ou áudio.';
+
+  @override
+  String get avatar_summary_original_audio => 'Áudio original:';
+
+  @override
+  String get avatar_summary_cloned_audio => 'Áudio de voz clonada:';
+
+  @override
+  String get avatar_continue_chat => 'Continuar para o chat';
+
+  @override
+  String get play => 'Reproduzir';
 }

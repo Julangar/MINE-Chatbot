@@ -331,4 +331,31 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get avatar_video_result => '生成されたアバター動画';
+
+  @override
+  String get warning => '警告';
+
+  @override
+  String get cancel => 'キャンセル';
+
+  @override
+  String get continueText => '続ける';
+
+  @override
+  String get avatar_generation_warning => 'アバターが生成されると、生成コストのため変更できません。続行しますか？';
+
+  @override
+  String get avatar_edit_locked_warning => 'このアバターはすでに生成されています。性格、写真、音声は編集できません。';
+
+  @override
+  String get avatar_summary_original_audio => '元の音声：';
+
+  @override
+  String get avatar_summary_cloned_audio => 'クローン音声：';
+
+  @override
+  String get avatar_continue_chat => 'チャットを続ける';
+
+  @override
+  String get play => '再生';
 }

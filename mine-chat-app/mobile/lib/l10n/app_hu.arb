@@ -127,5 +127,14 @@
   "avatar_warning_edit_locked": "Az avatar már létrejött. Nem lehet újra szerkeszteni a személyiséget, képet vagy hangot.",
   "avatar_original_audio": "Felhasználó eredeti hangja",
   "avatar_cloned_audio": "Mesterséges intelligencia által generált hang",
-  "avatar_video_result": "Generált avatar videó"
+  "avatar_video_result": "Generált avatar videó",
+  "warning": "Figyelmeztetés",
+  "cancel": "Mégse",
+  "continueText": "Folytatás",
+  "avatar_generation_warning": "Az avatar létrehozása után a költségek miatt nem módosítható. Folytatod?",
+  "avatar_edit_locked_warning": "Ez az avatar már létrejött. A személyiség, a fotó és a hang már nem szerkeszthető.",
+  "avatar_summary_original_audio": "Eredeti hang:",
+  "avatar_summary_cloned_audio": "Klonhang:",
+  "avatar_continue_chat": "Tovább a csevegéshez",
+  "play": "Lejátszás"
 }

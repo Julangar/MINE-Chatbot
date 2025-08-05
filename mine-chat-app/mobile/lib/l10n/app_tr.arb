@@ -127,5 +127,14 @@
   "avatar_warning_edit_locked": "Avatar zaten oluşturuldu. Kişilik, resim veya sesi tekrar düzenleyemezsiniz.",
   "avatar_original_audio": "Kullanıcının orijinal sesi",
   "avatar_cloned_audio": "Yapay zeka tarafından oluşturulan klon ses",
-  "avatar_video_result": "Oluşturulan avatar videosu"
+  "avatar_video_result": "Oluşturulan avatar videosu",
+  "warning": "Uyarı",
+  "cancel": "İptal",
+  "continueText": "Devam et",
+  "avatar_generation_warning": "Avatar oluşturulduktan sonra, oluşturma maliyeti nedeniyle değiştirilemez. Devam etmek istiyor musunuz?",
+  "avatar_edit_locked_warning": "Bu avatar zaten oluşturuldu. Kişilik, fotoğraf ve ses artık düzenlenemez.",
+  "avatar_summary_original_audio": "Orijinal ses:",
+  "avatar_summary_cloned_audio": "Klonlanmış ses:",
+  "avatar_continue_chat": "Sohbete devam et",
+  "play": "Oynat"
 }

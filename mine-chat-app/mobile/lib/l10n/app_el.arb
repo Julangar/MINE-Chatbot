@@ -127,5 +127,14 @@
   "avatar_warning_edit_locked": "Το avatar έχει ήδη δημιουργηθεί. Δεν μπορείτε να επεξεργαστείτε ξανά την προσωπικότητα, την εικόνα ή τον ήχο.",
   "avatar_original_audio": "Αρχικό ηχητικό χρήστη",
   "avatar_cloned_audio": "Κλωνοποιημένη φωνή από ΤΝ",
-  "avatar_video_result": "Δημιουργημένο βίντεο avatar"
+  "avatar_video_result": "Δημιουργημένο βίντεο avatar",
+  "warning": "Προειδοποίηση",
+  "cancel": "Ακύρωση",
+  "continueText": "Συνέχεια",
+  "avatar_generation_warning": "Μόλις δημιουργηθεί το avatar, δεν μπορεί να τροποποιηθεί λόγω του κόστους. Θέλετε να συνεχίσετε;",
+  "avatar_edit_locked_warning": "Αυτό το avatar έχει ήδη δημιουργηθεί. Η προσωπικότητα, η φωτογραφία και ο ήχος δεν μπορούν πλέον να επεξεργαστούν.",
+  "avatar_summary_original_audio": "Αρχικό ηχητικό:",
+  "avatar_summary_cloned_audio": "Αντιγραμμένος ήχος φωνής:",
+  "avatar_continue_chat": "Συνέχεια στη συνομιλία",
+  "play": "Αναπαραγωγή"
 }

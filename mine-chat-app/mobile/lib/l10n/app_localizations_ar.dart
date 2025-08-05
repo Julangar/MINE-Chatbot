@@ -331,4 +331,31 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get avatar_video_result => 'فيديو صورة رمزية تم إنشاؤه';
+
+  @override
+  String get warning => 'تحذير';
+
+  @override
+  String get cancel => 'إلغاء';
+
+  @override
+  String get continueText => 'متابعة';
+
+  @override
+  String get avatar_generation_warning => 'بمجرد إنشاء الصورة الرمزية، لا يمكن تعديلها بسبب تكلفة الإنشاء. هل تريد المتابعة؟';
+
+  @override
+  String get avatar_edit_locked_warning => 'تم إنشاء هذا الصورة الرمزية بالفعل. لا يمكن تعديل الشخصية أو الصورة أو الصوت.';
+
+  @override
+  String get avatar_summary_original_audio => 'الصوت الأصلي:';
+
+  @override
+  String get avatar_summary_cloned_audio => 'الصوت المستنسخ:';
+
+  @override
+  String get avatar_continue_chat => 'المتابعة إلى الدردشة';
+
+  @override
+  String get play => 'تشغيل';
 }

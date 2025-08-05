@@ -780,6 +780,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Generated avatar video'**
   String get avatar_video_result;
+
+  /// No description provided for @warning.
+  ///
+  /// In en, this message translates to:
+  /// **'Warning'**
+  String get warning;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @continueText.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continueText;
+
+  /// No description provided for @avatar_generation_warning.
+  ///
+  /// In en, this message translates to:
+  /// **'Once the avatar is generated, it cannot be modified due to generation costs. Do you want to continue?'**
+  String get avatar_generation_warning;
+
+  /// No description provided for @avatar_edit_locked_warning.
+  ///
+  /// In en, this message translates to:
+  /// **'This avatar has already been generated. Personality, photo, and audio can no longer be edited.'**
+  String get avatar_edit_locked_warning;
+
+  /// No description provided for @avatar_summary_original_audio.
+  ///
+  /// In en, this message translates to:
+  /// **'Original audio:'**
+  String get avatar_summary_original_audio;
+
+  /// No description provided for @avatar_summary_cloned_audio.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloned voice audio:'**
+  String get avatar_summary_cloned_audio;
+
+  /// No description provided for @avatar_continue_chat.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue to chat'**
+  String get avatar_continue_chat;
+
+  /// No description provided for @play.
+  ///
+  /// In en, this message translates to:
+  /// **'Play'**
+  String get play;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

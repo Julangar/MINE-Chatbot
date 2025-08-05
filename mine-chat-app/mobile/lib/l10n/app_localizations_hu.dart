@@ -331,4 +331,31 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get avatar_video_result => 'Generált avatar videó';
+
+  @override
+  String get warning => 'Figyelmeztetés';
+
+  @override
+  String get cancel => 'Mégse';
+
+  @override
+  String get continueText => 'Folytatás';
+
+  @override
+  String get avatar_generation_warning => 'Az avatar létrehozása után a költségek miatt nem módosítható. Folytatod?';
+
+  @override
+  String get avatar_edit_locked_warning => 'Ez az avatar már létrejött. A személyiség, a fotó és a hang már nem szerkeszthető.';
+
+  @override
+  String get avatar_summary_original_audio => 'Eredeti hang:';
+
+  @override
+  String get avatar_summary_cloned_audio => 'Klonhang:';
+
+  @override
+  String get avatar_continue_chat => 'Tovább a csevegéshez';
+
+  @override
+  String get play => 'Lejátszás';
 }

@@ -127,5 +127,14 @@
   "avatar_warning_edit_locked": "Der Avatar wurde bereits erstellt. Du kannst Persönlichkeit, Bild oder Audio nicht mehr bearbeiten.",
   "avatar_original_audio": "Original-Audio des Nutzers",
   "avatar_cloned_audio": "KI-generierte Klonstimme",
-  "avatar_video_result": "Generiertes Avatar-Video"
+  "avatar_video_result": "Generiertes Avatar-Video",
+  "warning": "Warnung",
+  "cancel": "Abbrechen",
+  "continueText": "Fortfahren",
+  "avatar_generation_warning": "Nach der Generierung kann der Avatar aufgrund der Generierungskosten nicht mehr geändert werden. Möchtest du fortfahren?",
+  "avatar_edit_locked_warning": "Dieser Avatar wurde bereits generiert. Persönlichkeit, Foto und Audio können nicht mehr bearbeitet werden.",
+  "avatar_summary_original_audio": "Original-Audio:",
+  "avatar_summary_cloned_audio": "Klon-Stimme-Audio:",
+  "avatar_continue_chat": "Zum Chat fortfahren",
+  "play": "Abspielen"
 }

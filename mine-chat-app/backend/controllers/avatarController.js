@@ -152,7 +152,7 @@ exports.generateAvatarVideo = async (req, res) => {
       .collection(avatarType)
       .doc('greeting')
       .get();
-    console.log('Greeting Snap: ', greetingSnap.data());
+    const greeting = greetingSnap.data()?.message;
 
     const voiceSnap = await admin.firestore()
       .collection('avatars')
@@ -160,13 +160,12 @@ exports.generateAvatarVideo = async (req, res) => {
       .collection(avatarType)
       .doc('audio')
       .get();
-      console.log('Audio Snap: ', voiceSnap.data());
     const voiceId = voiceSnap.data().voiceId;
 
     const videoResp = await didService.generateAvatarVideo({
       source_image_url: imageUrl,
       //voice_url: voiceUrl,
-      text: greetingSnap.data()?.message,
+      text: greeting,
       voice_id: voiceId
     });
 

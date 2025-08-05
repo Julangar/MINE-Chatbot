@@ -331,6 +331,33 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get avatar_video_result => 'Video de avatar generado';
+
+  @override
+  String get warning => 'Advertencia';
+
+  @override
+  String get cancel => 'Cancelar';
+
+  @override
+  String get continueText => 'Continuar';
+
+  @override
+  String get avatar_generation_warning => 'Una vez generado el avatar, no se podrá modificar debido al costo de generación. ¿Deseas continuar?';
+
+  @override
+  String get avatar_edit_locked_warning => 'Este avatar ya ha sido generado. Ya no se pueden editar la personalidad, foto ni audio.';
+
+  @override
+  String get avatar_summary_original_audio => 'Audio original:';
+
+  @override
+  String get avatar_summary_cloned_audio => 'Audio de voz clonada:';
+
+  @override
+  String get avatar_continue_chat => 'Continuar al chat';
+
+  @override
+  String get play => 'Reproducir';
 }
 
 /// The translations for Spanish Castilian, as used in Latin America and the Caribbean (`es_419`).
@@ -648,4 +675,31 @@ class AppLocalizationsEs419 extends AppLocalizationsEs {
 
   @override
   String get avatar_video_result => 'Video de avatar generado';
+
+  @override
+  String get warning => 'Advertencia';
+
+  @override
+  String get cancel => 'Cancelar';
+
+  @override
+  String get continueText => 'Continuar';
+
+  @override
+  String get avatar_generation_warning => 'Una vez generado el avatar, no se podrá modificar por el costo de generación. ¿Quieres continuar?';
+
+  @override
+  String get avatar_edit_locked_warning => 'Este avatar ya fue generado. No se pueden editar la personalidad, foto ni audio.';
+
+  @override
+  String get avatar_summary_original_audio => 'Audio original:';
+
+  @override
+  String get avatar_summary_cloned_audio => 'Audio de voz clonada:';
+
+  @override
+  String get avatar_continue_chat => 'Continuar al chat';
+
+  @override
+  String get play => 'Reproducir';
 }

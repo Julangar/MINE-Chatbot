@@ -127,5 +127,14 @@
   "avatar_warning_edit_locked": "تم إنشاء الصورة الرمزية بالفعل. لا يمكنك تعديل الشخصية أو الصورة أو الصوت مرة أخرى.",
   "avatar_original_audio": "الصوت الأصلي للمستخدم",
   "avatar_cloned_audio": "صوت مستنسخ تم إنشاؤه بالذكاء الاصطناعي",
-  "avatar_video_result": "فيديو صورة رمزية تم إنشاؤه"
+  "avatar_video_result": "فيديو صورة رمزية تم إنشاؤه",
+  "warning": "تحذير",
+  "cancel": "إلغاء",
+  "continueText": "متابعة",
+  "avatar_generation_warning": "بمجرد إنشاء الصورة الرمزية، لا يمكن تعديلها بسبب تكلفة الإنشاء. هل تريد المتابعة؟",
+  "avatar_edit_locked_warning": "تم إنشاء هذا الصورة الرمزية بالفعل. لا يمكن تعديل الشخصية أو الصورة أو الصوت.",
+  "avatar_summary_original_audio": "الصوت الأصلي:",
+  "avatar_summary_cloned_audio": "الصوت المستنسخ:",
+  "avatar_continue_chat": "المتابعة إلى الدردشة",
+  "play": "تشغيل"
 }

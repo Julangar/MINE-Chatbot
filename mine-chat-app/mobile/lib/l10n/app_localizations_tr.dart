@@ -331,4 +331,31 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get avatar_video_result => 'Oluşturulan avatar videosu';
+
+  @override
+  String get warning => 'Uyarı';
+
+  @override
+  String get cancel => 'İptal';
+
+  @override
+  String get continueText => 'Devam et';
+
+  @override
+  String get avatar_generation_warning => 'Avatar oluşturulduktan sonra, oluşturma maliyeti nedeniyle değiştirilemez. Devam etmek istiyor musunuz?';
+
+  @override
+  String get avatar_edit_locked_warning => 'Bu avatar zaten oluşturuldu. Kişilik, fotoğraf ve ses artık düzenlenemez.';
+
+  @override
+  String get avatar_summary_original_audio => 'Orijinal ses:';
+
+  @override
+  String get avatar_summary_cloned_audio => 'Klonlanmış ses:';
+
+  @override
+  String get avatar_continue_chat => 'Sohbete devam et';
+
+  @override
+  String get play => 'Oynat';
 }

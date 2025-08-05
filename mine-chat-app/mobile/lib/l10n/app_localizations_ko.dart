@@ -331,4 +331,31 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get avatar_video_result => '생성된 아바타 비디오';
+
+  @override
+  String get warning => '경고';
+
+  @override
+  String get cancel => '취소';
+
+  @override
+  String get continueText => '계속';
+
+  @override
+  String get avatar_generation_warning => '아바타가 생성되면 생성 비용 때문에 수정할 수 없습니다. 계속하시겠습니까?';
+
+  @override
+  String get avatar_edit_locked_warning => '이 아바타는 이미 생성되었습니다. 성격, 사진, 오디오는 더 이상 편집할 수 없습니다.';
+
+  @override
+  String get avatar_summary_original_audio => '원본 오디오:';
+
+  @override
+  String get avatar_summary_cloned_audio => '복제된 음성 오디오:';
+
+  @override
+  String get avatar_continue_chat => '채팅 계속하기';
+
+  @override
+  String get play => '재생';
 }

@@ -331,4 +331,31 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get avatar_video_result => 'जनित अवतार वीडियो';
+
+  @override
+  String get warning => 'चेतावनी';
+
+  @override
+  String get cancel => 'रद्द करें';
+
+  @override
+  String get continueText => 'जारी रखें';
+
+  @override
+  String get avatar_generation_warning => 'एक बार अवतार जेनरेट होने के बाद, लागत के कारण इसे संशोधित नहीं किया जा सकता। क्या आप जारी रखना चाहते हैं?';
+
+  @override
+  String get avatar_edit_locked_warning => 'यह अवतार पहले ही जेनरेट हो चुका है। अब व्यक्तित्व, फोटो या ऑडियो संपादित नहीं किया जा सकता।';
+
+  @override
+  String get avatar_summary_original_audio => 'मूल ऑडियो:';
+
+  @override
+  String get avatar_summary_cloned_audio => 'क्लोन की गई आवाज़ का ऑडियो:';
+
+  @override
+  String get avatar_continue_chat => 'चैट जारी रखें';
+
+  @override
+  String get play => 'चलाएं';
 }

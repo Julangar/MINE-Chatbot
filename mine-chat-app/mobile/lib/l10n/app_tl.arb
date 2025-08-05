@@ -127,5 +127,14 @@
   "avatar_warning_edit_locked": "Ang avatar ay nagawa na. Hindi mo na maaaring i-edit muli ang personalidad, larawan o audio.",
   "avatar_original_audio": "Orihinal na audio ng user",
   "avatar_cloned_audio": "AI-generated na kinopyang boses",
-  "avatar_video_result": "Nabuong avatar na video"
+  "avatar_video_result": "Nabuong avatar na video",
+  "warning": "Babala",
+  "cancel": "Kanselahin",
+  "continueText": "Magpatuloy",
+  "avatar_generation_warning": "Kapag nagawa na ang avatar, hindi na ito pwedeng baguhin dahil sa gastos. Gusto mo bang magpatuloy?",
+  "avatar_edit_locked_warning": "Ang avatar na ito ay nagawa na. Hindi na maaaring i-edit ang personalidad, larawan o audio.",
+  "avatar_summary_original_audio": "Orihinal na audio:",
+  "avatar_summary_cloned_audio": "Cloned na audio ng boses:",
+  "avatar_continue_chat": "Magpatuloy sa chat",
+  "play": "I-play"
 }

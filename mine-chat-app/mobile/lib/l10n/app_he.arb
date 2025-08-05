@@ -127,5 +127,14 @@
   "avatar_warning_edit_locked": "הדמות כבר נוצרה. לא ניתן לערוך שוב את האישיות, התמונה או האודיו.",
   "avatar_original_audio": "הקלטה המקורית של המשתמש",
   "avatar_cloned_audio": "קול משוכפל שנוצר על ידי בינה מלאכותית",
-  "avatar_video_result": "וידאו דמות שנוצר"
+  "avatar_video_result": "וידאו דמות שנוצר",
+  "warning": "אזהרה",
+  "cancel": "ביטול",
+  "continueText": "המשך",
+  "avatar_generation_warning": "לאחר יצירת הדמות, לא ניתן יהיה לערוך אותה בשל עלות ההפקה. להמשיך?",
+  "avatar_edit_locked_warning": "הדמות כבר נוצרה. לא ניתן לערוך את האישיות, התמונה או האודיו.",
+  "avatar_summary_original_audio": "אודיו מקורי:",
+  "avatar_summary_cloned_audio": "אודיו קול משוכפל:",
+  "avatar_continue_chat": "המשך לצ’אט",
+  "play": "נגן"
 }

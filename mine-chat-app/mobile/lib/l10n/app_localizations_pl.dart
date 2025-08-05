@@ -331,4 +331,31 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get avatar_video_result => 'Wygenerowane wideo awatara';
+
+  @override
+  String get warning => 'Ostrzeżenie';
+
+  @override
+  String get cancel => 'Anuluj';
+
+  @override
+  String get continueText => 'Kontynuuj';
+
+  @override
+  String get avatar_generation_warning => 'Po wygenerowaniu awatara nie będzie można go zmienić ze względu na koszty. Czy chcesz kontynuować?';
+
+  @override
+  String get avatar_edit_locked_warning => 'Ten awatar został już wygenerowany. Nie można edytować osobowości, zdjęcia ani dźwięku.';
+
+  @override
+  String get avatar_summary_original_audio => 'Oryginalny dźwięk:';
+
+  @override
+  String get avatar_summary_cloned_audio => 'Sklonowany dźwięk:';
+
+  @override
+  String get avatar_continue_chat => 'Przejdź do czatu';
+
+  @override
+  String get play => 'Odtwórz';
 }

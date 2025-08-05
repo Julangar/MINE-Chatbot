@@ -331,4 +331,31 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get avatar_video_result => '生成的头像视频';
+
+  @override
+  String get warning => '警告';
+
+  @override
+  String get cancel => '取消';
+
+  @override
+  String get continueText => '继续';
+
+  @override
+  String get avatar_generation_warning => '生成头像后，由于成本无法修改。要继续吗？';
+
+  @override
+  String get avatar_edit_locked_warning => '该头像已生成，不能再编辑性格、照片或音频。';
+
+  @override
+  String get avatar_summary_original_audio => '原始音频：';
+
+  @override
+  String get avatar_summary_cloned_audio => '克隆语音：';
+
+  @override
+  String get avatar_continue_chat => '继续聊天';
+
+  @override
+  String get play => '播放';
 }

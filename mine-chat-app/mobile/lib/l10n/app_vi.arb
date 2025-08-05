@@ -127,5 +127,14 @@
   "avatar_warning_edit_locked": "Avatar đã được tạo. Bạn không thể chỉnh sửa lại tính cách, hình ảnh hoặc âm thanh.",
   "avatar_original_audio": "Âm thanh gốc của người dùng",
   "avatar_cloned_audio": "Giọng nói nhân bản do AI tạo ra",
-  "avatar_video_result": "Video avatar đã tạo"
+  "avatar_video_result": "Video avatar đã tạo",
+  "warning": "Cảnh báo",
+  "cancel": "Hủy",
+  "continueText": "Tiếp tục",
+  "avatar_generation_warning": "Sau khi tạo avatar, không thể chỉnh sửa do chi phí. Bạn có muốn tiếp tục không?",
+  "avatar_edit_locked_warning": "Avatar này đã được tạo. Không thể chỉnh sửa tính cách, ảnh hoặc âm thanh nữa.",
+  "avatar_summary_original_audio": "Âm thanh gốc:",
+  "avatar_summary_cloned_audio": "Âm thanh giọng nói nhân bản:",
+  "avatar_continue_chat": "Tiếp tục trò chuyện",
+  "play": "Phát"
 }

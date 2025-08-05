@@ -127,5 +127,14 @@
   "avatar_warning_edit_locked": "アバターはすでに生成されています。性格、画像、または音声は再編集できません。",
   "avatar_original_audio": "ユーザーの元の音声",
   "avatar_cloned_audio": "AI生成のクローン音声",
-  "avatar_video_result": "生成されたアバター動画"
+  "avatar_video_result": "生成されたアバター動画",
+  "warning": "警告",
+  "cancel": "キャンセル",
+  "continueText": "続ける",
+  "avatar_generation_warning": "アバターが生成されると、生成コストのため変更できません。続行しますか？",
+  "avatar_edit_locked_warning": "このアバターはすでに生成されています。性格、写真、音声は編集できません。",
+  "avatar_summary_original_audio": "元の音声：",
+  "avatar_summary_cloned_audio": "クローン音声：",
+  "avatar_continue_chat": "チャットを続ける",
+  "play": "再生"
 }

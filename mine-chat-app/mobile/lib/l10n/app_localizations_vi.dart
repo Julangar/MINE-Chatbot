@@ -331,4 +331,31 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get avatar_video_result => 'Video avatar đã tạo';
+
+  @override
+  String get warning => 'Cảnh báo';
+
+  @override
+  String get cancel => 'Hủy';
+
+  @override
+  String get continueText => 'Tiếp tục';
+
+  @override
+  String get avatar_generation_warning => 'Sau khi tạo avatar, không thể chỉnh sửa do chi phí. Bạn có muốn tiếp tục không?';
+
+  @override
+  String get avatar_edit_locked_warning => 'Avatar này đã được tạo. Không thể chỉnh sửa tính cách, ảnh hoặc âm thanh nữa.';
+
+  @override
+  String get avatar_summary_original_audio => 'Âm thanh gốc:';
+
+  @override
+  String get avatar_summary_cloned_audio => 'Âm thanh giọng nói nhân bản:';
+
+  @override
+  String get avatar_continue_chat => 'Tiếp tục trò chuyện';
+
+  @override
+  String get play => 'Phát';
 }

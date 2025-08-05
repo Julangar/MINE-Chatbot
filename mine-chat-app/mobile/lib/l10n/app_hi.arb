@@ -127,5 +127,14 @@
   "avatar_warning_edit_locked": "अवतार पहले ही बनाया जा चुका है। आप व्यक्तित्व, छवि या ऑडियो को फिर से संपादित नहीं कर सकते।",
   "avatar_original_audio": "उपयोगकर्ता की मूल ऑडियो",
   "avatar_cloned_audio": "एआई द्वारा जनित क्लोन आवाज़",
-  "avatar_video_result": "जनित अवतार वीडियो"
+  "avatar_video_result": "जनित अवतार वीडियो",
+  "warning": "चेतावनी",
+  "cancel": "रद्द करें",
+  "continueText": "जारी रखें",
+  "avatar_generation_warning": "एक बार अवतार जेनरेट होने के बाद, लागत के कारण इसे संशोधित नहीं किया जा सकता। क्या आप जारी रखना चाहते हैं?",
+  "avatar_edit_locked_warning": "यह अवतार पहले ही जेनरेट हो चुका है। अब व्यक्तित्व, फोटो या ऑडियो संपादित नहीं किया जा सकता।",
+  "avatar_summary_original_audio": "मूल ऑडियो:",
+  "avatar_summary_cloned_audio": "क्लोन की गई आवाज़ का ऑडियो:",
+  "avatar_continue_chat": "चैट जारी रखें",
+  "play": "चलाएं"
 }

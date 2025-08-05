@@ -127,5 +127,14 @@
   "avatar_warning_edit_locked": "Awatar został już wygenerowany. Nie możesz ponownie edytować osobowości, obrazu ani dźwięku.",
   "avatar_original_audio": "Oryginalny dźwięk użytkownika",
   "avatar_cloned_audio": "Sklonowany głos wygenerowany przez SI",
-  "avatar_video_result": "Wygenerowane wideo awatara"
+  "avatar_video_result": "Wygenerowane wideo awatara",
+  "warning": "Ostrzeżenie",
+  "cancel": "Anuluj",
+  "continueText": "Kontynuuj",
+  "avatar_generation_warning": "Po wygenerowaniu awatara nie będzie można go zmienić ze względu na koszty. Czy chcesz kontynuować?",
+  "avatar_edit_locked_warning": "Ten awatar został już wygenerowany. Nie można edytować osobowości, zdjęcia ani dźwięku.",
+  "avatar_summary_original_audio": "Oryginalny dźwięk:",
+  "avatar_summary_cloned_audio": "Sklonowany dźwięk:",
+  "avatar_continue_chat": "Przejdź do czatu",
+  "play": "Odtwórz"
 }

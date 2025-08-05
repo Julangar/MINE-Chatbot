@@ -331,4 +331,31 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get avatar_video_result => 'Сгенерированное видео аватара';
+
+  @override
+  String get warning => 'Предупреждение';
+
+  @override
+  String get cancel => 'Отмена';
+
+  @override
+  String get continueText => 'Продолжить';
+
+  @override
+  String get avatar_generation_warning => 'После создания аватара изменить его будет невозможно из-за стоимости генерации. Продолжить?';
+
+  @override
+  String get avatar_edit_locked_warning => 'Этот аватар уже создан. Личность, фото и аудио больше не редактируются.';
+
+  @override
+  String get avatar_summary_original_audio => 'Оригинальное аудио:';
+
+  @override
+  String get avatar_summary_cloned_audio => 'Клонированное аудио:';
+
+  @override
+  String get avatar_continue_chat => 'Продолжить в чат';
+
+  @override
+  String get play => 'Воспроизвести';
 }

@@ -331,4 +331,31 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get avatar_video_result => 'Генерирано видео аватар';
+
+  @override
+  String get warning => 'Предупреждение';
+
+  @override
+  String get cancel => 'Отказ';
+
+  @override
+  String get continueText => 'Продължи';
+
+  @override
+  String get avatar_generation_warning => 'След като аватарът е генериран, не може да бъде променян поради разходите. Искате ли да продължите?';
+
+  @override
+  String get avatar_edit_locked_warning => 'Този аватар вече е генериран. Не могат да се редактират личността, снимката или аудиото.';
+
+  @override
+  String get avatar_summary_original_audio => 'Оригинално аудио:';
+
+  @override
+  String get avatar_summary_cloned_audio => 'Клониран гласов звук:';
+
+  @override
+  String get avatar_continue_chat => 'Продължи към чата';
+
+  @override
+  String get play => 'Пусни';
 }

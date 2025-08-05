@@ -127,5 +127,14 @@
   "avatar_warning_edit_locked": "头像已生成，不能再次编辑个性、图片或音频。",
   "avatar_original_audio": "用户的原始音频",
   "avatar_cloned_audio": "AI生成的克隆语音",
-  "avatar_video_result": "生成的头像视频"
+  "avatar_video_result": "生成的头像视频",
+  "warning": "警告",
+  "cancel": "取消",
+  "continueText": "继续",
+  "avatar_generation_warning": "生成头像后，由于成本无法修改。要继续吗？",
+  "avatar_edit_locked_warning": "该头像已生成，不能再编辑性格、照片或音频。",
+  "avatar_summary_original_audio": "原始音频：",
+  "avatar_summary_cloned_audio": "克隆语音：",
+  "avatar_continue_chat": "继续聊天",
+  "play": "播放"
 }

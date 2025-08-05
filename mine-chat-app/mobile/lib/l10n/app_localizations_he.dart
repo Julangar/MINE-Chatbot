@@ -331,4 +331,31 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get avatar_video_result => 'וידאו דמות שנוצר';
+
+  @override
+  String get warning => 'אזהרה';
+
+  @override
+  String get cancel => 'ביטול';
+
+  @override
+  String get continueText => 'המשך';
+
+  @override
+  String get avatar_generation_warning => 'לאחר יצירת הדמות, לא ניתן יהיה לערוך אותה בשל עלות ההפקה. להמשיך?';
+
+  @override
+  String get avatar_edit_locked_warning => 'הדמות כבר נוצרה. לא ניתן לערוך את האישיות, התמונה או האודיו.';
+
+  @override
+  String get avatar_summary_original_audio => 'אודיו מקורי:';
+
+  @override
+  String get avatar_summary_cloned_audio => 'אודיו קול משוכפל:';
+
+  @override
+  String get avatar_continue_chat => 'המשך לצ’אט';
+
+  @override
+  String get play => 'נגן';
 }

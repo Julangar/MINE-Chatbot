@@ -331,4 +331,31 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get avatar_video_result => 'Nabuong avatar na video';
+
+  @override
+  String get warning => 'Babala';
+
+  @override
+  String get cancel => 'Kanselahin';
+
+  @override
+  String get continueText => 'Magpatuloy';
+
+  @override
+  String get avatar_generation_warning => 'Kapag nagawa na ang avatar, hindi na ito pwedeng baguhin dahil sa gastos. Gusto mo bang magpatuloy?';
+
+  @override
+  String get avatar_edit_locked_warning => 'Ang avatar na ito ay nagawa na. Hindi na maaaring i-edit ang personalidad, larawan o audio.';
+
+  @override
+  String get avatar_summary_original_audio => 'Orihinal na audio:';
+
+  @override
+  String get avatar_summary_cloned_audio => 'Cloned na audio ng boses:';
+
+  @override
+  String get avatar_continue_chat => 'Magpatuloy sa chat';
+
+  @override
+  String get play => 'I-play';
 }
