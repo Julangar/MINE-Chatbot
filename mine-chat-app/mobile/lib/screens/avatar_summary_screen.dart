@@ -7,6 +7,7 @@ import 'package:just_audio/just_audio.dart';
 import '../models/avatar.dart';
 import '../providers/avatar_provider.dart';
 import '../services/avatar_service.dart';
+import '../widgets/banner_message.dart';
 import 'chat_screen.dart';
 
 class AvatarSummaryScreen extends StatefulWidget {
@@ -33,6 +34,14 @@ class _AvatarSummaryScreenState extends State<AvatarSummaryScreen> {
     _loadClonedAudio();
   }
 
+  @override
+  void dispose() {
+    _originalPlayer.dispose();
+    _clonedPlayer.dispose();
+    _videoController?.dispose();
+    super.dispose();
+  }
+
   Future<void> _loadClonedAudio() async {
     final avatar = context.read<AvatarProvider>().avatar;
     if (avatar == null) return;
@@ -44,26 +53,6 @@ class _AvatarSummaryScreenState extends State<AvatarSummaryScreen> {
 
   Future<void> _generateAvatar(Avatar avatar) async {
     final t = AppLocalizations.of(context)!;
-
-    final confirm = await showDialog<bool>(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: Text(t.warning),
-        content: Text(t.avatar_generation_warning),
-        actions: [
-          TextButton(
-            child: Text(t.cancel),
-            onPressed: () => Navigator.pop(ctx, false),
-          ),
-          ElevatedButton(
-            child: Text(t.continueText),
-            onPressed: () => Navigator.pop(ctx, true),
-          ),
-        ],
-      ),
-    );
-
-    if (confirm != true) return;
 
     setState(() {
       _isLoading = true;
@@ -104,13 +93,6 @@ class _AvatarSummaryScreenState extends State<AvatarSummaryScreen> {
     }
   }
 
-  @override
-  void dispose() {
-    _originalPlayer.dispose();
-    _clonedPlayer.dispose();
-    _videoController?.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -144,6 +126,11 @@ class _AvatarSummaryScreenState extends State<AvatarSummaryScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+                  BannerMessage(
+                    title: t.warning,
+                    message: t.avatar_generation_warning,
+                    icon: Icons.info_outline,
+                  ),
                   if (avatar.videoUrl != null)
                     Container(
                       padding: const EdgeInsets.all(12),
