@@ -1,6 +1,6 @@
 const admin = require('firebase-admin');
 const { getChatResponse } = require('../services/openaiService');
-const { generatePrompt } = require('../utils/generatePrompt');
+const { buildSystemPrompt } = require('../utils/generatePrompt');
 
 async function sendMessage(req, res) {
   const { userId, avatarType, message, userLanguage } = req.body;
@@ -21,7 +21,7 @@ async function sendMessage(req, res) {
     }
 
     const data = doc.data();
-    const promptSistema = generatePrompt(data, userLanguage);
+    const promptSistema = buildSystemPrompt(data, userLanguage);
 
     const messages = [
       { role: 'system', content: promptSistema },
