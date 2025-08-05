@@ -71,7 +71,7 @@ class _AvatarSummaryScreenState extends State<AvatarSummaryScreen> {
     });
 
     try {
-      final talkId = await AvatarService.generateAvatarVideo(
+      final videoUrl = await AvatarService.generateAvatarVideo(
         avatar.userId,
         avatar.avatarType,
         avatar.imageUrl!,
@@ -79,15 +79,15 @@ class _AvatarSummaryScreenState extends State<AvatarSummaryScreen> {
         avatar.userLanguage!,
       );
 
-      final videoUrl = await AvatarService.pollForVideoUrl(talkId.toString());
       if (videoUrl == null) {
         throw Exception(t.avatar_error_timeout);
       }
 
-      final updated = avatar.copyWith(videoUrl: videoUrl, talkId: talkId);
+      final updated = avatar.copyWith(videoUrl: videoUrl);
       Provider.of<AvatarProvider>(context, listen: false).setAvatar(updated);
 
-      _videoController = VideoPlayerController.networkUrl(Uri.parse(videoUrl));
+      _videoController =
+          VideoPlayerController.networkUrl(Uri.parse(videoUrl));
       await _videoController!.initialize();
       _videoController!.play();
 
