@@ -16,7 +16,7 @@ MINE es una aplicación móvil que permite a los usuarios crear un **compañero 
 
 - **Frontend:** Flutter (Dart)
 - **Backend:** Node.js (Express)
-- **Servicios Cloud:** Firebase (Auth, Firestore, Storage)
+- **Servicios Cloud:** Firebase (Auth, Firestore, Storage), Cloudinary (para imágenes y audios)
 - **IA / APIs:**
   - OpenAI GPT (conversación)
   - ElevenLabs (voz)

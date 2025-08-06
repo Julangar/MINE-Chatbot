@@ -60,7 +60,7 @@ class AvatarService {
       //final clonedVoiceUrl = jsonDecode(voiceResponse.body)['voiceUrl'];
 
       final videoResponse = await http.post(
-        Uri.parse('$baseUrl/api/avatar/generate-video'),
+        Uri.parse('$baseUrl/api/avatar/generate-video-audio'),
         body: jsonEncode({
           'userId': userId,
           'avatarType': avatarType,

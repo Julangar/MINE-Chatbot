@@ -16,24 +16,12 @@ const api = axios.create({
   headers: { 'xi-api-key': elevenlabsKey }
 });
 
-async function downloadAudio(url, outputPath) {
-  const writer = createWriteStream(outputPath);
-  return new Promise((resolve, reject) => {
-    https.get(url, response => {
-      if (response.statusCode !== 200) {
-        return reject(new Error(`HTTP ${response.statusCode}`));
-      }
-      response.pipe(writer);
-      writer.on('finish', () => resolve(outputPath));
-      writer.on('error', reject);
-    });
-  });
-}
+
 
 async function cloneVoice(audioUrl, name) {
   try {
     const tempPath = path.join(os.tmpdir(), `${name}_${Date.now()}.mp3`);
-    await downloadAudio(audioUrl, tempPath);
+    await firebaseService.downloadAudio(audioUrl, tempPath);
 
     const formData = new FormData();
     formData.append('name', `${name}_${Date.now()}`);

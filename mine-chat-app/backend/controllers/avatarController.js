@@ -5,6 +5,14 @@ const firebaseService = require('../services/firebaseService');
 const openaiService = require('../services/openaiService');
 const elevenlabsService = require('../services/elevenlabsService');
 const didService = require('../services/didService');
+const { uploadImage, uploadAudio } = require('../services/cloudinaryService');
+const https = require('https');
+const FormData = require('form-data');
+const fs = require('fs');
+const os = require('os');
+const { createWriteStream } = require('fs');
+const path = require('path');
+// Controlador para manejar las operaciones relacionadas con los avatares
 
 // 1. Clonar voz
 exports.cloneVoice = async (req, res) => {
@@ -97,7 +105,7 @@ exports.generateVoiceFromText = async (req, res) => {
       .collection(avatarType)
       .doc('audio')
       .get();
-      console.log('Audio Snap: ', audioSnap.data());
+    console.log('Audio Snap: ', audioSnap.data());
 
     if (!greetingSnap.exists || !audioSnap.exists) {
       return res.status(404).json({ error: 'Faltan saludo o voz clonada' });
@@ -116,13 +124,14 @@ exports.generateVoiceFromText = async (req, res) => {
       .set({ audioUrl });
 
     res.json({ voiceUrl: audioUrl });
+    console.log('Clone audio: ', audioUrl);
   } catch (err) {
     console.error('Error al generar voz:', err);
     res.status(500).json({ error: 'Error al generar voz del saludo' });
   }
 };
 
-// 4. Generar video
+// 4. Generar video con texto y usando elevenlabs
 exports.generateAvatarVideo = async (req, res) => {
   const { userId, avatarType, language } = req.body;
 
@@ -150,7 +159,7 @@ exports.generateAvatarVideo = async (req, res) => {
       .doc('audioClone')
       .get();
 
-    const voice= audioSnap.data()?.audioUrl;
+    const voice= audioSnap.data().audioUrl;
     const voiceUrl = firebaseService.getPublicUrl(voice);
 
     const greetingSnap = await admin.firestore()
@@ -159,7 +168,7 @@ exports.generateAvatarVideo = async (req, res) => {
       .collection(avatarType)
       .doc('greeting')
       .get();
-    const greeting = greetingSnap.data()?.message;
+    const greeting = greetingSnap.data().message;
 
     const voiceSnap = await admin.firestore()
       .collection('avatars')
@@ -189,5 +198,89 @@ exports.generateAvatarVideo = async (req, res) => {
   } catch (err) {
     console.error('Error al generar video:', err);
     res.status(500).json({ error: 'Error al generar video del avatar' });
+  }
+};
+
+//5. Generar video con audio
+exports.generateAvatarVideoWithAudio = async (req, res) => {
+  const { userId, avatarType, language } = req.body;
+
+  if (!userId || !avatarType || !language) {
+    return res.status(400).json({ error: 'Faltan campos requeridos' });
+  }
+
+  try {
+    // 1. Obtener imagen
+    const docRef = admin.firestore()
+      .collection('avatars')
+      .doc(userId)
+      .collection(avatarType)
+      .doc('personality');
+    const imageSnap = await docRef.get();
+    if (!imageSnap.exists) return res.status(404).json({ error: 'Avatar no encontrado' });
+    const image = imageSnap.data().imageUrl;
+    //const tempPathImage = path.join(os.tmpdir(), `imageClon_${Date.now()}.jpeg`);
+    //await firebaseService.downloadImage(image, tempPathImage);
+
+    // 2. Subir imagen a Cloudinary
+    const resultImage = await uploadImage(image, userId, avatarType);
+    if (!resultImage) return res.status(500).json({ error: 'Error uploading to Cloudinary (image)' });
+    const imageUrl = resultImage.secure_url;
+    console.log('Image: ', imageUrl);
+
+    // 3. Obtener audio
+    const audioSnap = await admin.firestore()
+      .collection('avatars')
+      .doc(userId)
+      .collection(avatarType)
+      .doc('audioClone')
+      .get();
+    if (!audioSnap.exists) return res.status(404).json({ error: 'Audio no encontrado' });
+    const voice = audioSnap.data().audioUrl;
+    //const tempPathAudio = path.join(os.tmpdir(), `audioClon_${Date.now()}.mp3`);
+    //await firebaseService.downloadAudio(voice, tempPathAudio);
+
+    // 4. Subir audio a Cloudinary
+    const resultAudio = await uploadAudio(voice, userId, avatarType);
+    if (!resultAudio) return res.status(500).json({ error: 'Error uploading to Cloudinary (audio)' });
+    const audioUrl = resultAudio.secure_url;
+    console.log('Audio Cloudinary: ', audioUrl);
+    // 5. Generar video con D-ID
+    const videoResp = await didService.generateAvatarVideoWithAudio({
+      source_image_url: imageUrl,
+      audio_url: audioUrl,
+    });
+    const talkId = videoResp?.id;
+    if (!talkId) {
+      return res.status(500).json({ error: 'No se generó el video, id es undefined.' });
+    }
+    const videoUrl = await didService.waitForVideoResult(talkId);
+    if (!videoUrl) {
+      return res.status(500).json({ error: 'No se generó el video, videoUrl es undefined.' });
+    }
+    // 6. Guardar URL de video en Firestore
+    await admin.firestore()
+      .collection('avatars')
+      .doc(userId)
+      .collection(avatarType)
+      .doc('personality')
+      .update({ videoUrl : videoUrl });
+    await admin.firestore()
+      .collection('avatars')
+      .doc(userId)
+      .collection(avatarType)
+      .doc('video')
+      .set({ videoUrl });
+    console.log('Video Clon: ', videoUrl);
+    // 7. RESPUESTA ÚNICA AL FINAL
+    return res.json({
+      success: true,
+      imageUrl,
+      audioUrl,
+      videoUrl
+    });
+  } catch (err) {
+    console.error('Error al generar video:', err);
+    return res.status(500).json({ error: 'Error al generar video del avatar', details: err.message });
   }
 };

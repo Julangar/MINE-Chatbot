@@ -15,5 +15,6 @@ router.post('/clone-voice', avatarController.cloneVoice);
 router.post('/generate-greeting', avatarController.generateGreeting);
 router.post('/generate-voice', avatarController.generateVoiceFromText);
 router.post('/generate-video', avatarController.generateAvatarVideo);
+router.post('/generate-video-audio', avatarController.generateAvatarVideoWithAudio);
 
 module.exports = router;

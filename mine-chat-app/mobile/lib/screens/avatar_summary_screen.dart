@@ -96,6 +96,8 @@ class _AvatarSummaryScreenState extends State<AvatarSummaryScreen> {
         _statusMessage = t.avatar_error_video;
       });
     }
+    // Navigate to the summary screen after generation to show the new avatar
+    Navigator.pushNamed(context, '/avatar_summary');
   }
 
 

@@ -1,11 +1,40 @@
 const admin = require('firebase-admin');
 const { getFirestore } = require('firebase-admin');
 const { v4: uuidv4 } = require('uuid');
-
+const https = require('https');
+const { createWriteStream } = require('fs');
 const bucket = admin.storage().bucket();
 
 exports.getPublicUrl = (path) => {
   return `https://firebasestorage.googleapis.com/v0/b/${bucket.name}/o/${encodeURIComponent(path)}?alt=media`;
+}
+
+async function downloadAudio(url, outputPath) {
+  const writer = createWriteStream(outputPath);
+  return new Promise((resolve, reject) => {
+    https.get(url, response => {
+      if (response.statusCode !== 200) {
+        return reject(new Error(`HTTP ${response.statusCode}`));
+      }
+      response.pipe(writer);
+      writer.on('finish', () => resolve(outputPath));
+      writer.on('error', reject);
+    });
+  });
+}
+
+async function downloadImage(url, outputPath) {
+  const writer = createWriteStream(outputPath);
+  return new Promise((resolve, reject) => {
+    https.get(url, response => {
+      if (response.statusCode !== 200) {
+        return reject(new Error(`HTTP ${response.statusCode}`));
+      }
+      response.pipe(writer);
+      writer.on('finish', () => resolve(outputPath));
+      writer.on('error', reject);
+    });
+  });
 }
 
 exports.createAvatar = async (userId, avatarType, avatarName, personality) => {
@@ -56,8 +85,13 @@ exports.saveAvatarMedia = async (userId, avatarType, filePath, fileBuffer, mimeT
   // Guardar referencia en Firestore
   const db = getFirestore();
   const mediaType = mimeType.startsWith('image') ? 'imageUrl' : mimeType.startsWith('audio') ? 'audioUrl' : 'videoUrl';
-  const ref = db.collection('users').doc(userId).collection('avatars').doc(avatarType);
+  const ref = db.collection('avatars').doc(userId).collection('avatars').doc(avatarType);
   await ref.set({ [mediaType]: publicUrl }, { merge: true });
 
   return publicUrl;
+};
+
+module.exports = {
+  downloadAudio,
+  downloadImage,
 };
