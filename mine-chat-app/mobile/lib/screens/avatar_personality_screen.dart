@@ -125,7 +125,7 @@ class _AvatarPersonalityScreenState extends State<AvatarPersonalityScreen> {
         await _checkIfAvatarExists();
       },
       child: Container(
-        width: 140,
+        constraints: const BoxConstraints(minWidth: 140),
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
           color: isSelected ? Colors.white : Colors.grey[850],

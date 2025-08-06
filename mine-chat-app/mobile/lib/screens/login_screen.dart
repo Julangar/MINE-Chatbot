@@ -145,11 +145,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   ? const Center(child: CircularProgressIndicator())
                   : SizedBox(
                       width: double.infinity,
-                      height: 48,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF5619e5),
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+                          minimumSize: const Size.fromHeight(48),
                         ),
                         onPressed: _login,
                         child: Text(
@@ -173,11 +173,11 @@ class _LoginScreenState extends State<LoginScreen> {
               // Google Sign-In
               SizedBox(
                 width: double.infinity,
-                height: 48,
                 child: OutlinedButton.icon(
                   style: OutlinedButton.styleFrom(
                     backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+                    minimumSize: const Size.fromHeight(48),
                   ),
                   icon: Image.asset('assets/google_logo.png', height: 24),
                   label: const Text("Sign in with Google", style: TextStyle(color: Colors.black87)),
@@ -189,11 +189,11 @@ class _LoginScreenState extends State<LoginScreen> {
               if (Platform.isIOS || Platform.isMacOS)
                 SizedBox(
                   width: double.infinity,
-                  height: 48,
                   child: OutlinedButton.icon(
                     style: OutlinedButton.styleFrom(
                       backgroundColor: Colors.black,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+                      minimumSize: const Size.fromHeight(48),
                     ),
                     icon: const Icon(Icons.apple, color: Colors.white, size: 28),
                     label: const Text("Sign in with Apple", style: TextStyle(color: Colors.white)),

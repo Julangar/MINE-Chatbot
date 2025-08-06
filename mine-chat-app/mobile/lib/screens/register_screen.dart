@@ -134,11 +134,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ? const Center(child: CircularProgressIndicator())
                   : SizedBox(
                       width: double.infinity,
-                      height: 48,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF5619e5),
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+                          minimumSize: const Size.fromHeight(48),
                         ),
                         onPressed: _register,
                         child: Text(
@@ -162,11 +162,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
               // Google Sign-In
               SizedBox(
                 width: double.infinity,
-                height: 48,
                 child: OutlinedButton.icon(
                   style: OutlinedButton.styleFrom(
                     backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+                    minimumSize: const Size.fromHeight(48),
                   ),
                   icon: Image.asset('assets/google_logo.png', height: 24),
                   label: const Text("Register with Google", style: TextStyle(color: Colors.black87)),
@@ -178,11 +178,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
               if (Platform.isIOS || Platform.isMacOS)
                 SizedBox(
                   width: double.infinity,
-                  height: 48,
                   child: OutlinedButton.icon(
                     style: OutlinedButton.styleFrom(
                       backgroundColor: Colors.black,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+                      minimumSize: const Size.fromHeight(48),
                     ),
                     icon: Icon(Icons.apple, color: Colors.white, size: 28),
                     label: const Text("Register with Apple", style: TextStyle(color: Colors.white)),
