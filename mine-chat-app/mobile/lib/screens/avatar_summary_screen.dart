@@ -60,7 +60,7 @@ class _AvatarSummaryScreenState extends State<AvatarSummaryScreen> {
     });
 
     try {
-      final talkId = await AvatarService.generateAvatarVideo(
+      await AvatarService.generateAvatarVideo(
         avatar.userId,
         avatar.avatarType,
         avatar.imageUrl!,
@@ -70,25 +70,35 @@ class _AvatarSummaryScreenState extends State<AvatarSummaryScreen> {
 
       final videoUrl = await AvatarService.fetchVideoUrl(avatar.userId, avatar.avatarType);
 
-
       _videoController =
           VideoPlayerController.networkUrl(Uri.parse(videoUrl));
       await _videoController!.initialize();
-      _videoController!.play();
 
       setState(() {
         _videoGenerated = true;
         _isLoading = false;
         _statusMessage = '';
       });
+
+      await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => _FullScreenVideoPlayer(controller: _videoController!),
+        ),
+      );
+
+      if (mounted) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => const ChatScreen()),
+        );
+      }
     } catch (e) {
       setState(() {
         _isLoading = false;
         _statusMessage = t.avatar_error_video;
       });
     }
-    // Navigate to the summary screen after generation to show the new avatar
-    Navigator.pushNamed(context, '/avatar_summary');
   }
 
 
@@ -221,6 +231,50 @@ class _AvatarSummaryScreenState extends State<AvatarSummaryScreen> {
                 ],
               ),
             ),
+    );
+  }
+}
+
+class _FullScreenVideoPlayer extends StatefulWidget {
+  const _FullScreenVideoPlayer({required this.controller});
+
+  final VideoPlayerController controller;
+
+  @override
+  State<_FullScreenVideoPlayer> createState() => _FullScreenVideoPlayerState();
+}
+
+class _FullScreenVideoPlayerState extends State<_FullScreenVideoPlayer> {
+  @override
+  void initState() {
+    super.initState();
+    widget.controller.addListener(_checkVideoEnd);
+    widget.controller.play();
+  }
+
+  void _checkVideoEnd() {
+    if (!widget.controller.value.isPlaying &&
+        widget.controller.value.position >= widget.controller.value.duration) {
+      Navigator.of(context).pop();
+    }
+  }
+
+  @override
+  void dispose() {
+    widget.controller.removeListener(_checkVideoEnd);
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Center(
+        child: AspectRatio(
+          aspectRatio: widget.controller.value.aspectRatio,
+          child: VideoPlayer(widget.controller),
+        ),
+      ),
     );
   }
 }
