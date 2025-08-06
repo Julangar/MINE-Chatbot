@@ -83,11 +83,11 @@ class ProfileScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
                 child: SizedBox(
                   width: double.infinity,
-                  height: 44,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF5619e5),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+                      minimumSize: const Size.fromHeight(44),
                     ),
                     onPressed: () {},
                     child: const Text(

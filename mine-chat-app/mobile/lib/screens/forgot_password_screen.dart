@@ -100,7 +100,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   const SizedBox(height: 24),
                   SizedBox(
                     width: double.infinity,
-                    height: 48,
                     child: ElevatedButton(
                       onPressed: _loading
                           ? null
@@ -114,6 +113,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(24),
                         ),
+                        minimumSize: const Size.fromHeight(48),
                       ),
                       child: _loading
                           ? const CircularProgressIndicator(color: Colors.white)
