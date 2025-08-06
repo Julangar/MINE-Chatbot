@@ -256,6 +256,11 @@ class _FullScreenVideoPlayerState extends State<_FullScreenVideoPlayer> {
     if (!widget.controller.value.isPlaying &&
         widget.controller.value.position >= widget.controller.value.duration) {
       Navigator.of(context).pop();
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => const ChatScreen()),
+      );
+      
     }
   }
 
