@@ -68,17 +68,8 @@ class _AvatarSummaryScreenState extends State<AvatarSummaryScreen> {
         avatar.userLanguage!,
       );
 
-      if (talkId == null) {
-        throw Exception(t.avatar_error_video);
-      }
+      final videoUrl = await AvatarService.fetchVideoUrl(avatar.userId, avatar.avatarType);
 
-      final videoUrl = await AvatarService.pollForVideoUrl(talkId);
-
-      if (videoUrl == null) {
-        throw Exception(t.avatar_error_timeout);
-      }
-      final updated = avatar.copyWith(videoUrl: videoUrl, talkId: talkId);
-      Provider.of<AvatarProvider>(context, listen: false).setAvatar(updated);
 
       _videoController =
           VideoPlayerController.networkUrl(Uri.parse(videoUrl));

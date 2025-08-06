@@ -110,6 +110,16 @@ static Future<String?> fetchClonedAudioUrl(String userId, String avatarType) asy
     return doc.data()?['audioUrl'];
   }
 
+static Future<String> fetchVideoUrl(String userId, String avatarType) async {
+    final doc = await FirebaseFirestore.instance
+        .collection('avatars')
+        .doc(userId)
+        .collection(avatarType)
+        .doc('video')
+        .get();
+    return doc.data()?['videoUrl'];
+  }
+
   static Future<void> saveAvatarPersonality(
     String userId, String avatarType, Map<String, dynamic> data) async {
     final docRef = FirebaseFirestore.instance
