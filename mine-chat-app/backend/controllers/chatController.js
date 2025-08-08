@@ -5,9 +5,9 @@ const elevenlabsService = require('../services/elevenlabsService');
 const didService = require('../services/didService');
 
 async function generateGreeting(req, res) {
-  const { userId, avatarType, language } = req.body;
+  const { userId, avatarType, userLanguage } = req.body;
 
-  if (!userId || !avatarType || !language) {
+  if (!userId || !avatarType || !userLanguage) {
     return res.status(400).json({ error: 'Faltan campos requeridos' });
   }
 
@@ -21,7 +21,7 @@ async function generateGreeting(req, res) {
     if (!snap.exists) return res.status(404).json({ error: 'Avatar no encontrado' });
 
     const personality = snap.data();
-    const prompt = buildSystemPrompt(personality, language);
+    const prompt = buildSystemPrompt(personality, userLanguage);
 
     const greeting = await openaiService.getChatResponse([
       { role: 'system', content: prompt }, 
