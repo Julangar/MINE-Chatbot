@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:provider/provider.dart';
 
 import 'package:mine_app/l10n/app_localizations.dart';
+import '../models/avatar.dart';
+import '../providers/avatar_provider.dart';
 import '../services/avatar_service.dart';
 import '../widgets/avatar_personality_form.dart';
 import '../widgets/banner_message.dart';
@@ -19,7 +22,6 @@ class AvatarPersonalityScreen extends StatefulWidget {
 class _AvatarPersonalityScreenState extends State<AvatarPersonalityScreen> {
   AvatarType? _selectedType;
   bool _isSaving = false;
-  bool _avatarExists = false;
 
   String _getAvatarTypeString(AvatarType type) {
     switch (type) {
@@ -33,14 +35,83 @@ class _AvatarPersonalityScreenState extends State<AvatarPersonalityScreen> {
         return 'relative_avatar';
     }
   }
-  Future<void> _checkIfAvatarExists() async {
+
+  Future<Map<String, dynamic>?> _checkIfAvatarExists(AvatarType type) async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return null;
+
+    final collectionName = _getAvatarTypeString(type);
+    final doc = await FirebaseFirestore.instance
+        .collection('avatars')
+        .doc(user.uid)
+        .collection(collectionName)
+        .doc('personality')
+        .get();
+
+    return doc.exists ? doc.data() : null;
+  }
+
+  Future<void> _handleTypeSelection(AvatarType type) async {
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) return;
 
-    if (_selectedType != null) {
-      String collectionName = _getAvatarTypeString(_selectedType!);
-      final doc = await FirebaseFirestore.instance.collection(user.uid).doc(collectionName).get();
-      setState(() => _avatarExists = doc.exists);
+    setState(() => _selectedType = type);
+
+    final existingData = await _checkIfAvatarExists(type);
+    if (existingData == null) {
+      return;
+    }
+
+    if (mounted) {
+      await showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+          content: Text(AppLocalizations.of(context)!.avatarAlreadyExist),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('OK'),
+            ),
+          ],
+        ),
+      );
+    }
+
+    final avatar = Avatar(
+      userId: user.uid,
+      avatarType: _getAvatarTypeString(type),
+      name: existingData['name'] ?? '',
+      userReference: existingData['userReference'] ?? '',
+      relationshipOrRole: existingData['relationshipOrRole'] ?? '',
+      interests: List<String>.from(existingData['interests'] ?? []),
+      speakingStyle: existingData['speakingStyle'] ?? '',
+      commonPhrases: List<String>.from(existingData['commonPhrases'] ?? []),
+      traits: Map<String, double>.from(existingData['traits'] ?? {}),
+      imageUrl: existingData['imageUrl'],
+      audioUrl: existingData['audioUrl'],
+      videoUrl: existingData['videoUrl'],
+      talkId: existingData['talkId'],
+      userLanguage: existingData['userLanguage'],
+    );
+
+    if (mounted) {
+      context.read<AvatarProvider>().setAvatar(avatar);
+    }
+
+    final hasImage = avatar.imageUrl != null && avatar.imageUrl!.isNotEmpty;
+    final hasAudio = avatar.audioUrl != null && avatar.audioUrl!.isNotEmpty;
+    final hasVideo = avatar.videoUrl != null && avatar.videoUrl!.isNotEmpty;
+
+    if (hasImage && hasAudio && hasVideo) {
+      Navigator.pushReplacementNamed(context, '/chat');
+    } else if (hasImage && hasAudio) {
+      Navigator.pushNamed(context, '/avatar_summary');
+    } else {
+      Navigator.pushNamed(
+        context,
+        '/avatar',
+        arguments: _getAvatarTypeString(type),
+      );
     }
   }
   void _savePersonality(Map<String, dynamic> data) async {
@@ -117,13 +188,7 @@ class _AvatarPersonalityScreenState extends State<AvatarPersonalityScreen> {
     final isSelected = _selectedType == type;
 
     return GestureDetector(
-      onTap: () async {
-        setState(() {
-          _selectedType = type;
-          _avatarExists = false;
-        });
-        await _checkIfAvatarExists();
-      },
+      onTap: () => _handleTypeSelection(type),
       child: Container(
         constraints: const BoxConstraints(minWidth: 140),
         padding: const EdgeInsets.all(12),
