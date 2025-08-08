@@ -370,4 +370,36 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get field_optional => '선택 사항';
+
+  @override
+  String get chatTitle => '채팅';
+
+  @override
+  String get replyLabel => '응답:';
+
+  @override
+  String get textOption => '텍스트';
+
+  @override
+  String get audioOption => '오디오';
+
+  @override
+  String get videoOption => '비디오';
+
+  @override
+  String get inputHint => '메시지를 입력하세요...';
+
+  @override
+  String get noResponse => '[응답 없음]';
+
+  @override
+  String get audioGenerated => '생성된 오디오';
+
+  @override
+  String get videoGenerated => '생성된 비디오';
+
+  @override
+  String error(Object error) {
+    return '오류: $error';
+  }
 }

@@ -140,5 +140,15 @@
   "avatar_form_country_label": "От коя държава е вашият аватар?",
   "avatar_form_phone_label": "Телефонен номер",
   "field_required": "Задължително",
-  "field_optional": "По избор"
+  "field_optional": "По избор",
+  "chatTitle": "Чат",
+  "replyLabel": "Отговор:",
+  "textOption": "Текст",
+  "audioOption": "Аудио",
+  "videoOption": "Видео",
+  "inputHint": "Въведете съобщението си...",
+  "noResponse": "[Няма отговор]",
+  "audioGenerated": "Генерирано аудио",
+  "videoGenerated": "Генерирано видео",
+  "error": "Грешка: {error}"
 }

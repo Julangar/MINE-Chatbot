@@ -370,4 +370,36 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get field_optional => 'वैकल्पिक';
+
+  @override
+  String get chatTitle => 'चैट';
+
+  @override
+  String get replyLabel => 'प्रतिक्रिया:';
+
+  @override
+  String get textOption => 'पाठ';
+
+  @override
+  String get audioOption => 'ऑडियो';
+
+  @override
+  String get videoOption => 'वीडियो';
+
+  @override
+  String get inputHint => 'अपना संदेश लिखें...';
+
+  @override
+  String get noResponse => '[कोई उत्तर नहीं]';
+
+  @override
+  String get audioGenerated => 'जनित ऑडियो';
+
+  @override
+  String get videoGenerated => 'जनित वीडियो';
+
+  @override
+  String error(Object error) {
+    return 'त्रुटि: $error';
+  }
 }

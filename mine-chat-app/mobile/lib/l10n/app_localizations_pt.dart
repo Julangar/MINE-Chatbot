@@ -370,6 +370,38 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get field_optional => 'Opcional';
+
+  @override
+  String get chatTitle => 'Chat';
+
+  @override
+  String get replyLabel => 'Resposta:';
+
+  @override
+  String get textOption => 'Texto';
+
+  @override
+  String get audioOption => 'Áudio';
+
+  @override
+  String get videoOption => 'Vídeo';
+
+  @override
+  String get inputHint => 'Digite sua mensagem...';
+
+  @override
+  String get noResponse => '[Sem resposta]';
+
+  @override
+  String get audioGenerated => 'Áudio gerado';
+
+  @override
+  String get videoGenerated => 'Vídeo gerado';
+
+  @override
+  String error(Object error) {
+    return 'Erro: $error';
+  }
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -726,4 +758,36 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get field_optional => 'Opcional';
+
+  @override
+  String get chatTitle => 'Chat';
+
+  @override
+  String get replyLabel => 'Resposta:';
+
+  @override
+  String get textOption => 'Texto';
+
+  @override
+  String get audioOption => 'Áudio';
+
+  @override
+  String get videoOption => 'Vídeo';
+
+  @override
+  String get inputHint => 'Digite sua mensagem...';
+
+  @override
+  String get noResponse => '[Sem resposta]';
+
+  @override
+  String get audioGenerated => 'Áudio gerado';
+
+  @override
+  String get videoGenerated => 'Vídeo gerado';
+
+  @override
+  String error(Object error) {
+    return 'Erro: $error';
+  }
 }

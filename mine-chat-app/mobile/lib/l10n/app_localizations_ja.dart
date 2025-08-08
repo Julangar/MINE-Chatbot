@@ -370,4 +370,36 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get field_optional => '任意';
+
+  @override
+  String get chatTitle => 'チャット';
+
+  @override
+  String get replyLabel => '返答：';
+
+  @override
+  String get textOption => 'テキスト';
+
+  @override
+  String get audioOption => 'オーディオ';
+
+  @override
+  String get videoOption => 'ビデオ';
+
+  @override
+  String get inputHint => 'メッセージを入力してください...';
+
+  @override
+  String get noResponse => '[応答なし]';
+
+  @override
+  String get audioGenerated => '生成された音声';
+
+  @override
+  String get videoGenerated => '生成されたビデオ';
+
+  @override
+  String error(Object error) {
+    return 'エラー：$error';
+  }
 }

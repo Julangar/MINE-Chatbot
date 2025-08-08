@@ -370,6 +370,38 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get field_optional => 'Opcional';
+
+  @override
+  String get chatTitle => 'Chat';
+
+  @override
+  String get replyLabel => 'Respuesta:';
+
+  @override
+  String get textOption => 'Texto';
+
+  @override
+  String get audioOption => 'Audio';
+
+  @override
+  String get videoOption => 'Video';
+
+  @override
+  String get inputHint => 'Escribe tu mensaje...';
+
+  @override
+  String get noResponse => '[Sin respuesta]';
+
+  @override
+  String get audioGenerated => 'Audio generado';
+
+  @override
+  String get videoGenerated => 'Video generado';
+
+  @override
+  String error(Object error) {
+    return 'Error: $error';
+  }
 }
 
 /// The translations for Spanish Castilian, as used in Latin America and the Caribbean (`es_419`).
@@ -726,4 +758,36 @@ class AppLocalizationsEs419 extends AppLocalizationsEs {
 
   @override
   String get field_optional => 'Opcional';
+
+  @override
+  String get chatTitle => 'Chat';
+
+  @override
+  String get replyLabel => 'Respuesta:';
+
+  @override
+  String get textOption => 'Texto';
+
+  @override
+  String get audioOption => 'Audio';
+
+  @override
+  String get videoOption => 'Video';
+
+  @override
+  String get inputHint => 'Escribe tu mensaje...';
+
+  @override
+  String get noResponse => '[Sin respuesta]';
+
+  @override
+  String get audioGenerated => 'Audio generado';
+
+  @override
+  String get videoGenerated => 'Video generado';
+
+  @override
+  String error(Object error) {
+    return 'Error: $error';
+  }
 }

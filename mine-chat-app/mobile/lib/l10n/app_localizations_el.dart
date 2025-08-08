@@ -370,4 +370,36 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get field_optional => 'Προαιρετικό';
+
+  @override
+  String get chatTitle => 'Συνομιλία';
+
+  @override
+  String get replyLabel => 'Απάντηση:';
+
+  @override
+  String get textOption => 'Κείμενο';
+
+  @override
+  String get audioOption => 'Ήχος';
+
+  @override
+  String get videoOption => 'Βίντεο';
+
+  @override
+  String get inputHint => 'Πληκτρολογήστε το μήνυμά σας...';
+
+  @override
+  String get noResponse => '[Χωρίς απάντηση]';
+
+  @override
+  String get audioGenerated => 'Δημιουργημένος ήχος';
+
+  @override
+  String get videoGenerated => 'Δημιουργημένο βίντεο';
+
+  @override
+  String error(Object error) {
+    return 'Σφάλμα: $error';
+  }
 }

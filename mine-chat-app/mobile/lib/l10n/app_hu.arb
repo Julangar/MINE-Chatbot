@@ -140,5 +140,15 @@
   "avatar_form_country_label": "Melyik országból származik az avatarod?",
   "avatar_form_phone_label": "Telefonszám",
   "field_required": "Kötelező",
-  "field_optional": "Opcionális"
+  "field_optional": "Opcionális",
+  "chatTitle": "Csevegés",
+  "replyLabel": "Válasz:",
+  "textOption": "Szöveg",
+  "audioOption": "Hang",
+  "videoOption": "Videó",
+  "inputHint": "Írd be az üzeneted...",
+  "noResponse": "[Nincs válasz]",
+  "audioGenerated": "Generált hang",
+  "videoGenerated": "Generált videó",
+  "error": "Hiba: {error}"
 }

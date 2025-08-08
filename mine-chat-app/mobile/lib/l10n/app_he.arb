@@ -140,5 +140,15 @@
   "avatar_form_country_label": "מאיזו מדינה הדמות שלך?",
   "avatar_form_phone_label": "מספר טלפון",
   "field_required": "נדרש",
-  "field_optional": "אופציונלי"
+  "field_optional": "אופציונלי",
+  "chatTitle": "צ׳אט",
+  "replyLabel": "תגובה:",
+  "textOption": "טקסט",
+  "audioOption": "שמע",
+  "videoOption": "וידאו",
+  "inputHint": "הקלד את ההודעה שלך...",
+  "noResponse": "[אין תגובה]",
+  "audioGenerated": "שמע שנוצר",
+  "videoGenerated": "וידאו שנוצר",
+  "error": "שגיאה: {error}"
 }

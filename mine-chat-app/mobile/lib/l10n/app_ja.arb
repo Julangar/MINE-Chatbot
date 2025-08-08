@@ -140,5 +140,15 @@
   "avatar_form_country_label": "あなたのアバターはどこの国のものですか？",
   "avatar_form_phone_label": "電話番号",
   "field_required": "必須",
-  "field_optional": "任意"
+  "field_optional": "任意",
+  "chatTitle": "チャット",
+  "replyLabel": "返答：",
+  "textOption": "テキスト",
+  "audioOption": "オーディオ",
+  "videoOption": "ビデオ",
+  "inputHint": "メッセージを入力してください...",
+  "noResponse": "[応答なし]",
+  "audioGenerated": "生成された音声",
+  "videoGenerated": "生成されたビデオ",
+  "error": "エラー：{error}"
 }

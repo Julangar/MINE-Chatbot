@@ -140,5 +140,15 @@
   "avatar_form_country_label": "Avatar của bạn đến từ quốc gia nào?",
   "avatar_form_phone_label": "Số điện thoại",
   "field_required": "Bắt buộc",
-  "field_optional": "Tùy chọn"
+  "field_optional": "Tùy chọn",
+  "chatTitle": "Trò chuyện",
+  "replyLabel": "Phản hồi:",
+  "textOption": "Văn bản",
+  "audioOption": "Âm thanh",
+  "videoOption": "Video",
+  "inputHint": "Nhập tin nhắn của bạn...",
+  "noResponse": "[Không có phản hồi]",
+  "audioGenerated": "Âm thanh đã tạo",
+  "videoGenerated": "Video đã tạo",
+  "error": "Lỗi: {error}"
 }

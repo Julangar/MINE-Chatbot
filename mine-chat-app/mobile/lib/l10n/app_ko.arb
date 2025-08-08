@@ -140,5 +140,15 @@
   "avatar_form_country_label": "아바타는 어느 나라 출신입니까?",
   "avatar_form_phone_label": "전화번호",
   "field_required": "필수",
-  "field_optional": "선택 사항"
+  "field_optional": "선택 사항",
+  "chatTitle": "채팅",
+  "replyLabel": "응답:",
+  "textOption": "텍스트",
+  "audioOption": "오디오",
+  "videoOption": "비디오",
+  "inputHint": "메시지를 입력하세요...",
+  "noResponse": "[응답 없음]",
+  "audioGenerated": "생성된 오디오",
+  "videoGenerated": "생성된 비디오",
+  "error": "오류: {error}"
 }

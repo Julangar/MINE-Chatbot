@@ -370,4 +370,36 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get field_optional => 'İsteğe bağlı';
+
+  @override
+  String get chatTitle => 'Sohbet';
+
+  @override
+  String get replyLabel => 'Yanıt:';
+
+  @override
+  String get textOption => 'Metin';
+
+  @override
+  String get audioOption => 'Ses';
+
+  @override
+  String get videoOption => 'Video';
+
+  @override
+  String get inputHint => 'Mesajınızı yazın...';
+
+  @override
+  String get noResponse => '[Yanıt yok]';
+
+  @override
+  String get audioGenerated => 'Oluşturulan ses';
+
+  @override
+  String get videoGenerated => 'Oluşturulan video';
+
+  @override
+  String error(Object error) {
+    return 'Hata: $error';
+  }
 }

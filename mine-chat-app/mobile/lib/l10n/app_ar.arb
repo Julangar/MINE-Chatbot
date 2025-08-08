@@ -140,5 +140,15 @@
   "avatar_form_country_label": "من أي بلد هو صورتك الرمزية؟",
   "avatar_form_phone_label": "رقم الهاتف",
   "field_required": "مطلوب",
-  "field_optional": "اختياري"
+  "field_optional": "اختياري",
+  "chatTitle": "الدردشة",
+  "replyLabel": "الرد:",
+  "textOption": "نص",
+  "audioOption": "صوت",
+  "videoOption": "فيديو",
+  "inputHint": "اكتب رسالتك...",
+  "noResponse": "[لا توجد استجابة]",
+  "audioGenerated": "الصوت الناتج",
+  "videoGenerated": "الفيديو الناتج",
+  "error": "خطأ: {error}"
 }

@@ -140,5 +140,15 @@
   "avatar_form_country_label": "你的头像来自哪个国家？",
   "avatar_form_phone_label": "电话号码",
   "field_required": "必填",
-  "field_optional": "可选"
+  "field_optional": "可选",
+  "chatTitle": "聊天",
+  "replyLabel": "回复：",
+  "textOption": "文字",
+  "audioOption": "音频",
+  "videoOption": "视频",
+  "inputHint": "输入你的消息...",
+  "noResponse": "[无响应]",
+  "audioGenerated": "生成的音频",
+  "videoGenerated": "生成的视频",
+  "error": "错误：{error}"
 }

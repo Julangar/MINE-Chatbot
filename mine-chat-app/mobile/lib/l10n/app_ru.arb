@@ -140,5 +140,15 @@
   "avatar_form_country_label": "Из какой страны ваш аватар?",
   "avatar_form_phone_label": "Номер телефона",
   "field_required": "Обязательно",
-  "field_optional": "Необязательно"
+  "field_optional": "Необязательно",
+  "chatTitle": "Чат",
+  "replyLabel": "Ответ:",
+  "textOption": "Текст",
+  "audioOption": "Аудио",
+  "videoOption": "Видео",
+  "inputHint": "Введите сообщение...",
+  "noResponse": "[Нет ответа]",
+  "audioGenerated": "Сгенерированное аудио",
+  "videoGenerated": "Сгенерированное видео",
+  "error": "Ошибка: {error}"
 }

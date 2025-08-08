@@ -858,6 +858,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Optional'**
   String get field_optional;
+
+  /// No description provided for @chatTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Chat'**
+  String get chatTitle;
+
+  /// No description provided for @replyLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Response:'**
+  String get replyLabel;
+
+  /// No description provided for @textOption.
+  ///
+  /// In en, this message translates to:
+  /// **'Text'**
+  String get textOption;
+
+  /// No description provided for @audioOption.
+  ///
+  /// In en, this message translates to:
+  /// **'Audio'**
+  String get audioOption;
+
+  /// No description provided for @videoOption.
+  ///
+  /// In en, this message translates to:
+  /// **'Video'**
+  String get videoOption;
+
+  /// No description provided for @inputHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Type your message...'**
+  String get inputHint;
+
+  /// No description provided for @noResponse.
+  ///
+  /// In en, this message translates to:
+  /// **'[No response]'**
+  String get noResponse;
+
+  /// No description provided for @audioGenerated.
+  ///
+  /// In en, this message translates to:
+  /// **'Generated audio'**
+  String get audioGenerated;
+
+  /// No description provided for @videoGenerated.
+  ///
+  /// In en, this message translates to:
+  /// **'Generated video'**
+  String get videoGenerated;
+
+  /// No description provided for @error.
+  ///
+  /// In en, this message translates to:
+  /// **'Error: {error}'**
+  String error(Object error);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

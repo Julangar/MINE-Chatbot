@@ -370,4 +370,36 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get field_optional => '可选';
+
+  @override
+  String get chatTitle => '聊天';
+
+  @override
+  String get replyLabel => '回复：';
+
+  @override
+  String get textOption => '文字';
+
+  @override
+  String get audioOption => '音频';
+
+  @override
+  String get videoOption => '视频';
+
+  @override
+  String get inputHint => '输入你的消息...';
+
+  @override
+  String get noResponse => '[无响应]';
+
+  @override
+  String get audioGenerated => '生成的音频';
+
+  @override
+  String get videoGenerated => '生成的视频';
+
+  @override
+  String error(Object error) {
+    return '错误：$error';
+  }
 }

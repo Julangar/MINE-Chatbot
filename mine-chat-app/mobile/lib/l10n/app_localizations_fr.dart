@@ -370,4 +370,36 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get field_optional => 'Optionnel';
+
+  @override
+  String get chatTitle => 'Discussion';
+
+  @override
+  String get replyLabel => 'Réponse :';
+
+  @override
+  String get textOption => 'Texte';
+
+  @override
+  String get audioOption => 'Audio';
+
+  @override
+  String get videoOption => 'Vidéo';
+
+  @override
+  String get inputHint => 'Tapez votre message...';
+
+  @override
+  String get noResponse => '[Pas de réponse]';
+
+  @override
+  String get audioGenerated => 'Audio généré';
+
+  @override
+  String get videoGenerated => 'Vidéo générée';
+
+  @override
+  String error(Object error) {
+    return 'Erreur : $error';
+  }
 }

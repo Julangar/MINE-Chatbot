@@ -370,4 +370,36 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get field_optional => 'По избор';
+
+  @override
+  String get chatTitle => 'Чат';
+
+  @override
+  String get replyLabel => 'Отговор:';
+
+  @override
+  String get textOption => 'Текст';
+
+  @override
+  String get audioOption => 'Аудио';
+
+  @override
+  String get videoOption => 'Видео';
+
+  @override
+  String get inputHint => 'Въведете съобщението си...';
+
+  @override
+  String get noResponse => '[Няма отговор]';
+
+  @override
+  String get audioGenerated => 'Генерирано аудио';
+
+  @override
+  String get videoGenerated => 'Генерирано видео';
+
+  @override
+  String error(Object error) {
+    return 'Грешка: $error';
+  }
 }

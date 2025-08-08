@@ -140,5 +140,15 @@
   "avatar_form_country_label": "आपका अवतार किस देश का है?",
   "avatar_form_phone_label": "फ़ोन नंबर",
   "field_required": "आवश्यक",
-  "field_optional": "वैकल्पिक"
+  "field_optional": "वैकल्पिक",
+  "chatTitle": "चैट",
+  "replyLabel": "प्रतिक्रिया:",
+  "textOption": "पाठ",
+  "audioOption": "ऑडियो",
+  "videoOption": "वीडियो",
+  "inputHint": "अपना संदेश लिखें...",
+  "noResponse": "[कोई उत्तर नहीं]",
+  "audioGenerated": "जनित ऑडियो",
+  "videoGenerated": "जनित वीडियो",
+  "error": "त्रुटि: {error}"
 }

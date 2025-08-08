@@ -370,4 +370,36 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get field_optional => 'Tùy chọn';
+
+  @override
+  String get chatTitle => 'Trò chuyện';
+
+  @override
+  String get replyLabel => 'Phản hồi:';
+
+  @override
+  String get textOption => 'Văn bản';
+
+  @override
+  String get audioOption => 'Âm thanh';
+
+  @override
+  String get videoOption => 'Video';
+
+  @override
+  String get inputHint => 'Nhập tin nhắn của bạn...';
+
+  @override
+  String get noResponse => '[Không có phản hồi]';
+
+  @override
+  String get audioGenerated => 'Âm thanh đã tạo';
+
+  @override
+  String get videoGenerated => 'Video đã tạo';
+
+  @override
+  String error(Object error) {
+    return 'Lỗi: $error';
+  }
 }

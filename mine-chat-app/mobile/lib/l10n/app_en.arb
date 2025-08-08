@@ -120,5 +120,15 @@
   "avatar_form_country_label": "What country is your avatar from?",
   "avatar_form_phone_label": "Phone number",
   "field_required": "Required",
-  "field_optional": "Optional"
+  "field_optional": "Optional",
+  "chatTitle": "Chat",
+  "replyLabel": "Response:",
+  "textOption": "Text",
+  "audioOption": "Audio",
+  "videoOption": "Video",
+  "inputHint": "Type your message...",
+  "noResponse": "[No response]",
+  "audioGenerated": "Generated audio",
+  "videoGenerated": "Generated video",
+  "error": "Error: {error}"
 }

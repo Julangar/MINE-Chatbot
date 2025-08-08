@@ -370,4 +370,36 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get field_optional => 'Opsyonal';
+
+  @override
+  String get chatTitle => 'Chat';
+
+  @override
+  String get replyLabel => 'Sagot:';
+
+  @override
+  String get textOption => 'Teksto';
+
+  @override
+  String get audioOption => 'Audio';
+
+  @override
+  String get videoOption => 'Video';
+
+  @override
+  String get inputHint => 'I-type ang iyong mensahe...';
+
+  @override
+  String get noResponse => '[Walang tugon]';
+
+  @override
+  String get audioGenerated => 'Nabuo na audio';
+
+  @override
+  String get videoGenerated => 'Nabuo na video';
+
+  @override
+  String error(Object error) {
+    return 'Error: $error';
+  }
 }

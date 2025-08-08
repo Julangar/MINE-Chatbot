@@ -370,4 +370,36 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get field_optional => 'Opcionális';
+
+  @override
+  String get chatTitle => 'Csevegés';
+
+  @override
+  String get replyLabel => 'Válasz:';
+
+  @override
+  String get textOption => 'Szöveg';
+
+  @override
+  String get audioOption => 'Hang';
+
+  @override
+  String get videoOption => 'Videó';
+
+  @override
+  String get inputHint => 'Írd be az üzeneted...';
+
+  @override
+  String get noResponse => '[Nincs válasz]';
+
+  @override
+  String get audioGenerated => 'Generált hang';
+
+  @override
+  String get videoGenerated => 'Generált videó';
+
+  @override
+  String error(Object error) {
+    return 'Hiba: $error';
+  }
 }

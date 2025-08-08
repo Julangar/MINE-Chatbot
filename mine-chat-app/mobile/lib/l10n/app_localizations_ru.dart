@@ -370,4 +370,36 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get field_optional => 'Необязательно';
+
+  @override
+  String get chatTitle => 'Чат';
+
+  @override
+  String get replyLabel => 'Ответ:';
+
+  @override
+  String get textOption => 'Текст';
+
+  @override
+  String get audioOption => 'Аудио';
+
+  @override
+  String get videoOption => 'Видео';
+
+  @override
+  String get inputHint => 'Введите сообщение...';
+
+  @override
+  String get noResponse => '[Нет ответа]';
+
+  @override
+  String get audioGenerated => 'Сгенерированное аудио';
+
+  @override
+  String get videoGenerated => 'Сгенерированное видео';
+
+  @override
+  String error(Object error) {
+    return 'Ошибка: $error';
+  }
 }

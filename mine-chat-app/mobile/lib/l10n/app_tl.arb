@@ -140,5 +140,15 @@
   "avatar_form_country_label": "Mula saang bansa ang iyong avatar?",
   "avatar_form_phone_label": "Numero ng telepono",
   "field_required": "Kailangan",
-  "field_optional": "Opsyonal"
+  "field_optional": "Opsyonal",
+  "chatTitle": "Chat",
+  "replyLabel": "Sagot:",
+  "textOption": "Teksto",
+  "audioOption": "Audio",
+  "videoOption": "Video",
+  "inputHint": "I-type ang iyong mensahe...",
+  "noResponse": "[Walang tugon]",
+  "audioGenerated": "Nabuo na audio",
+  "videoGenerated": "Nabuo na video",
+  "error": "Error: {error}"
 }

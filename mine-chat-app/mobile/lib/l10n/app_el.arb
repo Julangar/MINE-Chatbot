@@ -140,5 +140,15 @@
   "avatar_form_country_label": "Από ποια χώρα είναι το avatar σας;",
   "avatar_form_phone_label": "Αριθμός τηλεφώνου",
   "field_required": "Απαιτείται",
-  "field_optional": "Προαιρετικό"
+  "field_optional": "Προαιρετικό",
+  "chatTitle": "Συνομιλία",
+  "replyLabel": "Απάντηση:",
+  "textOption": "Κείμενο",
+  "audioOption": "Ήχος",
+  "videoOption": "Βίντεο",
+  "inputHint": "Πληκτρολογήστε το μήνυμά σας...",
+  "noResponse": "[Χωρίς απάντηση]",
+  "audioGenerated": "Δημιουργημένος ήχος",
+  "videoGenerated": "Δημιουργημένο βίντεο",
+  "error": "Σφάλμα: {error}"
 }

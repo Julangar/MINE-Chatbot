@@ -370,4 +370,36 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get field_optional => 'Optional';
+
+  @override
+  String get chatTitle => 'Chat';
+
+  @override
+  String get replyLabel => 'Response:';
+
+  @override
+  String get textOption => 'Text';
+
+  @override
+  String get audioOption => 'Audio';
+
+  @override
+  String get videoOption => 'Video';
+
+  @override
+  String get inputHint => 'Type your message...';
+
+  @override
+  String get noResponse => '[No response]';
+
+  @override
+  String get audioGenerated => 'Generated audio';
+
+  @override
+  String get videoGenerated => 'Generated video';
+
+  @override
+  String error(Object error) {
+    return 'Error: $error';
+  }
 }

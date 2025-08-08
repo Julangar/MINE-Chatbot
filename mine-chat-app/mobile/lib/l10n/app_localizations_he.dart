@@ -370,4 +370,36 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get field_optional => 'אופציונלי';
+
+  @override
+  String get chatTitle => 'צ׳אט';
+
+  @override
+  String get replyLabel => 'תגובה:';
+
+  @override
+  String get textOption => 'טקסט';
+
+  @override
+  String get audioOption => 'שמע';
+
+  @override
+  String get videoOption => 'וידאו';
+
+  @override
+  String get inputHint => 'הקלד את ההודעה שלך...';
+
+  @override
+  String get noResponse => '[אין תגובה]';
+
+  @override
+  String get audioGenerated => 'שמע שנוצר';
+
+  @override
+  String get videoGenerated => 'וידאו שנוצר';
+
+  @override
+  String error(Object error) {
+    return 'שגיאה: $error';
+  }
 }

@@ -140,5 +140,15 @@
   "avatar_form_country_label": "Avatarınız hangi ülkeden?",
   "avatar_form_phone_label": "Telefon numarası",
   "field_required": "Gerekli",
-  "field_optional": "İsteğe bağlı"
+  "field_optional": "İsteğe bağlı",
+  "chatTitle": "Sohbet",
+  "replyLabel": "Yanıt:",
+  "textOption": "Metin",
+  "audioOption": "Ses",
+  "videoOption": "Video",
+  "inputHint": "Mesajınızı yazın...",
+  "noResponse": "[Yanıt yok]",
+  "audioGenerated": "Oluşturulan ses",
+  "videoGenerated": "Oluşturulan video",
+  "error": "Hata: {error}"
 }

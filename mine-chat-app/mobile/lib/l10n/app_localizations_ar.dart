@@ -370,4 +370,36 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get field_optional => 'اختياري';
+
+  @override
+  String get chatTitle => 'الدردشة';
+
+  @override
+  String get replyLabel => 'الرد:';
+
+  @override
+  String get textOption => 'نص';
+
+  @override
+  String get audioOption => 'صوت';
+
+  @override
+  String get videoOption => 'فيديو';
+
+  @override
+  String get inputHint => 'اكتب رسالتك...';
+
+  @override
+  String get noResponse => '[لا توجد استجابة]';
+
+  @override
+  String get audioGenerated => 'الصوت الناتج';
+
+  @override
+  String get videoGenerated => 'الفيديو الناتج';
+
+  @override
+  String error(Object error) {
+    return 'خطأ: $error';
+  }
 }

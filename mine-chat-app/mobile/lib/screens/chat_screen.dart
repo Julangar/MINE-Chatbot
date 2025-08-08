@@ -7,6 +7,13 @@ import 'package:audioplayers/audioplayers.dart';
 import '../providers/avatar_provider.dart';
 import '../services/chat_service.dart';
 
+// Import generated localization class. This import assumes that the project
+// uses the `flutter_gen` tooling to generate the localization classes from
+// ARB files. If your project uses a different import path, adjust it
+// accordingly. The AppLocalizations class provides access to translated
+// strings defined in the .arb files.
+import 'package:mine_app/l10n/app_localizations.dart';
+
 /// Pantalla de chat mejorada.
 ///
 /// Esta versión permite al usuario elegir el tipo de salida (texto, audio o
@@ -28,9 +35,11 @@ class _ChatScreenState extends State<ChatScreen> {
   late AudioPlayer _audioPlayer;
   VideoPlayerController? _videoController;
 
-  /// Tipo de salida seleccionado por el usuario. Puede ser 'Texto', 'Audio' o
-  /// 'Vídeo'.
-  String _selectedOutput = 'Texto';
+  /// Tipo de salida seleccionado por el usuario.
+  ///
+  /// Se utiliza una clave interna ('text', 'audio' o 'video') en lugar de la
+  /// etiqueta localizada para que la lógica no dependa del idioma actual.
+  String _selectedOutput = 'text';
 
   @override
   void initState() {
@@ -61,15 +70,17 @@ class _ChatScreenState extends State<ChatScreen> {
 
     try {
       Map<String, dynamic> data;
-      // Elegir el método según la selección de salida
-      if (_selectedOutput == 'Texto') {
+      // Elegir el método según la selección de salida. Utilizamos claves
+      // internas ('text', 'audio' o 'video') en lugar de strings
+      // localizados para mantener el flujo de control consistente.
+      if (_selectedOutput == 'text') {
         data = await ChatService.sendMessage(
           avatar.userId!,
           avatar.avatarType!,
           text,
           avatar.userLanguage!,
         );
-      } else if (_selectedOutput == 'Audio') {
+      } else if (_selectedOutput == 'audio') {
         data = await ChatService.sendAudio(
           avatar.userId!,
           avatar.avatarType!,
@@ -77,7 +88,7 @@ class _ChatScreenState extends State<ChatScreen> {
           avatar.userLanguage!,
         );
       } else {
-        // Vídeo
+        // video
         data = await ChatService.sendVideo(
           avatar.userId!,
           avatar.avatarType!,
@@ -86,7 +97,8 @@ class _ChatScreenState extends State<ChatScreen> {
         );
       }
 
-      final reply = data['response'] as String? ?? '[Sin respuesta]';
+      final reply = data['response'] as String? ??
+          AppLocalizations.of(context)!.noResponse;
       final audioUrl = data['audioUrl'] as String?;
       final videoUrl = data['videoUrl'] as String?;
 
@@ -94,7 +106,7 @@ class _ChatScreenState extends State<ChatScreen> {
         _messages.add({
           'role': 'avatar',
           'content': reply,
-          'type': _selectedOutput.toLowerCase(),
+          'type': _selectedOutput,
           'audioUrl': audioUrl,
           'videoUrl': videoUrl,
         });
@@ -120,7 +132,11 @@ class _ChatScreenState extends State<ChatScreen> {
     } catch (e) {
       setState(() => _isLoading = false);
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error: $e')),
+        SnackBar(
+          content: Text(
+            AppLocalizations.of(context)!.error(e.toString()),
+          ),
+        ),
       );
     }
   }
@@ -134,20 +150,20 @@ class _ChatScreenState extends State<ChatScreen> {
       // Mostrar un icono de audio para mensajes de audio del avatar
       contentWidget = Row(
         mainAxisSize: MainAxisSize.min,
-        children: const [
-          Icon(Icons.volume_up, size: 20),
-          SizedBox(width: 4),
-          Text('Audio generado'),
+        children: [
+          const Icon(Icons.volume_up, size: 20),
+          const SizedBox(width: 4),
+          Text(AppLocalizations.of(context)!.audioGenerated),
         ],
       );
     } else if (!isUser && type == 'video' && msg['videoUrl'] != null) {
       // Mostrar texto indicando que se ha generado un vídeo
       contentWidget = Row(
         mainAxisSize: MainAxisSize.min,
-        children: const [
-          Icon(Icons.videocam, size: 20),
-          SizedBox(width: 4),
-          Text('Vídeo generado'),
+        children: [
+          const Icon(Icons.videocam, size: 20),
+          const SizedBox(width: 4),
+          Text(AppLocalizations.of(context)!.videoGenerated),
         ],
       );
     } else {
@@ -195,7 +211,9 @@ class _ChatScreenState extends State<ChatScreen> {
     final avatar = Provider.of<AvatarProvider>(context).avatar;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Chat')),
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context)!.chatTitle),
+      ),
       body: Column(
         children: [
           // Mostrar vídeo si está inicializado
@@ -219,22 +237,46 @@ class _ChatScreenState extends State<ChatScreen> {
                 // Selector de tipo de salida
                 Row(
                   children: [
-                    const Text('Respuesta:'),
+                    // Etiqueta y selector para el tipo de respuesta. Usamos
+                    // Flexible y Expanded para evitar desbordes de texto en
+                    // idiomas con etiquetas largas.
+                    Flexible(
+                      flex: 2,
+                      child: Text(AppLocalizations.of(context)!.replyLabel),
+                    ),
                     const SizedBox(width: 8),
-                    DropdownButton<String>(
-                      value: _selectedOutput,
-                      items: const [
-                        DropdownMenuItem(value: 'Texto', child: Text('Texto')),
-                        DropdownMenuItem(value: 'Audio', child: Text('Audio')),
-                        DropdownMenuItem(value: 'Vídeo', child: Text('Vídeo')),
-                      ],
-                      onChanged: (value) {
-                        if (value != null) {
-                          setState(() {
-                            _selectedOutput = value;
-                          });
-                        }
-                      },
+                    Expanded(
+                      child: DropdownButton<String>(
+                        value: _selectedOutput,
+                        isExpanded: true,
+                        items: [
+                          DropdownMenuItem(
+                            value: 'text',
+                            child: Text(
+                              AppLocalizations.of(context)!.textOption,
+                            ),
+                          ),
+                          DropdownMenuItem(
+                            value: 'audio',
+                            child: Text(
+                              AppLocalizations.of(context)!.audioOption,
+                            ),
+                          ),
+                          DropdownMenuItem(
+                            value: 'video',
+                            child: Text(
+                              AppLocalizations.of(context)!.videoOption,
+                            ),
+                          ),
+                        ],
+                        onChanged: (value) {
+                          if (value != null) {
+                            setState(() {
+                              _selectedOutput = value;
+                            });
+                          }
+                        },
+                      ),
                     ),
                   ],
                 ),
@@ -245,9 +287,9 @@ class _ChatScreenState extends State<ChatScreen> {
                       child: TextField(
                         controller: _controller,
                         onSubmitted: (_) => _sendMessage(),
-                        decoration: const InputDecoration(
-                          hintText: 'Escribe tu mensaje...',
-                          border: OutlineInputBorder(),
+                        decoration: InputDecoration(
+                          hintText: AppLocalizations.of(context)!.inputHint,
+                          border: const OutlineInputBorder(),
                         ),
                       ),
                     ),
