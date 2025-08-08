@@ -136,5 +136,7 @@
   "avatar_summary_original_audio": "原始音频：",
   "avatar_summary_cloned_audio": "克隆语音：",
   "avatar_continue_chat": "继续聊天",
-  "play": "播放"
+  "play": "播放",
+  "avatar_form_country_label": "你的头像来自哪个国家？",
+  "avatar_form_phone_label": "电话号码"
 }

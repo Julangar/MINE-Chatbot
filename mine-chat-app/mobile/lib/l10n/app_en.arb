@@ -116,5 +116,7 @@
   "avatar_summary_original_audio": "Original audio:",
   "avatar_summary_cloned_audio": "Cloned voice audio:",
   "avatar_continue_chat": "Continue to chat",
-  "play": "Play"
+  "play": "Play",
+  "avatar_form_country_label": "What country is your avatar from?",
+  "avatar_form_phone_label": "Phone number"
 }

@@ -136,5 +136,7 @@
   "avatar_summary_original_audio": "Orihinal na audio:",
   "avatar_summary_cloned_audio": "Cloned na audio ng boses:",
   "avatar_continue_chat": "Magpatuloy sa chat",
-  "play": "I-play"
+  "play": "I-play",
+  "avatar_form_country_label": "Mula saang bansa ang iyong avatar?",
+  "avatar_form_phone_label": "Numero ng telepono"
 }

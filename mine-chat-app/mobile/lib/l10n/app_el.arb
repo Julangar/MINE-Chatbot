@@ -136,5 +136,7 @@
   "avatar_summary_original_audio": "Αρχικό ηχητικό:",
   "avatar_summary_cloned_audio": "Αντιγραμμένος ήχος φωνής:",
   "avatar_continue_chat": "Συνέχεια στη συνομιλία",
-  "play": "Αναπαραγωγή"
+  "play": "Αναπαραγωγή",
+  "avatar_form_country_label": "Από ποια χώρα είναι το avatar σας;",
+  "avatar_form_phone_label": "Αριθμός τηλεφώνου"
 }

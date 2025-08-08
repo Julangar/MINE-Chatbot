@@ -358,4 +358,10 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get play => 'Пусни';
+
+  @override
+  String get avatar_form_country_label => 'От коя държава е вашият аватар?';
+
+  @override
+  String get avatar_form_phone_label => 'Телефонен номер';
 }

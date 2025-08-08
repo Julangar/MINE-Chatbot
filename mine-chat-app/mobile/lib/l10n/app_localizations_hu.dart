@@ -358,4 +358,10 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get play => 'Lejátszás';
+
+  @override
+  String get avatar_form_country_label => 'Melyik országból származik az avatarod?';
+
+  @override
+  String get avatar_form_phone_label => 'Telefonszám';
 }

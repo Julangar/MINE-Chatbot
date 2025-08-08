@@ -358,4 +358,10 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get play => 'Αναπαραγωγή';
+
+  @override
+  String get avatar_form_country_label => 'Από ποια χώρα είναι το avatar σας;';
+
+  @override
+  String get avatar_form_phone_label => 'Αριθμός τηλεφώνου';
 }

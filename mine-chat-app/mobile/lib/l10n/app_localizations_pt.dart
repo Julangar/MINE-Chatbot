@@ -358,6 +358,12 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get play => 'Reproduzir';
+
+  @override
+  String get avatar_form_country_label => 'De que país é o seu avatar?';
+
+  @override
+  String get avatar_form_phone_label => 'Número de telefone';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -702,4 +708,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get play => 'Reproduzir';
+
+  @override
+  String get avatar_form_country_label => 'De que país é o seu avatar?';
+
+  @override
+  String get avatar_form_phone_label => 'Número de telefone';
 }

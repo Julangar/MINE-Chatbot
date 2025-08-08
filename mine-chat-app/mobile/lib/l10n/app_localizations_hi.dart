@@ -358,4 +358,10 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get play => 'चलाएं';
+
+  @override
+  String get avatar_form_country_label => 'आपका अवतार किस देश का है?';
+
+  @override
+  String get avatar_form_phone_label => 'फ़ोन नंबर';
 }

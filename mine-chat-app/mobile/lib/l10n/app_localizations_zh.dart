@@ -358,4 +358,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get play => '播放';
+
+  @override
+  String get avatar_form_country_label => '你的头像来自哪个国家？';
+
+  @override
+  String get avatar_form_phone_label => '电话号码';
 }

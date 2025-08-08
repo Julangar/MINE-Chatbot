@@ -358,4 +358,10 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get play => 'Phát';
+
+  @override
+  String get avatar_form_country_label => 'Avatar của bạn đến từ quốc gia nào?';
+
+  @override
+  String get avatar_form_phone_label => 'Số điện thoại';
 }

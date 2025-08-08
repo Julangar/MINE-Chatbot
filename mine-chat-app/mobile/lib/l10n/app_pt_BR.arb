@@ -136,5 +136,7 @@
   "avatar_summary_original_audio": "Áudio original:",
   "avatar_summary_cloned_audio": "Áudio de voz clonada:",
   "avatar_continue_chat": "Continuar para o chat",
-  "play": "Reproduzir"
+  "play": "Reproduzir",
+  "avatar_form_country_label": "De que país é o seu avatar?",
+  "avatar_form_phone_label": "Número de telefone"
 }

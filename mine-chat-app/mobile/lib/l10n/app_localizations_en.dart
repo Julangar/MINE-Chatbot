@@ -358,4 +358,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get play => 'Play';
+
+  @override
+  String get avatar_form_country_label => 'What country is your avatar from?';
+
+  @override
+  String get avatar_form_phone_label => 'Phone number';
 }

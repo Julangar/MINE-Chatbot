@@ -358,4 +358,10 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get play => '재생';
+
+  @override
+  String get avatar_form_country_label => '아바타는 어느 나라 출신입니까?';
+
+  @override
+  String get avatar_form_phone_label => '전화번호';
 }

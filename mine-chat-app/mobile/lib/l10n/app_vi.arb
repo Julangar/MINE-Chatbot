@@ -136,5 +136,7 @@
   "avatar_summary_original_audio": "Âm thanh gốc:",
   "avatar_summary_cloned_audio": "Âm thanh giọng nói nhân bản:",
   "avatar_continue_chat": "Tiếp tục trò chuyện",
-  "play": "Phát"
+  "play": "Phát",
+  "avatar_form_country_label": "Avatar của bạn đến từ quốc gia nào?",
+  "avatar_form_phone_label": "Số điện thoại"
 }

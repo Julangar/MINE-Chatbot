@@ -136,5 +136,7 @@
   "avatar_summary_original_audio": "Eredeti hang:",
   "avatar_summary_cloned_audio": "Klonhang:",
   "avatar_continue_chat": "Tovább a csevegéshez",
-  "play": "Lejátszás"
+  "play": "Lejátszás",
+  "avatar_form_country_label": "Melyik országból származik az avatarod?",
+  "avatar_form_phone_label": "Telefonszám"
 }

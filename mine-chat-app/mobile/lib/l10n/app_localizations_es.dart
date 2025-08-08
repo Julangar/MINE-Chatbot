@@ -358,6 +358,12 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get play => 'Reproducir';
+
+  @override
+  String get avatar_form_country_label => '¿De qué país es tu avatar?';
+
+  @override
+  String get avatar_form_phone_label => 'Número de teléfono';
 }
 
 /// The translations for Spanish Castilian, as used in Latin America and the Caribbean (`es_419`).
@@ -702,4 +708,10 @@ class AppLocalizationsEs419 extends AppLocalizationsEs {
 
   @override
   String get play => 'Reproducir';
+
+  @override
+  String get avatar_form_country_label => '¿De qué país es tu avatar?';
+
+  @override
+  String get avatar_form_phone_label => 'Número de teléfono';
 }

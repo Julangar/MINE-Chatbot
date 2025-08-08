@@ -358,4 +358,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get play => 'تشغيل';
+
+  @override
+  String get avatar_form_country_label => 'من أي بلد هو صورتك الرمزية؟';
+
+  @override
+  String get avatar_form_phone_label => 'رقم الهاتف';
 }

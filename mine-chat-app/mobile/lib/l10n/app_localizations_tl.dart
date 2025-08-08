@@ -358,4 +358,10 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get play => 'I-play';
+
+  @override
+  String get avatar_form_country_label => 'Mula saang bansa ang iyong avatar?';
+
+  @override
+  String get avatar_form_phone_label => 'Numero ng telepono';
 }

@@ -834,6 +834,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Play'**
   String get play;
+
+  /// No description provided for @avatar_form_country_label.
+  ///
+  /// In en, this message translates to:
+  /// **'What country is your avatar from?'**
+  String get avatar_form_country_label;
+
+  /// No description provided for @avatar_form_phone_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone number'**
+  String get avatar_form_phone_label;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

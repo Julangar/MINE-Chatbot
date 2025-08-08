@@ -358,4 +358,10 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get play => 'נגן';
+
+  @override
+  String get avatar_form_country_label => 'מאיזו מדינה הדמות שלך?';
+
+  @override
+  String get avatar_form_phone_label => 'מספר טלפון';
 }
