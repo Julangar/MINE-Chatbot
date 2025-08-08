@@ -364,4 +364,10 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get avatar_form_phone_label => 'Telefonszám';
+
+  @override
+  String get field_required => 'Kötelező';
+
+  @override
+  String get field_optional => 'Opcionális';
 }

@@ -138,5 +138,7 @@
   "avatar_continue_chat": "Tiếp tục trò chuyện",
   "play": "Phát",
   "avatar_form_country_label": "Avatar của bạn đến từ quốc gia nào?",
-  "avatar_form_phone_label": "Số điện thoại"
+  "avatar_form_phone_label": "Số điện thoại",
+  "field_required": "Bắt buộc",
+  "field_optional": "Tùy chọn"
 }

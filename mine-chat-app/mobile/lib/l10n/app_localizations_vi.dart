@@ -364,4 +364,10 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get avatar_form_phone_label => 'Số điện thoại';
+
+  @override
+  String get field_required => 'Bắt buộc';
+
+  @override
+  String get field_optional => 'Tùy chọn';
 }

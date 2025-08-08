@@ -364,6 +364,12 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get avatar_form_phone_label => 'Número de teléfono';
+
+  @override
+  String get field_required => 'Requerido';
+
+  @override
+  String get field_optional => 'Opcional';
 }
 
 /// The translations for Spanish Castilian, as used in Latin America and the Caribbean (`es_419`).
@@ -714,4 +720,10 @@ class AppLocalizationsEs419 extends AppLocalizationsEs {
 
   @override
   String get avatar_form_phone_label => 'Número de teléfono';
+
+  @override
+  String get field_required => 'Requerido';
+
+  @override
+  String get field_optional => 'Opcional';
 }

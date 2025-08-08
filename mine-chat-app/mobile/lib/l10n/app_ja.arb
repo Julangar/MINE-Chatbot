@@ -138,5 +138,7 @@
   "avatar_continue_chat": "チャットを続ける",
   "play": "再生",
   "avatar_form_country_label": "あなたのアバターはどこの国のものですか？",
-  "avatar_form_phone_label": "電話番号"
+  "avatar_form_phone_label": "電話番号",
+  "field_required": "必須",
+  "field_optional": "任意"
 }

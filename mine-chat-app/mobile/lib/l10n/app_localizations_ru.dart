@@ -364,4 +364,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get avatar_form_phone_label => 'Номер телефона';
+
+  @override
+  String get field_required => 'Обязательно';
+
+  @override
+  String get field_optional => 'Необязательно';
 }

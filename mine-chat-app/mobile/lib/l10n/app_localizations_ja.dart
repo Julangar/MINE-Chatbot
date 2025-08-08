@@ -364,4 +364,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get avatar_form_phone_label => '電話番号';
+
+  @override
+  String get field_required => '必須';
+
+  @override
+  String get field_optional => '任意';
 }

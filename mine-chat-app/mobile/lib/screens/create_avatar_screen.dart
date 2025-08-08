@@ -197,6 +197,8 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
       userId: userId,
       avatarType: _avatarType,
       name: data['name'] ?? '',
+      country: data['country'] ?? '',
+      phoneNumber: data['phoneNumber'] ?? '',
       speakingStyle: data['speakingStyle'] ?? '',
       commonPhrases: List<String>.from(data['commonPhrases'] ?? []),
       traits: Map<String, double>.from(data['traits'] ?? {}),
@@ -298,7 +300,7 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
             // AUDIO
             Row(
               children: [
-                Text('Audio', style: const TextStyle(color: Colors.white)),
+                Text('${AppLocalizations.of(context)!.audio}:', style: const TextStyle(color: Colors.white)),
                 const Spacer(),
                 _audioRecorderButton(),
                 const SizedBox(width: 8),

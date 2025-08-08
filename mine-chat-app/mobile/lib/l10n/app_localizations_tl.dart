@@ -364,4 +364,10 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get avatar_form_phone_label => 'Numero ng telepono';
+
+  @override
+  String get field_required => 'Kailangan';
+
+  @override
+  String get field_optional => 'Opsyonal';
 }

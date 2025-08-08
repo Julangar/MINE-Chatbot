@@ -138,5 +138,7 @@
   "avatar_continue_chat": "Continuar al chat",
   "play": "Reproducir",
   "avatar_form_country_label": "¿De qué país es tu avatar?",
-  "avatar_form_phone_label": "Número de teléfono"
+  "avatar_form_phone_label": "Número de teléfono",
+  "field_required": "Requerido",
+  "field_optional": "Opcional"
 }

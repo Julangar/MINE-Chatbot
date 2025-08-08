@@ -364,6 +364,12 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get avatar_form_phone_label => 'Número de telefone';
+
+  @override
+  String get field_required => 'Obrigatório';
+
+  @override
+  String get field_optional => 'Opcional';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -714,4 +720,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get avatar_form_phone_label => 'Número de telefone';
+
+  @override
+  String get field_required => 'Obrigatório';
+
+  @override
+  String get field_optional => 'Opcional';
 }

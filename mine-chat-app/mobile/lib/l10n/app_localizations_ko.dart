@@ -364,4 +364,10 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get avatar_form_phone_label => '전화번호';
+
+  @override
+  String get field_required => '필수';
+
+  @override
+  String get field_optional => '선택 사항';
 }

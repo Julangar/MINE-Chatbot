@@ -138,5 +138,7 @@
   "avatar_continue_chat": "Sohbete devam et",
   "play": "Oynat",
   "avatar_form_country_label": "Avatarınız hangi ülkeden?",
-  "avatar_form_phone_label": "Telefon numarası"
+  "avatar_form_phone_label": "Telefon numarası",
+  "field_required": "Gerekli",
+  "field_optional": "İsteğe bağlı"
 }

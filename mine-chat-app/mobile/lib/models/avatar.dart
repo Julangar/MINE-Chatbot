@@ -3,6 +3,8 @@ class Avatar {
   final String userId;
   final String avatarType;
   final String name;
+  final String country;
+  final String phoneNumber;
   final String userReference;
   final String relationshipOrRole;
   final List<String> interests;
@@ -19,6 +21,8 @@ class Avatar {
     required this.userId,
     required this.avatarType,
     required this.name,
+    required this.country,
+    required this.phoneNumber,
     required this.userReference,
     required this.relationshipOrRole,
     required this.interests,
@@ -42,6 +46,8 @@ class Avatar {
       userId: userId,
       avatarType: avatarType,
       name: name,
+      country: country,
+      phoneNumber: phoneNumber,
       userReference: userReference,
       relationshipOrRole: relationshipOrRole,
       interests: interests,
@@ -61,6 +67,8 @@ class Avatar {
       userId: json['userId'],
       avatarType: json['avatarType'],
       name: json['name'],
+      country: json['country'] ?? '',
+      phoneNumber: json['phoneNumber'] ?? '',
       userReference: json['userReference'] ?? '',
       relationshipOrRole: json['relationshipOrRole'] ?? '',
       interests: List<String>.from(json['interests'] ?? []),
@@ -80,6 +88,8 @@ class Avatar {
       'userId': userId,
       'avatarType': avatarType,
       'name': name,
+      'country': country,
+      'phoneNumber': phoneNumber,
       'userReference': userReference,
       'relationshipOrRole': relationshipOrRole,
       'interests': interests,
@@ -90,6 +100,7 @@ class Avatar {
       'audioUrl': audioUrl,
       'videoUrl': videoUrl,
       'talkId': talkId,
+      'userLanguage': userLanguage,
     };
   }
 }

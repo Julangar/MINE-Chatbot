@@ -364,4 +364,10 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get avatar_form_phone_label => 'Телефонен номер';
+
+  @override
+  String get field_required => 'Задължително';
+
+  @override
+  String get field_optional => 'По избор';
 }

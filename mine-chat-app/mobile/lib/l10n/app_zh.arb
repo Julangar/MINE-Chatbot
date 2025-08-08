@@ -138,5 +138,7 @@
   "avatar_continue_chat": "继续聊天",
   "play": "播放",
   "avatar_form_country_label": "你的头像来自哪个国家？",
-  "avatar_form_phone_label": "电话号码"
+  "avatar_form_phone_label": "电话号码",
+  "field_required": "必填",
+  "field_optional": "可选"
 }

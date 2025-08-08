@@ -364,4 +364,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get avatar_form_phone_label => 'رقم الهاتف';
+
+  @override
+  String get field_required => 'مطلوب';
+
+  @override
+  String get field_optional => 'اختياري';
 }

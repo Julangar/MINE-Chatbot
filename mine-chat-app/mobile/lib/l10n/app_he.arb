@@ -138,5 +138,7 @@
   "avatar_continue_chat": "המשך לצ’אט",
   "play": "נגן",
   "avatar_form_country_label": "מאיזו מדינה הדמות שלך?",
-  "avatar_form_phone_label": "מספר טלפון"
+  "avatar_form_phone_label": "מספר טלפון",
+  "field_required": "נדרש",
+  "field_optional": "אופציונלי"
 }

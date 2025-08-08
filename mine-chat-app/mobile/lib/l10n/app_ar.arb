@@ -138,5 +138,7 @@
   "avatar_continue_chat": "المتابعة إلى الدردشة",
   "play": "تشغيل",
   "avatar_form_country_label": "من أي بلد هو صورتك الرمزية؟",
-  "avatar_form_phone_label": "رقم الهاتف"
+  "avatar_form_phone_label": "رقم الهاتف",
+  "field_required": "مطلوب",
+  "field_optional": "اختياري"
 }

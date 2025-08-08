@@ -138,5 +138,7 @@
   "avatar_continue_chat": "Συνέχεια στη συνομιλία",
   "play": "Αναπαραγωγή",
   "avatar_form_country_label": "Από ποια χώρα είναι το avatar σας;",
-  "avatar_form_phone_label": "Αριθμός τηλεφώνου"
+  "avatar_form_phone_label": "Αριθμός τηλεφώνου",
+  "field_required": "Απαιτείται",
+  "field_optional": "Προαιρετικό"
 }

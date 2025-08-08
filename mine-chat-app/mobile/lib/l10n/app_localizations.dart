@@ -846,6 +846,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Phone number'**
   String get avatar_form_phone_label;
+
+  /// No description provided for @field_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Required'**
+  String get field_required;
+
+  /// No description provided for @field_optional.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional'**
+  String get field_optional;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -138,5 +138,7 @@
   "avatar_continue_chat": "Продължи към чата",
   "play": "Пусни",
   "avatar_form_country_label": "От коя държава е вашият аватар?",
-  "avatar_form_phone_label": "Телефонен номер"
+  "avatar_form_phone_label": "Телефонен номер",
+  "field_required": "Задължително",
+  "field_optional": "По избор"
 }

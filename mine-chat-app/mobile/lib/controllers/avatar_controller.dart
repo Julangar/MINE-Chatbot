@@ -7,6 +7,8 @@ class AvatarController extends ChangeNotifier {
   String userId = '';
   String avatarType = '';
   String name = '';
+  String country = '';
+  String phoneNumber = '';
   String userReference = '';
   String relationshipOrRole = '';
   List<String> interests = [];
@@ -53,6 +55,8 @@ class AvatarController extends ChangeNotifier {
       userId: userId,
       avatarType: avatarType,
       name: name,
+      country: country,
+      phoneNumber: phoneNumber,
       userReference: userReference,
       relationshipOrRole: relationshipOrRole,
       interests: interests,

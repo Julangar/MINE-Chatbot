@@ -364,4 +364,10 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get avatar_form_phone_label => 'Αριθμός τηλεφώνου';
+
+  @override
+  String get field_required => 'Απαιτείται';
+
+  @override
+  String get field_optional => 'Προαιρετικό';
 }

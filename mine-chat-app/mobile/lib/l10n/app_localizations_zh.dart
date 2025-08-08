@@ -364,4 +364,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get avatar_form_phone_label => '电话号码';
+
+  @override
+  String get field_required => '必填';
+
+  @override
+  String get field_optional => '可选';
 }

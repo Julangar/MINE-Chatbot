@@ -138,5 +138,7 @@
   "avatar_continue_chat": "Продолжить в чат",
   "play": "Воспроизвести",
   "avatar_form_country_label": "Из какой страны ваш аватар?",
-  "avatar_form_phone_label": "Номер телефона"
+  "avatar_form_phone_label": "Номер телефона",
+  "field_required": "Обязательно",
+  "field_optional": "Необязательно"
 }

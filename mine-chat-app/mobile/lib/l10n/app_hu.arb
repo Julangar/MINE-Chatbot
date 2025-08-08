@@ -138,5 +138,7 @@
   "avatar_continue_chat": "Tovább a csevegéshez",
   "play": "Lejátszás",
   "avatar_form_country_label": "Melyik országból származik az avatarod?",
-  "avatar_form_phone_label": "Telefonszám"
+  "avatar_form_phone_label": "Telefonszám",
+  "field_required": "Kötelező",
+  "field_optional": "Opcionális"
 }

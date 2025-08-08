@@ -138,5 +138,7 @@
   "avatar_continue_chat": "Magpatuloy sa chat",
   "play": "I-play",
   "avatar_form_country_label": "Mula saang bansa ang iyong avatar?",
-  "avatar_form_phone_label": "Numero ng telepono"
+  "avatar_form_phone_label": "Numero ng telepono",
+  "field_required": "Kailangan",
+  "field_optional": "Opsyonal"
 }

@@ -17,6 +17,8 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
   String userReference = '';
   String relationshipOrRole = '';
   String speakingStyle = 'casual';
+  String country = '';
+  String phoneNumber = '';
   List<String> interests = [];
   List<String> commonPhrases = [];
   double extroversion = 0.5;
@@ -40,6 +42,8 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
       widget.onSubmit({
         'name': name,
         'userReference': userReference,
+        'country': country,
+        'phoneNumber': phoneNumber,
         'relationshipOrRole': relationshipOrRole,
         'speakingStyle': speakingStyle,
         'interests': interests,
@@ -90,9 +94,21 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
                 ),
               ),
               onChanged: (value) => name = value,
-              validator: (value) => value!.isEmpty ? 'Required' : null,
+              validator: (value) => value!.isEmpty ? t.field_required : null,
             ),
             const SizedBox(height: 16),
+            TextFormField(
+              style: const TextStyle(color: Colors.grey),
+              decoration: InputDecoration(
+                labelText: t.avatar_form_country_label,
+                labelStyle: const TextStyle(color: Colors.white),
+                enabledBorder: const UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey),
+                ),
+              ),
+              onChanged: (value) => country = value,
+              validator: (value) => value!.isEmpty ? t.field_required : null,
+            ),
             TextFormField(
               style: const TextStyle(color: Colors.grey),
               decoration: InputDecoration(
@@ -100,6 +116,7 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
                 labelStyle: const TextStyle(color: Colors.white),
               ),
               onChanged: (value) => userReference = value,
+              validator: (value) => value!.isEmpty ? t.field_required : null,
             ),
             const SizedBox(height: 16),
             TextFormField(
@@ -109,11 +126,23 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
                 labelStyle: const TextStyle(color: Colors.white),
               ),
               onChanged: (value) => relationshipOrRole = value,
+              validator: (value) => value!.isEmpty ? t.field_required : null,
+            ),
+            TextFormField(
+              style: const TextStyle(color: Colors.grey),
+              decoration: InputDecoration(
+                labelText: '${t.avatar_form_phone_label} (${t.field_optional})',
+                labelStyle: const TextStyle(color: Colors.white),
+                enabledBorder: const UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey),
+                ),
+              ),
+              onChanged: (value) => phoneNumber = value,             
             ),
             const SizedBox(height: 24),
             DropdownButtonFormField(
               value: speakingStyle,
-              dropdownColor: Colors.black,
+              dropdownColor: Colors.grey,
               decoration: InputDecoration(
                 labelText: t.avatar_form_speaking_style_label,
                 labelStyle: const TextStyle(color: Colors.white),

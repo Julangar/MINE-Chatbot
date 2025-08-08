@@ -138,5 +138,7 @@
   "avatar_continue_chat": "चैट जारी रखें",
   "play": "चलाएं",
   "avatar_form_country_label": "आपका अवतार किस देश का है?",
-  "avatar_form_phone_label": "फ़ोन नंबर"
+  "avatar_form_phone_label": "फ़ोन नंबर",
+  "field_required": "आवश्यक",
+  "field_optional": "वैकल्पिक"
 }
