@@ -81,6 +81,8 @@ class _AvatarPersonalityScreenState extends State<AvatarPersonalityScreen> {
       userId: user.uid,
       avatarType: _getAvatarTypeString(type),
       name: existingData['name'] ?? '',
+      country: existingData['country'] ?? '',
+      phoneNumber: existingData['phoneNumber'] ?? '',
       userReference: existingData['userReference'] ?? '',
       relationshipOrRole: existingData['relationshipOrRole'] ?? '',
       interests: List<String>.from(existingData['interests'] ?? []),
