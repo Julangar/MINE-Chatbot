@@ -1,5 +1,6 @@
 const axios = require('axios');
 const admin = require('firebase-admin');
+const { uploadImage, uploadAudio } = require('../services/cloudinaryService');
 const https = require('https');
 const FormData = require('form-data');
 const fs = require('fs');

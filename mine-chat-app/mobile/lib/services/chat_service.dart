@@ -25,13 +25,41 @@ class ChatService {
       if (promptResponse.statusCode != 200) {
         throw Exception("Error al generar el saludo: ${promptResponse.body}");
       }
-
-      final prompt = jsonDecode(promptResponse.body)['message'];
+      return jsonDecode(promptResponse.body)['message'];
 
     } catch (e) {
       throw Exception("Error general: $e");
     }
   }
+
+  static Future<String?> generateGreeting(
+      String userId,
+      String avatarType,
+      String message
+  ) async {
+    try {
+
+      final promptResponse = await http.post(
+        Uri.parse('$baseUrl/api/chat/generate-greeting'),
+        body: jsonEncode({
+          'userId': userId,
+          'avatarType': avatarType,
+          'message': message,
+        }),
+        headers: {'Content-Type': 'application/json'},
+      );
+
+      if (promptResponse.statusCode != 200) {
+        throw Exception("Error al generar el saludo: ${promptResponse.body}");
+      }
+      return jsonDecode(promptResponse.body)['message'];
+
+    } catch (e) {
+      throw Exception("Error general: $e");
+    }
+  }
+
+
   static Future<String?> generateAudio(
       String userId,
       String avatarType,
@@ -39,10 +67,11 @@ class ChatService {
   ) async {
     try {
       final voiceResponse = await http.post(
-        Uri.parse('$baseUrl/api/avatar/generate-voice'),
+        Uri.parse('$baseUrl/api/chat/send-audio'),
         body: jsonEncode({
           'userId': userId,
           'avatarType': avatarType,
+          'message': message,
         }),
         headers: {'Content-Type': 'application/json'},
       );
@@ -51,7 +80,7 @@ class ChatService {
         throw Exception("Error al generar la voz: ${voiceResponse.body}");
       }
 
-      final clonedVoiceUrl = jsonDecode(voiceResponse.body)['voiceUrl'];
+      return jsonDecode(voiceResponse.body)['voiceUrl'];
 
     } catch (e) {
       throw Exception("Error general: $e");
@@ -64,10 +93,11 @@ class ChatService {
   ) async {
     try {
       final videoResponse = await http.post(
-        Uri.parse('$baseUrl/api/avatar/generate-video-audio'),
+        Uri.parse('$baseUrl/api/chat/send-video'),
         body: jsonEncode({
           'userId': userId,
-          'avatarType': avatarType,   
+          'avatarType': avatarType,
+          'message': message,
         }),
         headers: {'Content-Type': 'application/json'},
       );
@@ -81,9 +111,6 @@ class ChatService {
       throw Exception("Error general: $e");
     }
   }
-
-
-
 
   static Future<String?> fetchClonedAudioUrl(String userId, String avatarType) async {
     final doc = await FirebaseFirestore.instance

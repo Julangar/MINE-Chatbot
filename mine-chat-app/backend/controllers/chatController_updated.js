@@ -3,7 +3,12 @@ const { buildSystemPrompt } = require('../utils/generatePrompt');
 const openaiService = require('../services/openaiService');
 const elevenlabsService = require('../services/elevenlabsService');
 const didService = require('../services/didService');
+const firebaseService = require('../services/firebaseService');
 
+// Generates an initial greeting for a user and stores it in the conversation
+// history. This function remains unchanged from the original implementation
+// except for the addition of conversation storage so that subsequent messages
+// include the greeting in the context.
 async function generateGreeting(req, res) {
   const { userId, avatarType, language } = req.body;
 
@@ -24,9 +29,8 @@ async function generateGreeting(req, res) {
     const prompt = buildSystemPrompt(personality, language);
 
     const greeting = await openaiService.getChatResponse([
-      { role: 'system', content: prompt }, 
-      { role: 'user', 
-        content: 'Presentate y saluda de forma amable al usuario.' }
+      { role: 'system', content: prompt },
+      { role: 'user', content: 'Presentate y saluda de forma amable al usuario.' }
     ]);
 
     // Store the greeting in the conversations collection so that it can be
@@ -36,19 +40,19 @@ async function generateGreeting(req, res) {
       .collection('conversations')
       .doc(userId)
       .collection(avatarType)
-      .doc('messages')
+      .doc('greeting')
       .set({
         timestamp: admin.firestore.FieldValue.serverTimestamp(),
         userMessage: 'Presentate y saluda de forma amable al usuario.',
         avatarResponse: greeting
       });
-    
-      res.json({
-        timestamp: admin.firestore.FieldValue.serverTimestamp(),
-        isUser: true,
-        text: 'Saludo de inicio con el avatar',
-        response: greeting
-      });
+
+    res.json({
+      timestamp: admin.firestore.FieldValue.serverTimestamp(),
+      isUser: true,
+      text: 'Saludo de inicio con el avatar',
+      response: greeting
+    });
   } catch (err) {
     console.error('Error al generar saludo:', err);
     res.status(500).json({ error: 'Error al generar saludo' });
@@ -76,6 +80,7 @@ async function sendMessage(req, res) {
     }
     const personality = personalitySnap.data();
     const systemPrompt = buildSystemPrompt(personality, userLanguage);
+
     // Build the conversation history: system prompt -> historical pairs -> current message
     const messages = [];
     messages.push({ role: 'system', content: systemPrompt });
@@ -285,7 +290,6 @@ async function sendVideo(req, res) {
     return res.status(500).json({ error: 'Error al generar la respuesta en video.' });
   }
 }
-
 
 module.exports = {
   generateGreeting,
