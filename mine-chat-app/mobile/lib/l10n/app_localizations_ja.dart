@@ -21,10 +21,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get register => '登録';
 
   @override
-  String get welcome => 'Welcome';
+  String get welcome => 'ようこそ';
 
   @override
-  String get slogan => 'Recreate me, forever';
+  String get slogan => '私を永遠に再現して';
 
   @override
   String get email => 'メールアドレス';
@@ -36,10 +36,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get forgotPassword => 'パスワードをお忘れですか？';
 
   @override
-  String get enterEmailToReset => 'Enter your email to receive a password reset link.';
+  String get enterEmailToReset => 'パスワードリセットリンクを受け取るためにメールアドレスを入力してください。';
 
   @override
-  String get enterValidEmail => 'Please enter a valid email.';
+  String get enterValidEmail => '有効なメールアドレスを入力してください。';
 
   @override
   String get sendResetLink => 'リセットリンクを送信';
@@ -402,4 +402,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String error(Object error) {
     return 'エラー：$error';
   }
+
+  @override
+  String get completeAll => 'すべての項目は必須です';
+
+  @override
+  String get badPassword => 'パスワードは8文字以上で、大文字、特殊文字、数字を含める必要があります（アプリ登録用）。';
+
+  @override
+  String get haveUserAccount => 'すでにアカウントをお持ちですか？ ログイン';
 }

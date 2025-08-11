@@ -150,5 +150,12 @@
   "noResponse": "[Brak odpowiedzi]",
   "audioGenerated": "Wygenerowany dźwięk",
   "videoGenerated": "Wygenerowane wideo",
-  "error": "Błąd: {error}"
+  "error": "Błąd: {error}",
+  "welcome": "Witamy",
+  "slogan": "Odtwórz mnie na zawsze",
+  "enterEmailToReset": "Wpisz swój adres e-mail, aby otrzymać link do resetowania hasła.",
+  "enterValidEmail": "Proszę wprowadzić prawidłowy adres e-mail.",
+  "completeAll": "Wszystkie pola są wymagane",
+  "badPassword": "Hasło musi mieć co najmniej 8 znaków i zawierać wielkie litery, znaki specjalne i cyfry, aby zarejestrować się w aplikacji.",
+  "haveUserAccount": "Masz już konto? Zaloguj się"
 }

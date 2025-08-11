@@ -21,10 +21,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get register => 'Kayıt Ol';
 
   @override
-  String get welcome => 'Welcome';
+  String get welcome => 'Hoş geldiniz';
 
   @override
-  String get slogan => 'Recreate me, forever';
+  String get slogan => 'Beni sonsuza dek yeniden yarat';
 
   @override
   String get email => 'E-posta';
@@ -36,10 +36,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get forgotPassword => 'Şifrenizi mi unuttunuz?';
 
   @override
-  String get enterEmailToReset => 'Enter your email to receive a password reset link.';
+  String get enterEmailToReset => 'Parola sıfırlama bağlantısı almak için e-postanızı girin.';
 
   @override
-  String get enterValidEmail => 'Please enter a valid email.';
+  String get enterValidEmail => 'Lütfen geçerli bir e-posta giriniz.';
 
   @override
   String get sendResetLink => 'Sıfırlama bağlantısı gönder';
@@ -402,4 +402,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String error(Object error) {
     return 'Hata: $error';
   }
+
+  @override
+  String get completeAll => 'Tüm alanlar gereklidir';
+
+  @override
+  String get badPassword => 'Parola en az 8 karakter olmalı ve uygulamaya kayıt için büyük harfler, özel karakterler ve rakamlar içermelidir.';
+
+  @override
+  String get haveUserAccount => 'Zaten bir hesabınız var mı? Giriş yapın';
 }

@@ -21,10 +21,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get register => 'पंजीकरण करें';
 
   @override
-  String get welcome => 'Welcome';
+  String get welcome => 'स्वागत है';
 
   @override
-  String get slogan => 'Recreate me, forever';
+  String get slogan => 'मुझे हमेशा के लिए फिर से बनाओ';
 
   @override
   String get email => 'ईमेल';
@@ -36,10 +36,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get forgotPassword => 'क्या आप पासवर्ड भूल गए?';
 
   @override
-  String get enterEmailToReset => 'Enter your email to receive a password reset link.';
+  String get enterEmailToReset => 'पासवर्ड रीसेट लिंक प्राप्त करने के लिए अपना ईमेल दर्ज करें।';
 
   @override
-  String get enterValidEmail => 'Please enter a valid email.';
+  String get enterValidEmail => 'कृपया एक मान्य ईमेल दर्ज करें।';
 
   @override
   String get sendResetLink => 'रीसेट लिंक भेजें';
@@ -402,4 +402,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String error(Object error) {
     return 'त्रुटि: $error';
   }
+
+  @override
+  String get completeAll => 'सभी फ़ील्ड आवश्यक हैं';
+
+  @override
+  String get badPassword => 'पासवर्ड कम से कम 8 अक्षरों का होना चाहिए और इसमें बड़े अक्षर, विशेष अक्षर और अंक शामिल होने चाहिए ताकि ऐप में पंजीकरण किया जा सके।';
+
+  @override
+  String get haveUserAccount => 'क्या आपके पास पहले से एक खाता है? साइन इन करें';
 }

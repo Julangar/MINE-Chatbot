@@ -150,5 +150,12 @@
   "noResponse": "[응답 없음]",
   "audioGenerated": "생성된 오디오",
   "videoGenerated": "생성된 비디오",
-  "error": "오류: {error}"
+  "error": "오류: {error}",
+  "welcome": "환영합니다",
+  "slogan": "영원히 나를 재창조해",
+  "enterEmailToReset": "비밀번호 재설정 링크를 받으려면 이메일을 입력하세요.",
+  "enterValidEmail": "유효한 이메일을 입력하세요.",
+  "completeAll": "모든 필드는 필수입니다",
+  "badPassword": "비밀번호는 8자 이상이어야 하며, 대문자, 특수 문자, 숫자를 포함해야 앱에 등록할 수 있습니다.",
+  "haveUserAccount": "이미 계정이 있으신가요? 로그인"
 }

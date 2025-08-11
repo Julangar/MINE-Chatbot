@@ -21,10 +21,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get register => 'Registrieren';
 
   @override
-  String get welcome => 'Welcome';
+  String get welcome => 'Willkommen';
 
   @override
-  String get slogan => 'Recreate me, forever';
+  String get slogan => 'Erschaffe mich neu, für immer';
 
   @override
   String get email => 'E-Mail';
@@ -36,10 +36,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get forgotPassword => 'Passwort vergessen?';
 
   @override
-  String get enterEmailToReset => 'Enter your email to receive a password reset link.';
+  String get enterEmailToReset => 'Gib deine E-Mail ein, um einen Link zum Zurücksetzen des Passworts zu erhalten.';
 
   @override
-  String get enterValidEmail => 'Please enter a valid email.';
+  String get enterValidEmail => 'Bitte gib eine gültige E-Mail-Adresse ein.';
 
   @override
   String get sendResetLink => 'Link zum Zurücksetzen senden';
@@ -402,4 +402,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String error(Object error) {
     return 'Fehler: $error';
   }
+
+  @override
+  String get completeAll => 'Alle Felder sind erforderlich';
+
+  @override
+  String get badPassword => 'Das Passwort muss mindestens 8 Zeichen lang sein und Großbuchstaben, Sonderzeichen und Zahlen enthalten, um sich in der App zu registrieren.';
+
+  @override
+  String get haveUserAccount => 'Hast du schon ein Konto? Anmelden';
 }

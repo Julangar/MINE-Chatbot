@@ -150,5 +150,12 @@
   "noResponse": "[Sin respuesta]",
   "audioGenerated": "Audio generado",
   "videoGenerated": "Video generado",
-  "error": "Error: {error}"
+  "error": "Error: {error}",
+  "welcome": "Bienvenido",
+  "slogan": "Recréame, para siempre",
+  "enterEmailToReset": "Introduce tu correo electrónico para recibir un enlace de restablecimiento de contraseña.",
+  "enterValidEmail": "Por favor introduce un correo electrónico válido.",
+  "completeAll": "Todos los campos son obligatorios",
+  "badPassword": "La contraseña debe tener al menos 8 caracteres e incluir letras mayúsculas, caracteres especiales y números para registrarse en la aplicación.",
+  "haveUserAccount": "¿Ya tienes una cuenta? Inicia sesión"
 }

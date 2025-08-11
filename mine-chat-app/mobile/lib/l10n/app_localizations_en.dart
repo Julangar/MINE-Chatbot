@@ -402,4 +402,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String error(Object error) {
     return 'Error: $error';
   }
+
+  @override
+  String get completeAll => 'All fields are required';
+
+  @override
+  String get badPassword => 'Password must be at least 8 characters and require uppercase letters, special characters, and numeric characters for registration in the app.';
+
+  @override
+  String get haveUserAccount => 'Already have an account? Sign In';
 }

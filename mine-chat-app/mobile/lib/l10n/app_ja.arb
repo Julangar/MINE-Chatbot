@@ -150,5 +150,12 @@
   "noResponse": "[応答なし]",
   "audioGenerated": "生成された音声",
   "videoGenerated": "生成されたビデオ",
-  "error": "エラー：{error}"
+  "error": "エラー：{error}",
+  "welcome": "ようこそ",
+  "slogan": "私を永遠に再現して",
+  "enterEmailToReset": "パスワードリセットリンクを受け取るためにメールアドレスを入力してください。",
+  "enterValidEmail": "有効なメールアドレスを入力してください。",
+  "completeAll": "すべての項目は必須です",
+  "badPassword": "パスワードは8文字以上で、大文字、特殊文字、数字を含める必要があります（アプリ登録用）。",
+  "haveUserAccount": "すでにアカウントをお持ちですか？ ログイン"
 }

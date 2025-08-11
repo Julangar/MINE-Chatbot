@@ -28,14 +28,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     if (email.isEmpty || pass.isEmpty) {
       setState(() {
-        _error = "All fields are required";
+        _error = AppLocalizations.of(context)!.completeAll;
         _loading = false;
       });
       return;
     }
     if (pass.length < 8) {
       setState(() {
-        _error = "Password must be at least 8 characters and require uppercase letters, special characters, and numeric characters for registration in the app.";
+        _error = AppLocalizations.of(context)!.badPassword;
         _loading = false;
       });
       return;
@@ -193,9 +193,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Center(
                 child: TextButton(
                   onPressed: () => Navigator.pushReplacementNamed(context, '/login'),
-                  child: const Text(
-                    "Already have an account? Sign In",
-                    style: TextStyle(color: Color(0xFFa59db8), fontSize: 14, decoration: TextDecoration.underline),
+                  child: Text(
+                    AppLocalizations.of(context)!.haveUserAccount,
+                    style: const TextStyle(color: Color(0xFFa59db8), fontSize: 14, decoration: TextDecoration.underline),
                   ),
                 ),
               ),

@@ -21,10 +21,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get register => '注册';
 
   @override
-  String get welcome => 'Welcome';
+  String get welcome => '欢迎';
 
   @override
-  String get slogan => 'Recreate me, forever';
+  String get slogan => '永远重塑我';
 
   @override
   String get email => '邮箱';
@@ -36,10 +36,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get forgotPassword => '忘记密码？';
 
   @override
-  String get enterEmailToReset => 'Enter your email to receive a password reset link.';
+  String get enterEmailToReset => '输入您的电子邮件以接收密码重置链接。';
 
   @override
-  String get enterValidEmail => 'Please enter a valid email.';
+  String get enterValidEmail => '请输入有效的电子邮件。';
 
   @override
   String get sendResetLink => '发送重置链接';
@@ -402,4 +402,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String error(Object error) {
     return '错误：$error';
   }
+
+  @override
+  String get completeAll => '所有字段均为必填';
+
+  @override
+  String get badPassword => '密码必须至少包含8个字符，并且包含大写字母、特殊字符和数字才能在应用中注册。';
+
+  @override
+  String get haveUserAccount => '已经有账号？ 登录';
 }

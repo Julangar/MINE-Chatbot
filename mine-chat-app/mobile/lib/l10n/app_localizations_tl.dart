@@ -21,10 +21,10 @@ class AppLocalizationsTl extends AppLocalizations {
   String get register => 'Magrehistro';
 
   @override
-  String get welcome => 'Welcome';
+  String get welcome => 'Maligayang pagdating';
 
   @override
-  String get slogan => 'Recreate me, forever';
+  String get slogan => 'Gawin muli ako, magpakailanman';
 
   @override
   String get email => 'Email';
@@ -36,10 +36,10 @@ class AppLocalizationsTl extends AppLocalizations {
   String get forgotPassword => 'Nakalimutan ang password?';
 
   @override
-  String get enterEmailToReset => 'Enter your email to receive a password reset link.';
+  String get enterEmailToReset => 'Ilagay ang iyong email upang makatanggap ng link para i-reset ang password.';
 
   @override
-  String get enterValidEmail => 'Please enter a valid email.';
+  String get enterValidEmail => 'Pakilagay ang wastong email.';
 
   @override
   String get sendResetLink => 'Ipadala ang reset link';
@@ -402,4 +402,13 @@ class AppLocalizationsTl extends AppLocalizations {
   String error(Object error) {
     return 'Error: $error';
   }
+
+  @override
+  String get completeAll => 'Kinakailangan ang lahat ng patlang';
+
+  @override
+  String get badPassword => 'Ang password ay dapat may hindi bababa sa 8 character at may kasamang uppercase letters, special characters, at numeric characters para sa pagpaparehistro sa app.';
+
+  @override
+  String get haveUserAccount => 'May account ka na? Mag-sign in';
 }

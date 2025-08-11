@@ -21,10 +21,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String get register => 'Зарегистрироваться';
 
   @override
-  String get welcome => 'Welcome';
+  String get welcome => 'Добро пожаловать';
 
   @override
-  String get slogan => 'Recreate me, forever';
+  String get slogan => 'Воссоздай меня навсегда';
 
   @override
   String get email => 'Электронная почта';
@@ -36,10 +36,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String get forgotPassword => 'Забыли пароль?';
 
   @override
-  String get enterEmailToReset => 'Enter your email to receive a password reset link.';
+  String get enterEmailToReset => 'Введите свою электронную почту, чтобы получить ссылку для сброса пароля.';
 
   @override
-  String get enterValidEmail => 'Please enter a valid email.';
+  String get enterValidEmail => 'Пожалуйста, введите действительный адрес электронной почты.';
 
   @override
   String get sendResetLink => 'Отправить ссылку для сброса';
@@ -402,4 +402,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String error(Object error) {
     return 'Ошибка: $error';
   }
+
+  @override
+  String get completeAll => 'Все поля обязательны для заполнения';
+
+  @override
+  String get badPassword => 'Пароль должен содержать не менее 8 символов, включая заглавные буквы, специальные символы и цифры, для регистрации в приложении.';
+
+  @override
+  String get haveUserAccount => 'Уже есть аккаунт? Войти';
 }

@@ -150,5 +150,12 @@
   "noResponse": "[Sem resposta]",
   "audioGenerated": "Áudio gerado",
   "videoGenerated": "Vídeo gerado",
-  "error": "Erro: {error}"
+  "error": "Erro: {error}",
+  "welcome": "Bem-vindo",
+  "slogan": "Recrie-me, para sempre",
+  "enterEmailToReset": "Digite seu e-mail para receber um link de redefinição de senha.",
+  "enterValidEmail": "Por favor, insira um e-mail válido.",
+  "completeAll": "Todos os campos são obrigatórios",
+  "badPassword": "A senha deve ter pelo menos 8 caracteres e incluir letras maiúsculas, caracteres especiais e números para se registrar no aplicativo.",
+  "haveUserAccount": "Já tem uma conta? Entrar"
 }

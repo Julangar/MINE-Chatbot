@@ -150,5 +150,12 @@
   "noResponse": "[Nincs válasz]",
   "audioGenerated": "Generált hang",
   "videoGenerated": "Generált videó",
-  "error": "Hiba: {error}"
+  "error": "Hiba: {error}",
+  "welcome": "Üdvözöljük",
+  "slogan": "Alkoss újra örökre",
+  "enterEmailToReset": "Adja meg az e-mail címét a jelszó-visszaállítási link fogadásához.",
+  "enterValidEmail": "Kérjük, adjon meg egy érvényes e-mail címet.",
+  "completeAll": "Minden mező kitöltése kötelező",
+  "badPassword": "A jelszónak legalább 8 karakterből kell állnia, és tartalmaznia kell nagybetűt, speciális karaktert és számot az alkalmazásban való regisztrációhoz.",
+  "haveUserAccount": "Már van fiókja? Jelentkezzen be"
 }

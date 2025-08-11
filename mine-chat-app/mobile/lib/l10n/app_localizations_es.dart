@@ -21,10 +21,10 @@ class AppLocalizationsEs extends AppLocalizations {
   String get register => 'Registrarse';
 
   @override
-  String get welcome => 'Welcome';
+  String get welcome => 'Bienvenido';
 
   @override
-  String get slogan => 'Recreate me, forever';
+  String get slogan => 'Recréame, para siempre';
 
   @override
   String get email => 'Correo electrónico';
@@ -36,10 +36,10 @@ class AppLocalizationsEs extends AppLocalizations {
   String get forgotPassword => '¿Olvidaste tu contraseña?';
 
   @override
-  String get enterEmailToReset => 'Enter your email to receive a password reset link.';
+  String get enterEmailToReset => 'Introduce tu correo electrónico para recibir un enlace de restablecimiento de contraseña.';
 
   @override
-  String get enterValidEmail => 'Please enter a valid email.';
+  String get enterValidEmail => 'Por favor introduce un correo electrónico válido.';
 
   @override
   String get sendResetLink => 'Enviar enlace de restablecimiento';
@@ -402,6 +402,15 @@ class AppLocalizationsEs extends AppLocalizations {
   String error(Object error) {
     return 'Error: $error';
   }
+
+  @override
+  String get completeAll => 'Todos los campos son obligatorios';
+
+  @override
+  String get badPassword => 'La contraseña debe tener al menos 8 caracteres e incluir letras mayúsculas, caracteres especiales y números para el registro en la aplicación.';
+
+  @override
+  String get haveUserAccount => '¿Ya tienes una cuenta? Inicia sesión';
 }
 
 /// The translations for Spanish Castilian, as used in Latin America and the Caribbean (`es_419`).
@@ -421,6 +430,12 @@ class AppLocalizationsEs419 extends AppLocalizationsEs {
   String get register => 'Registrarse';
 
   @override
+  String get welcome => 'Bienvenido';
+
+  @override
+  String get slogan => 'Recréame, para siempre';
+
+  @override
   String get email => 'Correo electrónico';
 
   @override
@@ -428,6 +443,12 @@ class AppLocalizationsEs419 extends AppLocalizationsEs {
 
   @override
   String get forgotPassword => '¿Olvidaste tu contraseña?';
+
+  @override
+  String get enterEmailToReset => 'Introduce tu correo electrónico para recibir un enlace de restablecimiento de contraseña.';
+
+  @override
+  String get enterValidEmail => 'Por favor introduce un correo electrónico válido.';
 
   @override
   String get sendResetLink => 'Enviar enlace para restablecer';
@@ -790,4 +811,13 @@ class AppLocalizationsEs419 extends AppLocalizationsEs {
   String error(Object error) {
     return 'Error: $error';
   }
+
+  @override
+  String get completeAll => 'Todos los campos son obligatorios';
+
+  @override
+  String get badPassword => 'La contraseña debe tener al menos 8 caracteres e incluir letras mayúsculas, caracteres especiales y números para registrarse en la aplicación.';
+
+  @override
+  String get haveUserAccount => '¿Ya tienes una cuenta? Inicia sesión';
 }

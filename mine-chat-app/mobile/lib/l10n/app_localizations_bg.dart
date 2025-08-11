@@ -21,10 +21,10 @@ class AppLocalizationsBg extends AppLocalizations {
   String get register => 'Регистрация';
 
   @override
-  String get welcome => 'Welcome';
+  String get welcome => 'Добре дошли';
 
   @override
-  String get slogan => 'Recreate me, forever';
+  String get slogan => 'Пресъздай ме завинаги';
 
   @override
   String get email => 'Имейл';
@@ -36,10 +36,10 @@ class AppLocalizationsBg extends AppLocalizations {
   String get forgotPassword => 'Забравена парола?';
 
   @override
-  String get enterEmailToReset => 'Enter your email to receive a password reset link.';
+  String get enterEmailToReset => 'Въведете имейла си, за да получите връзка за нулиране на паролата.';
 
   @override
-  String get enterValidEmail => 'Please enter a valid email.';
+  String get enterValidEmail => 'Моля, въведете валиден имейл.';
 
   @override
   String get sendResetLink => 'Изпрати връзка за нулиране';
@@ -402,4 +402,13 @@ class AppLocalizationsBg extends AppLocalizations {
   String error(Object error) {
     return 'Грешка: $error';
   }
+
+  @override
+  String get completeAll => 'Всички полета са задължителни';
+
+  @override
+  String get badPassword => 'Паролата трябва да бъде поне 8 символа и да включва главни букви, специални символи и цифри за регистрация в приложението.';
+
+  @override
+  String get haveUserAccount => 'Вече имате акаунт? Влезте';
 }

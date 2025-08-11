@@ -150,5 +150,12 @@
   "noResponse": "[Yanıt yok]",
   "audioGenerated": "Oluşturulan ses",
   "videoGenerated": "Oluşturulan video",
-  "error": "Hata: {error}"
+  "error": "Hata: {error}",
+  "welcome": "Hoş geldiniz",
+  "slogan": "Beni sonsuza dek yeniden yarat",
+  "enterEmailToReset": "Parola sıfırlama bağlantısı almak için e-postanızı girin.",
+  "enterValidEmail": "Lütfen geçerli bir e-posta giriniz.",
+  "completeAll": "Tüm alanlar gereklidir",
+  "badPassword": "Parola en az 8 karakter olmalı ve uygulamaya kayıt için büyük harfler, özel karakterler ve rakamlar içermelidir.",
+  "haveUserAccount": "Zaten bir hesabınız var mı? Giriş yapın"
 }

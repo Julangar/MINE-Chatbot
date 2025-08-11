@@ -21,10 +21,10 @@ class AppLocalizationsHe extends AppLocalizations {
   String get register => 'הרשם';
 
   @override
-  String get welcome => 'Welcome';
+  String get welcome => 'ברוך הבא';
 
   @override
-  String get slogan => 'Recreate me, forever';
+  String get slogan => 'שחזר אותי, לנצח';
 
   @override
   String get email => 'דואר אלקטרוני';
@@ -36,10 +36,10 @@ class AppLocalizationsHe extends AppLocalizations {
   String get forgotPassword => 'שכחת סיסמה?';
 
   @override
-  String get enterEmailToReset => 'Enter your email to receive a password reset link.';
+  String get enterEmailToReset => 'הזן את האימייל שלך כדי לקבל קישור לאיפוס סיסמה.';
 
   @override
-  String get enterValidEmail => 'Please enter a valid email.';
+  String get enterValidEmail => 'אנא הזן אימייל חוקי.';
 
   @override
   String get sendResetLink => 'שלח קישור לאיפוס';
@@ -402,4 +402,13 @@ class AppLocalizationsHe extends AppLocalizations {
   String error(Object error) {
     return 'שגיאה: $error';
   }
+
+  @override
+  String get completeAll => 'כל השדות נדרשים';
+
+  @override
+  String get badPassword => 'הסיסמה חייבת להכיל לפחות 8 תווים, כולל אותיות רישיות, תווים מיוחדים ומספרים, לצורך הרשמה לאפליקציה.';
+
+  @override
+  String get haveUserAccount => 'כבר יש לך חשבון? התחבר';
 }

@@ -21,10 +21,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get register => 'Registar';
 
   @override
-  String get welcome => 'Welcome';
+  String get welcome => 'Bem-vindo';
 
   @override
-  String get slogan => 'Recreate me, forever';
+  String get slogan => 'Recrie-me, para sempre';
 
   @override
   String get email => 'Email';
@@ -36,10 +36,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get forgotPassword => 'Esqueceste a tua palavra-passe?';
 
   @override
-  String get enterEmailToReset => 'Enter your email to receive a password reset link.';
+  String get enterEmailToReset => 'Digite seu e-mail para receber um link de redefinição de senha.';
 
   @override
-  String get enterValidEmail => 'Please enter a valid email.';
+  String get enterValidEmail => 'Por favor, insira um e-mail válido.';
 
   @override
   String get sendResetLink => 'Enviar link de redefinição';
@@ -402,6 +402,15 @@ class AppLocalizationsPt extends AppLocalizations {
   String error(Object error) {
     return 'Erro: $error';
   }
+
+  @override
+  String get completeAll => 'Todos os campos são obrigatórios';
+
+  @override
+  String get badPassword => 'A senha deve ter pelo menos 8 caracteres e incluir letras maiúsculas, caracteres especiais e números para registro no aplicativo.';
+
+  @override
+  String get haveUserAccount => 'Já tem uma conta? Entrar';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -421,6 +430,12 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get register => 'Cadastrar';
 
   @override
+  String get welcome => 'Bem-vindo';
+
+  @override
+  String get slogan => 'Recrie-me, para sempre';
+
+  @override
   String get email => 'E-mail';
 
   @override
@@ -428,6 +443,12 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get forgotPassword => 'Esqueceu sua senha?';
+
+  @override
+  String get enterEmailToReset => 'Digite seu e-mail para receber um link de redefinição de senha.';
+
+  @override
+  String get enterValidEmail => 'Por favor, insira um e-mail válido.';
 
   @override
   String get sendResetLink => 'Enviar link de redefinição';
@@ -790,4 +811,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String error(Object error) {
     return 'Erro: $error';
   }
+
+  @override
+  String get completeAll => 'Todos os campos são obrigatórios';
+
+  @override
+  String get badPassword => 'A senha deve ter pelo menos 8 caracteres e incluir letras maiúsculas, caracteres especiais e números para se registrar no aplicativo.';
+
+  @override
+  String get haveUserAccount => 'Já tem uma conta? Entrar';
 }

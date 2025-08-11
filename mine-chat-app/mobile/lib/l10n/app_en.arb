@@ -130,5 +130,8 @@
   "noResponse": "[No response]",
   "audioGenerated": "Generated audio",
   "videoGenerated": "Generated video",
-  "error": "Error: {error}"
+  "error": "Error: {error}",
+  "completeAll": "All fields are required",
+  "badPassword": "Password must be at least 8 characters and require uppercase letters, special characters, and numeric characters for registration in the app.",
+  "haveUserAccount": "Already have an account? Sign In"
 }

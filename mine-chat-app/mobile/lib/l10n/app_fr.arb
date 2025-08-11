@@ -150,5 +150,12 @@
   "noResponse": "[Pas de réponse]",
   "audioGenerated": "Audio généré",
   "videoGenerated": "Vidéo générée",
-  "error": "Erreur : {error}"
+  "error": "Erreur : {error}",
+  "welcome": "Bienvenue",
+  "slogan": "Recrée-moi, pour toujours",
+  "enterEmailToReset": "Entrez votre e-mail pour recevoir un lien de réinitialisation du mot de passe.",
+  "enterValidEmail": "Veuillez entrer un e-mail valide.",
+  "completeAll": "Tous les champs sont obligatoires",
+  "badPassword": "Le mot de passe doit comporter au moins 8 caractères et inclure des lettres majuscules, des caractères spéciaux et des chiffres pour s'inscrire dans l'application.",
+  "haveUserAccount": "Vous avez déjà un compte ? Connectez-vous"
 }

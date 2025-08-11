@@ -21,10 +21,10 @@ class AppLocalizationsEl extends AppLocalizations {
   String get register => 'Εγγραφή';
 
   @override
-  String get welcome => 'Welcome';
+  String get welcome => 'Καλώς ήρθατε';
 
   @override
-  String get slogan => 'Recreate me, forever';
+  String get slogan => 'Αναδημιούργησέ με, για πάντα';
 
   @override
   String get email => 'Email';
@@ -36,10 +36,10 @@ class AppLocalizationsEl extends AppLocalizations {
   String get forgotPassword => 'Ξεχάσατε τον κωδικό;';
 
   @override
-  String get enterEmailToReset => 'Enter your email to receive a password reset link.';
+  String get enterEmailToReset => 'Εισαγάγετε το email σας για να λάβετε σύνδεσμο επαναφοράς κωδικού πρόσβασης.';
 
   @override
-  String get enterValidEmail => 'Please enter a valid email.';
+  String get enterValidEmail => 'Παρακαλώ εισάγετε ένα έγκυρο email.';
 
   @override
   String get sendResetLink => 'Αποστολή συνδέσμου επαναφοράς';
@@ -402,4 +402,13 @@ class AppLocalizationsEl extends AppLocalizations {
   String error(Object error) {
     return 'Σφάλμα: $error';
   }
+
+  @override
+  String get completeAll => 'Όλα τα πεδία είναι υποχρεωτικά';
+
+  @override
+  String get badPassword => 'Ο κωδικός πρόσβασης πρέπει να έχει τουλάχιστον 8 χαρακτήρες και να περιλαμβάνει κεφαλαία γράμματα, ειδικούς χαρακτήρες και αριθμούς για εγγραφή στην εφαρμογή.';
+
+  @override
+  String get haveUserAccount => 'Έχετε ήδη λογαριασμό; Συνδεθείτε';
 }

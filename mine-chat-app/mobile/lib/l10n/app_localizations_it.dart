@@ -21,10 +21,10 @@ class AppLocalizationsIt extends AppLocalizations {
   String get register => 'Registrati';
 
   @override
-  String get welcome => 'Welcome';
+  String get welcome => 'Benvenuto';
 
   @override
-  String get slogan => 'Recreate me, forever';
+  String get slogan => 'Ricreami, per sempre';
 
   @override
   String get email => 'E-mail';
@@ -36,10 +36,10 @@ class AppLocalizationsIt extends AppLocalizations {
   String get forgotPassword => 'Hai dimenticato la password?';
 
   @override
-  String get enterEmailToReset => 'Enter your email to receive a password reset link.';
+  String get enterEmailToReset => 'Inserisci la tua email per ricevere un link di reimpostazione della password.';
 
   @override
-  String get enterValidEmail => 'Please enter a valid email.';
+  String get enterValidEmail => 'Per favore inserisci un\'email valida.';
 
   @override
   String get sendResetLink => 'Invia link di reimpostazione';
@@ -402,4 +402,13 @@ class AppLocalizationsIt extends AppLocalizations {
   String error(Object error) {
     return 'Errore: $error';
   }
+
+  @override
+  String get completeAll => 'Tutti i campi sono obbligatori';
+
+  @override
+  String get badPassword => 'La password deve contenere almeno 8 caratteri e includere lettere maiuscole, caratteri speciali e numeri per la registrazione nell\'app.';
+
+  @override
+  String get haveUserAccount => 'Hai già un account? Accedi';
 }

@@ -21,10 +21,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get register => '등록';
 
   @override
-  String get welcome => 'Welcome';
+  String get welcome => '환영합니다';
 
   @override
-  String get slogan => 'Recreate me, forever';
+  String get slogan => '영원히 나를 재창조해';
 
   @override
   String get email => '이메일';
@@ -36,10 +36,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get forgotPassword => '비밀번호를 잊으셨나요?';
 
   @override
-  String get enterEmailToReset => 'Enter your email to receive a password reset link.';
+  String get enterEmailToReset => '비밀번호 재설정 링크를 받으려면 이메일을 입력하세요.';
 
   @override
-  String get enterValidEmail => 'Please enter a valid email.';
+  String get enterValidEmail => '유효한 이메일을 입력하세요.';
 
   @override
   String get sendResetLink => '재설정 링크 보내기';
@@ -402,4 +402,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String error(Object error) {
     return '오류: $error';
   }
+
+  @override
+  String get completeAll => '모든 필드는 필수입니다';
+
+  @override
+  String get badPassword => '비밀번호는 8자 이상이어야 하며, 대문자, 특수 문자, 숫자를 포함해야 앱에 등록할 수 있습니다.';
+
+  @override
+  String get haveUserAccount => '이미 계정이 있으신가요? 로그인';
 }

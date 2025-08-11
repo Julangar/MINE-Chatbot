@@ -150,5 +150,12 @@
   "noResponse": "[Nessuna risposta]",
   "audioGenerated": "Audio generato",
   "videoGenerated": "Video generato",
-  "error": "Errore: {error}"
+  "error": "Errore: {error}",
+  "welcome": "Benvenuto",
+  "slogan": "Ricreami, per sempre",
+  "enterEmailToReset": "Inserisci la tua email per ricevere un link di reimpostazione della password.",
+  "enterValidEmail": "Per favore inserisci un'email valida.",
+  "completeAll": "Tutti i campi sono obbligatori",
+  "badPassword": "La password deve contenere almeno 8 caratteri e includere lettere maiuscole, caratteri speciali e numeri per la registrazione nell'app.",
+  "haveUserAccount": "Hai già un account? Accedi"
 }

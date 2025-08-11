@@ -21,10 +21,10 @@ class AppLocalizationsHu extends AppLocalizations {
   String get register => 'Regisztráció';
 
   @override
-  String get welcome => 'Welcome';
+  String get welcome => 'Üdvözöljük';
 
   @override
-  String get slogan => 'Recreate me, forever';
+  String get slogan => 'Alkoss újra örökre';
 
   @override
   String get email => 'Email';
@@ -36,10 +36,10 @@ class AppLocalizationsHu extends AppLocalizations {
   String get forgotPassword => 'Elfelejtette a jelszavát?';
 
   @override
-  String get enterEmailToReset => 'Enter your email to receive a password reset link.';
+  String get enterEmailToReset => 'Adja meg az e-mail címét a jelszó-visszaállítási link fogadásához.';
 
   @override
-  String get enterValidEmail => 'Please enter a valid email.';
+  String get enterValidEmail => 'Kérjük, adjon meg egy érvényes e-mail címet.';
 
   @override
   String get sendResetLink => 'Visszaállító link küldése';
@@ -402,4 +402,13 @@ class AppLocalizationsHu extends AppLocalizations {
   String error(Object error) {
     return 'Hiba: $error';
   }
+
+  @override
+  String get completeAll => 'Minden mező kitöltése kötelező';
+
+  @override
+  String get badPassword => 'A jelszónak legalább 8 karakterből kell állnia, és tartalmaznia kell nagybetűt, speciális karaktert és számot az alkalmazásban való regisztrációhoz.';
+
+  @override
+  String get haveUserAccount => 'Már van fiókja? Jelentkezzen be';
 }

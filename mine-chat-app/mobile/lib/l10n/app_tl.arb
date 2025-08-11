@@ -150,5 +150,12 @@
   "noResponse": "[Walang tugon]",
   "audioGenerated": "Nabuo na audio",
   "videoGenerated": "Nabuo na video",
-  "error": "Error: {error}"
+  "error": "Error: {error}",
+  "welcome": "Maligayang pagdating",
+  "slogan": "Gawin muli ako, magpakailanman",
+  "enterEmailToReset": "Ilagay ang iyong email upang makatanggap ng link para i-reset ang password.",
+  "enterValidEmail": "Pakilagay ang wastong email.",
+  "completeAll": "Kinakailangan ang lahat ng patlang",
+  "badPassword": "Ang password ay dapat may hindi bababa sa 8 character at may kasamang uppercase letters, special characters, at numeric characters para sa pagpaparehistro sa app.",
+  "haveUserAccount": "May account ka na? Mag-sign in"
 }

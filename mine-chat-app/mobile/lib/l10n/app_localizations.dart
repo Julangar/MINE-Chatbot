@@ -918,6 +918,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Error: {error}'**
   String error(Object error);
+
+  /// No description provided for @completeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All fields are required'**
+  String get completeAll;
+
+  /// No description provided for @badPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 8 characters and require uppercase letters, special characters, and numeric characters for registration in the app.'**
+  String get badPassword;
+
+  /// No description provided for @haveUserAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account? Sign In'**
+  String get haveUserAccount;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

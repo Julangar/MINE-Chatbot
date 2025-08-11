@@ -21,10 +21,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get register => 'تسجيل';
 
   @override
-  String get welcome => 'Welcome';
+  String get welcome => 'مرحبًا';
 
   @override
-  String get slogan => 'Recreate me, forever';
+  String get slogan => 'أعد إنشائي، إلى الأبد';
 
   @override
   String get email => 'البريد الإلكتروني';
@@ -36,10 +36,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get forgotPassword => 'هل نسيت كلمة المرور؟';
 
   @override
-  String get enterEmailToReset => 'Enter your email to receive a password reset link.';
+  String get enterEmailToReset => 'أدخل بريدك الإلكتروني لتلقي رابط إعادة تعيين كلمة المرور.';
 
   @override
-  String get enterValidEmail => 'Please enter a valid email.';
+  String get enterValidEmail => 'يرجى إدخال بريد إلكتروني صالح.';
 
   @override
   String get sendResetLink => 'إرسال رابط إعادة التعيين';
@@ -402,4 +402,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String error(Object error) {
     return 'خطأ: $error';
   }
+
+  @override
+  String get completeAll => 'جميع الحقول مطلوبة';
+
+  @override
+  String get badPassword => 'يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل وتشمل أحرفًا كبيرة وأحرفًا خاصة وأرقامًا للتسجيل في التطبيق.';
+
+  @override
+  String get haveUserAccount => 'هل لديك حساب بالفعل؟ تسجيل الدخول';
 }

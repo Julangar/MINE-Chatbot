@@ -21,10 +21,10 @@ class AppLocalizationsVi extends AppLocalizations {
   String get register => 'Đăng ký';
 
   @override
-  String get welcome => 'Welcome';
+  String get welcome => 'Chào mừng';
 
   @override
-  String get slogan => 'Recreate me, forever';
+  String get slogan => 'Tái tạo tôi, mãi mãi';
 
   @override
   String get email => 'Email';
@@ -36,10 +36,10 @@ class AppLocalizationsVi extends AppLocalizations {
   String get forgotPassword => 'Quên mật khẩu?';
 
   @override
-  String get enterEmailToReset => 'Enter your email to receive a password reset link.';
+  String get enterEmailToReset => 'Nhập email của bạn để nhận liên kết đặt lại mật khẩu.';
 
   @override
-  String get enterValidEmail => 'Please enter a valid email.';
+  String get enterValidEmail => 'Vui lòng nhập email hợp lệ.';
 
   @override
   String get sendResetLink => 'Gửi liên kết đặt lại';
@@ -402,4 +402,13 @@ class AppLocalizationsVi extends AppLocalizations {
   String error(Object error) {
     return 'Lỗi: $error';
   }
+
+  @override
+  String get completeAll => 'Tất cả các trường là bắt buộc';
+
+  @override
+  String get badPassword => 'Mật khẩu phải có ít nhất 8 ký tự và bao gồm chữ hoa, ký tự đặc biệt và số để đăng ký trong ứng dụng.';
+
+  @override
+  String get haveUserAccount => 'Đã có tài khoản? Đăng nhập';
 }

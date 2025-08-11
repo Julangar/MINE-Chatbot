@@ -150,5 +150,12 @@
   "noResponse": "[无响应]",
   "audioGenerated": "生成的音频",
   "videoGenerated": "生成的视频",
-  "error": "错误：{error}"
+  "error": "错误：{error}",
+  "welcome": "欢迎",
+  "slogan": "永远重塑我",
+  "enterEmailToReset": "输入您的电子邮件以接收密码重置链接。",
+  "enterValidEmail": "请输入有效的电子邮件。",
+  "completeAll": "所有字段均为必填",
+  "badPassword": "密码必须至少包含8个字符，并且包含大写字母、特殊字符和数字才能在应用中注册。",
+  "haveUserAccount": "已经有账号？ 登录"
 }
