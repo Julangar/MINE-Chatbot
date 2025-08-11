@@ -52,7 +52,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: Text(l10n.forgotPassword),
+        title: Text(l10n.forgotPassword,
+            style: const TextStyle(color: Colors.white)),
         backgroundColor: const Color(0xFF131118),
         iconTheme: const IconThemeData(color: Colors.white),
       ),

@@ -77,6 +77,12 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context)!.signIn,
+          style: const TextStyle(color: Colors.white)),
+        backgroundColor: const Color(0xFF131118),
+        iconTheme: const IconThemeData(color: Colors.white),
+      ),
       backgroundColor: const Color(0xFF131118),
       body: SafeArea(
         child: SingleChildScrollView(

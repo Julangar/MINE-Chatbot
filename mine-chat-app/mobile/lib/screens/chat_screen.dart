@@ -116,19 +116,36 @@ class _ChatScreenState extends State<ChatScreen> {
         _isLoading = false;
       });
 
-      // Reproducir audio si existe
+      // Reproducir audio si existe y se seleccionó el modo audio. Tras la
+      // reproducción, se cambia el tipo del mensaje a texto para que no se
+      // pueda reproducir nuevamente.
       if (audioUrl != null && _selectedOutput == 'audio') {
+        // Índice del mensaje del avatar recién agregado. Se captura aquí para
+        // poder actualizarlo después de que se complete la reproducción.
+        final int msgIndex = _messages.length - 1;
         await _audioPlayer.stop();
         await _audioPlayer.play(UrlSource(audioUrl));
+        // Escuchar el evento de finalización de la reproducción y actualizar el
+        // mensaje para mostrar solo el texto.
+        _audioPlayer.onPlayerComplete.listen((event) {
+          if (!mounted) return;
+          setState(() {
+            _messages[msgIndex]['type'] = 'text';
+            _messages[msgIndex].remove('audioUrl');
+          });
+        });
       }
-
       // Reproducir vídeo si existe
       if (videoUrl != null) {
         // Liberar el controlador anterior si estaba reproduciendo algo
         await _videoController?.dispose();
         _videoController = VideoPlayerController.networkUrl(Uri.parse(videoUrl));
         await _videoController!.initialize();
-        // Añadir un listener que cierre el vídeo al finalizar la reproducción.
+        // Capturamos el índice del mensaje para actualizar su tipo tras la
+        // reproducción del vídeo.
+        final int msgIndex = _messages.length - 1;
+        // Añadir un listener que cierre el vídeo al finalizar la reproducción
+        // y cambie el mensaje a texto.
         late VoidCallback listener;
         listener = () {
           final controller = _videoController;
@@ -138,16 +155,25 @@ class _ChatScreenState extends State<ChatScreen> {
             controller.pause();
             controller.seekTo(Duration.zero);
             controller.removeListener(listener);
-            setState(() {
+            // Ocultar el reproductor y actualizar el mensaje
+            if (mounted) {
+              setState(() {
+                _messages[msgIndex]['type'] = 'text';
+                _messages[msgIndex].remove('audioUrl');
+                _messages[msgIndex].remove('videoUrl');
+                controller.dispose();
+                _videoController = null;
+              });
+            } else {
               controller.dispose();
               _videoController = null;
-            });
+            }
           }
         };
         _videoController!.addListener(listener);
         setState(() {});
         _videoController!.play();
-      }       
+      }
     } catch (e) {
       setState(() => _isLoading = false);
       ScaffoldMessenger.of(context).showSnackBar(
@@ -192,18 +218,12 @@ class _ChatScreenState extends State<ChatScreen> {
           });
         }
         if (avatarMsg != null && avatarMsg is String) {
-          String type = 'text';
-          if (videoUrl != null) {
-            type = 'video';
-          } else if (audioUrl != null) {
-            type = 'audio';
-          }
+          // Por razones de privacidad no se vuelven a mostrar audio ni vídeo en
+          // conversaciones previas. Sólo se almacena el texto de la respuesta.
           loaded.add({
             'role': 'avatar',
             'content': avatarMsg,
-            'type': type,
-            'audioUrl': audioUrl,
-            'videoUrl': videoUrl,
+            'type': 'text',
           });
         }
       }
@@ -217,6 +237,7 @@ class _ChatScreenState extends State<ChatScreen> {
       debugPrint('Error al cargar conversaciones previas: $e');
     }
   }
+  
   Widget _buildMessage(Map<String, dynamic> msg) {
     final bool isUser = msg['role'] == 'user';
     final String type = msg['type'] as String? ?? 'text';

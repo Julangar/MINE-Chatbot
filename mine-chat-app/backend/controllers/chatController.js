@@ -5,6 +5,53 @@ const elevenlabsService = require('../services/elevenlabsService');
 const didService = require('../services/didService');
 const cloudinaryService = require('../services/cloudinaryService');
 
+
+// Encriptación para las conversaciones. Usamos AES-256-CBC con una clave
+// secreta almacenada en variables de entorno para proteger el contenido de
+// las conversaciones en Firebase. La función encryptText devuelve el IV y
+// el texto cifrado separados por dos puntos. La función decryptText invierte
+// el proceso. Para compatibilidad con registros antiguos no cifrados, la
+// función maybeDecrypt intentará descifrar sólo si el texto contiene el
+// separador ':' y fallará de forma silenciosa.
+const crypto = require('crypto');
+const {CONV_SECRET, ENC_ALGORITHM} = require('../config'); // 64 hex (32 bytes)
+
+function encryptText(plain) {
+  if (!plain) return plain;
+  const iv = crypto.randomBytes(16);
+  const key = Buffer.from(CONV_SECRET, 'hex');
+  const cipher = crypto.createCipheriv(ENC_ALGORITHM, key, iv);
+  let encrypted = cipher.update(String(plain), 'utf8', 'hex');
+  encrypted += cipher.final('hex');
+  return iv.toString('hex') + ':' + encrypted;
+}
+
+function decryptText(ciphered) {
+  const [ivHex, encryptedData] = ciphered.split(':');
+  const iv = Buffer.from(ivHex, 'hex');
+  const key = Buffer.from(CONV_SECRET, 'hex');
+  const decipher = crypto.createDecipheriv(ENC_ALGORITHM, key, iv);
+  let decrypted = decipher.update(encryptedData, 'hex', 'utf8');
+  decrypted += decipher.final('utf8');
+  return decrypted;
+}
+
+function maybeDecrypt(text) {
+  if (typeof text !== 'string') return text;
+  if (!text.includes(':')) return text;
+  try {
+    return decryptText(text);
+  } catch (e) {
+    return text;
+  }
+}
+
+// Generates an initial greeting for a user and stores it in the conversation
+// history. This function remains unchanged from the original implementation
+// except for the addition of conversation storage so that subsequent messages
+// include the greeting in the context.
+
+
 async function generateGreeting(req, res) {
   const { userId, avatarType, userLanguage } = req.body;
 
@@ -40,8 +87,8 @@ async function generateGreeting(req, res) {
       .doc('messages')
       .set({
         timestamp: admin.firestore.FieldValue.serverTimestamp(),
-        userMessage: 'Presentate y saluda de forma amable al usuario.',
-        avatarResponse: greeting
+        userMessage: encryptText('Presentate y saluda de forma amable al usuario.'),
+        avatarResponse: encryptText(greeting)
       });
     
       res.json({
@@ -88,11 +135,15 @@ async function sendMessage(req, res) {
       .get();
     historySnap.forEach(doc => {
       const data = doc.data();
-      if (data.userMessage) messages.push({ role: 'user', content: data.userMessage });
-      if (data.avatarResponse) messages.push({ role: 'assistant', content: data.avatarResponse });
+      if (data.userMessage) {
+        messages.push({ role: 'user', content: maybeDecrypt(data.userMessage) });
+      }
+      if (data.avatarResponse) {
+        messages.push({ role: 'assistant', content: maybeDecrypt(data.avatarResponse) });
+      }
     });
     messages.push({ role: 'user', content: message });
-
+    
     // Request a completion from the OpenAI service
     const gptResponse = await openaiService.getChatResponse(messages);
 
@@ -102,8 +153,8 @@ async function sendMessage(req, res) {
       .collection(avatarType)
       .add({
         timestamp: admin.firestore.FieldValue.serverTimestamp(),
-        userMessage: message,
-        avatarResponse: gptResponse
+        userMessage: encryptText(message),
+        avatarResponse: encryptText(gptResponse)
       });
 
     return res.json({ response: gptResponse });
@@ -145,11 +196,14 @@ async function sendAudio(req, res) {
       .get();
     historySnap.forEach(doc => {
       const data = doc.data();
-      if (data.userMessage) messages.push({ role: 'user', content: data.userMessage });
-      if (data.avatarResponse) messages.push({ role: 'assistant', content: data.avatarResponse });
+      if (data.userMessage) {
+        messages.push({ role: 'user', content: maybeDecrypt(data.userMessage) });
+      }
+      if (data.avatarResponse) {
+        messages.push({ role: 'assistant', content: maybeDecrypt(data.avatarResponse) });
+      }
     });
     messages.push({ role: 'user', content: message });
-
     const gptResponse = await openaiService.getChatResponse(messages);
 
     // Retrieve voiceId
@@ -177,8 +231,8 @@ async function sendAudio(req, res) {
       .collection(avatarType)
       .add({
         timestamp: admin.firestore.FieldValue.serverTimestamp(),
-        userMessage: message,
-        avatarResponse: gptResponse,
+        userMessage: encryptText(message),
+        avatarResponse: encryptText(gptResponse),
         audioUrl: audioUrl
       });
 
@@ -221,8 +275,12 @@ async function sendVideo(req, res) {
       .get();
     historySnap.forEach(doc => {
       const data = doc.data();
-      if (data.userMessage) messages.push({ role: 'user', content: data.userMessage });
-      if (data.avatarResponse) messages.push({ role: 'assistant', content: data.avatarResponse });
+      if (data.userMessage) {
+        messages.push({ role: 'user', content: maybeDecrypt(data.userMessage) });
+      }
+      if (data.avatarResponse) {
+        messages.push({ role: 'assistant', content: maybeDecrypt(data.avatarResponse) });
+      }
     });
     messages.push({ role: 'user', content: message });
 
@@ -273,8 +331,8 @@ async function sendVideo(req, res) {
       .collection(avatarType)
       .add({
         timestamp: admin.firestore.FieldValue.serverTimestamp(),
-        userMessage: message,
-        avatarResponse: gptResponse,
+        userMessage: encryptText(message),
+        avatarResponse: encryptText(gptResponse),
         audioUrl,
         videoUrl
       });
