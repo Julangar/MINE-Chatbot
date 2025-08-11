@@ -197,27 +197,25 @@ class _ChatScreenState extends State<ChatScreen> {
     final avatarType = avatar.avatarType;
     if (userId == null || avatarType == null) return;
     try {
-      final querySnapshot = await FirebaseFirestore.instance
-          .collection('conversations')
-          .doc(userId)
-          .collection(avatarType)
-          .orderBy('timestamp')
-          .get();
+      // Solicitar el historial de conversación al backend. El servidor ya
+      // descifra los mensajes y sólo devuelve texto plano. Audio y vídeo
+      // no se incluyen por privacidad.
+      final history = await ChatService.fetchConversationHistory(
+        userId,
+        avatarType,
+      );
       final List<Map<String, dynamic>> loaded = [];
-      for (final doc in querySnapshot.docs) {
-        final data = doc.data();
-        final userMsg = data['userMessage'];
-        final avatarMsg = data['avatarResponse'];
-        final audioUrl = data['audioUrl'];
-        final videoUrl = data['videoUrl'];
-        if (userMsg != null && userMsg is String) {
+      for (final entry in history) {
+        final userMsg = entry['userMessage'];
+        final avatarMsg = entry['avatarResponse'];
+        if (userMsg != null && userMsg is String && userMsg.isNotEmpty) {
           loaded.add({
             'role': 'user',
             'content': userMsg,
             'type': 'text',
           });
         }
-        if (avatarMsg != null && avatarMsg is String) {
+        if (avatarMsg != null && avatarMsg is String && avatarMsg.isNotEmpty) {
           // Por razones de privacidad no se vuelven a mostrar audio ni vídeo en
           // conversaciones previas. Sólo se almacena el texto de la respuesta.
           loaded.add({
@@ -237,7 +235,7 @@ class _ChatScreenState extends State<ChatScreen> {
       debugPrint('Error al cargar conversaciones previas: $e');
     }
   }
-  
+
   Widget _buildMessage(Map<String, dynamic> msg) {
     final bool isUser = msg['role'] == 'user';
     final String type = msg['type'] as String? ?? 'text';

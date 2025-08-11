@@ -344,10 +344,44 @@ async function sendVideo(req, res) {
   }
 }
 
+// Retrieves the conversation history for a given user and avatar.
+// The returned data includes the decrypted user messages and avatar
+// responses. Audio and video URLs are omitted because the mobile client
+// should not replay them for privacy reasons. Clients can call this
+// endpoint instead of reading directly from Firestore. Query parameters
+// `userId` and `avatarType` must be provided.
+async function getConversationHistory(req, res) {
+  const { userId, avatarType } = req.query;
+  if (!userId || !avatarType) {
+    return res.status(400).json({ error: 'Faltan parámetros requeridos.' });
+  }
+  try {
+    const db = admin.firestore();
+    const snapshot = await db.collection('conversations')
+      .doc(userId)
+      .collection(avatarType)
+      .orderBy('timestamp')
+      .get();
+    const history = [];
+    snapshot.forEach(doc => {
+      const data = doc.data();
+      // Only include text fields; ignore audio/video URLs for security.
+      history.push({
+        userMessage: data.userMessage ? maybeDecrypt(data.userMessage) : null,
+        avatarResponse: data.avatarResponse ? maybeDecrypt(data.avatarResponse) : null
+      });
+    });
+    return res.json({ messages: history });
+  } catch (err) {
+    console.error('Error al obtener historial:', err);
+    return res.status(500).json({ error: 'Error al obtener historial.' });
+  }
+}
 
 module.exports = {
   generateGreeting,
   sendMessage,
   sendAudio,
-  sendVideo
+  sendVideo,
+  getConversationHistory
 };

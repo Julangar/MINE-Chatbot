@@ -135,4 +135,21 @@ class ChatService {
     return doc.data()?['videoUrl'];
   }
 
+  /// Obtiene el historial de conversación descifrado desde el backend.
+  /// Se deben proporcionar el identificador del usuario y el tipo de
+  /// avatar. El servidor devolverá una lista de mensajes con las claves
+  /// `userMessage` y `avatarResponse`, sin incluir URLs de audio o vídeo.
+  static Future<List<dynamic>> fetchConversationHistory(
+    String userId,
+    String avatarType,
+  ) async {
+    final uri = Uri.parse(
+        '$baseUrl/api/chat/history?userId=$userId&avatarType=$avatarType');
+    final resp = await http.get(uri);
+    if (resp.statusCode != 200) {
+      throw Exception('Error al obtener el historial: ${resp.body}');
+    }
+    final data = jsonDecode(resp.body) as Map<String, dynamic>;
+    return data['messages'] as List<dynamic>;
+  }
 }
