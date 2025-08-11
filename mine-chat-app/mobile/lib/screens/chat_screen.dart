@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../providers/avatar_provider.dart';
 import '../services/chat_service.dart';
@@ -45,6 +46,8 @@ class _ChatScreenState extends State<ChatScreen> {
   void initState() {
     super.initState();
     _audioPlayer = AudioPlayer();
+        // Cargar mensajes previos de la conversación cuando se monta la pantalla.
+    _loadPreviousMessages();
   }
 
   @override
@@ -114,7 +117,7 @@ class _ChatScreenState extends State<ChatScreen> {
       });
 
       // Reproducir audio si existe
-      if (audioUrl != null && _selectedOutput != 'Texto') {
+      if (audioUrl != null && _selectedOutput == 'audio') {
         await _audioPlayer.stop();
         await _audioPlayer.play(UrlSource(audioUrl));
       }
@@ -123,12 +126,28 @@ class _ChatScreenState extends State<ChatScreen> {
       if (videoUrl != null) {
         // Liberar el controlador anterior si estaba reproduciendo algo
         await _videoController?.dispose();
-        _videoController = VideoPlayerController.networkUrl(Uri.parse(videoUrl))
-          ..initialize().then((_) {
-            setState(() {});
-            _videoController!.play();
-          });
-      }
+        _videoController = VideoPlayerController.networkUrl(Uri.parse(videoUrl));
+        await _videoController!.initialize();
+        // Añadir un listener que cierre el vídeo al finalizar la reproducción.
+        late VoidCallback listener;
+        listener = () {
+          final controller = _videoController;
+          if (controller != null &&
+              controller.value.isInitialized &&
+              controller.value.position >= controller.value.duration) {
+            controller.pause();
+            controller.seekTo(Duration.zero);
+            controller.removeListener(listener);
+            setState(() {
+              controller.dispose();
+              _videoController = null;
+            });
+          }
+        };
+        _videoController!.addListener(listener);
+        setState(() {});
+        _videoController!.play();
+      }       
     } catch (e) {
       setState(() => _isLoading = false);
       ScaffoldMessenger.of(context).showSnackBar(
@@ -140,7 +159,64 @@ class _ChatScreenState extends State<ChatScreen> {
       );
     }
   }
-
+  /// Carga los mensajes guardados en Firestore para la conversación actual
+  /// (usuario y tipo de avatar) y los añade a la lista local. De esta forma
+  /// se pueden mostrar conversaciones previas cuando el usuario abre la
+  /// pantalla. Los mensajes se ordenan cronológicamente según el campo
+  /// `timestamp`.
+  Future<void> _loadPreviousMessages() async {
+    final avatar = Provider.of<AvatarProvider>(context, listen: false).avatar;
+    if (avatar == null) return;
+    final userId = avatar.userId;
+    final avatarType = avatar.avatarType;
+    if (userId == null || avatarType == null) return;
+    try {
+      final querySnapshot = await FirebaseFirestore.instance
+          .collection('conversations')
+          .doc(userId)
+          .collection(avatarType)
+          .orderBy('timestamp')
+          .get();
+      final List<Map<String, dynamic>> loaded = [];
+      for (final doc in querySnapshot.docs) {
+        final data = doc.data();
+        final userMsg = data['userMessage'];
+        final avatarMsg = data['avatarResponse'];
+        final audioUrl = data['audioUrl'];
+        final videoUrl = data['videoUrl'];
+        if (userMsg != null && userMsg is String) {
+          loaded.add({
+            'role': 'user',
+            'content': userMsg,
+            'type': 'text',
+          });
+        }
+        if (avatarMsg != null && avatarMsg is String) {
+          String type = 'text';
+          if (videoUrl != null) {
+            type = 'video';
+          } else if (audioUrl != null) {
+            type = 'audio';
+          }
+          loaded.add({
+            'role': 'avatar',
+            'content': avatarMsg,
+            'type': type,
+            'audioUrl': audioUrl,
+            'videoUrl': videoUrl,
+          });
+        }
+      }
+      if (loaded.isNotEmpty) {
+        setState(() {
+          _messages.addAll(loaded);
+        });
+      }
+    } catch (e) {
+      // Si hay un error al cargar las conversaciones previas, lo registramos en consola.
+      debugPrint('Error al cargar conversaciones previas: $e');
+    }
+  }
   Widget _buildMessage(Map<String, dynamic> msg) {
     final bool isUser = msg['role'] == 'user';
     final String type = msg['type'] as String? ?? 'text';
