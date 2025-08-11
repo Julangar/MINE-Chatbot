@@ -157,5 +157,11 @@
   "enterValidEmail": "אנא הזן אימייל חוקי.",
   "completeAll": "כל השדות נדרשים",
   "badPassword": "הסיסמה חייבת להכיל לפחות 8 תווים, כולל אותיות רישיות, תווים מיוחדים ומספרים, לצורך הרשמה לאפליקציה.",
-  "haveUserAccount": "כבר יש לך חשבון? התחבר"
+  "haveUserAccount": "כבר יש לך חשבון? התחבר",
+  "statusListening": "מקשיב",
+  "statusThinking": "חושב",
+  "statusSpeaking": "מדבר",
+  "statusWaiting": "ממתין",
+  "enableVibration": "הפעל רטט",
+  "enableSound": "הפעל קול"
 }

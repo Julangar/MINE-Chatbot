@@ -157,5 +157,11 @@
   "enterValidEmail": "Per favore inserisci un'email valida.",
   "completeAll": "Tutti i campi sono obbligatori",
   "badPassword": "La password deve contenere almeno 8 caratteri e includere lettere maiuscole, caratteri speciali e numeri per la registrazione nell'app.",
-  "haveUserAccount": "Hai già un account? Accedi"
+  "haveUserAccount": "Hai già un account? Accedi",
+  "statusListening": "In ascolto",
+  "statusThinking": "Sta pensando",
+  "statusSpeaking": "Parlando",
+  "statusWaiting": "In attesa",
+  "enableVibration": "Abilita vibrazione",
+  "enableSound": "Abilita suono"
 }

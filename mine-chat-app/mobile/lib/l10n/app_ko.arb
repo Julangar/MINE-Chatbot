@@ -157,5 +157,11 @@
   "enterValidEmail": "유효한 이메일을 입력하세요.",
   "completeAll": "모든 필드는 필수입니다",
   "badPassword": "비밀번호는 8자 이상이어야 하며, 대문자, 특수 문자, 숫자를 포함해야 앱에 등록할 수 있습니다.",
-  "haveUserAccount": "이미 계정이 있으신가요? 로그인"
+  "haveUserAccount": "이미 계정이 있으신가요? 로그인",
+  "statusListening": "듣는 중",
+  "statusThinking": "생각 중",
+  "statusSpeaking": "말하는 중",
+  "statusWaiting": "기다리는 중",
+  "enableVibration": "진동 켜기",
+  "enableSound": "소리 켜기"
 }

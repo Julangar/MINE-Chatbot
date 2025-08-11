@@ -411,4 +411,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get haveUserAccount => 'هل لديك حساب بالفعل؟ تسجيل الدخول';
+
+  @override
+  String get statusListening => 'يستمع';
+
+  @override
+  String get statusThinking => 'يفكر';
+
+  @override
+  String get statusSpeaking => 'يتحدث';
+
+  @override
+  String get statusWaiting => 'ينتظر';
+
+  @override
+  String get enableVibration => 'تفعيل الاهتزاز';
+
+  @override
+  String get enableSound => 'تفعيل الصوت';
 }

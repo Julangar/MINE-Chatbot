@@ -936,6 +936,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Already have an account? Sign In'**
   String get haveUserAccount;
+
+  /// No description provided for @statusListening.
+  ///
+  /// In en, this message translates to:
+  /// **'Listening'**
+  String get statusListening;
+
+  /// No description provided for @statusThinking.
+  ///
+  /// In en, this message translates to:
+  /// **'Thinking'**
+  String get statusThinking;
+
+  /// No description provided for @statusSpeaking.
+  ///
+  /// In en, this message translates to:
+  /// **'Speaking'**
+  String get statusSpeaking;
+
+  /// No description provided for @statusWaiting.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting'**
+  String get statusWaiting;
+
+  /// No description provided for @enableVibration.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable vibration'**
+  String get enableVibration;
+
+  /// No description provided for @enableSound.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable sound'**
+  String get enableSound;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

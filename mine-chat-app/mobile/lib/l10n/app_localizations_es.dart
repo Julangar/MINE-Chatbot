@@ -411,6 +411,24 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get haveUserAccount => '¿Ya tienes una cuenta? Inicia sesión';
+
+  @override
+  String get statusListening => 'Escuchando';
+
+  @override
+  String get statusThinking => 'Pensando';
+
+  @override
+  String get statusSpeaking => 'Hablando';
+
+  @override
+  String get statusWaiting => 'Esperando';
+
+  @override
+  String get enableVibration => 'Activar vibración';
+
+  @override
+  String get enableSound => 'Activar sonido';
 }
 
 /// The translations for Spanish Castilian, as used in Latin America and the Caribbean (`es_419`).
@@ -820,4 +838,22 @@ class AppLocalizationsEs419 extends AppLocalizationsEs {
 
   @override
   String get haveUserAccount => '¿Ya tienes una cuenta? Inicia sesión';
+
+  @override
+  String get statusListening => 'Escuchando';
+
+  @override
+  String get statusThinking => 'Pensando';
+
+  @override
+  String get statusSpeaking => 'Hablando';
+
+  @override
+  String get statusWaiting => 'Esperando';
+
+  @override
+  String get enableVibration => 'Activar vibración';
+
+  @override
+  String get enableSound => 'Activar sonido';
 }

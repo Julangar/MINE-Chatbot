@@ -411,4 +411,22 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get haveUserAccount => 'Уже есть аккаунт? Войти';
+
+  @override
+  String get statusListening => 'Слушает';
+
+  @override
+  String get statusThinking => 'Думает';
+
+  @override
+  String get statusSpeaking => 'Говорит';
+
+  @override
+  String get statusWaiting => 'Ожидает';
+
+  @override
+  String get enableVibration => 'Включить вибрацию';
+
+  @override
+  String get enableSound => 'Включить звук';
 }

@@ -411,4 +411,22 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get haveUserAccount => 'क्या आपके पास पहले से एक खाता है? साइन इन करें';
+
+  @override
+  String get statusListening => 'सुन रहा है';
+
+  @override
+  String get statusThinking => 'सोच रहा है';
+
+  @override
+  String get statusSpeaking => 'बोल रहा है';
+
+  @override
+  String get statusWaiting => 'इंतजार कर रहा है';
+
+  @override
+  String get enableVibration => 'वाइब्रेशन सक्षम करें';
+
+  @override
+  String get enableSound => 'ध्वनि सक्षम करें';
 }

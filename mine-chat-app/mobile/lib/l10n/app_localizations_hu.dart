@@ -411,4 +411,22 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get haveUserAccount => 'Már van fiókja? Jelentkezzen be';
+
+  @override
+  String get statusListening => 'Hallgat';
+
+  @override
+  String get statusThinking => 'Gondolkodik';
+
+  @override
+  String get statusSpeaking => 'Beszél';
+
+  @override
+  String get statusWaiting => 'Várakozik';
+
+  @override
+  String get enableVibration => 'Rezgés engedélyezése';
+
+  @override
+  String get enableSound => 'Hang engedélyezése';
 }

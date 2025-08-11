@@ -411,4 +411,22 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get haveUserAccount => 'Έχετε ήδη λογαριασμό; Συνδεθείτε';
+
+  @override
+  String get statusListening => 'Ακούει';
+
+  @override
+  String get statusThinking => 'Σκέφτεται';
+
+  @override
+  String get statusSpeaking => 'Μιλάει';
+
+  @override
+  String get statusWaiting => 'Περιμένει';
+
+  @override
+  String get enableVibration => 'Ενεργοποίηση δόνησης';
+
+  @override
+  String get enableSound => 'Ενεργοποίηση ήχου';
 }

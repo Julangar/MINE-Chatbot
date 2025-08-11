@@ -157,5 +157,11 @@
   "enterValidEmail": "Vui lòng nhập email hợp lệ.",
   "completeAll": "Tất cả các trường là bắt buộc",
   "badPassword": "Mật khẩu phải có ít nhất 8 ký tự và bao gồm chữ hoa, ký tự đặc biệt và số để đăng ký trong ứng dụng.",
-  "haveUserAccount": "Đã có tài khoản? Đăng nhập"
+  "haveUserAccount": "Đã có tài khoản? Đăng nhập",
+  "statusListening": "Đang nghe",
+  "statusThinking": "Đang suy nghĩ",
+  "statusSpeaking": "Đang nói",
+  "statusWaiting": "Đang chờ",
+  "enableVibration": "Bật rung",
+  "enableSound": "Bật âm thanh"
 }

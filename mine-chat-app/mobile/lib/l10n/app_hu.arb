@@ -157,5 +157,11 @@
   "enterValidEmail": "Kérjük, adjon meg egy érvényes e-mail címet.",
   "completeAll": "Minden mező kitöltése kötelező",
   "badPassword": "A jelszónak legalább 8 karakterből kell állnia, és tartalmaznia kell nagybetűt, speciális karaktert és számot az alkalmazásban való regisztrációhoz.",
-  "haveUserAccount": "Már van fiókja? Jelentkezzen be"
+  "haveUserAccount": "Már van fiókja? Jelentkezzen be",
+  "statusListening": "Hallgat",
+  "statusThinking": "Gondolkodik",
+  "statusSpeaking": "Beszél",
+  "statusWaiting": "Várakozik",
+  "enableVibration": "Rezgés engedélyezése",
+  "enableSound": "Hang engedélyezése"
 }

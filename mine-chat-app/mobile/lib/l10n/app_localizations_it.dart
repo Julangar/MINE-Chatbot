@@ -411,4 +411,22 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get haveUserAccount => 'Hai già un account? Accedi';
+
+  @override
+  String get statusListening => 'In ascolto';
+
+  @override
+  String get statusThinking => 'Sta pensando';
+
+  @override
+  String get statusSpeaking => 'Parlando';
+
+  @override
+  String get statusWaiting => 'In attesa';
+
+  @override
+  String get enableVibration => 'Abilita vibrazione';
+
+  @override
+  String get enableSound => 'Abilita suono';
 }

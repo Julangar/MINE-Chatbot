@@ -157,5 +157,11 @@
   "enterValidEmail": "请输入有效的电子邮件。",
   "completeAll": "所有字段均为必填",
   "badPassword": "密码必须至少包含8个字符，并且包含大写字母、特殊字符和数字才能在应用中注册。",
-  "haveUserAccount": "已经有账号？ 登录"
+  "haveUserAccount": "已经有账号？ 登录",
+  "statusListening": "正在聆听",
+  "statusThinking": "思考中",
+  "statusSpeaking": "正在说话",
+  "statusWaiting": "等待中",
+  "enableVibration": "启用振动",
+  "enableSound": "启用声音"
 }

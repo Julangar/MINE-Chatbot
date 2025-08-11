@@ -411,4 +411,22 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get haveUserAccount => 'Вече имате акаунт? Влезте';
+
+  @override
+  String get statusListening => 'Слуша';
+
+  @override
+  String get statusThinking => 'Мисли';
+
+  @override
+  String get statusSpeaking => 'Говори';
+
+  @override
+  String get statusWaiting => 'Чака';
+
+  @override
+  String get enableVibration => 'Включване на вибрацията';
+
+  @override
+  String get enableSound => 'Включване на звука';
 }

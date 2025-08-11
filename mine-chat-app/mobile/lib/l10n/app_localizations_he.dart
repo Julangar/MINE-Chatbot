@@ -411,4 +411,22 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get haveUserAccount => 'כבר יש לך חשבון? התחבר';
+
+  @override
+  String get statusListening => 'מקשיב';
+
+  @override
+  String get statusThinking => 'חושב';
+
+  @override
+  String get statusSpeaking => 'מדבר';
+
+  @override
+  String get statusWaiting => 'ממתין';
+
+  @override
+  String get enableVibration => 'הפעל רטט';
+
+  @override
+  String get enableSound => 'הפעל קול';
 }

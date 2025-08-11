@@ -411,6 +411,24 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get haveUserAccount => 'Já tem uma conta? Entrar';
+
+  @override
+  String get statusListening => 'Ouvindo';
+
+  @override
+  String get statusThinking => 'Pensando';
+
+  @override
+  String get statusSpeaking => 'Falando';
+
+  @override
+  String get statusWaiting => 'Aguardando';
+
+  @override
+  String get enableVibration => 'Ativar vibração';
+
+  @override
+  String get enableSound => 'Ativar som';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -820,4 +838,22 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get haveUserAccount => 'Já tem uma conta? Entrar';
+
+  @override
+  String get statusListening => 'Ouvindo';
+
+  @override
+  String get statusThinking => 'Pensando';
+
+  @override
+  String get statusSpeaking => 'Falando';
+
+  @override
+  String get statusWaiting => 'Aguardando';
+
+  @override
+  String get enableVibration => 'Ativar vibração';
+
+  @override
+  String get enableSound => 'Ativar som';
 }

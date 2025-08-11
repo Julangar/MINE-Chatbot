@@ -157,5 +157,11 @@
   "enterValidEmail": "有効なメールアドレスを入力してください。",
   "completeAll": "すべての項目は必須です",
   "badPassword": "パスワードは8文字以上で、大文字、特殊文字、数字を含める必要があります（アプリ登録用）。",
-  "haveUserAccount": "すでにアカウントをお持ちですか？ ログイン"
+  "haveUserAccount": "すでにアカウントをお持ちですか？ ログイン",
+  "statusListening": "聞いています",
+  "statusThinking": "考えています",
+  "statusSpeaking": "話しています",
+  "statusWaiting": "待機中",
+  "enableVibration": "バイブレーションを有効にする",
+  "enableSound": "サウンドを有効にする"
 }

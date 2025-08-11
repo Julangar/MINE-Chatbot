@@ -157,5 +157,11 @@
   "enterValidEmail": "Lütfen geçerli bir e-posta giriniz.",
   "completeAll": "Tüm alanlar gereklidir",
   "badPassword": "Parola en az 8 karakter olmalı ve uygulamaya kayıt için büyük harfler, özel karakterler ve rakamlar içermelidir.",
-  "haveUserAccount": "Zaten bir hesabınız var mı? Giriş yapın"
+  "haveUserAccount": "Zaten bir hesabınız var mı? Giriş yapın",
+  "statusListening": "Dinliyor",
+  "statusThinking": "Düşünüyor",
+  "statusSpeaking": "Konuşuyor",
+  "statusWaiting": "Bekliyor",
+  "enableVibration": "Titreşimi etkinleştir",
+  "enableSound": "Sesi etkinleştir"
 }

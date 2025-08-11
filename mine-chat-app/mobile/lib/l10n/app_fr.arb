@@ -157,5 +157,11 @@
   "enterValidEmail": "Veuillez entrer un e-mail valide.",
   "completeAll": "Tous les champs sont obligatoires",
   "badPassword": "Le mot de passe doit comporter au moins 8 caractères et inclure des lettres majuscules, des caractères spéciaux et des chiffres pour s'inscrire dans l'application.",
-  "haveUserAccount": "Vous avez déjà un compte ? Connectez-vous"
+  "haveUserAccount": "Vous avez déjà un compte ? Connectez-vous",
+  "statusListening": "Écoute",
+  "statusThinking": "Réflexion",
+  "statusSpeaking": "Parle",
+  "statusWaiting": "En attente",
+  "enableVibration": "Activer la vibration",
+  "enableSound": "Activer le son"
 }

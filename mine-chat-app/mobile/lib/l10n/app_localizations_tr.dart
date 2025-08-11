@@ -411,4 +411,22 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get haveUserAccount => 'Zaten bir hesabınız var mı? Giriş yapın';
+
+  @override
+  String get statusListening => 'Dinliyor';
+
+  @override
+  String get statusThinking => 'Düşünüyor';
+
+  @override
+  String get statusSpeaking => 'Konuşuyor';
+
+  @override
+  String get statusWaiting => 'Bekliyor';
+
+  @override
+  String get enableVibration => 'Titreşimi etkinleştir';
+
+  @override
+  String get enableSound => 'Sesi etkinleştir';
 }

@@ -411,4 +411,22 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get haveUserAccount => '이미 계정이 있으신가요? 로그인';
+
+  @override
+  String get statusListening => '듣는 중';
+
+  @override
+  String get statusThinking => '생각 중';
+
+  @override
+  String get statusSpeaking => '말하는 중';
+
+  @override
+  String get statusWaiting => '기다리는 중';
+
+  @override
+  String get enableVibration => '진동 켜기';
+
+  @override
+  String get enableSound => '소리 켜기';
 }

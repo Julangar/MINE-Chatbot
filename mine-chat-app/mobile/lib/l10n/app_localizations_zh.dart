@@ -411,4 +411,22 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get haveUserAccount => '已经有账号？ 登录';
+
+  @override
+  String get statusListening => '正在聆听';
+
+  @override
+  String get statusThinking => '思考中';
+
+  @override
+  String get statusSpeaking => '正在说话';
+
+  @override
+  String get statusWaiting => '等待中';
+
+  @override
+  String get enableVibration => '启用振动';
+
+  @override
+  String get enableSound => '启用声音';
 }

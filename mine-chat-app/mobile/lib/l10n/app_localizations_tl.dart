@@ -411,4 +411,22 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get haveUserAccount => 'May account ka na? Mag-sign in';
+
+  @override
+  String get statusListening => 'Nakikinig';
+
+  @override
+  String get statusThinking => 'Nag-iisip';
+
+  @override
+  String get statusSpeaking => 'Nagsasalita';
+
+  @override
+  String get statusWaiting => 'Naghihintay';
+
+  @override
+  String get enableVibration => 'Paganahin ang vibration';
+
+  @override
+  String get enableSound => 'Paganahin ang tunog';
 }

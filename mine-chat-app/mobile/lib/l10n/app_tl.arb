@@ -157,5 +157,11 @@
   "enterValidEmail": "Pakilagay ang wastong email.",
   "completeAll": "Kinakailangan ang lahat ng patlang",
   "badPassword": "Ang password ay dapat may hindi bababa sa 8 character at may kasamang uppercase letters, special characters, at numeric characters para sa pagpaparehistro sa app.",
-  "haveUserAccount": "May account ka na? Mag-sign in"
+  "haveUserAccount": "May account ka na? Mag-sign in",
+  "statusListening": "Nakikinig",
+  "statusThinking": "Nag-iisip",
+  "statusSpeaking": "Nagsasalita",
+  "statusWaiting": "Naghihintay",
+  "enableVibration": "Paganahin ang vibration",
+  "enableSound": "Paganahin ang tunog"
 }

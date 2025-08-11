@@ -411,4 +411,22 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get haveUserAccount => 'Đã có tài khoản? Đăng nhập';
+
+  @override
+  String get statusListening => 'Đang nghe';
+
+  @override
+  String get statusThinking => 'Đang suy nghĩ';
+
+  @override
+  String get statusSpeaking => 'Đang nói';
+
+  @override
+  String get statusWaiting => 'Đang chờ';
+
+  @override
+  String get enableVibration => 'Bật rung';
+
+  @override
+  String get enableSound => 'Bật âm thanh';
 }

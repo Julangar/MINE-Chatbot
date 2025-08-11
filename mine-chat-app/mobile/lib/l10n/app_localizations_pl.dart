@@ -411,4 +411,22 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get haveUserAccount => 'Masz już konto? Zaloguj się';
+
+  @override
+  String get statusListening => 'Słuchanie';
+
+  @override
+  String get statusThinking => 'Myśli';
+
+  @override
+  String get statusSpeaking => 'Mówi';
+
+  @override
+  String get statusWaiting => 'Czeka';
+
+  @override
+  String get enableVibration => 'Włącz wibracje';
+
+  @override
+  String get enableSound => 'Włącz dźwięk';
 }

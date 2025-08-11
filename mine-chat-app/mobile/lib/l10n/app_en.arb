@@ -133,5 +133,11 @@
   "error": "Error: {error}",
   "completeAll": "All fields are required",
   "badPassword": "Password must be at least 8 characters and require uppercase letters, special characters, and numeric characters for registration in the app.",
-  "haveUserAccount": "Already have an account? Sign In"
+  "haveUserAccount": "Already have an account? Sign In",
+  "statusListening": "Listening",
+  "statusThinking": "Thinking",
+  "statusSpeaking": "Speaking",
+  "statusWaiting": "Waiting",
+  "enableVibration": "Enable vibration",
+  "enableSound": "Enable sound"
 }

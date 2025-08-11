@@ -411,4 +411,22 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get haveUserAccount => 'すでにアカウントをお持ちですか？ ログイン';
+
+  @override
+  String get statusListening => '聞いています';
+
+  @override
+  String get statusThinking => '考えています';
+
+  @override
+  String get statusSpeaking => '話しています';
+
+  @override
+  String get statusWaiting => '待機中';
+
+  @override
+  String get enableVibration => 'バイブレーションを有効にする';
+
+  @override
+  String get enableSound => 'サウンドを有効にする';
 }

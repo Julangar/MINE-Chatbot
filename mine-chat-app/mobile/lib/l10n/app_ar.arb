@@ -157,5 +157,11 @@
   "enterValidEmail": "يرجى إدخال بريد إلكتروني صالح.",
   "completeAll": "جميع الحقول مطلوبة",
   "badPassword": "يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل وتشمل أحرفًا كبيرة وأحرفًا خاصة وأرقامًا للتسجيل في التطبيق.",
-  "haveUserAccount": "هل لديك حساب بالفعل؟ تسجيل الدخول"
+  "haveUserAccount": "هل لديك حساب بالفعل؟ تسجيل الدخول",
+  "statusListening": "يستمع",
+  "statusThinking": "يفكر",
+  "statusSpeaking": "يتحدث",
+  "statusWaiting": "ينتظر",
+  "enableVibration": "تفعيل الاهتزاز",
+  "enableSound": "تفعيل الصوت"
 }

@@ -157,5 +157,11 @@
   "enterValidEmail": "Моля, въведете валиден имейл.",
   "completeAll": "Всички полета са задължителни",
   "badPassword": "Паролата трябва да бъде поне 8 символа и да включва главни букви, специални символи и цифри за регистрация в приложението.",
-  "haveUserAccount": "Вече имате акаунт? Влезте"
+  "haveUserAccount": "Вече имате акаунт? Влезте",
+  "statusListening": "Слуша",
+  "statusThinking": "Мисли",
+  "statusSpeaking": "Говори",
+  "statusWaiting": "Чака",
+  "enableVibration": "Включване на вибрацията",
+  "enableSound": "Включване на звука"
 }
