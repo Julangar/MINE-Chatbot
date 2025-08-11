@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../models/avatar.dart';
 import '../providers/avatar_provider.dart';
+import '../services/avatar_service.dart';
 import 'package:mine_app/l10n/app_localizations.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:file_selector/file_selector.dart';
@@ -156,6 +157,8 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
       bucket: "mine-app-test"
     );
     dynamic imageUrl;
+    dynamic imageUrlCloudinary;
+    dynamic audioUrlCloudinary;
     dynamic audioUrl;
     dynamic videoUrl;
     // Solo sube lo que el usuario agregó
@@ -163,11 +166,13 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
       final ref = storage.ref().child('avatars/$userId/$_avatarType/image/photo.jpeg');
       await ref.putFile(_photo!);
       imageUrl = await ref.getDownloadURL();
+      imageUrlCloudinary = await AvatarService.uploadImageToCloudinary(imageUrl, userId, _avatarType);
     }
     if (_audio != null) {
       final ref = storage.ref().child('avatars/$userId/$_avatarType/audio/audio.mp3');
       await ref.putFile(_audio!);
       audioUrl = await ref.getDownloadURL();
+      audioUrlCloudinary = await AvatarService.uploadAudioToCloudinary(audioUrl, userId, _avatarType);
     }
     if (_video != null) {
       final ref = storage.ref().child('avatars/$userId/$_avatarType/video/video.mp4');
@@ -187,8 +192,8 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
     .doc(userId)
     .collection(_avatarType)
     .doc('personality').update({
-      'imageUrl': imageUrl,
-      'audioUrl': audioUrl,
+      'imageUrl': imageUrlCloudinary,
+      'audioUrl': audioUrlCloudinary,
       'videoUrl': videoUrl,
     });
     final data = doc.data() ?? {};

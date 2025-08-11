@@ -3,6 +3,7 @@ const { buildSystemPrompt } = require('../utils/generatePrompt');
 const openaiService = require('../services/openaiService');
 const elevenlabsService = require('../services/elevenlabsService');
 const didService = require('../services/didService');
+const cloudinaryService = require('../services/cloudinaryService');
 
 async function generateGreeting(req, res) {
   const { userId, avatarType, userLanguage } = req.body;

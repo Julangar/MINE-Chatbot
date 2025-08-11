@@ -14,6 +14,38 @@ const { createWriteStream } = require('fs');
 const path = require('path');
 // Controlador para manejar las operaciones relacionadas con los avatares
 
+exports.uploadImageToCloudinary = async (req, res) => {
+  const { filePath, userId, avatarType } = req.body;
+
+  if (!filePath || !userId || !avatarType) {
+    return res.status(400).json({ error: 'Faltan campos requeridos' });
+  }
+
+  try {
+    const imageUrl = await uploadImage(filePath, userId, avatarType);
+    res.json({ success: true, imageUrl });
+  } catch (err) {
+    console.error('Error al subir imagen a Cloudinary:', err);
+    res.status(500).json({ error: 'Error al subir imagen a Cloudinary' });
+  }
+};
+
+exports.uploadAudioToCloudinary = async (req, res) => {
+  const { filePath, userId, avatarType } = req.body;
+
+  if (!filePath || !userId || !avatarType) {
+    return res.status(400).json({ error: 'Faltan campos requeridos' });
+  }
+
+  try {
+    const audioUrl = await uploadAudio(filePath, userId, avatarType);
+    res.json({ success: true, audioUrl });
+  } catch (err) {
+    console.error('Error al subir audio a Cloudinary:', err);
+    res.status(500).json({ error: 'Error al subir audio a Cloudinary' });
+  }
+};
+
 // 1. Clonar voz
 exports.cloneVoice = async (req, res) => {
   const { audioUrl, userId, avatarType } = req.body;
@@ -237,10 +269,10 @@ exports.generateAvatarVideoWithAudio = async (req, res) => {
     const image = imageSnap.data().imageUrl;
 
     // 2. Subir imagen a Cloudinary
-    const resultImage = await uploadImage(image, userId, avatarType);
-    if (!resultImage) return res.status(500).json({ error: 'Error uploading to Cloudinary (image)' });
-    const imageUrl = resultImage.secure_url;
-    console.log('Image: ', imageUrl);
+    //const resultImage = await uploadImage(image, userId, avatarType);
+    //if (!resultImage) return res.status(500).json({ error: 'Error uploading to Cloudinary (image)' });
+    //const imageUrl = resultImage.secure_url;
+    console.log('Image: ', image);
 
     // 3. Obtener audio
     const audioSnap = await admin.firestore()
@@ -255,14 +287,14 @@ exports.generateAvatarVideoWithAudio = async (req, res) => {
     //await firebaseService.downloadAudio(voice, tempPathAudio);
 
     // 4. Subir audio a Cloudinary
-    const resultAudio = await uploadAudio(voice, userId, avatarType);
-    if (!resultAudio) return res.status(500).json({ error: 'Error uploading to Cloudinary (audio)' });
-    const audioUrl = resultAudio.secure_url;
-    console.log('Audio Cloudinary: ', audioUrl);
+    //const resultAudio = await uploadAudio(voice, userId, avatarType);
+    //if (!resultAudio) return res.status(500).json({ error: 'Error uploading to Cloudinary (audio)' });
+    //const audioUrl = resultAudio.secure_url;
+    console.log('Audio Cloudinary: ', voice);
     // 5. Generar video con D-ID
     const videoResp = await didService.generateAvatarVideoWithAudio({
-      source_image_url: imageUrl,
-      audio_url: audioUrl,
+      source_image_url: image,
+      audio_url: voice,
     });
     const talkId = videoResp?.id;
     if (!talkId) {

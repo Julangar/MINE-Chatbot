@@ -16,5 +16,7 @@ router.post('/generate-greeting', avatarController.generateGreeting);
 router.post('/generate-voice', avatarController.generateVoiceFromText);
 router.post('/generate-video', avatarController.generateAvatarVideo);
 router.post('/generate-video-audio', avatarController.generateAvatarVideoWithAudio);
+router.post('/upload-audio', avatarController.uploadAudioToCloudinary);
+router.post('/upload-image', avatarController.uploadImageToCloudinary);
 
 module.exports = router;

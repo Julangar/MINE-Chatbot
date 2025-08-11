@@ -1,6 +1,6 @@
 const axios = require('axios');
 const admin = require('firebase-admin');
-const { uploadImage, uploadAudio } = require('../services/cloudinaryService');
+const { uploadAudioBuffer } = require('../services/cloudinaryService');
 const https = require('https');
 const FormData = require('form-data');
 const fs = require('fs');
@@ -80,19 +80,34 @@ async function generateSpeechFromClonedVoice(text, userId, avatarType, voiceId) 
         text,
         model_id: 'eleven_multilingual_v2',
         voice_settings: {
-          stability: 0.4,
-          similarity_boost: 0.85
+          stability: 0.3,
+          similarity_boost: 0.95,
+          use_speaker_boost: true
         }
       },
       { responseType: 'arraybuffer' }
     );
 
+
     const buffer = Buffer.from(response.data, 'binary');
 
-    // 1. Guardar archivo temporalmente en el sistema local
-    const tempDir = os.tmpdir();
-    const filename = `audio_${uuidv4()}.mp3`;
-    const tempPath = path.join(tempDir, filename);
+    // Subir directamente a Cloudinary sin guardar en disco. Cloudinary trata
+    // los archivos de audio como 'video', por lo que reutilizamos la función
+    // uploadAudioBuffer definida en cloudinaryService. La función devuelve
+    // la URL segura del audio.
+    const url = await uploadAudioBuffer(buffer, userId, avatarType);
+    return url;
+  } catch (error) {
+    console.error('❌ Error en generateSpeechFromClonedVoice:', error?.response?.data || error.message);
+    throw new Error('Error al generar y subir el audio con voz clonada');
+  }
+}
+
+/*
+  // 1. Guardar archivo temporalmente en el sistema local
+  const tempDir = os.tmpdir();
+  const filename = `audio_${uuidv4()}.mp3`;
+  const tempPath = path.join(tempDir, filename);
     fs.writeFileSync(tempPath, buffer);
 
     // 2. Definir ruta en Firebase Storage
@@ -121,7 +136,7 @@ async function generateSpeechFromClonedVoice(text, userId, avatarType, voiceId) 
     console.error('❌ Error en generateSpeechFromClonedVoice:', error?.response?.data || error.message);
     throw new Error('Error al generar y subir el audio con voz clonada');
   }
-}
+}*/
 
 
 module.exports = {

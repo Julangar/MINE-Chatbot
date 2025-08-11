@@ -100,7 +100,7 @@ class AvatarService {
     return null;
   }
 
-static Future<String?> fetchClonedAudioUrl(String userId, String avatarType) async {
+  static Future<String?> fetchClonedAudioUrl(String userId, String avatarType) async {
     final doc = await FirebaseFirestore.instance
         .collection('avatars')
         .doc(userId)
@@ -110,7 +110,7 @@ static Future<String?> fetchClonedAudioUrl(String userId, String avatarType) asy
     return doc.data()?['audioUrl'];
   }
 
-static Future<String> fetchVideoUrl(String userId, String avatarType) async {
+  static Future<String> fetchVideoUrl(String userId, String avatarType) async {
     final doc = await FirebaseFirestore.instance
         .collection('avatars')
         .doc(userId)
@@ -118,6 +118,33 @@ static Future<String> fetchVideoUrl(String userId, String avatarType) async {
         .doc('video')
         .get();
     return doc.data()?['videoUrl'];
+  }
+
+  static Future<String> uploadAudioToCloudinary(String filePath, String userId, String avatarType) async {
+    final urlResponse = await http.post(Uri.parse('$baseUrl/api/avatar/upload-audio'
+    ), body: jsonEncode({
+      'filePath': filePath,
+      'userId': userId,
+      'avatarType': avatarType,
+    }), headers: {'Content-Type': 'application/json'});
+    if (urlResponse.statusCode == 200) {
+      return jsonDecode(urlResponse.body)['audioUrl'];
+    } else {
+      throw Exception("Error al subir audio a Cloudinary");
+    }
+  }
+
+  static Future<String> uploadImageToCloudinary(String filePath, String userId, String avatarType) async {
+    final urlResponse = await http.post(Uri.parse('$baseUrl/api/avatar/upload-image'), body: jsonEncode({
+      'filePath': filePath,
+      'userId': userId,
+      'avatarType': avatarType,
+    }), headers: {'Content-Type': 'application/json'});
+    if (urlResponse.statusCode == 200) {
+      return jsonDecode(urlResponse.body)['imageUrl'];
+    } else {
+      throw Exception("Error al subir imagen a Cloudinary");
+    }
   }
 
   static Future<void> saveAvatarPersonality(
