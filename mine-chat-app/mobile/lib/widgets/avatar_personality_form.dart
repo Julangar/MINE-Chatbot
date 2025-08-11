@@ -142,7 +142,7 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
             const SizedBox(height: 24),
             DropdownButtonFormField(
               value: speakingStyle,
-              dropdownColor: Colors.grey,
+              dropdownColor: const Color.fromARGB(255, 0, 0, 0),
               decoration: InputDecoration(
                 labelText: t.avatar_form_speaking_style_label,
                 labelStyle: const TextStyle(color: Colors.white),
