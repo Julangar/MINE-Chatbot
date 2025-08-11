@@ -321,8 +321,8 @@ exports.generateAvatarVideoWithAudio = async (req, res) => {
     // 7. RESPUESTA ÚNICA AL FINAL
     return res.json({
       success: true,
-      imageUrl,
-      audioUrl,
+      image,
+      audio: voice,
       videoUrl
     });
   } catch (err) {

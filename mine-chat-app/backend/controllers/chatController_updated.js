@@ -237,7 +237,7 @@ async function sendVideo(req, res) {
     if (!imagePath) {
       return res.status(400).json({ error: 'No se ha configurado una imagen para este avatar.' });
     }
-    const imageUrl = firebaseService.getPublicUrl(imagePath);
+    const imageUrl = imagePath
 
     // Retrieve voiceId
     const voiceSnap = await db.collection('avatars')
