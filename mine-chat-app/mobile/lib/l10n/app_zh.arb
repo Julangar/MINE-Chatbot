@@ -169,5 +169,8 @@
   "avatarGuideAudio": "上传或录制至少15秒清晰无背景噪音的语音。",
   "avatarGuideVideo": "如果上传视频，请确保只出现一个人且没有背景噪音。",
   "audioPreviewInfo": "使用播放器查看您的音频。本版本不提供剪辑功能。",
-  "audioTooShort": "音频长度必须至少为15秒。"
+  "audioTooShort": "音频长度必须至少为15秒。",
+  "cameraPermissionDenied": "需要相机权限才能拍照或录制视频。",
+  "storagePermissionDenied": "需要存储权限才能从图库中选择文件。",
+  "microphonePermissionDenied": "需要麦克风权限才能录制音频或视频。"
 }

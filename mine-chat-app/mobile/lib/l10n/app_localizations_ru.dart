@@ -447,4 +447,13 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get audioTooShort => 'Аудио должно длиться не менее 15 секунд.';
+
+  @override
+  String get cameraPermissionDenied => 'Для съемки фото или записи видео требуется разрешение на использование камеры.';
+
+  @override
+  String get storagePermissionDenied => 'Для выбора файлов из галереи требуется разрешение на доступ к хранилищу.';
+
+  @override
+  String get microphonePermissionDenied => 'Для записи аудио или видео требуется разрешение на использование микрофона.';
 }

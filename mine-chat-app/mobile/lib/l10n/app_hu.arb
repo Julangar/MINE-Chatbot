@@ -169,5 +169,8 @@
   "avatarGuideAudio": "Töltsön fel vagy rögzítsen legalább 15 másodperc tiszta hangot háttérzaj nélkül.",
   "avatarGuideVideo": "Ha videót tölt fel, győződjön meg róla, hogy csak egy személy szerepel benne, és nincs háttérzaj.",
   "audioPreviewInfo": "Használja a lejátszót a hang ellenőrzéséhez. A vágás ebben a verzióban nem érhető el.",
-  "audioTooShort": "A hang legalább 15 másodperc hosszú legyen."
+  "audioTooShort": "A hang legalább 15 másodperc hosszú legyen.",
+  "cameraPermissionDenied": "A fényképek készítéséhez vagy videók rögzítéséhez kamerajogosultság szükséges.",
+  "storagePermissionDenied": "A galériából való fájlkiválasztáshoz tárhelyhozzáférési engedély szükséges.",
+  "microphonePermissionDenied": "Hang vagy videó rögzítéséhez mikrofonengedély szükséges."
 }

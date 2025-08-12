@@ -447,4 +447,13 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get audioTooShort => 'Das Audio muss mindestens 15 Sekunden lang sein.';
+
+  @override
+  String get cameraPermissionDenied => 'Die Kameraberechtigung ist erforderlich, um Fotos zu machen oder Videos aufzunehmen.';
+
+  @override
+  String get storagePermissionDenied => 'Die Speicherberechtigung ist erforderlich, um Dateien aus Ihrer Galerie auszuwählen.';
+
+  @override
+  String get microphonePermissionDenied => 'Die Mikrofonberechtigung ist erforderlich, um Audio oder Video aufzunehmen.';
 }

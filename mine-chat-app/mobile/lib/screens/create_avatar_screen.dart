@@ -19,6 +19,9 @@ import 'package:path_provider/path_provider.dart';
 import 'package:record/record.dart';
 import '../widgets/banner_message.dart';
 
+// Gestión de permisos en tiempo de ejecución
+import 'package:permission_handler/permission_handler.dart';
+
 // Future: audio trimming functionality could be added using packages like
 // `audio_trimmer` or `ffmpeg_kit_flutter`. For now we only provide playback
 // controls and a progress slider so the user can review their recording.
@@ -45,10 +48,35 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
   Duration _audioPosition = Duration.zero;
   bool _isPlayingAudio = false;
 
+  /// Solicita un permiso y muestra un SnackBar si no se concede. Devuelve
+  /// `true` si el permiso fue otorgado, de lo contrario `false`.
+  Future<bool> _ensurePermission(Permission permission, String message) async {
+    final status = await permission.request();
+    if (status == PermissionStatus.granted) {
+      return true;
+    }
+    if (!mounted) return false;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message), backgroundColor: Colors.red),
+    );
+    return false;
+  }
 
-  // Variables para almacenar la duración y la posición actuales del audio.
-  // Ya no se implementa recorte de audio desde la app; únicamente se
-  // proporciona una previsualización con control de reproducción.
+  /// Devuelve el permiso correcto para acceder a la galería según la
+  /// plataforma. En iOS es [Permission.photos] y en Android [Permission.storage].
+  Permission _galleryPermission() {
+    if (Platform.isIOS) {
+      return Permission.photos;
+    }
+    return Permission.storage;
+  }
+
+  // Campos para control de recorte de audio (inicio y fin en milisegundos). En
+  // esta implementación se usan únicamente para mostrar una vista previa
+  // interactiva; recortes efectivos podrían realizarse en el servidor o con
+  // bibliotecas adicionales.
+  double _audioTrimStartMs = 0;
+  double _audioTrimEndMs = 0;
 
   /// Devuelve un widget con la guía para que el usuario cargue correctamente
   /// los recursos de su avatar. Los textos se extraen de las localizaciones
@@ -144,6 +172,8 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
     }
     final max = _audioDuration.inMilliseconds.toDouble();
     final position = _audioPosition.inMilliseconds.toDouble().clamp(0.0, max);
+    // Asegurar que los límites de recorte se ajusten a la duración actual
+    _audioTrimEndMs = max;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -174,8 +204,7 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
           ],
         ),
         const SizedBox(height: 4),
-        // Información sobre la previsualización del audio. No se realiza
-        // recorte desde la aplicación.
+        // Información sobre recorte (no funcional en esta versión)
         Text(
           AppLocalizations.of(context)!.audioPreviewInfo,
           style: const TextStyle(color: Colors.white54, fontSize: 12),
@@ -280,6 +309,12 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
 
   // Foto desde cámara
   Future<void> _takePhoto() async {
+    // Solicitar permiso de cámara antes de intentar abrirla
+    final hasCamera = await _ensurePermission(
+      Permission.camera,
+      AppLocalizations.of(context)!.cameraPermissionDenied,
+    );
+    if (!hasCamera) return;
     final picker = ImagePicker();
     final picked = await picker.pickImage(source: ImageSource.camera);
     if (picked != null) {
@@ -295,6 +330,13 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
 
   // Foto desde galería
   Future<void> _pickPhoto() async {
+    // Solicitar permiso de almacenamiento/fotos según plataforma
+    final galleryPerm = _galleryPermission();
+    final hasStorage = await _ensurePermission(
+      galleryPerm,
+      AppLocalizations.of(context)!.storagePermissionDenied,
+    );
+    if (!hasStorage) return;
     final picker = ImagePicker();
     final picked = await picker.pickImage(source: ImageSource.gallery);
     if (picked != null) {
@@ -310,6 +352,22 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
 
   // Video (cámara o galería)
   Future<void> _pickVideo() async {
+    // Solicitar permisos relevantes: cámara y micrófono para grabar,
+    // almacenamiento para seleccionar desde la galería
+    final hasCamera = await _ensurePermission(
+      Permission.camera,
+      AppLocalizations.of(context)!.cameraPermissionDenied,
+    );
+    final hasMicrophone = await _ensurePermission(
+      Permission.microphone,
+      AppLocalizations.of(context)!.microphonePermissionDenied,
+    );
+    final galleryPerm = _galleryPermission();
+    final hasStorage = await _ensurePermission(
+      galleryPerm,
+      AppLocalizations.of(context)!.storagePermissionDenied,
+    );
+    if (!hasCamera || !hasMicrophone || !hasStorage) return;
     final picker = ImagePicker();
     final picked = await showModalBottomSheet<XFile?>(
       context: context,
@@ -343,6 +401,13 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
 
   // Audio (solo selector)
   Future<void> _pickAudio() async {
+    // Solicitar permiso de almacenamiento para acceder a archivos
+    final galleryPerm = _galleryPermission();
+    final hasStorage = await _ensurePermission(
+      galleryPerm,
+      AppLocalizations.of(context)!.storagePermissionDenied,
+    );
+    if (!hasStorage) return;
     final file = await openFile(acceptedTypeGroups: [
       XTypeGroup(label: 'audio', extensions: ['mp3', 'wav', 'aac']),
     ]);
@@ -357,6 +422,12 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
 
   // Grabar audio máximo 45 segundos
   Future<void> _startRecording() async {
+    // Solicitar permiso de micrófono antes de grabar
+    final hasMic = await _ensurePermission(
+      Permission.microphone,
+      AppLocalizations.of(context)!.microphonePermissionDenied,
+    );
+    if (!hasMic) return;
     if (await _recorder.hasPermission()) {
       Directory tempDir = await getTemporaryDirectory();
       String filePath = '${tempDir.path}/audio_${DateTime.now().millisecondsSinceEpoch}.m4a';

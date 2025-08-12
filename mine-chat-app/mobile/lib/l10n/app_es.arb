@@ -169,5 +169,8 @@
   "avatarGuideAudio": "Sube o graba al menos 15 segundos de voz clara sin ruido de fondo.",
   "avatarGuideVideo": "Si subes un vídeo, asegúrate de que solo aparezca una persona y sin ruido de fondo.",
   "audioPreviewInfo": "Utiliza el reproductor para revisar tu audio. El recorte no está disponible en esta versión.",
-  "audioTooShort": "El audio debe durar al menos 15 segundos."
+  "audioTooShort": "El audio debe durar al menos 15 segundos.",
+  "cameraPermissionDenied": "Se requiere permiso de la cámara para tomar fotos o grabar videos.",
+  "storagePermissionDenied": "Se requiere permiso de almacenamiento para seleccionar archivos de tu galería.",
+  "microphonePermissionDenied": "Se requiere permiso del micrófono para grabar audio o video."
 }

@@ -447,4 +447,13 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get audioTooShort => 'Ang audio ay dapat hindi bababa sa 15 segundo.';
+
+  @override
+  String get cameraPermissionDenied => 'Kinakailangan ang pahintulot sa camera upang kumuha ng mga larawan o mag-record ng mga video.';
+
+  @override
+  String get storagePermissionDenied => 'Kinakailangan ang pahintulot sa storage upang pumili ng mga file mula sa iyong gallery.';
+
+  @override
+  String get microphonePermissionDenied => 'Kinakailangan ang pahintulot sa mikropono upang mag-record ng audio o video.';
 }

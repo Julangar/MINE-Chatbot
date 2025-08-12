@@ -447,4 +447,13 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get audioTooShort => 'Ο ήχος πρέπει να διαρκεί τουλάχιστον 15 δευτερόλεπτα.';
+
+  @override
+  String get cameraPermissionDenied => 'Απαιτείται άδεια κάμερας για τη λήψη φωτογραφιών ή την εγγραφή βίντεο.';
+
+  @override
+  String get storagePermissionDenied => 'Απαιτείται άδεια αποθήκευσης για την επιλογή αρχείων από τη συλλογή σας.';
+
+  @override
+  String get microphonePermissionDenied => 'Απαιτείται άδεια μικροφώνου για την εγγραφή ήχου ή βίντεο.';
 }

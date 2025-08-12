@@ -169,5 +169,8 @@
   "avatarGuideAudio": "Tải lên hoặc ghi âm ít nhất 15 giây giọng nói rõ ràng không có tiếng ồn nền.",
   "avatarGuideVideo": "Nếu bạn tải lên video, hãy đảm bảo chỉ có một người xuất hiện và không có tiếng ồn nền.",
   "audioPreviewInfo": "Sử dụng trình phát để xem lại âm thanh của bạn. Tính năng cắt không khả dụng trong phiên bản này.",
-  "audioTooShort": "Âm thanh phải dài ít nhất 15 giây."
+  "audioTooShort": "Âm thanh phải dài ít nhất 15 giây.",
+  "cameraPermissionDenied": "Cần quyền truy cập máy ảnh để chụp ảnh hoặc quay video.",
+  "storagePermissionDenied": "Cần quyền lưu trữ để chọn tệp từ thư viện của bạn.",
+  "microphonePermissionDenied": "Cần quyền truy cập micro để ghi âm hoặc quay video."
 }

@@ -169,5 +169,8 @@
   "avatarGuideAudio": "Envie ou grave pelo menos 15 segundos de voz clara sem ruído de fundo.",
   "avatarGuideVideo": "Se enviar um vídeo, certifique-se de que apenas uma pessoa apareça e não haja ruído de fundo.",
   "audioPreviewInfo": "Use o reprodutor para revisar seu áudio. O corte não está disponível nesta versão.",
-  "audioTooShort": "O áudio deve ter pelo menos 15 segundos."
+  "audioTooShort": "O áudio deve ter pelo menos 15 segundos.",
+  "cameraPermissionDenied": "A permissão da câmera é necessária para tirar fotos ou gravar vídeos.",
+  "storagePermissionDenied": "A permissão de armazenamento é necessária para selecionar arquivos da sua galeria.",
+  "microphonePermissionDenied": "A permissão do microfone é necessária para gravar áudio ou vídeo."
 }

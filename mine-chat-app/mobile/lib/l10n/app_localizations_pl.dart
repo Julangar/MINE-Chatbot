@@ -447,4 +447,13 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get audioTooShort => 'Dźwięk musi trwać co najmniej 15 sekund.';
+
+  @override
+  String get cameraPermissionDenied => 'Wymagane jest zezwolenie na korzystanie z aparatu, aby robić zdjęcia lub nagrywać filmy.';
+
+  @override
+  String get storagePermissionDenied => 'Wymagane jest zezwolenie na dostęp do pamięci, aby wybrać pliki z galerii.';
+
+  @override
+  String get microphonePermissionDenied => 'Wymagane jest zezwolenie na korzystanie z mikrofonu, aby nagrywać dźwięk lub wideo.';
 }

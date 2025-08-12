@@ -169,5 +169,8 @@
   "avatarGuideAudio": "Laden Sie mindestens 15 Sekunden klare Stimme ohne Hintergrundgeräusche hoch oder nehmen Sie sie auf.",
   "avatarGuideVideo": "Wenn Sie ein Video hochladen, stellen Sie sicher, dass nur eine Person zu sehen ist und keine Hintergrundgeräusche vorhanden sind.",
   "audioPreviewInfo": "Verwenden Sie den Player, um Ihr Audio zu überprüfen. Zuschneiden ist in dieser Version nicht verfügbar.",
-  "audioTooShort": "Das Audio muss mindestens 15 Sekunden lang sein."
+  "audioTooShort": "Das Audio muss mindestens 15 Sekunden lang sein.",
+  "cameraPermissionDenied": "Die Kameraberechtigung ist erforderlich, um Fotos zu machen oder Videos aufzunehmen.",
+  "storagePermissionDenied": "Die Speicherberechtigung ist erforderlich, um Dateien aus Ihrer Galerie auszuwählen.",
+  "microphonePermissionDenied": "Die Mikrofonberechtigung ist erforderlich, um Audio oder Video aufzunehmen."
 }

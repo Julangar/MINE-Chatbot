@@ -169,5 +169,8 @@
   "avatarGuideAudio": "Mag-upload o mag-record ng hindi bababa sa 15 segundo ng malinaw na boses na walang ingay sa background.",
   "avatarGuideVideo": "Kung mag-upload ka ng video, tiyakin na iisang tao lang ang makikita at walang ingay sa background.",
   "audioPreviewInfo": "Gamitin ang player para suriin ang iyong audio. Ang pag-trim ay hindi available sa bersyong ito.",
-  "audioTooShort": "Ang audio ay dapat hindi bababa sa 15 segundo."
+  "audioTooShort": "Ang audio ay dapat hindi bababa sa 15 segundo.",
+  "cameraPermissionDenied": "Kinakailangan ang pahintulot sa camera upang kumuha ng mga larawan o mag-record ng mga video.",
+  "storagePermissionDenied": "Kinakailangan ang pahintulot sa storage upang pumili ng mga file mula sa iyong gallery.",
+  "microphonePermissionDenied": "Kinakailangan ang pahintulot sa mikropono upang mag-record ng audio o video."
 }

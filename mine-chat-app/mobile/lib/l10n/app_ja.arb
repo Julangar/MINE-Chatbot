@@ -169,5 +169,8 @@
   "avatarGuideAudio": "背景雑音のない15秒以上の明瞭な声をアップロードまたは録音してください。",
   "avatarGuideVideo": "動画をアップロードする場合は、1人だけが映っていて背景雑音がないことを確認してください。",
   "audioPreviewInfo": "プレーヤーを使用してオーディオを確認してください。このバージョンではトリミングは利用できません。",
-  "audioTooShort": "音声は少なくとも15秒である必要があります。"
+  "audioTooShort": "音声は少なくとも15秒である必要があります。",
+  "cameraPermissionDenied": "写真を撮ったりビデオを録画するにはカメラの許可が必要です。",
+  "storagePermissionDenied": "ギャラリーからファイルを選択するにはストレージの許可が必要です。",
+  "microphonePermissionDenied": "音声やビデオを録音するにはマイクの許可が必要です。"
 }

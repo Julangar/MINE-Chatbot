@@ -169,5 +169,8 @@
   "avatarGuideAudio": "Téléchargez ou enregistrez au moins 15 secondes de voix claire sans bruit de fond.",
   "avatarGuideVideo": "Si vous téléchargez une vidéo, assurez-vous qu'une seule personne apparaisse et qu'il n'y ait pas de bruit de fond.",
   "audioPreviewInfo": "Utilisez le lecteur pour écouter votre audio. La coupe n'est pas disponible dans cette version.",
-  "audioTooShort": "L'audio doit durer au moins 15 secondes."
+  "audioTooShort": "L'audio doit durer au moins 15 secondes.",
+  "cameraPermissionDenied": "L'autorisation de la caméra est requise pour prendre des photos ou enregistrer des vidéos.",
+  "storagePermissionDenied": "L'autorisation de stockage est requise pour sélectionner des fichiers depuis votre galerie.",
+  "microphonePermissionDenied": "L'autorisation du microphone est requise pour enregistrer de l'audio ou de la vidéo."
 }

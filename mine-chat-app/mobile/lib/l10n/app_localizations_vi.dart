@@ -447,4 +447,13 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get audioTooShort => 'Âm thanh phải dài ít nhất 15 giây.';
+
+  @override
+  String get cameraPermissionDenied => 'Cần quyền truy cập máy ảnh để chụp ảnh hoặc quay video.';
+
+  @override
+  String get storagePermissionDenied => 'Cần quyền lưu trữ để chọn tệp từ thư viện của bạn.';
+
+  @override
+  String get microphonePermissionDenied => 'Cần quyền truy cập micro để ghi âm hoặc quay video.';
 }

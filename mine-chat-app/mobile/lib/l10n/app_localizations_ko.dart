@@ -447,4 +447,13 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get audioTooShort => '오디오 길이는 최소 15초여야 합니다.';
+
+  @override
+  String get cameraPermissionDenied => '사진을 찍거나 동영상을 녹화하려면 카메라 권한이 필요합니다.';
+
+  @override
+  String get storagePermissionDenied => '갤러리에서 파일을 선택하려면 저장소 권한이 필요합니다.';
+
+  @override
+  String get microphonePermissionDenied => '오디오 또는 비디오를 녹음하려면 마이크 권한이 필요합니다.';
 }

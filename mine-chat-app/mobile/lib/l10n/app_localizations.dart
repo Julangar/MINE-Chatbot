@@ -1008,6 +1008,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The audio must be at least 15 seconds long.'**
   String get audioTooShort;
+
+  /// No description provided for @cameraPermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera permission is required to take photos or record videos.'**
+  String get cameraPermissionDenied;
+
+  /// No description provided for @storagePermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Storage permission is required to pick files from your gallery.'**
+  String get storagePermissionDenied;
+
+  /// No description provided for @microphonePermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Microphone permission is required to record audio or video.'**
+  String get microphonePermissionDenied;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

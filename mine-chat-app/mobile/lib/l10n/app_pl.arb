@@ -169,5 +169,8 @@
   "avatarGuideAudio": "Prześlij lub nagraj co najmniej 15 sekund czystego głosu bez szumów w tle.",
   "avatarGuideVideo": "Jeśli przesyłasz wideo, upewnij się, że pojawia się tylko jedna osoba i nie ma szumów w tle.",
   "audioPreviewInfo": "Użyj odtwarzacza, aby odsłuchać swoje nagranie. Przycinanie nie jest dostępne w tej wersji.",
-  "audioTooShort": "Dźwięk musi trwać co najmniej 15 sekund."
+  "audioTooShort": "Dźwięk musi trwać co najmniej 15 sekund.",
+  "cameraPermissionDenied": "Wymagane jest zezwolenie na korzystanie z aparatu, aby robić zdjęcia lub nagrywać filmy.",
+  "storagePermissionDenied": "Wymagane jest zezwolenie na dostęp do pamięci, aby wybrać pliki z galerii.",
+  "microphonePermissionDenied": "Wymagane jest zezwolenie na korzystanie z mikrofonu, aby nagrywać dźwięk lub wideo."
 }

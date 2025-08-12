@@ -447,4 +447,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get audioTooShort => 'يجب أن يكون طول الصوت 15 ثانية على الأقل.';
+
+  @override
+  String get cameraPermissionDenied => 'مطلوب إذن الكاميرا لالتقاط الصور أو تسجيل مقاطع الفيديو.';
+
+  @override
+  String get storagePermissionDenied => 'مطلوب إذن التخزين لاختيار الملفات من معرض الصور الخاص بك.';
+
+  @override
+  String get microphonePermissionDenied => 'مطلوب إذن الميكروفون لتسجيل الصوت أو الفيديو.';
 }

@@ -169,5 +169,8 @@
   "avatarGuideAudio": "배경 소음 없이 15초 이상의 깨끗한 목소리를 업로드하거나 녹음하세요.",
   "avatarGuideVideo": "동영상을 업로드할 경우 한 사람만 나오고 배경 소음이 없도록 하세요.",
   "audioPreviewInfo": "플레이어를 사용하여 오디오를 검토하세요. 이 버전에서는 자르기가 지원되지 않습니다.",
-  "audioTooShort": "오디오 길이는 최소 15초여야 합니다."
+  "audioTooShort": "오디오 길이는 최소 15초여야 합니다.",
+  "cameraPermissionDenied": "사진을 찍거나 동영상을 녹화하려면 카메라 권한이 필요합니다.",
+  "storagePermissionDenied": "갤러리에서 파일을 선택하려면 저장소 권한이 필요합니다.",
+  "microphonePermissionDenied": "오디오 또는 비디오를 녹음하려면 마이크 권한이 필요합니다."
 }

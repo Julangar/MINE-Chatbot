@@ -447,4 +447,13 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get audioTooShort => '音频长度必须至少为15秒。';
+
+  @override
+  String get cameraPermissionDenied => '需要相机权限才能拍照或录制视频。';
+
+  @override
+  String get storagePermissionDenied => '需要存储权限才能从图库中选择文件。';
+
+  @override
+  String get microphonePermissionDenied => '需要麦克风权限才能录制音频或视频。';
 }

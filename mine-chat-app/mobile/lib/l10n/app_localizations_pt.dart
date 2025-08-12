@@ -447,6 +447,15 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get audioTooShort => 'O áudio deve ter pelo menos 15 segundos.';
+
+  @override
+  String get cameraPermissionDenied => 'A permissão da câmera é necessária para tirar fotos ou gravar vídeos.';
+
+  @override
+  String get storagePermissionDenied => 'A permissão de armazenamento é necessária para selecionar arquivos da sua galeria.';
+
+  @override
+  String get microphonePermissionDenied => 'A permissão do microfone é necessária para gravar áudio ou vídeo.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -892,4 +901,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get audioTooShort => 'O áudio deve ter pelo menos 15 segundos.';
+
+  @override
+  String get cameraPermissionDenied => 'A permissão da câmera é necessária para tirar fotos ou gravar vídeos.';
+
+  @override
+  String get storagePermissionDenied => 'A permissão de armazenamento é necessária para selecionar arquivos da sua galeria.';
+
+  @override
+  String get microphonePermissionDenied => 'A permissão do microfone é necessária para gravar áudio ou vídeo.';
 }

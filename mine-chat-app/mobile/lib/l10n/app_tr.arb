@@ -169,5 +169,8 @@
   "avatarGuideAudio": "Arka plan gürültüsü olmadan en az 15 saniye net ses yükleyin veya kaydedin.",
   "avatarGuideVideo": "Video yüklüyorsanız yalnızca bir kişinin göründüğünden ve arka plan gürültüsü olmadığından emin olun.",
   "audioPreviewInfo": "Sesinizi incelemek için oynatıcıyı kullanın. Kırpma bu sürümde mevcut değildir.",
-  "audioTooShort": "Ses en az 15 saniye uzunluğunda olmalıdır."
+  "audioTooShort": "Ses en az 15 saniye uzunluğunda olmalıdır.",
+  "cameraPermissionDenied": "Fotoğraf çekmek veya video kaydetmek için kamera izni gereklidir.",
+  "storagePermissionDenied": "Galerinizden dosya seçmek için depolama izni gereklidir.",
+  "microphonePermissionDenied": "Ses veya video kaydetmek için mikrofon izni gereklidir."
 }

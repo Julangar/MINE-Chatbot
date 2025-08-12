@@ -447,4 +447,13 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get audioTooShort => 'A hang legalább 15 másodperc hosszú legyen.';
+
+  @override
+  String get cameraPermissionDenied => 'A fényképek készítéséhez vagy videók rögzítéséhez kamerajogosultság szükséges.';
+
+  @override
+  String get storagePermissionDenied => 'A galériából való fájlkiválasztáshoz tárhelyhozzáférési engedély szükséges.';
+
+  @override
+  String get microphonePermissionDenied => 'Hang vagy videó rögzítéséhez mikrofonengedély szükséges.';
 }

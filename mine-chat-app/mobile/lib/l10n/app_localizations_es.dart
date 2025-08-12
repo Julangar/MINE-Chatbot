@@ -447,6 +447,15 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get audioTooShort => 'El audio debe durar al menos 15 segundos.';
+
+  @override
+  String get cameraPermissionDenied => 'Se requiere permiso de la cámara para tomar fotos o grabar videos.';
+
+  @override
+  String get storagePermissionDenied => 'Se requiere permiso de almacenamiento para seleccionar archivos de tu galería.';
+
+  @override
+  String get microphonePermissionDenied => 'Se requiere permiso del micrófono para grabar audio o video.';
 }
 
 /// The translations for Spanish Castilian, as used in Latin America and the Caribbean (`es_419`).
@@ -892,4 +901,13 @@ class AppLocalizationsEs419 extends AppLocalizationsEs {
 
   @override
   String get audioTooShort => 'El audio debe durar al menos 15 segundos.';
+
+  @override
+  String get cameraPermissionDenied => 'Se requiere permiso de la cámara para tomar fotos o grabar videos.';
+
+  @override
+  String get storagePermissionDenied => 'Se requiere permiso de almacenamiento para seleccionar archivos de tu galería.';
+
+  @override
+  String get microphonePermissionDenied => 'Se requiere permiso del micrófono para grabar audio o video.';
 }

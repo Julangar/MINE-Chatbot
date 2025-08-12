@@ -447,4 +447,13 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get audioTooShort => 'ऑडियो कम से कम 15 सेकंड का होना चाहिए।';
+
+  @override
+  String get cameraPermissionDenied => 'फोटो लेने या वीडियो रिकॉर्ड करने के लिए कैमरा अनुमति आवश्यक है।';
+
+  @override
+  String get storagePermissionDenied => 'गैलरी से फ़ाइलें चुनने के लिए स्टोरेज अनुमति आवश्यक है।';
+
+  @override
+  String get microphonePermissionDenied => 'ऑडियो या वीडियो रिकॉर्ड करने के लिए माइक्रोफ़ोन अनुमति आवश्यक है।';
 }

@@ -447,4 +447,13 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get audioTooShort => 'Аудиото трябва да е с дължина поне 15 секунди.';
+
+  @override
+  String get cameraPermissionDenied => 'Необходимо е разрешение за камера, за да правите снимки или да записвате видеоклипове.';
+
+  @override
+  String get storagePermissionDenied => 'Необходимо е разрешение за съхранение, за да изберете файлове от галерията си.';
+
+  @override
+  String get microphonePermissionDenied => 'Необходимо е разрешение за микрофон, за да записвате аудио или видео.';
 }

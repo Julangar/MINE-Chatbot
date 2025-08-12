@@ -447,4 +447,13 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get audioTooShort => 'Ses en az 15 saniye uzunluğunda olmalıdır.';
+
+  @override
+  String get cameraPermissionDenied => 'Fotoğraf çekmek veya video kaydetmek için kamera izni gereklidir.';
+
+  @override
+  String get storagePermissionDenied => 'Galerinizden dosya seçmek için depolama izni gereklidir.';
+
+  @override
+  String get microphonePermissionDenied => 'Ses veya video kaydetmek için mikrofon izni gereklidir.';
 }
