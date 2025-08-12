@@ -46,6 +46,23 @@ exports.uploadAudioToCloudinary = async (req, res) => {
   }
 };
 
+exports.uploadVideoToCloudinary = async (req, res) => {
+  const { filePath, userId, avatarType } = req.body;
+
+  if (!filePath || !userId || !avatarType) {
+    return res.status(400).json({ error: 'Faltan campos requeridos' });
+  }
+
+  try {
+    const audioUrl = await uploadVideo(filePath, userId, avatarType);
+    res.json({ success: true, audioUrl });
+  } catch (err) {
+    console.error('Error al subir audio a Cloudinary:', err);
+    res.status(500).json({ error: 'Error al subir audio a Cloudinary' });
+  }
+};
+
+
 // 1. Clonar voz
 exports.cloneVoice = async (req, res) => {
   const { audioUrl, userId, avatarType } = req.body;
@@ -61,21 +78,31 @@ exports.cloneVoice = async (req, res) => {
     .doc('personality');
 
   const name = (await avatarPersonality.get()).data()?.name;
-  try {
-    const voiceId = await elevenlabsService.cloneVoice(audioUrl, name);
+  const audioSnap = await admin.firestore()
+    .collection('avatars')
+    .doc(userId)
+    .collection(avatarType)
+    .doc('audio')
+    .get();
 
-    const ref = admin.firestore()
-      .collection('avatars')
-      .doc(userId)
-      .collection(avatarType)
-      .doc('audio');
+  if (audioSnap.exists) {
+      return res.status(200).json({ success: true, voiceId: audioSnap.data().voiceId });
+  } else {
+    try {
+      const voiceId = await elevenlabsService.cloneVoice(audioUrl, name);
+      const ref = admin.firestore()
+        .collection('avatars')
+        .doc(userId)
+        .collection(avatarType)
+        .doc('audio');
 
-    await ref.set({ voiceId });
+      await ref.set({ voiceId });
 
-    res.json({ success: true, voiceId });
-  } catch (err) {
-    console.error('Error al clonar voz:', err);
-    res.status(500).json({ error: 'Error al clonar voz' });
+      res.json({ success: true, voiceId });
+    } catch (err) {
+      console.error('Error al clonar voz:', err);
+      res.status(500).json({ error: 'Error al clonar voz' });
+    }
   }
 };
 

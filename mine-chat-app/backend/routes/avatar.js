@@ -18,5 +18,6 @@ router.post('/generate-video', avatarController.generateAvatarVideo);
 router.post('/generate-video-audio', avatarController.generateAvatarVideoWithAudio);
 router.post('/upload-audio', avatarController.uploadAudioToCloudinary);
 router.post('/upload-image', avatarController.uploadImageToCloudinary);
+router.post('/upload-video', avatarController.uploadVideoToCloudinary);
 
 module.exports = router;

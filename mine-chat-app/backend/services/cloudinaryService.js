@@ -29,6 +29,16 @@ const uploadAudio = async (filePath, userId, avatarType, folder = 'avatars') => 
   return audio.secure_url;
 };
 
+// Función para subir audio
+const uploadVideo = async (filePath, userId, avatarType, folder = 'avatars') => {
+  const video = await cloudinary.uploader.upload(filePath, {
+    resource_type: 'video',
+    folder: `${folder}/${userId}/${avatarType}/videos`,
+    format: 'mp4'
+  });
+  return video.secure_url;
+};
+
 // Convierte un Buffer en un flujo legible. Esto evita crear archivos temporales
 // en disco y permite subir directamente el audio a Cloudinary.
 const { Readable } = require('stream');
@@ -83,6 +93,7 @@ const uploadAudioBase = async (filePath, userId, avatarType, folder = 'avatars')
 module.exports = {
   uploadImage,
   uploadAudio,
+  uploadVideo,
   uploadAudioBase,
   uploadAudioBuffer,
   cloudinary // por si necesitas acceder directo
