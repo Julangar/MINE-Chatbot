@@ -50,7 +50,10 @@ dependencies:
   just_audio: ^0.10.4
   video_player: ^2.7.0
   audioplayers: ^5.2.1
-  
+
+  # Recortar y modificar imagen y audio
+  image_cropper: ^9.1.0
+
   # Permisos para cámara, micrófono, almacenamiento
   permission_handler: ^11.3.1
 
@@ -65,7 +68,7 @@ dependencies:
 
   flutter_localizations:
     sdk: flutter
-  intl: ^0.20.2
+  intl: 0.20.2
   cloud_firestore: ^5.6.11
 
 dependency_overrides:
