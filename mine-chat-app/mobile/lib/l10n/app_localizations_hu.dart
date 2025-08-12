@@ -117,7 +117,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get carefullySelect => 'Gondosan válassza ki azt a fotót, hangot vagy videót, amely az avatarját fogja képviselni. Ne feledje, hogy az avatar létrehozásának költsége van, és biztonsági okokból később nem módosíthatja azt. Olyan fájlokat válasszon, amelyek leginkább tükrözik ízlését és preferenciáit.';
 
   @override
-  String get successUpload => 'Sikeres feltöltés!';
+  String get successUpload => 'A fájlok sikeresen feltöltve!';
 
   @override
   String get errorSaving => 'Hiba a mentéskor:';
@@ -429,4 +429,22 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get enableSound => 'Hang engedélyezése';
+
+  @override
+  String get avatarGuideTitle => 'Útmutató az avatar feltöltéséhez';
+
+  @override
+  String get avatarGuideImage => 'Használjon jó megvilágítású, semleges hátterű, tiszta szemből készült arcképet.';
+
+  @override
+  String get avatarGuideAudio => 'Töltsön fel vagy rögzítsen legalább 15 másodperc tiszta hangot háttérzaj nélkül.';
+
+  @override
+  String get avatarGuideVideo => 'Ha videót tölt fel, győződjön meg róla, hogy csak egy személy szerepel benne, és nincs háttérzaj.';
+
+  @override
+  String get audioPreviewInfo => 'Használja a lejátszót a hang ellenőrzéséhez. A vágás ebben a verzióban nem érhető el.';
+
+  @override
+  String get audioTooShort => 'A hang legalább 15 másodperc hosszú legyen.';
 }

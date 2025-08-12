@@ -117,7 +117,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get carefullySelect => 'اختر بعناية الصورة أو الصوت أو الفيديو الذي سيمثل صورتك الرمزية. تذكر أن إنشاء الصورة له تكلفة، ولأسباب أمنية لن تتمكن من تعديلها لاحقًا. اختر الملفات التي تعكس أذواقك وتفضيلاتك.';
 
   @override
-  String get successUpload => 'تم الرفع بنجاح!';
+  String get successUpload => 'تم رفع الملفات بنجاح!';
 
   @override
   String get errorSaving => 'خطأ في الحفظ:';
@@ -429,4 +429,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get enableSound => 'تفعيل الصوت';
+
+  @override
+  String get avatarGuideTitle => 'دليل لرفع الصورة الرمزية';
+
+  @override
+  String get avatarGuideImage => 'استخدم صورة أمامية واضحة للوجه بإضاءة جيدة وخلفية محايدة.';
+
+  @override
+  String get avatarGuideAudio => 'قم بتحميل أو تسجيل ما لا يقل عن 15 ثانية من الصوت الواضح بدون ضوضاء خلفية.';
+
+  @override
+  String get avatarGuideVideo => 'إذا قمت بتحميل مقطع فيديو، فتأكد من ظهور شخص واحد فقط وعدم وجود ضوضاء في الخلفية.';
+
+  @override
+  String get audioPreviewInfo => 'استخدم المشغل لمراجعة الصوت. القص غير متاح في هذا الإصدار.';
+
+  @override
+  String get audioTooShort => 'يجب أن يكون طول الصوت 15 ثانية على الأقل.';
 }

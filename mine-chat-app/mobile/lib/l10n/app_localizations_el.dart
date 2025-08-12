@@ -117,7 +117,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get carefullySelect => 'Επιλέξτε προσεκτικά τη φωτογραφία, τον ήχο ή το βίντεο που θα εκπροσωπεί το avatar σας. Θυμηθείτε ότι η δημιουργία avatar έχει κόστος και για λόγους ασφαλείας δεν θα μπορείτε να το τροποποιήσετε μετά. Επιλέξτε τα αρχεία που αντικατοπτρίζουν καλύτερα τα γούστα και τις προτιμήσεις σας.';
 
   @override
-  String get successUpload => 'Επιτυχής μεταφόρτωση!';
+  String get successUpload => 'Τα αρχεία ανέβηκαν με επιτυχία!';
 
   @override
   String get errorSaving => 'Σφάλμα κατά την αποθήκευση:';
@@ -429,4 +429,22 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get enableSound => 'Ενεργοποίηση ήχου';
+
+  @override
+  String get avatarGuideTitle => 'Οδηγός για να ανεβάσετε το avatar';
+
+  @override
+  String get avatarGuideImage => 'Χρησιμοποιήστε μια καθαρή φωτογραφία προσώπου από μπροστά με καλό φωτισμό και ουδέτερο φόντο.';
+
+  @override
+  String get avatarGuideAudio => 'Ανεβάστε ή ηχογραφήστε τουλάχιστον 15 δευτερόλεπτα καθαρής φωνής χωρίς θόρυβο στο παρασκήνιο.';
+
+  @override
+  String get avatarGuideVideo => 'Αν ανεβάσετε βίντεο, βεβαιωθείτε ότι εμφανίζεται μόνο ένα άτομο και δεν υπάρχει θόρυβος στο παρασκήνιο.';
+
+  @override
+  String get audioPreviewInfo => 'Χρησιμοποιήστε το πρόγραμμα αναπαραγωγής για να ελέγξετε τον ήχο σας. Η περικοπή δεν είναι διαθέσιμη σε αυτήν την έκδοση.';
+
+  @override
+  String get audioTooShort => 'Ο ήχος πρέπει να διαρκεί τουλάχιστον 15 δευτερόλεπτα.';
 }

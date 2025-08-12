@@ -56,7 +56,7 @@
   "archive": "Arquivo",
   "takeYourTime": "Tire seu tempo para criar seu avatar!",
   "carefullySelect": "Selecione cuidadosamente a foto, o áudio ou o vídeo que representará seu avatar. Lembre-se que criar o avatar tem um custo e, por questões de segurança, você não poderá modificá-lo depois de criado. Escolha os arquivos que melhor representem seus gostos e preferências.",
-  "successUpload": "Envio realizado com sucesso!",
+  "successUpload": "Arquivos enviados com sucesso!",
   "errorSaving": "Erro ao salvar:",
   "createYourAvatar": "Crie seu avatar",
   "avatarAlreadyExist": "Você já tem um avatar deste tipo!",
@@ -163,5 +163,11 @@
   "statusSpeaking": "Falando",
   "statusWaiting": "Aguardando",
   "enableVibration": "Ativar vibração",
-  "enableSound": "Ativar som"
+  "enableSound": "Ativar som",
+  "avatarGuideTitle": "Guia para enviar o avatar",
+  "avatarGuideImage": "Use uma foto frontal nítida do rosto com boa iluminação e fundo neutro.",
+  "avatarGuideAudio": "Envie ou grave pelo menos 15 segundos de voz clara sem ruído de fundo.",
+  "avatarGuideVideo": "Se enviar um vídeo, certifique-se de que apenas uma pessoa apareça e não haja ruído de fundo.",
+  "audioPreviewInfo": "Use o reprodutor para revisar seu áudio. O corte não está disponível nesta versão.",
+  "audioTooShort": "O áudio deve ter pelo menos 15 segundos."
 }

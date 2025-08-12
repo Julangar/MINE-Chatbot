@@ -117,7 +117,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get carefullySelect => 'Avatarını temsil edecek fotoğrafı, sesi veya videoyu dikkatlice seç. Avatar oluşturmanın bir maliyeti olduğunu ve güvenlik nedeniyle oluşturduktan sonra değiştiremeyeceğini unutma. Zevklerini ve tercihlerini en iyi yansıtan dosyaları seç.';
 
   @override
-  String get successUpload => 'Başarıyla yüklendi!';
+  String get successUpload => 'Dosyalar başarıyla yüklendi!';
 
   @override
   String get errorSaving => 'Kaydetme hatası:';
@@ -429,4 +429,22 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get enableSound => 'Sesi etkinleştir';
+
+  @override
+  String get avatarGuideTitle => 'Avatar yükleme rehberi';
+
+  @override
+  String get avatarGuideImage => 'İyi aydınlatmalı ve nötr arka planlı net bir yüzün önden fotoğrafını kullanın.';
+
+  @override
+  String get avatarGuideAudio => 'Arka plan gürültüsü olmadan en az 15 saniye net ses yükleyin veya kaydedin.';
+
+  @override
+  String get avatarGuideVideo => 'Video yüklüyorsanız yalnızca bir kişinin göründüğünden ve arka plan gürültüsü olmadığından emin olun.';
+
+  @override
+  String get audioPreviewInfo => 'Sesinizi incelemek için oynatıcıyı kullanın. Kırpma bu sürümde mevcut değildir.';
+
+  @override
+  String get audioTooShort => 'Ses en az 15 saniye uzunluğunda olmalıdır.';
 }

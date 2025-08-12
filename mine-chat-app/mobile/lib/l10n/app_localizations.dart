@@ -352,7 +352,7 @@ abstract class AppLocalizations {
   /// No description provided for @successUpload.
   ///
   /// In en, this message translates to:
-  /// **'Success Upload!'**
+  /// **'Files uploaded successfully!'**
   String get successUpload;
 
   /// No description provided for @errorSaving.
@@ -972,6 +972,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Enable sound'**
   String get enableSound;
+
+  /// No description provided for @avatarGuideTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Guide to upload the avatar'**
+  String get avatarGuideTitle;
+
+  /// No description provided for @avatarGuideImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Use a clear front-facing photo of the face with good lighting and a neutral background.'**
+  String get avatarGuideImage;
+
+  /// No description provided for @avatarGuideAudio.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload or record at least 15 seconds of clear voice without background noise.'**
+  String get avatarGuideAudio;
+
+  /// No description provided for @avatarGuideVideo.
+  ///
+  /// In en, this message translates to:
+  /// **'If you upload a video, make sure only one person appears and there is no background noise.'**
+  String get avatarGuideVideo;
+
+  /// No description provided for @audioPreviewInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the player to review your audio. Trimming is not available in this version.'**
+  String get audioPreviewInfo;
+
+  /// No description provided for @audioTooShort.
+  ///
+  /// In en, this message translates to:
+  /// **'The audio must be at least 15 seconds long.'**
+  String get audioTooShort;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

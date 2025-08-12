@@ -117,7 +117,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get carefullySelect => 'Тщательно выбирайте фото, аудио или видео, которые будут представлять вашего аватара. Помните, что создание аватара платное и по соображениям безопасности вы не сможете изменить его после создания. Выбирайте файлы, которые лучше всего отражают ваши вкусы и предпочтения.';
 
   @override
-  String get successUpload => 'Успешная загрузка!';
+  String get successUpload => 'Файлы успешно загружены!';
 
   @override
   String get errorSaving => 'Ошибка при сохранении:';
@@ -429,4 +429,22 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get enableSound => 'Включить звук';
+
+  @override
+  String get avatarGuideTitle => 'Руководство по загрузке аватара';
+
+  @override
+  String get avatarGuideImage => 'Используйте четкое фото лица анфас с хорошим освещением и нейтральным фоном.';
+
+  @override
+  String get avatarGuideAudio => 'Загрузите или запишите не менее 15 секунд четкого голоса без фонового шума.';
+
+  @override
+  String get avatarGuideVideo => 'Если вы загружаете видео, убедитесь, что в нем только один человек и нет фонового шума.';
+
+  @override
+  String get audioPreviewInfo => 'Используйте плеер для прослушивания аудио. Обрезка в этой версии недоступна.';
+
+  @override
+  String get audioTooShort => 'Аудио должно длиться не менее 15 секунд.';
 }

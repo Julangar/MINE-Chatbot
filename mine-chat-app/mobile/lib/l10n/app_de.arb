@@ -56,7 +56,7 @@
   "archive": "Archiv",
   "takeYourTime": "Nimm dir Zeit, um deinen Avatar zu erstellen!",
   "carefullySelect": "Wähle sorgfältig das Foto, das Audio oder das Video aus, das deinen Avatar repräsentieren soll. Beachte, dass das Erstellen des Avatars Kosten verursacht und du ihn aus Sicherheitsgründen später nicht mehr ändern kannst. Wähle die Dateien, die deine Vorlieben am besten widerspiegeln.",
-  "successUpload": "Erfolgreich hochgeladen!",
+  "successUpload": "Dateien erfolgreich hochgeladen!",
   "errorSaving": "Fehler beim Speichern:",
   "createYourAvatar": "Erstelle deinen Avatar",
   "avatarAlreadyExist": "Du hast bereits einen Avatar dieses Typs!",
@@ -163,5 +163,11 @@
   "statusSpeaking": "Spricht",
   "statusWaiting": "Wartet",
   "enableVibration": "Vibration aktivieren",
-  "enableSound": "Ton aktivieren"
+  "enableSound": "Ton aktivieren",
+  "avatarGuideTitle": "Anleitung zum Hochladen des Avatars",
+  "avatarGuideImage": "Verwenden Sie ein klares Frontalfoto des Gesichts mit guter Beleuchtung und neutralem Hintergrund.",
+  "avatarGuideAudio": "Laden Sie mindestens 15 Sekunden klare Stimme ohne Hintergrundgeräusche hoch oder nehmen Sie sie auf.",
+  "avatarGuideVideo": "Wenn Sie ein Video hochladen, stellen Sie sicher, dass nur eine Person zu sehen ist und keine Hintergrundgeräusche vorhanden sind.",
+  "audioPreviewInfo": "Verwenden Sie den Player, um Ihr Audio zu überprüfen. Zuschneiden ist in dieser Version nicht verfügbar.",
+  "audioTooShort": "Das Audio muss mindestens 15 Sekunden lang sein."
 }

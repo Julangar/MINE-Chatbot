@@ -117,7 +117,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get carefullySelect => 'Seleciona cuidadosamente a foto, o áudio ou o vídeo que irá representar o teu avatar. Lembra-te que criar o avatar tem um custo e, por razões de segurança, não poderás modificá-lo após a criação. Escolhe os ficheiros que melhor representem os teus gostos e preferências.';
 
   @override
-  String get successUpload => 'Envio bem-sucedido!';
+  String get successUpload => 'Arquivos enviados com sucesso!';
 
   @override
   String get errorSaving => 'Erro ao guardar:';
@@ -429,6 +429,24 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get enableSound => 'Ativar som';
+
+  @override
+  String get avatarGuideTitle => 'Guia para enviar o avatar';
+
+  @override
+  String get avatarGuideImage => 'Use uma foto frontal nítida do rosto com boa iluminação e fundo neutro.';
+
+  @override
+  String get avatarGuideAudio => 'Envie ou grave pelo menos 15 segundos de voz clara sem ruído de fundo.';
+
+  @override
+  String get avatarGuideVideo => 'Se enviar um vídeo, certifique-se de que apenas uma pessoa apareça e não haja ruído de fundo.';
+
+  @override
+  String get audioPreviewInfo => 'Use o reprodutor para revisar seu áudio. O corte não está disponível nesta versão.';
+
+  @override
+  String get audioTooShort => 'O áudio deve ter pelo menos 15 segundos.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -544,7 +562,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get carefullySelect => 'Selecione cuidadosamente a foto, o áudio ou o vídeo que representará seu avatar. Lembre-se que criar o avatar tem um custo e, por questões de segurança, você não poderá modificá-lo depois de criado. Escolha os arquivos que melhor representem seus gostos e preferências.';
 
   @override
-  String get successUpload => 'Envio realizado com sucesso!';
+  String get successUpload => 'Arquivos enviados com sucesso!';
 
   @override
   String get errorSaving => 'Erro ao salvar:';
@@ -856,4 +874,22 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get enableSound => 'Ativar som';
+
+  @override
+  String get avatarGuideTitle => 'Guia para enviar o avatar';
+
+  @override
+  String get avatarGuideImage => 'Use uma foto frontal nítida do rosto com boa iluminação e fundo neutro.';
+
+  @override
+  String get avatarGuideAudio => 'Envie ou grave pelo menos 15 segundos de voz clara sem ruído de fundo.';
+
+  @override
+  String get avatarGuideVideo => 'Se enviar um vídeo, certifique-se de que apenas uma pessoa apareça e não haja ruído de fundo.';
+
+  @override
+  String get audioPreviewInfo => 'Use o reprodutor para revisar seu áudio. O corte não está disponível nesta versão.';
+
+  @override
+  String get audioTooShort => 'O áudio deve ter pelo menos 15 segundos.';
 }

@@ -117,7 +117,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get carefullySelect => 'בחר בקפידה את התמונה, האודיו או הוידאו שייצגו את האווטאר שלך. זכור כי יצירת אווטאר עולה כסף ומסיבות אבטחה לא תוכל לערוך אותו לאחר מכן. בחר את הקבצים שמייצגים את טעמך והעדפותיך.';
 
   @override
-  String get successUpload => 'ההעלאה הצליחה!';
+  String get successUpload => 'הקבצים הועלו בהצלחה!';
 
   @override
   String get errorSaving => 'שגיאה בשמירה:';
@@ -429,4 +429,22 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get enableSound => 'הפעל קול';
+
+  @override
+  String get avatarGuideTitle => 'מדריך להעלאת האווטאר';
+
+  @override
+  String get avatarGuideImage => 'השתמש בתמונה קדמית ברורה של הפנים עם תאורה טובה ורקע ניטרלי.';
+
+  @override
+  String get avatarGuideAudio => 'העלה או הקלט לפחות 15 שניות של קול ברור ללא רעשי רקע.';
+
+  @override
+  String get avatarGuideVideo => 'אם אתה מעלה סרטון, ודא שמופיעה בו רק אדם אחד ואין רעשי רקע.';
+
+  @override
+  String get audioPreviewInfo => 'השתמש בנגן כדי לבדוק את האודיו שלך. החיתוך אינו זמין בגרסה זו.';
+
+  @override
+  String get audioTooShort => 'האודיו חייב להיות לפחות 15 שניות.';
 }

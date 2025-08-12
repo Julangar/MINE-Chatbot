@@ -117,7 +117,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get carefullySelect => 'Ostrożnie wybierz zdjęcie, audio lub wideo, które będzie reprezentować twojego awatara. Pamiętaj, że stworzenie awatara wiąże się z kosztami i ze względów bezpieczeństwa nie będziesz mógł go później edytować. Wybierz pliki, które najlepiej odzwierciedlają twoje gusta i preferencje.';
 
   @override
-  String get successUpload => 'Przesyłanie zakończone sukcesem!';
+  String get successUpload => 'Pliki przesłane pomyślnie!';
 
   @override
   String get errorSaving => 'Błąd podczas zapisywania:';
@@ -429,4 +429,22 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get enableSound => 'Włącz dźwięk';
+
+  @override
+  String get avatarGuideTitle => 'Przewodnik po przesyłaniu awatara';
+
+  @override
+  String get avatarGuideImage => 'Użyj wyraźnego zdjęcia twarzy z przodu, z dobrym oświetleniem i neutralnym tłem.';
+
+  @override
+  String get avatarGuideAudio => 'Prześlij lub nagraj co najmniej 15 sekund czystego głosu bez szumów w tle.';
+
+  @override
+  String get avatarGuideVideo => 'Jeśli przesyłasz wideo, upewnij się, że pojawia się tylko jedna osoba i nie ma szumów w tle.';
+
+  @override
+  String get audioPreviewInfo => 'Użyj odtwarzacza, aby odsłuchać swoje nagranie. Przycinanie nie jest dostępne w tej wersji.';
+
+  @override
+  String get audioTooShort => 'Dźwięk musi trwać co najmniej 15 sekund.';
 }

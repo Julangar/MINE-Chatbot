@@ -56,7 +56,7 @@
   "archive": "Archive",
   "takeYourTime": "Maglaan ng oras sa paggawa ng iyong avatar!",
   "carefullySelect": "Piliin nang mabuti ang larawan, audio, o video na magrerepresenta ng iyong avatar. Tandaan na may bayad ang paggawa ng avatar at para sa seguridad, hindi mo na ito maaaring baguhin matapos malikha. Piliin ang mga file na pinakamahusay na naglalarawan ng iyong panlasa at gusto.",
-  "successUpload": "Matagumpay na na-upload!",
+  "successUpload": "Matagumpay na na-upload ang mga file!",
   "errorSaving": "Error sa pag-save:",
   "createYourAvatar": "Gumawa ng iyong avatar",
   "avatarAlreadyExist": "Mayroon ka nang avatar ng ganitong uri!",
@@ -163,5 +163,11 @@
   "statusSpeaking": "Nagsasalita",
   "statusWaiting": "Naghihintay",
   "enableVibration": "Paganahin ang vibration",
-  "enableSound": "Paganahin ang tunog"
+  "enableSound": "Paganahin ang tunog",
+  "avatarGuideTitle": "Gabay para mag-upload ng avatar",
+  "avatarGuideImage": "Gumamit ng malinaw na front-facing na larawan ng mukha na may magandang ilaw at neutral na background.",
+  "avatarGuideAudio": "Mag-upload o mag-record ng hindi bababa sa 15 segundo ng malinaw na boses na walang ingay sa background.",
+  "avatarGuideVideo": "Kung mag-upload ka ng video, tiyakin na iisang tao lang ang makikita at walang ingay sa background.",
+  "audioPreviewInfo": "Gamitin ang player para suriin ang iyong audio. Ang pag-trim ay hindi available sa bersyong ito.",
+  "audioTooShort": "Ang audio ay dapat hindi bababa sa 15 segundo."
 }

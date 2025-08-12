@@ -5,6 +5,32 @@ import 'package:http/http.dart' as http;
 class AvatarService {
   static const String baseUrl = 'http://192.168.1.11:3000'; // Cambiar en producción
 
+  static Future<String?> cloneVoice(
+      String userId,
+      String avatarType,
+      String audioUrl,
+  ) async {
+    try {
+      final response = await http.post(
+        Uri.parse('$baseUrl/api/avatar/clone-voice'),
+        body: jsonEncode({
+          'audioUrl': audioUrl,
+          'userId': userId,
+          'avatarType': avatarType,
+        }),
+        headers: {'Content-Type': 'application/json'},
+      );
+
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body)['voiceUrl'];
+      } else {
+        throw Exception("Error al clonar la voz: ${response.body}");
+      }
+    } catch (e) {
+      throw Exception("Error general: $e");
+    }
+  }
+  
   static Future<String?> generateAvatarVideo(
       String userId,
       String avatarType,
@@ -144,6 +170,19 @@ class AvatarService {
       return jsonDecode(urlResponse.body)['imageUrl'];
     } else {
       throw Exception("Error al subir imagen a Cloudinary");
+    }
+  }
+
+  static Future<String> uploadVideoToCloudinary(String filePath, String userId, String avatarType) async {
+    final urlResponse = await http.post(Uri.parse('$baseUrl/api/avatar/upload-video'), body: jsonEncode({
+      'filePath': filePath,
+      'userId': userId,
+      'avatarType': avatarType,
+    }), headers: {'Content-Type': 'application/json'});
+    if (urlResponse.statusCode == 200) {
+      return jsonDecode(urlResponse.body)['videoUrl'];
+    } else {
+      throw Exception("Error al subir video a Cloudinary");
     }
   }
 

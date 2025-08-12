@@ -117,7 +117,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get carefullySelect => 'Seleziona con cura la foto, l\'audio o il video che rappresenterà il tuo avatar. Ricorda che creare l\'avatar ha un costo e, per motivi di sicurezza, non potrai modificarlo dopo averlo creato. Scegli i file che meglio rispecchiano i tuoi gusti e preferenze.';
 
   @override
-  String get successUpload => 'Caricamento riuscito!';
+  String get successUpload => 'File caricati con successo!';
 
   @override
   String get errorSaving => 'Errore nel salvataggio:';
@@ -429,4 +429,22 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get enableSound => 'Abilita suono';
+
+  @override
+  String get avatarGuideTitle => 'Guida per caricare l\'avatar';
+
+  @override
+  String get avatarGuideImage => 'Utilizza una foto frontale chiara del viso con buona illuminazione e sfondo neutro.';
+
+  @override
+  String get avatarGuideAudio => 'Carica o registra almeno 15 secondi di voce chiara senza rumore di fondo.';
+
+  @override
+  String get avatarGuideVideo => 'Se carichi un video, assicurati che compaia solo una persona e che non ci sia rumore di fondo.';
+
+  @override
+  String get audioPreviewInfo => 'Usa il lettore per rivedere il tuo audio. Il taglio non è disponibile in questa versione.';
+
+  @override
+  String get audioTooShort => 'L\'audio deve durare almeno 15 secondi.';
 }

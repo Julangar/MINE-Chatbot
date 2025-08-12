@@ -117,7 +117,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get carefullySelect => 'アバターを表す写真、オーディオ、またはビデオを慎重に選んでください。アバターの作成には費用がかかり、セキュリティ上の理由から作成後の変更はできません。自分の好みや個性を最も表すファイルを選んでください。';
 
   @override
-  String get successUpload => 'アップロード成功！';
+  String get successUpload => 'ファイルが正常にアップロードされました！';
 
   @override
   String get errorSaving => '保存エラー：';
@@ -429,4 +429,22 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get enableSound => 'サウンドを有効にする';
+
+  @override
+  String get avatarGuideTitle => 'アバターをアップロードするガイド';
+
+  @override
+  String get avatarGuideImage => '良い照明と中立的な背景で顔の正面写真を使用してください。';
+
+  @override
+  String get avatarGuideAudio => '背景雑音のない15秒以上の明瞭な声をアップロードまたは録音してください。';
+
+  @override
+  String get avatarGuideVideo => '動画をアップロードする場合は、1人だけが映っていて背景雑音がないことを確認してください。';
+
+  @override
+  String get audioPreviewInfo => 'プレーヤーを使用してオーディオを確認してください。このバージョンではトリミングは利用できません。';
+
+  @override
+  String get audioTooShort => '音声は少なくとも15秒である必要があります。';
 }

@@ -56,7 +56,7 @@
   "archive": "アーカイブ",
   "takeYourTime": "ゆっくりアバターを作りましょう！",
   "carefullySelect": "アバターを表す写真、オーディオ、またはビデオを慎重に選んでください。アバターの作成には費用がかかり、セキュリティ上の理由から作成後の変更はできません。自分の好みや個性を最も表すファイルを選んでください。",
-  "successUpload": "アップロード成功！",
+  "successUpload": "ファイルが正常にアップロードされました！",
   "errorSaving": "保存エラー：",
   "createYourAvatar": "アバターを作成",
   "avatarAlreadyExist": "このタイプのアバターはすでに存在します！",
@@ -163,5 +163,11 @@
   "statusSpeaking": "話しています",
   "statusWaiting": "待機中",
   "enableVibration": "バイブレーションを有効にする",
-  "enableSound": "サウンドを有効にする"
+  "enableSound": "サウンドを有効にする",
+  "avatarGuideTitle": "アバターをアップロードするガイド",
+  "avatarGuideImage": "良い照明と中立的な背景で顔の正面写真を使用してください。",
+  "avatarGuideAudio": "背景雑音のない15秒以上の明瞭な声をアップロードまたは録音してください。",
+  "avatarGuideVideo": "動画をアップロードする場合は、1人だけが映っていて背景雑音がないことを確認してください。",
+  "audioPreviewInfo": "プレーヤーを使用してオーディオを確認してください。このバージョンではトリミングは利用できません。",
+  "audioTooShort": "音声は少なくとも15秒である必要があります。"
 }

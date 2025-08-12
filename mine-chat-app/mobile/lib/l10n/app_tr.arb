@@ -56,7 +56,7 @@
   "archive": "Arşiv",
   "takeYourTime": "Avatarını oluşturmak için zaman ayır!",
   "carefullySelect": "Avatarını temsil edecek fotoğrafı, sesi veya videoyu dikkatlice seç. Avatar oluşturmanın bir maliyeti olduğunu ve güvenlik nedeniyle oluşturduktan sonra değiştiremeyeceğini unutma. Zevklerini ve tercihlerini en iyi yansıtan dosyaları seç.",
-  "successUpload": "Başarıyla yüklendi!",
+  "successUpload": "Dosyalar başarıyla yüklendi!",
   "errorSaving": "Kaydetme hatası:",
   "createYourAvatar": "Avatarını oluştur",
   "avatarAlreadyExist": "Bu türden bir avatara zaten sahipsin!",
@@ -163,5 +163,11 @@
   "statusSpeaking": "Konuşuyor",
   "statusWaiting": "Bekliyor",
   "enableVibration": "Titreşimi etkinleştir",
-  "enableSound": "Sesi etkinleştir"
+  "enableSound": "Sesi etkinleştir",
+  "avatarGuideTitle": "Avatar yükleme rehberi",
+  "avatarGuideImage": "İyi aydınlatmalı ve nötr arka planlı net bir yüzün önden fotoğrafını kullanın.",
+  "avatarGuideAudio": "Arka plan gürültüsü olmadan en az 15 saniye net ses yükleyin veya kaydedin.",
+  "avatarGuideVideo": "Video yüklüyorsanız yalnızca bir kişinin göründüğünden ve arka plan gürültüsü olmadığından emin olun.",
+  "audioPreviewInfo": "Sesinizi incelemek için oynatıcıyı kullanın. Kırpma bu sürümde mevcut değildir.",
+  "audioTooShort": "Ses en az 15 saniye uzunluğunda olmalıdır."
 }

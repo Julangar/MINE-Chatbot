@@ -117,7 +117,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get carefullySelect => 'Hãy chọn cẩn thận ảnh, âm thanh hoặc video đại diện cho avatar của bạn. Lưu ý rằng tạo avatar sẽ mất phí và vì lý do bảo mật, bạn sẽ không thể chỉnh sửa sau khi đã tạo. Hãy chọn tệp phản ánh rõ nhất sở thích và cá tính của bạn.';
 
   @override
-  String get successUpload => 'Tải lên thành công!';
+  String get successUpload => 'Tệp đã được tải lên thành công!';
 
   @override
   String get errorSaving => 'Lỗi khi lưu:';
@@ -429,4 +429,22 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get enableSound => 'Bật âm thanh';
+
+  @override
+  String get avatarGuideTitle => 'Hướng dẫn tải lên avatar';
+
+  @override
+  String get avatarGuideImage => 'Sử dụng ảnh chụp khuôn mặt chính diện rõ ràng với ánh sáng tốt và nền trung tính.';
+
+  @override
+  String get avatarGuideAudio => 'Tải lên hoặc ghi âm ít nhất 15 giây giọng nói rõ ràng không có tiếng ồn nền.';
+
+  @override
+  String get avatarGuideVideo => 'Nếu bạn tải lên video, hãy đảm bảo chỉ có một người xuất hiện và không có tiếng ồn nền.';
+
+  @override
+  String get audioPreviewInfo => 'Sử dụng trình phát để xem lại âm thanh của bạn. Tính năng cắt không khả dụng trong phiên bản này.';
+
+  @override
+  String get audioTooShort => 'Âm thanh phải dài ít nhất 15 giây.';
 }

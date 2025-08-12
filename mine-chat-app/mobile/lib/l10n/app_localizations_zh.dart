@@ -117,7 +117,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get carefullySelect => '请仔细选择代表你头像的照片、音频或视频。请记住，创建头像是有成本的，并且出于安全原因，创建后无法修改。请选择最能代表你喜好和偏好的文件。';
 
   @override
-  String get successUpload => '上传成功！';
+  String get successUpload => '文件上传成功！';
 
   @override
   String get errorSaving => '保存出错：';
@@ -429,4 +429,22 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get enableSound => '启用声音';
+
+  @override
+  String get avatarGuideTitle => '上传头像指南';
+
+  @override
+  String get avatarGuideImage => '使用光线良好、背景中性的清晰正面头像。';
+
+  @override
+  String get avatarGuideAudio => '上传或录制至少15秒清晰无背景噪音的语音。';
+
+  @override
+  String get avatarGuideVideo => '如果上传视频，请确保只出现一个人且没有背景噪音。';
+
+  @override
+  String get audioPreviewInfo => '使用播放器查看您的音频。本版本不提供剪辑功能。';
+
+  @override
+  String get audioTooShort => '音频长度必须至少为15秒。';
 }

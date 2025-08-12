@@ -117,7 +117,7 @@ class AppLocalizationsTl extends AppLocalizations {
   String get carefullySelect => 'Piliin nang mabuti ang larawan, audio, o video na magrerepresenta ng iyong avatar. Tandaan na may bayad ang paggawa ng avatar at para sa seguridad, hindi mo na ito maaaring baguhin matapos malikha. Piliin ang mga file na pinakamahusay na naglalarawan ng iyong panlasa at gusto.';
 
   @override
-  String get successUpload => 'Matagumpay na na-upload!';
+  String get successUpload => 'Matagumpay na na-upload ang mga file!';
 
   @override
   String get errorSaving => 'Error sa pag-save:';
@@ -429,4 +429,22 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get enableSound => 'Paganahin ang tunog';
+
+  @override
+  String get avatarGuideTitle => 'Gabay para mag-upload ng avatar';
+
+  @override
+  String get avatarGuideImage => 'Gumamit ng malinaw na front-facing na larawan ng mukha na may magandang ilaw at neutral na background.';
+
+  @override
+  String get avatarGuideAudio => 'Mag-upload o mag-record ng hindi bababa sa 15 segundo ng malinaw na boses na walang ingay sa background.';
+
+  @override
+  String get avatarGuideVideo => 'Kung mag-upload ka ng video, tiyakin na iisang tao lang ang makikita at walang ingay sa background.';
+
+  @override
+  String get audioPreviewInfo => 'Gamitin ang player para suriin ang iyong audio. Ang pag-trim ay hindi available sa bersyong ito.';
+
+  @override
+  String get audioTooShort => 'Ang audio ay dapat hindi bababa sa 15 segundo.';
 }

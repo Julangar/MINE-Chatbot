@@ -117,7 +117,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get carefullySelect => 'Selecciona cuidadosamente la foto, el audio o el video que representarán tu avatar. Recuerda que crear el avatar tiene un costo y, por seguridad, no podrás modificarlo después de crearlo. Elige los archivos que mejor reflejen tus gustos y preferencias.';
 
   @override
-  String get successUpload => '¡Carga exitosa!';
+  String get successUpload => '¡Archivos subidos correctamente!';
 
   @override
   String get errorSaving => 'Error al guardar:';
@@ -429,6 +429,24 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get enableSound => 'Activar sonido';
+
+  @override
+  String get avatarGuideTitle => 'Guía para subir el avatar';
+
+  @override
+  String get avatarGuideImage => 'Utiliza una foto frontal clara del rostro con buena iluminación y fondo neutro.';
+
+  @override
+  String get avatarGuideAudio => 'Sube o graba al menos 15 segundos de voz clara sin ruido de fondo.';
+
+  @override
+  String get avatarGuideVideo => 'Si subes un vídeo, asegúrate de que solo aparezca una persona y sin ruido de fondo.';
+
+  @override
+  String get audioPreviewInfo => 'Utiliza el reproductor para revisar tu audio. El recorte no está disponible en esta versión.';
+
+  @override
+  String get audioTooShort => 'El audio debe durar al menos 15 segundos.';
 }
 
 /// The translations for Spanish Castilian, as used in Latin America and the Caribbean (`es_419`).
@@ -544,7 +562,7 @@ class AppLocalizationsEs419 extends AppLocalizationsEs {
   String get carefullySelect => 'Selecciona cuidadosamente la foto, el audio o el video que representarán tu avatar. Recuerda que crear el avatar tiene un costo y, por seguridad, no podrás modificarlo después de crearlo. Elige los archivos que mejor reflejen tus gustos y preferencias.';
 
   @override
-  String get successUpload => '¡Carga exitosa!';
+  String get successUpload => '¡Archivos subidos correctamente!';
 
   @override
   String get errorSaving => 'Error al guardar:';
@@ -856,4 +874,22 @@ class AppLocalizationsEs419 extends AppLocalizationsEs {
 
   @override
   String get enableSound => 'Activar sonido';
+
+  @override
+  String get avatarGuideTitle => 'Guía para subir el avatar';
+
+  @override
+  String get avatarGuideImage => 'Utiliza una foto frontal clara del rostro con buena iluminación y fondo neutro.';
+
+  @override
+  String get avatarGuideAudio => 'Sube o graba al menos 15 segundos de voz clara sin ruido de fondo.';
+
+  @override
+  String get avatarGuideVideo => 'Si subes un video, asegúrate de que solo aparezca una persona y sin ruido de fondo.';
+
+  @override
+  String get audioPreviewInfo => 'Utiliza el reproductor para revisar tu audio. El recorte no está disponible en esta versión.';
+
+  @override
+  String get audioTooShort => 'El audio debe durar al menos 15 segundos.';
 }

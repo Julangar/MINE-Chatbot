@@ -117,7 +117,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get carefullySelect => '아바타를 대표할 사진, 오디오 또는 비디오를 신중히 선택하세요. 아바타 생성에는 비용이 들며, 보안을 위해 생성 후 수정이 불가합니다. 본인의 취향과 선호를 잘 반영하는 파일을 선택하세요.';
 
   @override
-  String get successUpload => '업로드 성공!';
+  String get successUpload => '파일이 성공적으로 업로드되었습니다!';
 
   @override
   String get errorSaving => '저장 오류:';
@@ -429,4 +429,22 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get enableSound => '소리 켜기';
+
+  @override
+  String get avatarGuideTitle => '아바타 업로드 가이드';
+
+  @override
+  String get avatarGuideImage => '좋은 조명과 중립적인 배경에서 얼굴 정면 사진을 사용하세요.';
+
+  @override
+  String get avatarGuideAudio => '배경 소음 없이 15초 이상의 깨끗한 목소리를 업로드하거나 녹음하세요.';
+
+  @override
+  String get avatarGuideVideo => '동영상을 업로드할 경우 한 사람만 나오고 배경 소음이 없도록 하세요.';
+
+  @override
+  String get audioPreviewInfo => '플레이어를 사용하여 오디오를 검토하세요. 이 버전에서는 자르기가 지원되지 않습니다.';
+
+  @override
+  String get audioTooShort => '오디오 길이는 최소 15초여야 합니다.';
 }

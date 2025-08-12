@@ -56,7 +56,7 @@
   "archive": "아카이브",
   "takeYourTime": "아바타를 만드는데 시간을 들이세요!",
   "carefullySelect": "아바타를 대표할 사진, 오디오 또는 비디오를 신중히 선택하세요. 아바타 생성에는 비용이 들며, 보안을 위해 생성 후 수정이 불가합니다. 본인의 취향과 선호를 잘 반영하는 파일을 선택하세요.",
-  "successUpload": "업로드 성공!",
+  "successUpload": "파일이 성공적으로 업로드되었습니다!",
   "errorSaving": "저장 오류:",
   "createYourAvatar": "아바타 만들기",
   "avatarAlreadyExist": "이미 해당 유형의 아바타가 있습니다!",
@@ -163,5 +163,11 @@
   "statusSpeaking": "말하는 중",
   "statusWaiting": "기다리는 중",
   "enableVibration": "진동 켜기",
-  "enableSound": "소리 켜기"
+  "enableSound": "소리 켜기",
+  "avatarGuideTitle": "아바타 업로드 가이드",
+  "avatarGuideImage": "좋은 조명과 중립적인 배경에서 얼굴 정면 사진을 사용하세요.",
+  "avatarGuideAudio": "배경 소음 없이 15초 이상의 깨끗한 목소리를 업로드하거나 녹음하세요.",
+  "avatarGuideVideo": "동영상을 업로드할 경우 한 사람만 나오고 배경 소음이 없도록 하세요.",
+  "audioPreviewInfo": "플레이어를 사용하여 오디오를 검토하세요. 이 버전에서는 자르기가 지원되지 않습니다.",
+  "audioTooShort": "오디오 길이는 최소 15초여야 합니다."
 }

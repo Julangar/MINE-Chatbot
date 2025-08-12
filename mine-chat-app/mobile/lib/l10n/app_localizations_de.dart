@@ -117,7 +117,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get carefullySelect => 'Wähle sorgfältig das Foto, das Audio oder das Video aus, das deinen Avatar repräsentieren soll. Beachte, dass das Erstellen des Avatars Kosten verursacht und du ihn aus Sicherheitsgründen später nicht mehr ändern kannst. Wähle die Dateien, die deine Vorlieben am besten widerspiegeln.';
 
   @override
-  String get successUpload => 'Erfolgreich hochgeladen!';
+  String get successUpload => 'Dateien erfolgreich hochgeladen!';
 
   @override
   String get errorSaving => 'Fehler beim Speichern:';
@@ -429,4 +429,22 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get enableSound => 'Ton aktivieren';
+
+  @override
+  String get avatarGuideTitle => 'Anleitung zum Hochladen des Avatars';
+
+  @override
+  String get avatarGuideImage => 'Verwenden Sie ein klares Frontalfoto des Gesichts mit guter Beleuchtung und neutralem Hintergrund.';
+
+  @override
+  String get avatarGuideAudio => 'Laden Sie mindestens 15 Sekunden klare Stimme ohne Hintergrundgeräusche hoch oder nehmen Sie sie auf.';
+
+  @override
+  String get avatarGuideVideo => 'Wenn Sie ein Video hochladen, stellen Sie sicher, dass nur eine Person zu sehen ist und keine Hintergrundgeräusche vorhanden sind.';
+
+  @override
+  String get audioPreviewInfo => 'Verwenden Sie den Player, um Ihr Audio zu überprüfen. Zuschneiden ist in dieser Version nicht verfügbar.';
+
+  @override
+  String get audioTooShort => 'Das Audio muss mindestens 15 Sekunden lang sein.';
 }

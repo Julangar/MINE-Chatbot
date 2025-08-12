@@ -117,7 +117,7 @@ class AppLocalizationsBg extends AppLocalizations {
   String get carefullySelect => 'Внимателно изберете снимката, аудиото или видеото, което ще представлява вашия аватар. Имайте предвид, че създаването на аватар има цена и от съображения за сигурност няма да можете да го промените след създаването му. Изберете файлове, които най-добре отразяват вашите вкусове и предпочитания.';
 
   @override
-  String get successUpload => 'Успешно качване!';
+  String get successUpload => 'Файловете бяха качени успешно!';
 
   @override
   String get errorSaving => 'Грешка при запазването:';
@@ -429,4 +429,22 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get enableSound => 'Включване на звука';
+
+  @override
+  String get avatarGuideTitle => 'Ръководство за качване на аватар';
+
+  @override
+  String get avatarGuideImage => 'Използвайте ясна снимка на лицето отпред с добро осветление и неутрален фон.';
+
+  @override
+  String get avatarGuideAudio => 'Качете или запишете поне 15 секунди ясен глас без фонов шум.';
+
+  @override
+  String get avatarGuideVideo => 'Ако качвате видео, уверете се, че се вижда само един човек и няма фонов шум.';
+
+  @override
+  String get audioPreviewInfo => 'Използвайте плейъра, за да прегледате аудиото си. Подрязването не е налично в тази версия.';
+
+  @override
+  String get audioTooShort => 'Аудиото трябва да е с дължина поне 15 секунди.';
 }

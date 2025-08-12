@@ -117,7 +117,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get carefullySelect => 'फोटो, ऑडियो या वीडियो को सावधानीपूर्वक चुनें जो आपके अवतार का प्रतिनिधित्व करेगा। ध्यान दें कि अवतार बनाने का खर्च है और सुरक्षा कारणों से आप इसे बाद में संपादित नहीं कर सकते। अपने स्वाद और पसंद को सबसे अच्छा दर्शाने वाली फाइलें चुनें।';
 
   @override
-  String get successUpload => 'सफलतापूर्वक अपलोड किया गया!';
+  String get successUpload => 'फ़ाइलें सफलतापूर्वक अपलोड हो गईं!';
 
   @override
   String get errorSaving => 'सहेजने में त्रुटि:';
@@ -429,4 +429,22 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get enableSound => 'ध्वनि सक्षम करें';
+
+  @override
+  String get avatarGuideTitle => 'अवतार अपलोड करने के लिए मार्गदर्शिका';
+
+  @override
+  String get avatarGuideImage => 'अच्छी रोशनी और तटस्थ पृष्ठभूमि के साथ चेहरे की स्पष्ट फ्रंट फोटो का उपयोग करें।';
+
+  @override
+  String get avatarGuideAudio => 'कम से कम 15 सेकंड की स्पष्ट आवाज़ बिना पृष्ठभूमि शोर के अपलोड या रिकॉर्ड करें।';
+
+  @override
+  String get avatarGuideVideo => 'यदि आप वीडियो अपलोड करते हैं, तो सुनिश्चित करें कि केवल एक व्यक्ति दिखाई दे और कोई पृष्ठभूमि शोर न हो।';
+
+  @override
+  String get audioPreviewInfo => 'अपने ऑडियो की समीक्षा करने के लिए प्लेयर का उपयोग करें। इस संस्करण में ट्रिमिंग उपलब्ध नहीं है।';
+
+  @override
+  String get audioTooShort => 'ऑडियो कम से कम 15 सेकंड का होना चाहिए।';
 }

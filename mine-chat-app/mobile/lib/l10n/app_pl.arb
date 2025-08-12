@@ -56,7 +56,7 @@
   "archive": "Archiwum",
   "takeYourTime": "Poświęć czas na stworzenie swojego awatara!",
   "carefullySelect": "Ostrożnie wybierz zdjęcie, audio lub wideo, które będzie reprezentować twojego awatara. Pamiętaj, że stworzenie awatara wiąże się z kosztami i ze względów bezpieczeństwa nie będziesz mógł go później edytować. Wybierz pliki, które najlepiej odzwierciedlają twoje gusta i preferencje.",
-  "successUpload": "Przesyłanie zakończone sukcesem!",
+  "successUpload": "Pliki przesłane pomyślnie!",
   "errorSaving": "Błąd podczas zapisywania:",
   "createYourAvatar": "Stwórz swojego awatara",
   "avatarAlreadyExist": "Masz już takiego awatara!",
@@ -163,5 +163,11 @@
   "statusSpeaking": "Mówi",
   "statusWaiting": "Czeka",
   "enableVibration": "Włącz wibracje",
-  "enableSound": "Włącz dźwięk"
+  "enableSound": "Włącz dźwięk",
+  "avatarGuideTitle": "Przewodnik po przesyłaniu awatara",
+  "avatarGuideImage": "Użyj wyraźnego zdjęcia twarzy z przodu, z dobrym oświetleniem i neutralnym tłem.",
+  "avatarGuideAudio": "Prześlij lub nagraj co najmniej 15 sekund czystego głosu bez szumów w tle.",
+  "avatarGuideVideo": "Jeśli przesyłasz wideo, upewnij się, że pojawia się tylko jedna osoba i nie ma szumów w tle.",
+  "audioPreviewInfo": "Użyj odtwarzacza, aby odsłuchać swoje nagranie. Przycinanie nie jest dostępne w tej wersji.",
+  "audioTooShort": "Dźwięk musi trwać co najmniej 15 sekund."
 }
