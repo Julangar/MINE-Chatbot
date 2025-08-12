@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
 import 'package:audioplayers/audioplayers.dart';
@@ -34,6 +35,7 @@ class _ChatScreenState extends State<ChatScreen> {
   final List<Map<String, dynamic>> _messages = [];
   bool _isLoading = false;
   late AudioPlayer _audioPlayer;
+  late AudioPlayer _sfxPlayer; // Para efectos de sonido
   VideoPlayerController? _videoController;
 
   /// Tipo de salida seleccionado por el usuario.
@@ -41,6 +43,62 @@ class _ChatScreenState extends State<ChatScreen> {
   /// Se utiliza una clave interna ('text', 'audio' o 'video') en lugar de la
   /// etiqueta localizada para que la lógica no dependa del idioma actual.
   String _selectedOutput = 'text';
+
+  /// Estado actual del chat: 'escuchando', 'pensando', 'hablando' o 'esperando'.
+  String _status = 'esperando';
+
+  /// Configuración para activar/desactivar vibración.
+  bool _vibrationEnabled = true;
+
+  /// Configuración para activar/desactivar sonidos de interfaz.
+  bool _soundEnabled = true;
+
+  /// Reproduce un pequeño efecto de sonido desde los recursos de la
+  /// aplicación. Se espera encontrar archivos MP3 en la carpeta
+  /// `assets/sounds/` y que estén declarados en `pubspec.yaml`.
+  Future<void> _playEffect(String name) async {
+    if (!_soundEnabled) return;
+    try {
+      // Detener cualquier efecto anterior antes de reproducir el nuevo
+      await _sfxPlayer.stop();
+      await _sfxPlayer.play(AssetSource('sounds/$name.mp3'));
+    } catch (_) {
+      // Si falla (por ejemplo, archivo no encontrado) no hacemos nada.
+    }
+  }
+
+  /// Genera una pequeña vibración en el dispositivo si la configuración
+  /// de vibración está activada.
+  void _vibrate() {
+    if (!_vibrationEnabled) return;
+    HapticFeedback.lightImpact();
+  }
+
+  /// Cambia el estado visual del chat y desencadena vibración y sonido
+  /// opcionales. El parámetro [newStatus] debe ser una de las cadenas
+  /// 'escuchando', 'pensando', 'hablando' o 'esperando'.
+  void _setStatus(String newStatus) {
+    if (_status == newStatus) return;
+    setState(() {
+      _status = newStatus;
+    });
+    // Vibrar y reproducir sonido según el tipo de estado
+    _vibrate();
+    switch (newStatus) {
+      case 'escuchando':
+        _playEffect('listen');
+        break;
+      case 'pensando':
+        _playEffect('thinking');
+        break;
+      case 'hablando':
+        _playEffect('speaking');
+        break;
+      case 'esperando':
+        _playEffect('waiting');
+        break;
+    }
+  }
 
   @override
   void initState() {
@@ -54,6 +112,7 @@ class _ChatScreenState extends State<ChatScreen> {
   void dispose() {
     _controller.dispose();
     _audioPlayer.dispose();
+    _sfxPlayer.dispose();
     _videoController?.dispose();
     super.dispose();
   }
@@ -70,6 +129,12 @@ class _ChatScreenState extends State<ChatScreen> {
       _controller.clear();
       _isLoading = true;
     });
+
+     // Retroalimentación al enviar el mensaje
+    _vibrate();
+    _playEffect('send');
+    // Establecer estado de pensamiento mientras esperamos la respuesta
+    _setStatus('pensando');
 
     try {
       Map<String, dynamic> data;
@@ -116,6 +181,17 @@ class _ChatScreenState extends State<ChatScreen> {
         _isLoading = false;
       });
 
+      // Retroalimentación al recibir la respuesta
+      _vibrate();
+      _playEffect('receive');
+
+
+      // Si es texto puro, volver al estado de espera. Para audio/video, el
+      // estado cambiará al reproducir el contenido.
+      if (audioUrl == null && videoUrl == null) {
+        _setStatus('esperando');
+      }
+
       // Reproducir audio si existe y se seleccionó el modo audio. Tras la
       // reproducción, se cambia el tipo del mensaje a texto para que no se
       // pueda reproducir nuevamente.
@@ -125,6 +201,8 @@ class _ChatScreenState extends State<ChatScreen> {
         final int msgIndex = _messages.length - 1;
         await _audioPlayer.stop();
         await _audioPlayer.play(UrlSource(audioUrl));
+        // Establecer estado de habla mientras se reproduce el audio
+        _setStatus('hablando');
         // Escuchar el evento de finalización de la reproducción y actualizar el
         // mensaje para mostrar solo el texto.
         _audioPlayer.onPlayerComplete.listen((event) {
@@ -133,6 +211,8 @@ class _ChatScreenState extends State<ChatScreen> {
             _messages[msgIndex]['type'] = 'text';
             _messages[msgIndex].remove('audioUrl');
           });
+          // Al finalizar el audio, volver al estado de espera
+          _setStatus('esperando');
         });
       }
       // Reproducir vídeo si existe
@@ -164,15 +244,23 @@ class _ChatScreenState extends State<ChatScreen> {
                 controller.dispose();
                 _videoController = null;
               });
+              // Al finalizar el vídeo, volver al estado de espera
+              _setStatus('esperando');
             } else {
               controller.dispose();
               _videoController = null;
+              // Si el widget ya no está montado, actualizamos el estado de
+              // forma silenciosa sin llamar a setState ni a los callbacks
+              _status = 'esperando';
             }
           }
         };
         _videoController!.addListener(listener);
         setState(() {});
         _videoController!.play();
+
+        // Establecer estado de habla mientras se reproduce el vídeo
+        _setStatus('hablando');
       }
     } catch (e) {
       setState(() => _isLoading = false);
@@ -301,6 +389,56 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
 
+    /// Construye un indicador visual del estado actual del chat.
+  Widget _buildStatusIndicator() {
+    final loc = AppLocalizations.of(context)!;
+    String text;
+    switch (_status) {
+      case 'escuchando':
+        text = loc.statusListening;
+        break;
+      case 'pensando':
+        text = loc.statusThinking;
+        break;
+      case 'hablando':
+        text = loc.statusSpeaking;
+        break;
+      default:
+        text = loc.statusWaiting;
+        break;
+    }
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          // Pequeño círculo colorido como indicador
+          Container(
+            width: 8,
+            height: 8,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: _status == 'esperando'
+                  ? Colors.grey
+                  : (_status == 'hablando'
+                      ? Colors.green
+                      : (_status == 'pensando'
+                          ? Colors.orange
+                          : Colors.blue)),
+            ),
+          ),
+          const SizedBox(width: 6),
+          Flexible(
+            child: Text(
+              text,
+              style: const TextStyle(fontSize: 14, fontStyle: FontStyle.italic),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final avatar = Provider.of<AvatarProvider>(context).avatar;
@@ -313,6 +451,8 @@ class _ChatScreenState extends State<ChatScreen> {
         children: [
           // Mostrar vídeo si está inicializado
           _buildAvatarMedia(),
+          // Indicador de estado (escuchando, pensando, hablando, esperando)
+          _buildStatusIndicator(),
           Expanded(
             child: ListView.builder(
               padding: const EdgeInsets.symmetric(vertical: 10),
@@ -371,6 +511,46 @@ class _ChatScreenState extends State<ChatScreen> {
                             });
                           }
                         },
+                      ),
+                    ),
+                  ],
+                ),
+                // Controles para activar o desactivar vibración y sonidos
+                const SizedBox(height: 8),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              AppLocalizations.of(context)!.enableVibration,
+                            ),
+                          ),
+                          Switch(
+                            value: _vibrationEnabled,
+                            onChanged: (value) {
+                              setState(() => _vibrationEnabled = value);
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              AppLocalizations.of(context)!.enableSound,
+                            ),
+                          ),
+                          Switch(
+                            value: _soundEnabled,
+                            onChanged: (value) {
+                              setState(() => _soundEnabled = value);
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   ],
