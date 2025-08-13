@@ -1,9 +1,10 @@
 const admin = require('firebase-admin');
+const path = require('path');
+const fs = require('fs');
 const { buildSystemPrompt } = require('../utils/generatePrompt');
 const openaiService = require('../services/openaiService');
 const elevenlabsService = require('../services/elevenlabsService');
 const didService = require('../services/didService');
-const cloudinaryService = require('../services/cloudinaryService');
 
 
 // Encriptación para las conversaciones. Usamos AES-256-CBC con una clave
@@ -178,6 +179,103 @@ async function sendMessage(req, res) {
     return res.status(500).json({ error: 'Error al generar respuesta del avatar.' });
   }
 }
+
+// Handles an audio message from the user. This function transcribes the audio
+async function sendAudioMessage(req, res) {
+  // Espera: multipart/form-data con campo 'audio' (multer), y en body:
+  // userId, avatarType, userLanguage, responseType (text|audio|video)
+  const { userId, avatarType, userLanguage, responseType = 'text', clientDurationSec } = req.body;
+  if (!userId || !avatarType || !userLanguage || !req.file) {
+    return res.status(400).json({ error: 'Faltan parámetros o archivo de audio.' });
+  }
+
+  // Validación de duración (cliente y servidor)
+  // 1–20 s (si clientDurationSec viene, valida rápido)
+  const dur = Number(clientDurationSec);
+  if (!Number.isNaN(dur) && (dur < 1 || dur > 20)) {
+    fs.unlink(req.file.path, ()=>{});
+    return res.status(400).json({ error: 'La duración del audio debe ser entre 1 y 20 segundos.' });
+  }
+
+  try {
+    // 1) Transcribir con Whisper
+    const userText = await transcribeAudio(req.file.path, userLanguage);
+    fs.unlink(req.file.path, ()=>{});
+    if (!userText) {
+      return res.status(400).json({ error: 'No se pudo transcribir el audio.' });
+    }
+    if (userText.length > 320) {
+      return res.status(400).json({ error: 'El mensaje transcrito excede 320 caracteres.' });
+    }
+
+    const db = admin.firestore();
+    // Cargar personalidad y construir historial (igual que sendMessage)
+    const personalityRef = db.collection('avatars').doc(userId).collection(avatarType).doc('personality');
+    const personalitySnap = await personalityRef.get();
+    if (!personalitySnap.exists) return res.status(404).json({ error: 'Avatar no encontrado.' });
+    const personality = personalitySnap.data();
+
+    const systemPrompt = buildSystemPrompt(personality, userLanguage);
+    const messages = [{ role: 'system', content: systemPrompt }];
+
+    const historySnap = await db.collection('conversations').doc(userId).collection(avatarType)
+      .orderBy('timestamp').limit(20).get();
+    historySnap.forEach(doc => {
+      const data = doc.data();
+      if (data.userMessage) messages.push({ role: 'user', content: maybeDecrypt(data.userMessage) });
+      if (data.avatarResponseClean) messages.push({ role: 'assistant', content: maybeDecrypt(data.avatarResponseClean) });
+    });
+
+    messages.push({ role: 'user', content: userText });
+
+    // 2) Llamar a OpenAI y separar versiones
+    const gptResponse = await getChatResponse(messages);
+    const cleanResponse = stripSsmlTags(gptResponse);
+    const textForAudio = removeEmojis(gptResponse);
+
+    // 3) Según responseType, generar o no media
+    let audioUrl = null, videoUrl = null;
+
+    if (responseType === 'audio' || responseType === 'video') {
+      // voz clonada
+      const voiceSnap = await db.collection('avatars').doc(userId).collection(avatarType).doc('audio').get();
+      const voiceId = voiceSnap.exists ? voiceSnap.data().voiceId : null;
+      if (!voiceId) return res.status(400).json({ error: 'No se ha clonado una voz para este avatar.' });
+
+      audioUrl = await elevenlabsService.generateSpeechFromClonedVoice(
+        textForAudio, userId, avatarType, voiceId
+      ); // guarda en Firebase y devuelve URL firmada (ya lo tienes) :contentReference[oaicite:2]{index=2}
+
+      if (responseType === 'video') {
+        const imageUrl = personality.imageUrl;
+        if (!imageUrl) return res.status(400).json({ error: 'No se ha configurado una imagen para este avatar.' });
+        const videoResp = await didService.generateAvatarVideoWithAudio({
+          source_image_url: imageUrl,
+          audio_url: audioUrl
+        });
+        const talkId = videoResp?.id;
+        videoUrl = await didService.waitForVideoResult(talkId);
+        if (!videoUrl) return res.status(500).json({ error: 'El video no estuvo listo a tiempo.' });
+      }
+    }
+
+    // 4) Guardar conversación
+    await db.collection('conversations').doc(userId).collection(avatarType).add({
+      timestamp: admin.firestore.FieldValue.serverTimestamp(),
+      userMessage: encryptText(userText),
+      avatarResponse: encryptText(gptResponse),
+      avatarResponseClean: encryptText(cleanResponse),
+      ...(audioUrl ? { audioUrl } : {}),
+      ...(videoUrl ? { videoUrl } : {})
+    });
+
+    return res.json({ response: cleanResponse, audioUrl, videoUrl });
+  } catch (err) {
+    console.error('sendAudioMessage error:', err);
+    return res.status(500).json({ error: 'Error al procesar mensaje de audio.' });
+  }
+}
+
 
 // Responds with synthesized speech using the cloned voice of the avatar. This
 // endpoint behaves similarly to sendMessage but additionally generates an MP3
