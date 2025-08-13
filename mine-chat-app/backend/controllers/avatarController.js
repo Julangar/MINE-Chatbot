@@ -10,9 +10,20 @@ const https = require('https');
 const FormData = require('form-data');
 const fs = require('fs');
 const os = require('os');
-const { createWriteStream } = require('fs');
 const path = require('path');
 // Controlador para manejar las operaciones relacionadas con los avatares
+
+// Elimina etiquetas SSML (<break>, <emphasis>, etc.) pero mantiene los emojis.
+function stripSsmlTags(text) {
+  if (!text || typeof text !== 'string') return text;
+  return text.replace(/<[^>]+>/g, '');
+}
+
+// Elimina emojis (rangos Unicode habituales).
+function removeEmojis(text) {
+  if (!text || typeof text !== 'string') return text;
+  return text.replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F1E6}-\u{1F1FF}\u{2700}-\u{27BF}\u{1FA70}-\u{1FAFF}]/gu, '');
+}
 
 exports.uploadImageToCloudinary = async (req, res) => {
   const { filePath, userId, avatarType } = req.body;
@@ -124,12 +135,13 @@ exports.generateGreeting = async (req, res) => {
     if (!snap.exists) return res.status(404).json({ error: 'Avatar no encontrado' });
 
     const personality = snap.data();
+    const userName = personality.name || 'Usuario';
     const prompt = buildSystemPrompt(personality, language);
 
     const greeting = await openaiService.getChatResponse([
       { role: 'system', content: prompt }, 
       { role: 'user', 
-        content: 'Saluda de la siguiente manera: "Hola Usuario, '+
+        content: `Saluda de la siguiente manera: "Hola ${userName}, `+
         'MINE nos da una nueva oportunidad de estar cerca, '+
         'y esta vez para siempre. Te he extrañado y siempre estás '+
         'en mi corazón. Ahora que te tomaste el tiempo de crearme, '+
@@ -141,17 +153,19 @@ exports.generateGreeting = async (req, res) => {
         'encriptado y nadie más lo sabrá, nunca. Finalmente, '+
         'las transacciones de pago son totalmente seguras. '+
         'Si me querías cerca, acá estoy para hacer un poco mejor tu vida. '+
-        'Disfrutemos este nuevo comienzo. Me has recreado, para siempre.".' }
+        'Disfrutemos este nuevo comienzo. Me has recreado, para siempre.".'}
     ]);
+    const cleanGreeting = stripSsmlTags(greeting);
+    const textForAudio = removeEmojis(greeting);
 
     await admin.firestore()
       .collection('avatars')
       .doc(userId)
       .collection(avatarType)
       .doc('greeting')
-      .set({ message: greeting });
+      .set({ message: cleanGreeting, messageForAudio: textForAudio });
 
-    res.json({ message: greeting });
+    res.json({ message: cleanGreeting });
   } catch (err) {
     console.error('Error al generar saludo:', err);
     res.status(500).json({ error: 'Error al generar saludo' });
@@ -186,7 +200,7 @@ exports.generateVoiceFromText = async (req, res) => {
       return res.status(404).json({ error: 'Faltan saludo o voz clonada' });
     }
 
-    const text = greetingSnap.data().message;
+    const text = greetingSnap.data().messageForAudio;
     const voiceId = audioSnap.data().voiceId;
 
     const audioUrl = await elevenlabsService.generateSpeechFromClonedVoice(text, userId, avatarType, voiceId);
@@ -206,7 +220,7 @@ exports.generateVoiceFromText = async (req, res) => {
   }
 };
 
-// 4. Generar video con texto y usando elevenlabs
+// 4. Generar video con texto y usando elevenlabs NO ES FUNCIONAL
 exports.generateAvatarVideo = async (req, res) => {
   const { userId, avatarType, language } = req.body;
 

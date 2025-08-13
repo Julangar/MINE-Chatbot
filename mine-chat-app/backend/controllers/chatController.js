@@ -51,6 +51,18 @@ function maybeDecrypt(text) {
 // except for the addition of conversation storage so that subsequent messages
 // include the greeting in the context.
 
+// Elimina etiquetas SSML (<break>, <emphasis>, etc.) pero mantiene los emojis.
+function stripSsmlTags(text) {
+  if (!text || typeof text !== 'string') return text;
+  return text.replace(/<[^>]+>/g, '');
+}
+
+// Elimina emojis (rangos Unicode habituales).
+function removeEmojis(text) {
+  if (!text || typeof text !== 'string') return text;
+  return text.replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F1E6}-\u{1F1FF}\u{2700}-\u{27BF}\u{1FA70}-\u{1FAFF}]/gu, '');
+}
+
 
 async function generateGreeting(req, res) {
   const { userId, avatarType, userLanguage } = req.body;
@@ -76,6 +88,7 @@ async function generateGreeting(req, res) {
       { role: 'user', 
         content: 'Presentate y saluda de forma amable al usuario.' }
     ]);
+    const cleanGreeting = stripSsmlTags(greeting);
 
     // Store the greeting in the conversations collection so that it can be
     // replayed later. We use a fixed document id ("greeting") so that the
@@ -88,14 +101,14 @@ async function generateGreeting(req, res) {
       .set({
         timestamp: admin.firestore.FieldValue.serverTimestamp(),
         userMessage: encryptText('Presentate y saluda de forma amable al usuario.'),
-        avatarResponse: encryptText(greeting)
+        avatarResponse: encryptText(cleanGreeting)
       });
     
       res.json({
         timestamp: admin.firestore.FieldValue.serverTimestamp(),
         isUser: true,
         text: 'Saludo de inicio con el avatar',
-        response: greeting
+        response: cleanGreeting
       });
   } catch (err) {
     console.error('Error al generar saludo:', err);
@@ -138,14 +151,15 @@ async function sendMessage(req, res) {
       if (data.userMessage) {
         messages.push({ role: 'user', content: maybeDecrypt(data.userMessage) });
       }
-      if (data.avatarResponse) {
-        messages.push({ role: 'assistant', content: maybeDecrypt(data.avatarResponse) });
+      if (data.avatarResponseClean) {
+        messages.push({ role: 'assistant', content: maybeDecrypt(data.avatarResponseClean) });
       }
     });
     messages.push({ role: 'user', content: message });
     
     // Request a completion from the OpenAI service
     const gptResponse = await openaiService.getChatResponse(messages);
+    const cleanResponse = stripSsmlTags(gptResponse);
 
     // Persist the conversation
     await db.collection('conversations')
@@ -154,10 +168,11 @@ async function sendMessage(req, res) {
       .add({
         timestamp: admin.firestore.FieldValue.serverTimestamp(),
         userMessage: encryptText(message),
-        avatarResponse: encryptText(gptResponse)
+        avatarResponse: encryptText(gptResponse),
+        avatarResponseClean: encryptText(cleanResponse)
       });
 
-    return res.json({ response: gptResponse });
+    return res.json({ response: cleanResponse });
   } catch (err) {
     console.error(err);
     return res.status(500).json({ error: 'Error al generar respuesta del avatar.' });
@@ -199,13 +214,14 @@ async function sendAudio(req, res) {
       if (data.userMessage) {
         messages.push({ role: 'user', content: maybeDecrypt(data.userMessage) });
       }
-      if (data.avatarResponse) {
-        messages.push({ role: 'assistant', content: maybeDecrypt(data.avatarResponse) });
+      if (data.avatarResponseClean) {
+        messages.push({ role: 'assistant', content: maybeDecrypt(data.avatarResponseClean) });
       }
     });
     messages.push({ role: 'user', content: message });
     const gptResponse = await openaiService.getChatResponse(messages);
-
+    const cleanResponse = stripSsmlTags(gptResponse);
+    const textForAudio = removeEmojis(gptResponse);
     // Retrieve voiceId
     const voiceSnap = await db.collection('avatars')
       .doc(userId)
@@ -219,7 +235,7 @@ async function sendAudio(req, res) {
 
     // Generate speech from the GPT response
     const audioUrl = await elevenlabsService.generateSpeechFromClonedVoice(
-      gptResponse,
+      textForAudio,
       userId,
       avatarType,
       voiceId
@@ -233,10 +249,11 @@ async function sendAudio(req, res) {
         timestamp: admin.firestore.FieldValue.serverTimestamp(),
         userMessage: encryptText(message),
         avatarResponse: encryptText(gptResponse),
+        avatarResponseClean: encryptText(cleanResponse),
         audioUrl: audioUrl
       });
 
-    return res.json({ response: gptResponse, audioUrl });
+    return res.json({ response: cleanResponse, audioUrl });
   } catch (err) {
     console.error(err);
     return res.status(500).json({ error: 'Error al generar la respuesta de audio.' });
@@ -278,14 +295,15 @@ async function sendVideo(req, res) {
       if (data.userMessage) {
         messages.push({ role: 'user', content: maybeDecrypt(data.userMessage) });
       }
-      if (data.avatarResponse) {
-        messages.push({ role: 'assistant', content: maybeDecrypt(data.avatarResponse) });
+      if (data.avatarResponseClean) {
+        messages.push({ role: 'assistant', content: maybeDecrypt(data.avatarResponseClean) });
       }
     });
     messages.push({ role: 'user', content: message });
 
     const gptResponse = await openaiService.getChatResponse(messages);
-
+    const cleanResponse = stripSsmlTags(gptResponse);
+    const textForAudio = removeEmojis(gptResponse);
     // Retrieve image path and convert to URL
     const imagePath = personality.imageUrl;
     if (!imagePath) {
@@ -305,7 +323,7 @@ async function sendVideo(req, res) {
 
     // Generate audio
     const audioUrl = await elevenlabsService.generateSpeechFromClonedVoice(
-      gptResponse,
+      textForAudio,
       userId,
       avatarType,
       voiceId
@@ -333,11 +351,12 @@ async function sendVideo(req, res) {
         timestamp: admin.firestore.FieldValue.serverTimestamp(),
         userMessage: encryptText(message),
         avatarResponse: encryptText(gptResponse),
+        avatarResponseClean: encryptText(cleanResponse),
         audioUrl,
         videoUrl
       });
 
-    return res.json({ response: gptResponse, audioUrl, videoUrl });
+    return res.json({ response: cleanResponse, audioUrl, videoUrl });
   } catch (err) {
     console.error(err);
     return res.status(500).json({ error: 'Error al generar la respuesta en video.' });
@@ -368,7 +387,7 @@ async function getConversationHistory(req, res) {
       // Only include text fields; ignore audio/video URLs for security.
       history.push({
         userMessage: data.userMessage ? maybeDecrypt(data.userMessage) : null,
-        avatarResponse: data.avatarResponse ? maybeDecrypt(data.avatarResponse) : null
+        avatarResponse: data.avatarResponseClean ? maybeDecrypt(data.avatarResponseClean) : null
       });
     });
     return res.json({ messages: history });
