@@ -551,9 +551,9 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
         // El usuario subió imagen y audio (y posiblemente video). Se clona la
         // voz para usarla mas adelante.
         await AvatarService.cloneVoice(
-          audioUrlCloudinary,
           userId,
           _avatarType,
+          audioUrlCloudinary,
         );
       }
     } catch (e) {
@@ -634,18 +634,19 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
         iconTheme: const IconThemeData(color: Colors.white),
       ),
       backgroundColor: const Color(0xFF131118),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            // Guía de carga de avatar
-            _buildGuidelines(),
+            
             // Mensaje de banner original de la app
             BannerMessage(
               title: AppLocalizations.of(context)!.takeYourTime,
               message: AppLocalizations.of(context)!.carefullySelect,
               icon: Icons.info_outline,
             ),
+            // Guía de carga de avatar
+            _buildGuidelines(),
             // FOTO
             Row(
               children: [
@@ -741,7 +742,7 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
             ),
             if (_video != null)
               Text('${AppLocalizations.of(context)!.video}: ${_video!.path.split('/').last}', style: const TextStyle(color: Colors.white70)),
-            const Spacer(),
+            const SizedBox(height: 24),
 
             // BOTÓN GUARDAR Y CONTINUAR
             SizedBox(

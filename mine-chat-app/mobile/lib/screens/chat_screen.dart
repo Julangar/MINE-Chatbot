@@ -61,7 +61,7 @@ class _ChatScreenState extends State<ChatScreen> {
     try {
       // Detener cualquier efecto anterior antes de reproducir el nuevo
       await _sfxPlayer.stop();
-      await _sfxPlayer.play(AssetSource('sounds/$name.mp3'));
+      await _sfxPlayer.play(AssetSource('assets/sounds/$name.mp3'));
     } catch (_) {
       // Si falla (por ejemplo, archivo no encontrado) no hacemos nada.
     }
