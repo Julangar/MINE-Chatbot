@@ -167,8 +167,8 @@ A continuación puedes ver los wireframes principales del proyecto, ubicados en 
 | 23  | Mejora de prompts para mayor naturalidad conversacional                                  | ✅ Completado |
 | 24  | Sistema de memoria conversacional (corto y largo plazo)                                  | ✅ Completado |
 | 25  | Feedback visual, sonoro y táctil                                                         | ✅ Completado |
-| 26  | Optimización de tiempos de carga (precarga de recursos, caché)                           |   |
-| 27  | Mejora de accesibilidad y soporte para gestos                                            |   |
+| 26  | Optimización de tiempos de carga (precarga de recursos, caché)                           | ✅ Completado |
+| 27  | Mejora de accesibilidad y soporte para gestos                                            | ✅ Completado |
 | 28  | Ajustes de personalidad (UI + backend)                                                   |   |
 | 29  | Selección de temas de conversación e intereses                                           |   |
 | 30  | Personalización visual del avatar y la interfaz                                          |   |
