@@ -9,7 +9,17 @@ class LanguageSwitcher extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.05),
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            Color(0xFF1A1838),   // Fondo muy oscuro       
+            Color(0xFF453089),   // Azul-violeta oscuro
+            Color(0xFF5619e5),   // Violeta principal
+            
+          ],
+          stops: [0.1, 0.7, 1.0], // Puedes ajustar los stops para suavizar la transición
+        ),
         borderRadius: BorderRadius.circular(8),
       ),
       child: DropdownButtonHideUnderline(
@@ -28,7 +38,7 @@ class LanguageSwitcher extends StatelessWidget {
                 (locale) => DropdownMenuItem(
                   value: locale,
                   child: Text(
-                    L10n.getLanguageName(locale.languageCode),
+                    L10n.getLanguageName(locale.languageCode, locale.countryCode),
                     style: const TextStyle(color: Colors.white),
                   ),
                 ),

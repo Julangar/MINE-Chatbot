@@ -45,7 +45,7 @@ class L10n {
     const Locale('zh'),
   ];
 
-  static String getLanguageName(String code, [String? countryCode]) {
+  static String getLanguageName(String code, String? countryCode) {
     switch (code) {
       case 'en':
         return 'English';
