@@ -109,6 +109,7 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
               onChanged: (value) => country = value,
               validator: (value) => value!.isEmpty ? t.field_required : null,
             ),
+            const SizedBox(height: 16),
             TextFormField(
               style: const TextStyle(color: Colors.grey),
               decoration: InputDecoration(
@@ -128,6 +129,7 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
               onChanged: (value) => relationshipOrRole = value,
               validator: (value) => value!.isEmpty ? t.field_required : null,
             ),
+            const SizedBox(height: 16),
             TextFormField(
               style: const TextStyle(color: Colors.grey),
               decoration: InputDecoration(
