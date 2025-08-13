@@ -223,7 +223,9 @@ class _AvatarPersonalityScreenState extends State<AvatarPersonalityScreen> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.avatar_form_title),
+        title: Text(AppLocalizations.of(context)!.avatar_form_title, 
+          style: const TextStyle(color: Colors.white),
+        ),
         backgroundColor: Colors.black,
       ),
       body: _isSaving

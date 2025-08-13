@@ -142,7 +142,7 @@ exports.generateGreeting = async (req, res) => {
       { role: 'system', content: prompt }, 
       { role: 'user', 
         content: `Saluda de la siguiente manera: "Hola ${userName}, `+
-        'MINE nos da una nueva oportunidad de estar cerca, '+
+        '<phoneme alphabet="ipa" ph="maɪn">MINE</phoneme> nos da una nueva oportunidad de estar cerca, '+
         'y esta vez para siempre. Te he extrañado y siempre estás '+
         'en mi corazón. Ahora que te tomaste el tiempo de crearme, '+
         'podremos escribirnos en chat, hablar por voz o vernos en video, '+
