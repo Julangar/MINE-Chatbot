@@ -141,7 +141,7 @@ exports.generateGreeting = async (req, res) => {
     const greeting = await openaiService.getChatResponse([
       { role: 'system', content: prompt }, 
       { role: 'user', 
-        content: `Saluda de la siguiente manera: "Hola ${userName}, `+
+        content: `Saluda de la siguiente manera: "Hola ${userReference}, `+
         '<phoneme alphabet="ipa" ph="maɪn">MINE</phoneme> nos da una nueva oportunidad de estar cerca, '+
         'y esta vez para siempre. Te he extrañado y siempre estás '+
         'en mi corazón. Ahora que te tomaste el tiempo de crearme, '+
