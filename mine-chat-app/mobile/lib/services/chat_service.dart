@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:http/http.dart' as http;
 
@@ -113,6 +114,26 @@ class ChatService {
       throw Exception('Error al generar el vídeo: ${resp.body}');
     }
     return jsonDecode(resp.body) as Map<String, dynamic>;
+  }
+
+  static Future<String?> sendVoice(
+    String userId,
+    String avatarType,
+    File audioFile,
+    String userLanguage,
+  ) async {
+    final uri = Uri.parse('$baseUrl/api/chat/send-voice');
+    final request = http.MultipartRequest('POST', uri)
+      ..fields['userId'] = userId
+      ..fields['avatarType'] = avatarType
+      ..fields['userLanguage'] = userLanguage
+      ..files.add(await http.MultipartFile.fromPath('audio', audioFile.path));
+    final response = await request.send();
+    final body = await response.stream.bytesToString();
+    if (response.statusCode != 200) {
+      throw Exception('Error al transcribir audio: $body');
+    }
+    return jsonDecode(body);
   }
 
     static Future<String?> fetchClonedAudioUrl(String userId, String avatarType) async {

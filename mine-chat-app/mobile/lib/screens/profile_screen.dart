@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../providers/avatar_provider.dart';
 import 'package:mine_app/l10n/app_localizations.dart';
 import '../providers/auth_provider.dart';
 
@@ -9,11 +10,13 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final auth = Provider.of<AuthProvider>(context);
+    final avatar = Provider.of<AvatarProvider>(context).avatar;
+    final user = auth.user;
+
   if (!auth.isLoggedIn) {
     Future.microtask(() => Navigator.pushReplacementNamed(context, '/login'));
     return const SizedBox(); // o un loader
   }
-  // ... tu pantalla protegida aquí
     return Scaffold(
       backgroundColor: const Color(0xFF131118),
       appBar: AppBar(
@@ -37,17 +40,24 @@ class ProfileScreen extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 48,
-                      backgroundImage: NetworkImage("https://lh3.googleusercontent.com/aida-public/AB6AXuCT1j4lZsZhMqkzqoWdQWs3J2dvdP1QddnCN0yay4rg23imqGMJlEXLf1KQbQcM8iHtN8lUr0n8jsS54op7ZYRuhFePTfAl4URv7PsyzYri6RDeEjkGgF5_YvxrsCmIgpvegWzpiGaX-pyJhZN8K4OH02pGVBadS5uF9yqh6lEDDgF3vo_jCRIQBPjdVm5aG9XmtrkvqSCDfkvUSSpTlEsq9wbxUjEiafYgse2FT3B-O6JkmOLHJMTPYbPozehfcssWB4L9FXSHvMAk"),
+                      backgroundImage: avatar?.imageUrl != null
+                          ? NetworkImage(avatar!.imageUrl!)
+                          : const AssetImage('assets/mineLogo2.png') as ImageProvider,
                     ),
                     const SizedBox(height: 12),
-                    const Text(
-                      "Sophia Carter",
-                      style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
+                    Text(
+                      user?.displayName ?? '',
+                      style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
                     ),
-                    const Text(
-                      "sophia.carter@email.com",
-                      style: TextStyle(color: Color(0xFFa59db8), fontSize: 16),
+                    Text(
+                      user?.email ?? '',
+                      style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
                     ),
+                    const SizedBox(height: 12),
+                    Text(avatar?.name ?? '',
+                        style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold)),
+                    Text(avatar?.speakingStyle ?? '',
+                        style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold)),
                   ],
                 ),
               ),

@@ -1,10 +1,12 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:record/record.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -40,6 +42,9 @@ class _ChatScreenState extends State<ChatScreen> {
   late AudioPlayer _audioPlayer;
   late AudioPlayer _sfxPlayer; // Para efectos de sonido
   VideoPlayerController? _videoController;
+  late AudioRecorder _recorder = AudioRecorder();
+  late Timer _timer;
+  int _recordSeconds = 0;
 
   /// Tipo de salida seleccionado por el usuario.
   ///
@@ -64,7 +69,7 @@ class _ChatScreenState extends State<ChatScreen> {
     try {
       // Detener cualquier efecto anterior antes de reproducir el nuevo
       await _sfxPlayer.stop();
-      await _sfxPlayer.play(AssetSource('assets/sounds/$name.mp3'));
+      await _sfxPlayer.play(AssetSource('assets/sounds/$name.mp3'), volume: 1);
     } catch (_) {
       // Si falla (por ejemplo, archivo no encontrado) no hacemos nada.
     }
@@ -118,6 +123,209 @@ class _ChatScreenState extends State<ChatScreen> {
     _sfxPlayer.dispose();
     _videoController?.dispose();
     super.dispose();
+  }
+
+  Future<String> _getFilePath() async {
+    final dir = await getApplicationDocumentsDirectory();
+    final filePath = '${dir.path}/recorded_audio_${DateTime.now().millisecondsSinceEpoch}.m4a';
+    return filePath;
+  }
+
+  Future<void> _startRecording() async {
+    if (await _recorder.hasPermission()) {
+      final path = await _getFilePath();
+      _recordSeconds = 0;
+      _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+        _recordSeconds++;
+        if (_recordSeconds >= 20) _stopRecording(); // máximo 20 s
+        setState(() {}); // actualiza contador en UI
+      });
+      await _recorder.start(
+        RecordConfig(
+          encoder: AudioEncoder.aacLc,
+          bitRate: 128000,
+          sampleRate: 44100,
+        ),
+        path: path,
+      );
+      _setStatus('escuchando');
+    }
+  }
+
+  Future<void> _stopRecording() async {
+    _timer.cancel();
+    final path = await _recorder.stop(); // devuelve ruta local
+    if (path != null && _recordSeconds >= 1) {
+      _sendVoice(path); // envía al backend (ver abajo)
+    }
+    _setStatus('pensando');
+  }
+
+  Future<void> _sendVoice(String localPath) async {
+    // Evita doble envío
+    if (_isLoading) return;
+    final avatar = Provider.of<AvatarProvider>(context, listen: false).avatar;
+    final audioFile = File(localPath);
+
+    if (avatar == null) return;
+
+    final text = await ChatService.sendVoice(
+      avatar.userId,
+      avatar.avatarType,
+      audioFile,
+      avatar.userLanguage!,
+    );
+
+    if (text == null) return;
+
+    setState(() {
+      _messages.add({'role': 'user', 'content': text, 'type': 'text'});
+      _controller.clear();
+      _isLoading = true;
+    });
+
+     // Retroalimentación al enviar el mensaje
+    _vibrate();
+    _playEffect('send');
+    // Establecer estado de pensamiento mientras esperamos la respuesta
+    _setStatus('pensando');
+
+    try {
+      Map<String, dynamic> data;
+      // Elegir el método según la selección de salida. Utilizamos claves
+      // internas ('text', 'audio' o 'video') en lugar de strings
+      // localizados para mantener el flujo de control consistente.
+      if (_selectedOutput == 'text') {
+        data = await ChatService.sendMessage(
+          avatar.userId!,
+          avatar.avatarType!,
+          text,
+          avatar.userLanguage!,
+        );
+      } else if (_selectedOutput == 'audio') {
+        data = await ChatService.sendAudio(
+          avatar.userId!,
+          avatar.avatarType!,
+          text,
+          avatar.userLanguage!,
+        );
+      } else {
+        // video
+        data = await ChatService.sendVideo(
+          avatar.userId!,
+          avatar.avatarType!,
+          text,
+          avatar.userLanguage!,
+        );
+      }
+
+      final reply = data['response'] as String? ??
+          AppLocalizations.of(context)!.noResponse;
+      final audioUrl = data['audioUrl'] as String?;
+      final videoUrl = data['videoUrl'] as String?;
+
+      setState(() {
+        _messages.add({
+          'role': 'avatar',
+          'content': reply,
+          'type': _selectedOutput,
+          'audioUrl': audioUrl,
+          'videoUrl': videoUrl,
+        });
+        _isLoading = false;
+      });
+
+      // Retroalimentación al recibir la respuesta
+      _vibrate();
+      _playEffect('receive');
+
+
+      // Si es texto puro, volver al estado de espera. Para audio/video, el
+      // estado cambiará al reproducir el contenido.
+      if (audioUrl == null && videoUrl == null) {
+        _setStatus('esperando');
+      }
+
+      // Reproducir audio si existe y se seleccionó el modo audio. Tras la
+      // reproducción, se cambia el tipo del mensaje a texto para que no se
+      // pueda reproducir nuevamente.
+      if (audioUrl != null && _selectedOutput == 'audio') {
+        // Índice del mensaje del avatar recién agregado. Se captura aquí para
+        // poder actualizarlo después de que se complete la reproducción.
+        final int msgIndex = _messages.length - 1;
+        await _audioPlayer.stop();
+        await _audioPlayer.play(UrlSource(audioUrl));
+        // Establecer estado de habla mientras se reproduce el audio
+        _setStatus('hablando');
+        // Escuchar el evento de finalización de la reproducción y actualizar el
+        // mensaje para mostrar solo el texto.
+        _audioPlayer.onPlayerComplete.listen((event) {
+          if (!mounted) return;
+          setState(() {
+            _messages[msgIndex]['type'] = 'text';
+            _messages[msgIndex].remove('audioUrl');
+          });
+          // Al finalizar el audio, volver al estado de espera
+          _setStatus('esperando');
+        });
+      }
+      // Reproducir vídeo si existe
+      if (videoUrl != null) {
+        // Liberar el controlador anterior si estaba reproduciendo algo
+        await _videoController?.dispose();
+        _videoController = VideoPlayerController.networkUrl(Uri.parse(videoUrl));
+        await _videoController!.initialize();
+        // Capturamos el índice del mensaje para actualizar su tipo tras la
+        // reproducción del vídeo.
+        final int msgIndex = _messages.length - 1;
+        // Añadir un listener que cierre el vídeo al finalizar la reproducción
+        // y cambie el mensaje a texto.
+        late VoidCallback listener;
+        listener = () {
+          final controller = _videoController;
+          if (controller != null &&
+              controller.value.isInitialized &&
+              controller.value.position >= controller.value.duration) {
+            controller.pause();
+            controller.seekTo(Duration.zero);
+            controller.removeListener(listener);
+            // Ocultar el reproductor y actualizar el mensaje
+            if (mounted) {
+              setState(() {
+                _messages[msgIndex]['type'] = 'text';
+                _messages[msgIndex].remove('audioUrl');
+                _messages[msgIndex].remove('videoUrl');
+                controller.dispose();
+                _videoController = null;
+              });
+              // Al finalizar el vídeo, volver al estado de espera
+              _setStatus('esperando');
+            } else {
+              controller.dispose();
+              _videoController = null;
+              // Si el widget ya no está montado, actualizamos el estado de
+              // forma silenciosa sin llamar a setState ni a los callbacks
+              _status = 'esperando';
+            }
+          }
+        };
+        _videoController!.addListener(listener);
+        setState(() {});
+        _videoController!.play();
+
+        // Establecer estado de habla mientras se reproduce el vídeo
+        _setStatus('hablando');
+      }
+    } catch (e) {
+      setState(() => _isLoading = false);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            AppLocalizations.of(context)!.error(e.toString()),
+          ),
+        ),
+      );
+    }
   }
 
   Future<void> _sendMessage() async {
@@ -275,7 +483,7 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
       );
     }
-  }
+  } 
   /// Carga los mensajes guardados en Firestore para la conversación actual
   /// (usuario y tipo de avatar) y los añade a la lista local. De esta forma
   /// se pueden mostrar conversaciones previas cuando el usuario abre la
@@ -445,10 +653,23 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     final avatar = Provider.of<AvatarProvider>(context).avatar;
+    final bool disabled = _status == 'escuchando' || _isLoading;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.chatTitle),
+        backgroundColor: const Color(0xFF131118),
+        leading: CircleAvatar(
+          backgroundImage: avatar?.imageUrl != null
+              ? NetworkImage(avatar!.imageUrl!)
+              : const AssetImage('assets/mineLogo2.png') as ImageProvider,
+        ),
+        title: Text(avatar?.name ?? ''),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.person),
+            onPressed: () => Navigator.pushNamed(context, '/profile'),
+          ),
+        ],
       ),
       body: Column(
         children: [
@@ -564,7 +785,9 @@ class _ChatScreenState extends State<ChatScreen> {
                     Expanded(
                       child: TextField(
                         controller: _controller,
-                        onSubmitted: (_) => _sendMessage(),
+                        maxLength: 300,
+                        inputFormatters: [LengthLimitingTextInputFormatter(300)],
+                        onSubmitted: disabled ? null : (_) => _sendMessage(),
                         decoration: InputDecoration(
                           hintText: AppLocalizations.of(context)!.inputHint,
                           border: const OutlineInputBorder(),
@@ -574,7 +797,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     const SizedBox(width: 8),
                     IconButton(
                       icon: const Icon(Icons.send),
-                      onPressed: _sendMessage,
+                      onPressed: disabled ? null : _sendMessage,
                     ),
                   ],
                 ),

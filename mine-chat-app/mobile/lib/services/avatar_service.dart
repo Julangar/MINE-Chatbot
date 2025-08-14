@@ -30,7 +30,7 @@ class AvatarService {
       throw Exception("Error general: $e");
     }
   }
-  
+
   static Future<String?> generateAvatarVideo(
       String userId,
       String avatarType,
