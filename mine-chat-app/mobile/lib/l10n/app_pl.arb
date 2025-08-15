@@ -80,7 +80,7 @@
   "avatar_form_title": "Dostosuj swojego awatara",
   "avatar_form_name_label": "Nazwa awatara",
   "avatar_form_user_reference_label": "Nazwa użytkownika lub odniesienie",
-  "avatar_form_relationship_label": "Relacja lub rola (np. przyjaciel, trener)",
+  "avatar_form_relationship_label": "Relacja lub rola (np. przyjaciel, trener, rodzeństwo, narzeczony)",
   "avatar_form_speaking_style_label": "Styl mówienia",
   "avatar_form_interests_label": "Zainteresowania",
   "avatar_form_common_phrases_label": "Typowe zwroty",
@@ -88,7 +88,7 @@
   "avatar_form_extroversion": "Ekstrawersja",
   "avatar_form_agreeableness": "Ugodowość",
   "avatar_form_conscientiousness": "Sumienność",
-  "avatar_form_add_phrase_hint": "np. Cześć!",
+  "avatar_form_add_phrase_hint": "np. Bądź odważny, Tęsknię za tobą, Cześć!, Kocham cię",
   "avatar_form_continue_button": "Kontynuuj",
   "avatar_summary_title": "Podsumowanie awatara",
   "avatar_summary_user": "Użytkownik",
@@ -172,5 +172,13 @@
   "audioTooShort": "Dźwięk musi trwać co najmniej 15 sekund.",
   "cameraPermissionDenied": "Wymagane jest zezwolenie na korzystanie z aparatu, aby robić zdjęcia lub nagrywać filmy.",
   "storagePermissionDenied": "Wymagane jest zezwolenie na dostęp do pamięci, aby wybrać pliki z galerii.",
-  "microphonePermissionDenied": "Wymagane jest zezwolenie na korzystanie z mikrofonu, aby nagrywać dźwięk lub wideo."
+  "microphonePermissionDenied": "Wymagane jest zezwolenie na korzystanie z mikrofonu, aby nagrywać dźwięk lub wideo.",
+  "interest_sports": "Sport",
+  "interest_art": "Sztuka",
+  "interest_cooking": "Gotowanie",
+  "interest_science": "Nauka",
+  "style_serio": "Poważny",
+  "style_amistoso": "Przyjazny",
+  "style_profesional": "Profesjonalny",
+  "style_humoristico": "Humorystyczny"
 }

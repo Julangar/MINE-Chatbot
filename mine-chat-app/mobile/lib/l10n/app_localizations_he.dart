@@ -189,7 +189,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get avatar_form_user_reference_label => 'שם משתמש או התייחסות';
 
   @override
-  String get avatar_form_relationship_label => 'קשר או תפקיד (לדוג\' חבר, מאמן)';
+  String get avatar_form_relationship_label => 'קשר או תפקיד (לדוגמה: חבר, מאמן, אח, ארוס)';
 
   @override
   String get avatar_form_speaking_style_label => 'סגנון דיבור';
@@ -213,7 +213,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get avatar_form_conscientiousness => 'מצפוניות';
 
   @override
-  String get avatar_form_add_phrase_hint => 'לדוג\': שלום!';
+  String get avatar_form_add_phrase_hint => 'לדוגמה: היה אמיץ, אני מתגעגע אליך, שלום!, אני אוהב אותך';
 
   @override
   String get avatar_form_continue_button => 'המשך';
@@ -456,4 +456,28 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get microphonePermissionDenied => 'נדרשת הרשאת מיקרופון כדי להקליט אודיו או וידאו.';
+
+  @override
+  String get interest_sports => 'ספורט';
+
+  @override
+  String get interest_art => 'אומנות';
+
+  @override
+  String get interest_cooking => 'בישול';
+
+  @override
+  String get interest_science => 'מדע';
+
+  @override
+  String get style_serio => 'רציני';
+
+  @override
+  String get style_amistoso => 'ידידותי';
+
+  @override
+  String get style_profesional => 'מקצועי';
+
+  @override
+  String get style_humoristico => 'הומוריסטי';
 }

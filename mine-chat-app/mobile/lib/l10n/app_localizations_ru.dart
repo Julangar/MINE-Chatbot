@@ -189,7 +189,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get avatar_form_user_reference_label => 'Имя пользователя или ссылка';
 
   @override
-  String get avatar_form_relationship_label => 'Отношение или роль (например, друг, тренер)';
+  String get avatar_form_relationship_label => 'Отношения или роль (например, друг, тренер, брат/сестра, жених)';
 
   @override
   String get avatar_form_speaking_style_label => 'Стиль общения';
@@ -213,7 +213,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get avatar_form_conscientiousness => 'Добросовестность';
 
   @override
-  String get avatar_form_add_phrase_hint => 'например: Привет!';
+  String get avatar_form_add_phrase_hint => 'например: Будь храбр, Я скучаю по тебе, Привет!, Я тебя люблю';
 
   @override
   String get avatar_form_continue_button => 'Продолжить';
@@ -456,4 +456,28 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get microphonePermissionDenied => 'Для записи аудио или видео требуется разрешение на использование микрофона.';
+
+  @override
+  String get interest_sports => 'Спорт';
+
+  @override
+  String get interest_art => 'Искусство';
+
+  @override
+  String get interest_cooking => 'Кулинария';
+
+  @override
+  String get interest_science => 'Наука';
+
+  @override
+  String get style_serio => 'Серьезный';
+
+  @override
+  String get style_amistoso => 'Дружелюбный';
+
+  @override
+  String get style_profesional => 'Профессиональный';
+
+  @override
+  String get style_humoristico => 'Юмористический';
 }

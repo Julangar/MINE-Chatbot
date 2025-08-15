@@ -496,7 +496,7 @@ abstract class AppLocalizations {
   /// No description provided for @avatar_form_relationship_label.
   ///
   /// In en, this message translates to:
-  /// **'Relationship or role (e.g. friend, coach)'**
+  /// **'Relationship or role (e.g. friend, coach, sibling, fiance)'**
   String get avatar_form_relationship_label;
 
   /// No description provided for @avatar_form_speaking_style_label.
@@ -544,7 +544,7 @@ abstract class AppLocalizations {
   /// No description provided for @avatar_form_add_phrase_hint.
   ///
   /// In en, this message translates to:
-  /// **'e.g. Hello!'**
+  /// **'e.g. Be brave, I miss you, Hello!, I love you!'**
   String get avatar_form_add_phrase_hint;
 
   /// No description provided for @avatar_form_continue_button.
@@ -1026,6 +1026,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Microphone permission is required to record audio or video.'**
   String get microphonePermissionDenied;
+
+  /// No description provided for @interest_sports.
+  ///
+  /// In en, this message translates to:
+  /// **'Sports'**
+  String get interest_sports;
+
+  /// No description provided for @interest_art.
+  ///
+  /// In en, this message translates to:
+  /// **'Art'**
+  String get interest_art;
+
+  /// No description provided for @interest_cooking.
+  ///
+  /// In en, this message translates to:
+  /// **'Cooking'**
+  String get interest_cooking;
+
+  /// No description provided for @interest_science.
+  ///
+  /// In en, this message translates to:
+  /// **'Science'**
+  String get interest_science;
+
+  /// No description provided for @style_serio.
+  ///
+  /// In en, this message translates to:
+  /// **'Serious'**
+  String get style_serio;
+
+  /// No description provided for @style_amistoso.
+  ///
+  /// In en, this message translates to:
+  /// **'Friendly'**
+  String get style_amistoso;
+
+  /// No description provided for @style_profesional.
+  ///
+  /// In en, this message translates to:
+  /// **'Professional'**
+  String get style_profesional;
+
+  /// No description provided for @style_humoristico.
+  ///
+  /// In en, this message translates to:
+  /// **'Humorous'**
+  String get style_humoristico;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

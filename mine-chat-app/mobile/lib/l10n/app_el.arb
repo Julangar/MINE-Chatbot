@@ -80,7 +80,7 @@
   "avatar_form_title": "Εξατομικεύστε το avatar σας",
   "avatar_form_name_label": "Όνομα avatar",
   "avatar_form_user_reference_label": "Όνομα χρήστη ή αναφορά",
-  "avatar_form_relationship_label": "Σχέση ή ρόλος (π.χ. φίλος, προπονητής)",
+  "avatar_form_relationship_label": "Σχέση ή ρόλος (π.χ. φίλος, προπονητής, αδελφός/αδελφή, μνηστήρας)",
   "avatar_form_speaking_style_label": "Στυλ ομιλίας",
   "avatar_form_interests_label": "Ενδιαφέροντα",
   "avatar_form_common_phrases_label": "Κοινές φράσεις",
@@ -88,7 +88,7 @@
   "avatar_form_extroversion": "Εξωστρέφεια",
   "avatar_form_agreeableness": "Καλοσύνη",
   "avatar_form_conscientiousness": "Συνειδητότητα",
-  "avatar_form_add_phrase_hint": "π.χ. Γεια!",
+  "avatar_form_add_phrase_hint": "π.χ. Να είσαι γενναίος, Μου λείπεις, Γειά!, Σ' αγαπώ",
   "avatar_form_continue_button": "Συνέχεια",
   "avatar_summary_title": "Σύνοψη avatar",
   "avatar_summary_user": "Χρήστης",
@@ -172,5 +172,13 @@
   "audioTooShort": "Ο ήχος πρέπει να διαρκεί τουλάχιστον 15 δευτερόλεπτα.",
   "cameraPermissionDenied": "Απαιτείται άδεια κάμερας για τη λήψη φωτογραφιών ή την εγγραφή βίντεο.",
   "storagePermissionDenied": "Απαιτείται άδεια αποθήκευσης για την επιλογή αρχείων από τη συλλογή σας.",
-  "microphonePermissionDenied": "Απαιτείται άδεια μικροφώνου για την εγγραφή ήχου ή βίντεο."
+  "microphonePermissionDenied": "Απαιτείται άδεια μικροφώνου για την εγγραφή ήχου ή βίντεο.",
+  "interest_sports": "Αθλήματα",
+  "interest_art": "Τέχνη",
+  "interest_cooking": "Μαγειρική",
+  "interest_science": "Επιστήμη",
+  "style_serio": "Σοβαρός",
+  "style_amistoso": "Φιλικός",
+  "style_profesional": "Επαγγελματικός",
+  "style_humoristico": "Χιουμοριστικός"
 }

@@ -189,7 +189,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get avatar_form_user_reference_label => 'Nome de usuário ou referência';
 
   @override
-  String get avatar_form_relationship_label => 'Relação ou papel (ex: amigo, treinador)';
+  String get avatar_form_relationship_label => 'Relação ou papel (ex.: amigo, treinador, irmão, noivo)';
 
   @override
   String get avatar_form_speaking_style_label => 'Estilo de fala';
@@ -213,7 +213,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get avatar_form_conscientiousness => 'Conscienciosidade';
 
   @override
-  String get avatar_form_add_phrase_hint => 'ex: Olá!';
+  String get avatar_form_add_phrase_hint => 'ex.: Seja corajoso, Sinto sua falta, Olá!, Eu te amo';
 
   @override
   String get avatar_form_continue_button => 'Continuar';
@@ -456,6 +456,30 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get microphonePermissionDenied => 'A permissão do microfone é necessária para gravar áudio ou vídeo.';
+
+  @override
+  String get interest_sports => 'Esportes';
+
+  @override
+  String get interest_art => 'Arte';
+
+  @override
+  String get interest_cooking => 'Culinária';
+
+  @override
+  String get interest_science => 'Ciência';
+
+  @override
+  String get style_serio => 'Sério';
+
+  @override
+  String get style_amistoso => 'Amigável';
+
+  @override
+  String get style_profesional => 'Profissional';
+
+  @override
+  String get style_humoristico => 'Humorístico';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -643,7 +667,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get avatar_form_user_reference_label => 'Nome de usuário ou referência';
 
   @override
-  String get avatar_form_relationship_label => 'Relação ou papel (ex: amigo, coach)';
+  String get avatar_form_relationship_label => 'Relação ou papel (ex.: amigo, treinador, irmão, noivo)';
 
   @override
   String get avatar_form_speaking_style_label => 'Estilo de fala';
@@ -667,7 +691,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get avatar_form_conscientiousness => 'Conscienciosidade';
 
   @override
-  String get avatar_form_add_phrase_hint => 'ex: Olá!';
+  String get avatar_form_add_phrase_hint => 'ex.: Seja corajoso, Sinto sua falta, Olá!, Eu te amo';
 
   @override
   String get avatar_form_continue_button => 'Continuar';
@@ -910,4 +934,28 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get microphonePermissionDenied => 'A permissão do microfone é necessária para gravar áudio ou vídeo.';
+
+  @override
+  String get interest_sports => 'Esportes';
+
+  @override
+  String get interest_art => 'Arte';
+
+  @override
+  String get interest_cooking => 'Culinária';
+
+  @override
+  String get interest_science => 'Ciência';
+
+  @override
+  String get style_serio => 'Sério';
+
+  @override
+  String get style_amistoso => 'Amigável';
+
+  @override
+  String get style_profesional => 'Profissional';
+
+  @override
+  String get style_humoristico => 'Humorístico';
 }

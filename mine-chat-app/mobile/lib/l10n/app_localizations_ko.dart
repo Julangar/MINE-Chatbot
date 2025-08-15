@@ -189,7 +189,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get avatar_form_user_reference_label => '사용자 이름 또는 참조';
 
   @override
-  String get avatar_form_relationship_label => '관계 또는 역할(예: 친구, 코치)';
+  String get avatar_form_relationship_label => '관계 또는 역할 (예: 친구, 코치, 형제자매, 약혼자)';
 
   @override
   String get avatar_form_speaking_style_label => '말하기 스타일';
@@ -213,7 +213,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get avatar_form_conscientiousness => '성실성';
 
   @override
-  String get avatar_form_add_phrase_hint => '예: 안녕하세요!';
+  String get avatar_form_add_phrase_hint => '예: 용감해져, 보고 싶어, 안녕!, 사랑해';
 
   @override
   String get avatar_form_continue_button => '계속';
@@ -456,4 +456,28 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get microphonePermissionDenied => '오디오 또는 비디오를 녹음하려면 마이크 권한이 필요합니다.';
+
+  @override
+  String get interest_sports => '스포츠';
+
+  @override
+  String get interest_art => '예술';
+
+  @override
+  String get interest_cooking => '요리';
+
+  @override
+  String get interest_science => '과학';
+
+  @override
+  String get style_serio => '진지한';
+
+  @override
+  String get style_amistoso => '친근한';
+
+  @override
+  String get style_profesional => '전문적인';
+
+  @override
+  String get style_humoristico => '유머러스한';
 }

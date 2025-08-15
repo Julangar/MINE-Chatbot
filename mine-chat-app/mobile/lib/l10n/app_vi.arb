@@ -80,7 +80,7 @@
   "avatar_form_title": "Tùy chỉnh avatar của bạn",
   "avatar_form_name_label": "Tên avatar",
   "avatar_form_user_reference_label": "Tên người dùng hoặc tham chiếu",
-  "avatar_form_relationship_label": "Mối quan hệ hoặc vai trò (ví dụ: bạn, huấn luyện viên)",
+  "avatar_form_relationship_label": "Mối quan hệ hoặc vai trò (ví dụ: bạn bè, huấn luyện viên, anh/chị em, hôn phu)",
   "avatar_form_speaking_style_label": "Kiểu nói chuyện",
   "avatar_form_interests_label": "Sở thích",
   "avatar_form_common_phrases_label": "Cụm từ thường dùng",
@@ -88,7 +88,7 @@
   "avatar_form_extroversion": "Hướng ngoại",
   "avatar_form_agreeableness": "Hòa đồng",
   "avatar_form_conscientiousness": "Tận tâm",
-  "avatar_form_add_phrase_hint": "ví dụ: Xin chào!",
+  "avatar_form_add_phrase_hint": "ví dụ: Hãy dũng cảm, Anh nhớ em, Xin chào!, Anh yêu em",
   "avatar_form_continue_button": "Tiếp tục",
   "avatar_summary_title": "Tóm tắt avatar",
   "avatar_summary_user": "Người dùng",
@@ -172,5 +172,13 @@
   "audioTooShort": "Âm thanh phải dài ít nhất 15 giây.",
   "cameraPermissionDenied": "Cần quyền truy cập máy ảnh để chụp ảnh hoặc quay video.",
   "storagePermissionDenied": "Cần quyền lưu trữ để chọn tệp từ thư viện của bạn.",
-  "microphonePermissionDenied": "Cần quyền truy cập micro để ghi âm hoặc quay video."
+  "microphonePermissionDenied": "Cần quyền truy cập micro để ghi âm hoặc quay video.",
+  "interest_sports": "Thể thao",
+  "interest_art": "Nghệ thuật",
+  "interest_cooking": "Nấu ăn",
+  "interest_science": "Khoa học",
+  "style_serio": "Nghiêm túc",
+  "style_amistoso": "Thân thiện",
+  "style_profesional": "Chuyên nghiệp",
+  "style_humoristico": "Hài hước"
 }

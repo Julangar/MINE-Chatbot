@@ -80,7 +80,7 @@
   "avatar_form_title": "아바타 맞춤 설정",
   "avatar_form_name_label": "아바타 이름",
   "avatar_form_user_reference_label": "사용자 이름 또는 참조",
-  "avatar_form_relationship_label": "관계 또는 역할(예: 친구, 코치)",
+  "avatar_form_relationship_label": "관계 또는 역할 (예: 친구, 코치, 형제자매, 약혼자)",
   "avatar_form_speaking_style_label": "말하기 스타일",
   "avatar_form_interests_label": "관심사",
   "avatar_form_common_phrases_label": "자주 쓰는 문구",
@@ -88,7 +88,7 @@
   "avatar_form_extroversion": "외향성",
   "avatar_form_agreeableness": "친화성",
   "avatar_form_conscientiousness": "성실성",
-  "avatar_form_add_phrase_hint": "예: 안녕하세요!",
+  "avatar_form_add_phrase_hint": "예: 용감해져, 보고 싶어, 안녕!, 사랑해",
   "avatar_form_continue_button": "계속",
   "avatar_summary_title": "아바타 요약",
   "avatar_summary_user": "사용자",
@@ -172,5 +172,13 @@
   "audioTooShort": "오디오 길이는 최소 15초여야 합니다.",
   "cameraPermissionDenied": "사진을 찍거나 동영상을 녹화하려면 카메라 권한이 필요합니다.",
   "storagePermissionDenied": "갤러리에서 파일을 선택하려면 저장소 권한이 필요합니다.",
-  "microphonePermissionDenied": "오디오 또는 비디오를 녹음하려면 마이크 권한이 필요합니다."
+  "microphonePermissionDenied": "오디오 또는 비디오를 녹음하려면 마이크 권한이 필요합니다.",
+  "interest_sports": "스포츠",
+  "interest_art": "예술",
+  "interest_cooking": "요리",
+  "interest_science": "과학",
+  "style_serio": "진지한",
+  "style_amistoso": "친근한",
+  "style_profesional": "전문적인",
+  "style_humoristico": "유머러스한"
 }

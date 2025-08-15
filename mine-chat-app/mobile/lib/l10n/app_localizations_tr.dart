@@ -189,7 +189,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get avatar_form_user_reference_label => 'Kullanıcı adı veya referans';
 
   @override
-  String get avatar_form_relationship_label => 'İlişki veya rol (ör. arkadaş, koç)';
+  String get avatar_form_relationship_label => 'İlişki veya rol (ör. arkadaş, koç, kardeş, nişanlı)';
 
   @override
   String get avatar_form_speaking_style_label => 'Konuşma tarzı';
@@ -213,7 +213,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get avatar_form_conscientiousness => 'Sorumluluk';
 
   @override
-  String get avatar_form_add_phrase_hint => 'ör. Merhaba!';
+  String get avatar_form_add_phrase_hint => 'ör. Cesur ol, Seni özledim, Merhaba!, Seni seviyorum';
 
   @override
   String get avatar_form_continue_button => 'Devam et';
@@ -456,4 +456,28 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get microphonePermissionDenied => 'Ses veya video kaydetmek için mikrofon izni gereklidir.';
+
+  @override
+  String get interest_sports => 'Spor';
+
+  @override
+  String get interest_art => 'Sanat';
+
+  @override
+  String get interest_cooking => 'Yemek pişirme';
+
+  @override
+  String get interest_science => 'Bilim';
+
+  @override
+  String get style_serio => 'Ciddi';
+
+  @override
+  String get style_amistoso => 'Samimi';
+
+  @override
+  String get style_profesional => 'Profesyonel';
+
+  @override
+  String get style_humoristico => 'Esprili';
 }

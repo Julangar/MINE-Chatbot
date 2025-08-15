@@ -189,7 +189,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get avatar_form_user_reference_label => 'Nom d\'utilisateur ou référence';
 
   @override
-  String get avatar_form_relationship_label => 'Relation ou rôle (ex : ami, coach)';
+  String get avatar_form_relationship_label => 'Relation ou rôle (ex. ami, entraîneur, frère/soeur, fiancé)';
 
   @override
   String get avatar_form_speaking_style_label => 'Style de parole';
@@ -213,7 +213,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get avatar_form_conscientiousness => 'Conscience';
 
   @override
-  String get avatar_form_add_phrase_hint => 'ex : Bonjour !';
+  String get avatar_form_add_phrase_hint => 'ex. Soyez courageux, Tu me manques, Bonjour !, Je t\'aime';
 
   @override
   String get avatar_form_continue_button => 'Continuer';
@@ -456,4 +456,28 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get microphonePermissionDenied => 'L\'autorisation du microphone est requise pour enregistrer de l\'audio ou de la vidéo.';
+
+  @override
+  String get interest_sports => 'Sports';
+
+  @override
+  String get interest_art => 'Art';
+
+  @override
+  String get interest_cooking => 'Cuisine';
+
+  @override
+  String get interest_science => 'Science';
+
+  @override
+  String get style_serio => 'Sérieux';
+
+  @override
+  String get style_amistoso => 'Amical';
+
+  @override
+  String get style_profesional => 'Professionnel';
+
+  @override
+  String get style_humoristico => 'Humoristique';
 }

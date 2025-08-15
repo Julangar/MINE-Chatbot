@@ -80,7 +80,7 @@
   "avatar_form_title": "Personnalisez votre avatar",
   "avatar_form_name_label": "Nom de l'avatar",
   "avatar_form_user_reference_label": "Nom d'utilisateur ou référence",
-  "avatar_form_relationship_label": "Relation ou rôle (ex : ami, coach)",
+  "avatar_form_relationship_label": "Relation ou rôle (ex. ami, entraîneur, frère/soeur, fiancé)",
   "avatar_form_speaking_style_label": "Style de parole",
   "avatar_form_interests_label": "Centres d'intérêt",
   "avatar_form_common_phrases_label": "Phrases courantes",
@@ -88,7 +88,7 @@
   "avatar_form_extroversion": "Extraversion",
   "avatar_form_agreeableness": "Agréabilité",
   "avatar_form_conscientiousness": "Conscience",
-  "avatar_form_add_phrase_hint": "ex : Bonjour !",
+  "avatar_form_add_phrase_hint": "ex. Soyez courageux, Tu me manques, Bonjour !, Je t'aime",
   "avatar_form_continue_button": "Continuer",
   "avatar_summary_title": "Résumé de l'avatar",
   "avatar_summary_user": "Utilisateur",
@@ -172,5 +172,13 @@
   "audioTooShort": "L'audio doit durer au moins 15 secondes.",
   "cameraPermissionDenied": "L'autorisation de la caméra est requise pour prendre des photos ou enregistrer des vidéos.",
   "storagePermissionDenied": "L'autorisation de stockage est requise pour sélectionner des fichiers depuis votre galerie.",
-  "microphonePermissionDenied": "L'autorisation du microphone est requise pour enregistrer de l'audio ou de la vidéo."
+  "microphonePermissionDenied": "L'autorisation du microphone est requise pour enregistrer de l'audio ou de la vidéo.",
+  "interest_sports": "Sports",
+  "interest_art": "Art",
+  "interest_cooking": "Cuisine",
+  "interest_science": "Science",
+  "style_serio": "Sérieux",
+  "style_amistoso": "Amical",
+  "style_profesional": "Professionnel",
+  "style_humoristico": "Humoristique"
 }

@@ -80,7 +80,7 @@
   "avatar_form_title": "Настройте своего аватара",
   "avatar_form_name_label": "Имя аватара",
   "avatar_form_user_reference_label": "Имя пользователя или ссылка",
-  "avatar_form_relationship_label": "Отношение или роль (например, друг, тренер)",
+  "avatar_form_relationship_label": "Отношения или роль (например, друг, тренер, брат/сестра, жених)",
   "avatar_form_speaking_style_label": "Стиль общения",
   "avatar_form_interests_label": "Интересы",
   "avatar_form_common_phrases_label": "Типичные фразы",
@@ -88,7 +88,7 @@
   "avatar_form_extroversion": "Экстраверсия",
   "avatar_form_agreeableness": "Доброжелательность",
   "avatar_form_conscientiousness": "Добросовестность",
-  "avatar_form_add_phrase_hint": "например: Привет!",
+  "avatar_form_add_phrase_hint": "например: Будь храбр, Я скучаю по тебе, Привет!, Я тебя люблю",
   "avatar_form_continue_button": "Продолжить",
   "avatar_summary_title": "Сводка по аватару",
   "avatar_summary_user": "Пользователь",
@@ -172,5 +172,13 @@
   "audioTooShort": "Аудио должно длиться не менее 15 секунд.",
   "cameraPermissionDenied": "Для съемки фото или записи видео требуется разрешение на использование камеры.",
   "storagePermissionDenied": "Для выбора файлов из галереи требуется разрешение на доступ к хранилищу.",
-  "microphonePermissionDenied": "Для записи аудио или видео требуется разрешение на использование микрофона."
+  "microphonePermissionDenied": "Для записи аудио или видео требуется разрешение на использование микрофона.",
+  "interest_sports": "Спорт",
+  "interest_art": "Искусство",
+  "interest_cooking": "Кулинария",
+  "interest_science": "Наука",
+  "style_serio": "Серьезный",
+  "style_amistoso": "Дружелюбный",
+  "style_profesional": "Профессиональный",
+  "style_humoristico": "Юмористический"
 }

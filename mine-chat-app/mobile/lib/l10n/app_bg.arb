@@ -80,7 +80,7 @@
   "avatar_form_title": "Персонализирайте своя аватар",
   "avatar_form_name_label": "Име на аватара",
   "avatar_form_user_reference_label": "Потребителско име или референция",
-  "avatar_form_relationship_label": "Връзка или роля (напр. приятел, треньор)",
+  "avatar_form_relationship_label": "Връзка или роля (напр. приятел, треньор, брат/сестра, годеник)",
   "avatar_form_speaking_style_label": "Стил на говорене",
   "avatar_form_interests_label": "Интереси",
   "avatar_form_common_phrases_label": "Чести фрази",
@@ -88,7 +88,7 @@
   "avatar_form_extroversion": "Екстраверсия",
   "avatar_form_agreeableness": "Добронамереност",
   "avatar_form_conscientiousness": "Съвестност",
-  "avatar_form_add_phrase_hint": "напр. Здравей!",
+  "avatar_form_add_phrase_hint": "напр.: Бъди смел, Липсваш ми, Здравей!, Обичам те",
   "avatar_form_continue_button": "Продължи",
   "avatar_summary_title": "Обобщение на аватара",
   "avatar_summary_user": "Потребител",
@@ -172,5 +172,13 @@
   "audioTooShort": "Аудиото трябва да е с дължина поне 15 секунди.",
   "cameraPermissionDenied": "Необходимо е разрешение за камера, за да правите снимки или да записвате видеоклипове.",
   "storagePermissionDenied": "Необходимо е разрешение за съхранение, за да изберете файлове от галерията си.",
-  "microphonePermissionDenied": "Необходимо е разрешение за микрофон, за да записвате аудио или видео."
+  "microphonePermissionDenied": "Необходимо е разрешение за микрофон, за да записвате аудио или видео.",
+  "interest_sports": "Спорт",
+  "interest_art": "Изкуство",
+  "interest_cooking": "Готвене",
+  "interest_science": "Наука",
+  "style_serio": "Сериозен",
+  "style_amistoso": "Приятелски",
+  "style_profesional": "Професионален",
+  "style_humoristico": "Хумористичен"
 }

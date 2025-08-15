@@ -80,7 +80,7 @@
   "avatar_form_title": "アバターをカスタマイズ",
   "avatar_form_name_label": "アバター名",
   "avatar_form_user_reference_label": "ユーザー名または参照",
-  "avatar_form_relationship_label": "関係または役割（例：友人、コーチ）",
+  "avatar_form_relationship_label": "関係または役割（例：友達、コーチ、兄弟姉妹、婚約者）",
   "avatar_form_speaking_style_label": "話し方のスタイル",
   "avatar_form_interests_label": "興味",
   "avatar_form_common_phrases_label": "よく使うフレーズ",
@@ -88,7 +88,7 @@
   "avatar_form_extroversion": "外向性",
   "avatar_form_agreeableness": "協調性",
   "avatar_form_conscientiousness": "誠実性",
-  "avatar_form_add_phrase_hint": "例：こんにちは！",
+  "avatar_form_add_phrase_hint": "例: 勇気を出して、会いたい、こんにちは！、愛してる",
   "avatar_form_continue_button": "続ける",
   "avatar_summary_title": "アバター概要",
   "avatar_summary_user": "ユーザー",
@@ -172,5 +172,13 @@
   "audioTooShort": "音声は少なくとも15秒である必要があります。",
   "cameraPermissionDenied": "写真を撮ったりビデオを録画するにはカメラの許可が必要です。",
   "storagePermissionDenied": "ギャラリーからファイルを選択するにはストレージの許可が必要です。",
-  "microphonePermissionDenied": "音声やビデオを録音するにはマイクの許可が必要です。"
+  "microphonePermissionDenied": "音声やビデオを録音するにはマイクの許可が必要です。",
+  "interest_sports": "スポーツ",
+  "interest_art": "アート",
+  "interest_cooking": "料理",
+  "interest_science": "科学",
+  "style_serio": "真面目",
+  "style_amistoso": "フレンドリー",
+  "style_profesional": "プロフェッショナル",
+  "style_humoristico": "ユーモラス"
 }

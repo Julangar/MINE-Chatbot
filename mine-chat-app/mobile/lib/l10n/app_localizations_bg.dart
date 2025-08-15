@@ -189,7 +189,7 @@ class AppLocalizationsBg extends AppLocalizations {
   String get avatar_form_user_reference_label => 'Потребителско име или референция';
 
   @override
-  String get avatar_form_relationship_label => 'Връзка или роля (напр. приятел, треньор)';
+  String get avatar_form_relationship_label => 'Връзка или роля (напр. приятел, треньор, брат/сестра, годеник)';
 
   @override
   String get avatar_form_speaking_style_label => 'Стил на говорене';
@@ -213,7 +213,7 @@ class AppLocalizationsBg extends AppLocalizations {
   String get avatar_form_conscientiousness => 'Съвестност';
 
   @override
-  String get avatar_form_add_phrase_hint => 'напр. Здравей!';
+  String get avatar_form_add_phrase_hint => 'напр.: Бъди смел, Липсваш ми, Здравей!, Обичам те';
 
   @override
   String get avatar_form_continue_button => 'Продължи';
@@ -456,4 +456,28 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get microphonePermissionDenied => 'Необходимо е разрешение за микрофон, за да записвате аудио или видео.';
+
+  @override
+  String get interest_sports => 'Спорт';
+
+  @override
+  String get interest_art => 'Изкуство';
+
+  @override
+  String get interest_cooking => 'Готвене';
+
+  @override
+  String get interest_science => 'Наука';
+
+  @override
+  String get style_serio => 'Сериозен';
+
+  @override
+  String get style_amistoso => 'Приятелски';
+
+  @override
+  String get style_profesional => 'Професионален';
+
+  @override
+  String get style_humoristico => 'Хумористичен';
 }

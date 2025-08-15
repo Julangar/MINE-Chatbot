@@ -189,7 +189,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get avatar_form_user_reference_label => 'Nombre de usuario o referencia';
 
   @override
-  String get avatar_form_relationship_label => 'Relación o rol (ej. amigo, entrenador)';
+  String get avatar_form_relationship_label => 'Relación o rol (p. ej., amigo, entrenador, hermano, prometido)';
 
   @override
   String get avatar_form_speaking_style_label => 'Estilo de habla';
@@ -213,7 +213,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get avatar_form_conscientiousness => 'Responsabilidad';
 
   @override
-  String get avatar_form_add_phrase_hint => 'ej. ¡Hola!';
+  String get avatar_form_add_phrase_hint => 'p. ej., Sé valiente, Te extraño, ¡Hola!, Te amo';
 
   @override
   String get avatar_form_continue_button => 'Continuar';
@@ -456,6 +456,30 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get microphonePermissionDenied => 'Se requiere permiso del micrófono para grabar audio o video.';
+
+  @override
+  String get interest_sports => 'Deportes';
+
+  @override
+  String get interest_art => 'Arte';
+
+  @override
+  String get interest_cooking => 'Cocina';
+
+  @override
+  String get interest_science => 'Ciencia';
+
+  @override
+  String get style_serio => 'Serio';
+
+  @override
+  String get style_amistoso => 'Amistoso';
+
+  @override
+  String get style_profesional => 'Profesional';
+
+  @override
+  String get style_humoristico => 'Humorístico';
 }
 
 /// The translations for Spanish Castilian, as used in Latin America and the Caribbean (`es_419`).
@@ -643,7 +667,7 @@ class AppLocalizationsEs419 extends AppLocalizationsEs {
   String get avatar_form_user_reference_label => 'Nombre de usuario o referencia';
 
   @override
-  String get avatar_form_relationship_label => 'Relación o rol (ej. amigo, coach)';
+  String get avatar_form_relationship_label => 'Relación o rol (p. ej., amigo, entrenador, hermano, prometido)';
 
   @override
   String get avatar_form_speaking_style_label => 'Estilo de habla';
@@ -667,7 +691,7 @@ class AppLocalizationsEs419 extends AppLocalizationsEs {
   String get avatar_form_conscientiousness => 'Responsabilidad';
 
   @override
-  String get avatar_form_add_phrase_hint => 'ej. ¡Hola!';
+  String get avatar_form_add_phrase_hint => 'p. ej., Sé valiente, Te extraño, ¡Hola!, Te amo';
 
   @override
   String get avatar_form_continue_button => 'Continuar';
@@ -910,4 +934,28 @@ class AppLocalizationsEs419 extends AppLocalizationsEs {
 
   @override
   String get microphonePermissionDenied => 'Se requiere permiso del micrófono para grabar audio o video.';
+
+  @override
+  String get interest_sports => 'Deportes';
+
+  @override
+  String get interest_art => 'Arte';
+
+  @override
+  String get interest_cooking => 'Cocina';
+
+  @override
+  String get interest_science => 'Ciencia';
+
+  @override
+  String get style_serio => 'Serio';
+
+  @override
+  String get style_amistoso => 'Amistoso';
+
+  @override
+  String get style_profesional => 'Profesional';
+
+  @override
+  String get style_humoristico => 'Humorístico';
 }

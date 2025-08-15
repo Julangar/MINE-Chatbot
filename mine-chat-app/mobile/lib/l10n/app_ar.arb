@@ -80,7 +80,7 @@
   "avatar_form_title": "خصص صورتك الرمزية",
   "avatar_form_name_label": "اسم الصورة الرمزية",
   "avatar_form_user_reference_label": "اسم المستخدم أو المرجع",
-  "avatar_form_relationship_label": "العلاقة أو الدور (مثال: صديق، مدرب)",
+  "avatar_form_relationship_label": "العلاقة أو الدور (مثال: صديق، مدرب، شقيق، خطيب)",
   "avatar_form_speaking_style_label": "أسلوب التحدث",
   "avatar_form_interests_label": "الاهتمامات",
   "avatar_form_common_phrases_label": "عبارات شائعة",
@@ -88,7 +88,7 @@
   "avatar_form_extroversion": "انبساطية",
   "avatar_form_agreeableness": "الود",
   "avatar_form_conscientiousness": "الضمير الحي",
-  "avatar_form_add_phrase_hint": "مثال: مرحبًا!",
+  "avatar_form_add_phrase_hint": "مثال: كن شجاعًا، أفتقدك، مرحبًا!، أحبك",
   "avatar_form_continue_button": "متابعة",
   "avatar_summary_title": "ملخص الصورة الرمزية",
   "avatar_summary_user": "المستخدم",
@@ -172,5 +172,13 @@
   "audioTooShort": "يجب أن يكون طول الصوت 15 ثانية على الأقل.",
   "cameraPermissionDenied": "مطلوب إذن الكاميرا لالتقاط الصور أو تسجيل مقاطع الفيديو.",
   "storagePermissionDenied": "مطلوب إذن التخزين لاختيار الملفات من معرض الصور الخاص بك.",
-  "microphonePermissionDenied": "مطلوب إذن الميكروفون لتسجيل الصوت أو الفيديو."
+  "microphonePermissionDenied": "مطلوب إذن الميكروفون لتسجيل الصوت أو الفيديو.",
+  "interest_sports": "رياضة",
+  "interest_art": "فن",
+  "interest_cooking": "طبخ",
+  "interest_science": "علوم",
+  "style_serio": "جاد",
+  "style_amistoso": "ودود",
+  "style_profesional": "محترف",
+  "style_humoristico": "فكاهي"
 }

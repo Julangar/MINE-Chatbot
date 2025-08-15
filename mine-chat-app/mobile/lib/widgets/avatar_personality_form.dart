@@ -24,6 +24,7 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
   double extroversion = 0.5;
   double agreeableness = 0.5;
   double conscientiousness = 0.5;
+  String phoneCode = '+57';
 
   final phraseController = TextEditingController();
 
@@ -66,6 +67,10 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
       'formal': t.style_formal,
       'tierno': t.style_tierno,
       'divertido': t.style_divertido,
+      'serio': t.style_serio,
+      'amistoso': t.style_amistoso,
+      'profesional': t.style_profesional,
+      'humorístico': t.style_humoristico,
     };
 
     final interestOptions = {
@@ -74,6 +79,10 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
       'viajes': t.interest_travel,
       'lectura': t.interest_books,
       'naturaleza': t.interest_nature,
+      'deportes': t.interest_sports,
+      'arte': t.interest_art,
+      'cocina': t.interest_cooking,
+      'ciencia': t.interest_science,
     };
 
     return Form(
@@ -130,16 +139,32 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
               validator: (value) => value!.isEmpty ? t.field_required : null,
             ),
             const SizedBox(height: 16),
-            TextFormField(
-              style: const TextStyle(color: Colors.grey),
-              decoration: InputDecoration(
-                labelText: '${t.avatar_form_phone_label} (${t.field_optional})',
-                labelStyle: const TextStyle(color: Colors.white),
-                enabledBorder: const UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey),
+            Row(
+              children: [
+                DropdownButton<String>(
+                  value: phoneCode,
+                  dropdownColor: Colors.black,
+                  style: const TextStyle(color: Colors.white),
+                  items: [
+                    '+57', '+1', '+34', '+52', '+54', // añade más códigos según tu mercado
+                  ].map((code) {
+                    return DropdownMenuItem(value: code, child: Text(code));
+                  }).toList(),
+                  onChanged: (value) => setState(() => phoneCode = value!),
                 ),
-              ),
-              onChanged: (value) => phoneNumber = value,             
+                const SizedBox(width: 8),
+                Expanded(
+                  child: TextFormField(
+                    style: const TextStyle(color: Colors.grey),
+                    decoration: InputDecoration(
+                      labelText: '${t.avatar_form_phone_label} (${t.field_optional})',
+                      labelStyle: const TextStyle(color: Colors.white),
+                    ),
+                    keyboardType: TextInputType.phone,
+                    onChanged: (value) => phoneNumber = '$phoneCode$value',
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 24),
             DropdownButtonFormField(

@@ -80,7 +80,7 @@
   "avatar_form_title": "Avatar testreszabása",
   "avatar_form_name_label": "Avatar neve",
   "avatar_form_user_reference_label": "Felhasználónév vagy hivatkozás",
-  "avatar_form_relationship_label": "Kapcsolat vagy szerep (pl. barát, edző)",
+  "avatar_form_relationship_label": "Kapcsolat vagy szerep (pl.: barát, edző, testvér, jegyes)",
   "avatar_form_speaking_style_label": "Beszédstílus",
   "avatar_form_interests_label": "Érdeklődési körök",
   "avatar_form_common_phrases_label": "Gyakori kifejezések",
@@ -88,7 +88,7 @@
   "avatar_form_extroversion": "Extroverzió",
   "avatar_form_agreeableness": "Barátságosság",
   "avatar_form_conscientiousness": "Lelkiismeretesség",
-  "avatar_form_add_phrase_hint": "pl. Helló!",
+  "avatar_form_add_phrase_hint": "pl.: Légy bátor, Hiányzol, Helló!, Szeretlek",
   "avatar_form_continue_button": "Folytatás",
   "avatar_summary_title": "Avatar összegzés",
   "avatar_summary_user": "Felhasználó",
@@ -172,5 +172,13 @@
   "audioTooShort": "A hang legalább 15 másodperc hosszú legyen.",
   "cameraPermissionDenied": "A fényképek készítéséhez vagy videók rögzítéséhez kamerajogosultság szükséges.",
   "storagePermissionDenied": "A galériából való fájlkiválasztáshoz tárhelyhozzáférési engedély szükséges.",
-  "microphonePermissionDenied": "Hang vagy videó rögzítéséhez mikrofonengedély szükséges."
+  "microphonePermissionDenied": "Hang vagy videó rögzítéséhez mikrofonengedély szükséges.",
+  "interest_sports": "Sport",
+  "interest_art": "Művészet",
+  "interest_cooking": "Főzés",
+  "interest_science": "Tudomány",
+  "style_serio": "Komoly",
+  "style_amistoso": "Barátságos",
+  "style_profesional": "Professzionális",
+  "style_humoristico": "Humoros"
 }

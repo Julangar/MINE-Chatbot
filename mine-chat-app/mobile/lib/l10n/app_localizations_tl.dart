@@ -189,7 +189,7 @@ class AppLocalizationsTl extends AppLocalizations {
   String get avatar_form_user_reference_label => 'Pangalan ng user o reference';
 
   @override
-  String get avatar_form_relationship_label => 'Relasyon o papel (hal. kaibigan, coach)';
+  String get avatar_form_relationship_label => 'Relasyon o papel (hal. kaibigan, coach, kapatid, kasintahan)';
 
   @override
   String get avatar_form_speaking_style_label => 'Estilo ng pagsasalita';
@@ -213,7 +213,7 @@ class AppLocalizationsTl extends AppLocalizations {
   String get avatar_form_conscientiousness => 'Pagiging responsable';
 
   @override
-  String get avatar_form_add_phrase_hint => 'hal. Hi!';
+  String get avatar_form_add_phrase_hint => 'hal. Maging matapang, Miss kita, Kumusta!, Mahal kita';
 
   @override
   String get avatar_form_continue_button => 'Magpatuloy';
@@ -456,4 +456,28 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get microphonePermissionDenied => 'Kinakailangan ang pahintulot sa mikropono upang mag-record ng audio o video.';
+
+  @override
+  String get interest_sports => 'Palakasan';
+
+  @override
+  String get interest_art => 'Sining';
+
+  @override
+  String get interest_cooking => 'Pagluluto';
+
+  @override
+  String get interest_science => 'Agham';
+
+  @override
+  String get style_serio => 'Seryoso';
+
+  @override
+  String get style_amistoso => 'Magiliw';
+
+  @override
+  String get style_profesional => 'Propesyonal';
+
+  @override
+  String get style_humoristico => 'Nakakatawa';
 }

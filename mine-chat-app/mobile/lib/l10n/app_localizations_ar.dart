@@ -189,7 +189,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get avatar_form_user_reference_label => 'اسم المستخدم أو المرجع';
 
   @override
-  String get avatar_form_relationship_label => 'العلاقة أو الدور (مثال: صديق، مدرب)';
+  String get avatar_form_relationship_label => 'العلاقة أو الدور (مثال: صديق، مدرب، شقيق، خطيب)';
 
   @override
   String get avatar_form_speaking_style_label => 'أسلوب التحدث';
@@ -213,7 +213,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get avatar_form_conscientiousness => 'الضمير الحي';
 
   @override
-  String get avatar_form_add_phrase_hint => 'مثال: مرحبًا!';
+  String get avatar_form_add_phrase_hint => 'مثال: كن شجاعًا، أفتقدك، مرحبًا!، أحبك';
 
   @override
   String get avatar_form_continue_button => 'متابعة';
@@ -456,4 +456,28 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get microphonePermissionDenied => 'مطلوب إذن الميكروفون لتسجيل الصوت أو الفيديو.';
+
+  @override
+  String get interest_sports => 'رياضة';
+
+  @override
+  String get interest_art => 'فن';
+
+  @override
+  String get interest_cooking => 'طبخ';
+
+  @override
+  String get interest_science => 'علوم';
+
+  @override
+  String get style_serio => 'جاد';
+
+  @override
+  String get style_amistoso => 'ودود';
+
+  @override
+  String get style_profesional => 'محترف';
+
+  @override
+  String get style_humoristico => 'فكاهي';
 }

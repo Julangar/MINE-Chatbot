@@ -189,7 +189,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get avatar_form_user_reference_label => 'Tên người dùng hoặc tham chiếu';
 
   @override
-  String get avatar_form_relationship_label => 'Mối quan hệ hoặc vai trò (ví dụ: bạn, huấn luyện viên)';
+  String get avatar_form_relationship_label => 'Mối quan hệ hoặc vai trò (ví dụ: bạn bè, huấn luyện viên, anh/chị em, hôn phu)';
 
   @override
   String get avatar_form_speaking_style_label => 'Kiểu nói chuyện';
@@ -213,7 +213,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get avatar_form_conscientiousness => 'Tận tâm';
 
   @override
-  String get avatar_form_add_phrase_hint => 'ví dụ: Xin chào!';
+  String get avatar_form_add_phrase_hint => 'ví dụ: Hãy dũng cảm, Anh nhớ em, Xin chào!, Anh yêu em';
 
   @override
   String get avatar_form_continue_button => 'Tiếp tục';
@@ -456,4 +456,28 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get microphonePermissionDenied => 'Cần quyền truy cập micro để ghi âm hoặc quay video.';
+
+  @override
+  String get interest_sports => 'Thể thao';
+
+  @override
+  String get interest_art => 'Nghệ thuật';
+
+  @override
+  String get interest_cooking => 'Nấu ăn';
+
+  @override
+  String get interest_science => 'Khoa học';
+
+  @override
+  String get style_serio => 'Nghiêm túc';
+
+  @override
+  String get style_amistoso => 'Thân thiện';
+
+  @override
+  String get style_profesional => 'Chuyên nghiệp';
+
+  @override
+  String get style_humoristico => 'Hài hước';
 }

@@ -189,7 +189,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get avatar_form_user_reference_label => 'Όνομα χρήστη ή αναφορά';
 
   @override
-  String get avatar_form_relationship_label => 'Σχέση ή ρόλος (π.χ. φίλος, προπονητής)';
+  String get avatar_form_relationship_label => 'Σχέση ή ρόλος (π.χ. φίλος, προπονητής, αδελφός/αδελφή, μνηστήρας)';
 
   @override
   String get avatar_form_speaking_style_label => 'Στυλ ομιλίας';
@@ -213,7 +213,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get avatar_form_conscientiousness => 'Συνειδητότητα';
 
   @override
-  String get avatar_form_add_phrase_hint => 'π.χ. Γεια!';
+  String get avatar_form_add_phrase_hint => 'π.χ. Να είσαι γενναίος, Μου λείπεις, Γειά!, Σ\' αγαπώ';
 
   @override
   String get avatar_form_continue_button => 'Συνέχεια';
@@ -456,4 +456,28 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get microphonePermissionDenied => 'Απαιτείται άδεια μικροφώνου για την εγγραφή ήχου ή βίντεο.';
+
+  @override
+  String get interest_sports => 'Αθλήματα';
+
+  @override
+  String get interest_art => 'Τέχνη';
+
+  @override
+  String get interest_cooking => 'Μαγειρική';
+
+  @override
+  String get interest_science => 'Επιστήμη';
+
+  @override
+  String get style_serio => 'Σοβαρός';
+
+  @override
+  String get style_amistoso => 'Φιλικός';
+
+  @override
+  String get style_profesional => 'Επαγγελματικός';
+
+  @override
+  String get style_humoristico => 'Χιουμοριστικός';
 }

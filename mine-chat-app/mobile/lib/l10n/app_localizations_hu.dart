@@ -189,7 +189,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get avatar_form_user_reference_label => 'Felhasználónév vagy hivatkozás';
 
   @override
-  String get avatar_form_relationship_label => 'Kapcsolat vagy szerep (pl. barát, edző)';
+  String get avatar_form_relationship_label => 'Kapcsolat vagy szerep (pl.: barát, edző, testvér, jegyes)';
 
   @override
   String get avatar_form_speaking_style_label => 'Beszédstílus';
@@ -213,7 +213,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get avatar_form_conscientiousness => 'Lelkiismeretesség';
 
   @override
-  String get avatar_form_add_phrase_hint => 'pl. Helló!';
+  String get avatar_form_add_phrase_hint => 'pl.: Légy bátor, Hiányzol, Helló!, Szeretlek';
 
   @override
   String get avatar_form_continue_button => 'Folytatás';
@@ -456,4 +456,28 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get microphonePermissionDenied => 'Hang vagy videó rögzítéséhez mikrofonengedély szükséges.';
+
+  @override
+  String get interest_sports => 'Sport';
+
+  @override
+  String get interest_art => 'Művészet';
+
+  @override
+  String get interest_cooking => 'Főzés';
+
+  @override
+  String get interest_science => 'Tudomány';
+
+  @override
+  String get style_serio => 'Komoly';
+
+  @override
+  String get style_amistoso => 'Barátságos';
+
+  @override
+  String get style_profesional => 'Professzionális';
+
+  @override
+  String get style_humoristico => 'Humoros';
 }

@@ -80,7 +80,7 @@
   "avatar_form_title": "I-customize ang iyong avatar",
   "avatar_form_name_label": "Pangalan ng avatar",
   "avatar_form_user_reference_label": "Pangalan ng user o reference",
-  "avatar_form_relationship_label": "Relasyon o papel (hal. kaibigan, coach)",
+  "avatar_form_relationship_label": "Relasyon o papel (hal. kaibigan, coach, kapatid, kasintahan)",
   "avatar_form_speaking_style_label": "Estilo ng pagsasalita",
   "avatar_form_interests_label": "Mga interes",
   "avatar_form_common_phrases_label": "Karaniwang mga parirala",
@@ -88,7 +88,7 @@
   "avatar_form_extroversion": "Pagiging extrovert",
   "avatar_form_agreeableness": "Pagiging madaling makisama",
   "avatar_form_conscientiousness": "Pagiging responsable",
-  "avatar_form_add_phrase_hint": "hal. Hi!",
+  "avatar_form_add_phrase_hint": "hal. Maging matapang, Miss kita, Kumusta!, Mahal kita",
   "avatar_form_continue_button": "Magpatuloy",
   "avatar_summary_title": "Buod ng avatar",
   "avatar_summary_user": "User",
@@ -172,5 +172,13 @@
   "audioTooShort": "Ang audio ay dapat hindi bababa sa 15 segundo.",
   "cameraPermissionDenied": "Kinakailangan ang pahintulot sa camera upang kumuha ng mga larawan o mag-record ng mga video.",
   "storagePermissionDenied": "Kinakailangan ang pahintulot sa storage upang pumili ng mga file mula sa iyong gallery.",
-  "microphonePermissionDenied": "Kinakailangan ang pahintulot sa mikropono upang mag-record ng audio o video."
+  "microphonePermissionDenied": "Kinakailangan ang pahintulot sa mikropono upang mag-record ng audio o video.",
+  "interest_sports": "Palakasan",
+  "interest_art": "Sining",
+  "interest_cooking": "Pagluluto",
+  "interest_science": "Agham",
+  "style_serio": "Seryoso",
+  "style_amistoso": "Magiliw",
+  "style_profesional": "Propesyonal",
+  "style_humoristico": "Nakakatawa"
 }

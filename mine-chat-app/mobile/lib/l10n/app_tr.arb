@@ -80,7 +80,7 @@
   "avatar_form_title": "Avatarını özelleştir",
   "avatar_form_name_label": "Avatar adı",
   "avatar_form_user_reference_label": "Kullanıcı adı veya referans",
-  "avatar_form_relationship_label": "İlişki veya rol (ör. arkadaş, koç)",
+  "avatar_form_relationship_label": "İlişki veya rol (ör. arkadaş, koç, kardeş, nişanlı)",
   "avatar_form_speaking_style_label": "Konuşma tarzı",
   "avatar_form_interests_label": "İlgi alanları",
   "avatar_form_common_phrases_label": "Yaygın ifadeler",
@@ -88,7 +88,7 @@
   "avatar_form_extroversion": "Dışadönüklük",
   "avatar_form_agreeableness": "Uyumluluk",
   "avatar_form_conscientiousness": "Sorumluluk",
-  "avatar_form_add_phrase_hint": "ör. Merhaba!",
+  "avatar_form_add_phrase_hint": "ör. Cesur ol, Seni özledim, Merhaba!, Seni seviyorum",
   "avatar_form_continue_button": "Devam et",
   "avatar_summary_title": "Avatar Özeti",
   "avatar_summary_user": "Kullanıcı",
@@ -172,5 +172,13 @@
   "audioTooShort": "Ses en az 15 saniye uzunluğunda olmalıdır.",
   "cameraPermissionDenied": "Fotoğraf çekmek veya video kaydetmek için kamera izni gereklidir.",
   "storagePermissionDenied": "Galerinizden dosya seçmek için depolama izni gereklidir.",
-  "microphonePermissionDenied": "Ses veya video kaydetmek için mikrofon izni gereklidir."
+  "microphonePermissionDenied": "Ses veya video kaydetmek için mikrofon izni gereklidir.",
+  "interest_sports": "Spor",
+  "interest_art": "Sanat",
+  "interest_cooking": "Yemek pişirme",
+  "interest_science": "Bilim",
+  "style_serio": "Ciddi",
+  "style_amistoso": "Samimi",
+  "style_profesional": "Profesyonel",
+  "style_humoristico": "Esprili"
 }

@@ -189,7 +189,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get avatar_form_user_reference_label => 'ユーザー名または参照';
 
   @override
-  String get avatar_form_relationship_label => '関係または役割（例：友人、コーチ）';
+  String get avatar_form_relationship_label => '関係または役割（例：友達、コーチ、兄弟姉妹、婚約者）';
 
   @override
   String get avatar_form_speaking_style_label => '話し方のスタイル';
@@ -213,7 +213,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get avatar_form_conscientiousness => '誠実性';
 
   @override
-  String get avatar_form_add_phrase_hint => '例：こんにちは！';
+  String get avatar_form_add_phrase_hint => '例: 勇気を出して、会いたい、こんにちは！、愛してる';
 
   @override
   String get avatar_form_continue_button => '続ける';
@@ -456,4 +456,28 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get microphonePermissionDenied => '音声やビデオを録音するにはマイクの許可が必要です。';
+
+  @override
+  String get interest_sports => 'スポーツ';
+
+  @override
+  String get interest_art => 'アート';
+
+  @override
+  String get interest_cooking => '料理';
+
+  @override
+  String get interest_science => '科学';
+
+  @override
+  String get style_serio => '真面目';
+
+  @override
+  String get style_amistoso => 'フレンドリー';
+
+  @override
+  String get style_profesional => 'プロフェッショナル';
+
+  @override
+  String get style_humoristico => 'ユーモラス';
 }

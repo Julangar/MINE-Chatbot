@@ -80,7 +80,7 @@
   "avatar_form_title": "התאם אישית את האווטאר שלך",
   "avatar_form_name_label": "שם האווטאר",
   "avatar_form_user_reference_label": "שם משתמש או התייחסות",
-  "avatar_form_relationship_label": "קשר או תפקיד (לדוג' חבר, מאמן)",
+  "avatar_form_relationship_label": "קשר או תפקיד (לדוגמה: חבר, מאמן, אח, ארוס)",
   "avatar_form_speaking_style_label": "סגנון דיבור",
   "avatar_form_interests_label": "תחומי עניין",
   "avatar_form_common_phrases_label": "ביטויים נפוצים",
@@ -88,7 +88,7 @@
   "avatar_form_extroversion": "מוחצנות",
   "avatar_form_agreeableness": "נעימות",
   "avatar_form_conscientiousness": "מצפוניות",
-  "avatar_form_add_phrase_hint": "לדוג': שלום!",
+  "avatar_form_add_phrase_hint": "לדוגמה: היה אמיץ, אני מתגעגע אליך, שלום!, אני אוהב אותך",
   "avatar_form_continue_button": "המשך",
   "avatar_summary_title": "סיכום אווטאר",
   "avatar_summary_user": "משתמש",
@@ -172,5 +172,13 @@
   "audioTooShort": "האודיו חייב להיות לפחות 15 שניות.",
   "cameraPermissionDenied": "נדרשת הרשאת מצלמה כדי לצלם תמונות או להקליט סרטונים.",
   "storagePermissionDenied": "נדרשת הרשאת אחסון כדי לבחור קבצים מהגלריה שלך.",
-  "microphonePermissionDenied": "נדרשת הרשאת מיקרופון כדי להקליט אודיו או וידאו."
+  "microphonePermissionDenied": "נדרשת הרשאת מיקרופון כדי להקליט אודיו או וידאו.",
+  "interest_sports": "ספורט",
+  "interest_art": "אומנות",
+  "interest_cooking": "בישול",
+  "interest_science": "מדע",
+  "style_serio": "רציני",
+  "style_amistoso": "ידידותי",
+  "style_profesional": "מקצועי",
+  "style_humoristico": "הומוריסטי"
 }

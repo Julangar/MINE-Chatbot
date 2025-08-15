@@ -189,7 +189,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get avatar_form_user_reference_label => '用户名或参考';
 
   @override
-  String get avatar_form_relationship_label => '关系或角色（如朋友、教练）';
+  String get avatar_form_relationship_label => '关系或角色（例如：朋友、教练、兄弟姐妹、未婚夫）';
 
   @override
   String get avatar_form_speaking_style_label => '说话风格';
@@ -213,7 +213,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get avatar_form_conscientiousness => '尽责性';
 
   @override
-  String get avatar_form_add_phrase_hint => '例如：你好！';
+  String get avatar_form_add_phrase_hint => '例如：勇敢点，我想你，你好！，我爱你';
 
   @override
   String get avatar_form_continue_button => '继续';
@@ -456,4 +456,28 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get microphonePermissionDenied => '需要麦克风权限才能录制音频或视频。';
+
+  @override
+  String get interest_sports => '运动';
+
+  @override
+  String get interest_art => '艺术';
+
+  @override
+  String get interest_cooking => '烹饪';
+
+  @override
+  String get interest_science => '科学';
+
+  @override
+  String get style_serio => '严肃';
+
+  @override
+  String get style_amistoso => '友好';
+
+  @override
+  String get style_profesional => '专业';
+
+  @override
+  String get style_humoristico => '幽默';
 }

@@ -80,7 +80,7 @@
   "avatar_form_title": "Personaliza tu avatar",
   "avatar_form_name_label": "Nombre del avatar",
   "avatar_form_user_reference_label": "Nombre de usuario o referencia",
-  "avatar_form_relationship_label": "Relación o rol (ej. amigo, entrenador)",
+  "avatar_form_relationship_label": "Relación o rol (p. ej., amigo, entrenador, hermano, prometido)",
   "avatar_form_speaking_style_label": "Estilo de habla",
   "avatar_form_interests_label": "Intereses",
   "avatar_form_common_phrases_label": "Frases comunes",
@@ -88,7 +88,7 @@
   "avatar_form_extroversion": "Extroversión",
   "avatar_form_agreeableness": "Amabilidad",
   "avatar_form_conscientiousness": "Responsabilidad",
-  "avatar_form_add_phrase_hint": "ej. ¡Hola!",
+  "avatar_form_add_phrase_hint": "p. ej., Sé valiente, Te extraño, ¡Hola!, Te amo",
   "avatar_form_continue_button": "Continuar",
   "avatar_summary_title": "Resumen del avatar",
   "avatar_summary_user": "Usuario",
@@ -172,5 +172,13 @@
   "audioTooShort": "El audio debe durar al menos 15 segundos.",
   "cameraPermissionDenied": "Se requiere permiso de la cámara para tomar fotos o grabar videos.",
   "storagePermissionDenied": "Se requiere permiso de almacenamiento para seleccionar archivos de tu galería.",
-  "microphonePermissionDenied": "Se requiere permiso del micrófono para grabar audio o video."
+  "microphonePermissionDenied": "Se requiere permiso del micrófono para grabar audio o video.",
+  "interest_sports": "Deportes",
+  "interest_art": "Arte",
+  "interest_cooking": "Cocina",
+  "interest_science": "Ciencia",
+  "style_serio": "Serio",
+  "style_amistoso": "Amistoso",
+  "style_profesional": "Profesional",
+  "style_humoristico": "Humorístico"
 }

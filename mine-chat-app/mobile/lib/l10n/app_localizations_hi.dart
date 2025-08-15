@@ -189,7 +189,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get avatar_form_user_reference_label => 'उपयोगकर्ता नाम या संदर्भ';
 
   @override
-  String get avatar_form_relationship_label => 'संबंध या भूमिका (जैसे मित्र, कोच)';
+  String get avatar_form_relationship_label => 'संबंध या भूमिका (जैसे दोस्त, कोच, भाई/बहन, मंगेतर)';
 
   @override
   String get avatar_form_speaking_style_label => 'बोलने की शैली';
@@ -213,7 +213,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get avatar_form_conscientiousness => 'जागरूकता';
 
   @override
-  String get avatar_form_add_phrase_hint => 'जैसे: नमस्ते!';
+  String get avatar_form_add_phrase_hint => 'उदाहरण: साहसी बनो, मुझे तुम्हारी याद आती है, नमस्ते!, मैं तुमसे प्यार करता हूँ';
 
   @override
   String get avatar_form_continue_button => 'जारी रखें';
@@ -456,4 +456,28 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get microphonePermissionDenied => 'ऑडियो या वीडियो रिकॉर्ड करने के लिए माइक्रोफ़ोन अनुमति आवश्यक है।';
+
+  @override
+  String get interest_sports => 'खेल';
+
+  @override
+  String get interest_art => 'कला';
+
+  @override
+  String get interest_cooking => 'खाना बनाना';
+
+  @override
+  String get interest_science => 'विज्ञान';
+
+  @override
+  String get style_serio => 'गंभीर';
+
+  @override
+  String get style_amistoso => 'मित्रतापूर्ण';
+
+  @override
+  String get style_profesional => 'पेशेवर';
+
+  @override
+  String get style_humoristico => 'हास्यपूर्ण';
 }
