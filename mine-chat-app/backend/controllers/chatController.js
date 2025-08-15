@@ -181,7 +181,7 @@ async function sendMessage(req, res) {
 }
 
 // Handles an audio message from the user. This function transcribes the audio
-async function sendAudioMessage(req, res) {
+async function sendVoice(req, res) {
   // Espera: multipart/form-data con campo 'audio' (multer), y en body:
   // userId, avatarType, userLanguage, audioFile
   const { userId, avatarType, audioFile, userLanguage } = req.body;
@@ -428,6 +428,7 @@ async function getConversationHistory(req, res) {
 module.exports = {
   generateGreeting,
   sendMessage,
+  sendVoice,
   sendAudio,
   sendVideo,
   getConversationHistory
