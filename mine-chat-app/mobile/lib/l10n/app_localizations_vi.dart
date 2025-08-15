@@ -480,4 +480,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get style_humoristico => 'Hài hước';
+
+  @override
+  String get bad_phone_number => 'Chỉ sử dụng chữ số (4–15)';
 }

@@ -180,5 +180,6 @@
   "style_serio": "Сериозен",
   "style_amistoso": "Приятелски",
   "style_profesional": "Професионален",
-  "style_humoristico": "Хумористичен"
+  "style_humoristico": "Хумористичен",
+  "bad_phone_number": "Използвайте само цифри (4–15)"
 }

@@ -480,6 +480,9 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get style_humoristico => 'Humorístico';
+
+  @override
+  String get bad_phone_number => 'Use apenas dígitos (4–15)';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -958,4 +961,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get style_humoristico => 'Humorístico';
+
+  @override
+  String get bad_phone_number => 'Use apenas dígitos (4–15)';
 }

@@ -180,5 +180,6 @@
   "style_serio": "Sério",
   "style_amistoso": "Amigável",
   "style_profesional": "Profissional",
-  "style_humoristico": "Humorístico"
+  "style_humoristico": "Humorístico",
+  "bad_phone_number": "Use apenas dígitos (4–15)"
 }

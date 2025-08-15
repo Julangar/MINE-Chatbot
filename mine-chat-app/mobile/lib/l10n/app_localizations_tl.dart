@@ -480,4 +480,7 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get style_humoristico => 'Nakakatawa';
+
+  @override
+  String get bad_phone_number => 'Gumamit lamang ng mga numero (4–15)';
 }

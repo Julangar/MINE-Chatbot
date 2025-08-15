@@ -58,6 +58,14 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
     }
   }
 
+  String? _validateNumber(String? value) {
+    final v = (value ?? '').trim();
+    if (v.isEmpty) return null; // Optional field
+    final reg = RegExp(r'^[0-9]{4,15}$');
+    if (!reg.hasMatch(v)) return AppLocalizations.of(context)!.bad_phone_number;
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
@@ -145,12 +153,19 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
                   value: phoneCode,
                   dropdownColor: Colors.black,
                   style: const TextStyle(color: Colors.white),
-                  items: [
-                    '+57', '+1', '+34', '+52', '+54', // añade más códigos según tu mercado
-                  ].map((code) {
+                  items: ['🇮🇳 +91', '🇺🇸 +1', '🇵🇰 +92', '🇧🇷 +55', '🇷🇺 +7', '🇲🇽 +52', 
+                  '🇵🇭 +63', '🇪🇬 +20', '🇻🇳 +84', '🇩🇪 +49', '🇹🇭 +66', '🇫🇷 +33', '🇮🇹 +39', 
+                  '🇲🇲 +95', '🇨🇴 +57', '🇰🇷 +82', '🇦🇷 +54', '🇮🇶 +964', '🇨🇦 +1', '🇵🇱 +48', 
+                  '🇸🇦 +966', '🇾🇪 +967', '🇵🇪 +51', '🇳🇵 +977', '🇻🇪 +58', '🇱🇰 +94', '🇰🇿 +7', 
+                  '🇨🇱 +56', '🇷🇴 +40', '🇪🇨 +593', '🇬🇹 +502', '🇳🇱 +31', '🇧🇴 +591', '🇧🇪 +32', 
+                  '🇯🇴 +962', '🇭🇳 +504', '🇦🇿 +994', '🇵🇹 +351', '🇬🇷 +30', '🇮🇱 +972', '🇭🇺 +36', 
+                  '🇦🇪 +971', '🇧🇾 +375', '🇦🇹 +43', '🇵🇾 +595', '🇳🇮 +505', '🇰🇬 +996', '🇸🇻 +503', 
+                  '🇧🇬 +359', '🇸🇬 +65', '🇩🇰 +45', '🇫🇮 +358', '🇳🇴 +47', '🇱🇧 +961', '🇨🇷 +506', 
+                  '🇮🇪 +353', '🇴🇲 +968', '🇵🇦 +507', '🇰🇼 +965', '🇭🇷 +385', '🇬🇪 +995', '🇺🇾 +598', 
+                  '🇧🇦 +387', '🇶🇦 +974'].map((code) {
                     return DropdownMenuItem(value: code, child: Text(code));
                   }).toList(),
-                  onChanged: (value) => setState(() => phoneCode = value!),
+                  onChanged: (value) => setState(() => phoneCode = value!.substring(3)),
                 ),
                 const SizedBox(width: 8),
                 Expanded(
@@ -162,6 +177,7 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
                     ),
                     keyboardType: TextInputType.phone,
                     onChanged: (value) => phoneNumber = '$phoneCode$value',
+                    validator: (value) => _validateNumber(value),
                   ),
                 ),
               ],

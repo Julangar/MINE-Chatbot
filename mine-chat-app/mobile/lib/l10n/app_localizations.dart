@@ -1074,6 +1074,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Humorous'**
   String get style_humoristico;
+
+  /// No description provided for @bad_phone_number.
+  ///
+  /// In en, this message translates to:
+  /// **'Use digits only (4–15)'**
+  String get bad_phone_number;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

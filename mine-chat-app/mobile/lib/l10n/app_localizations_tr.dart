@@ -480,4 +480,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get style_humoristico => 'Esprili';
+
+  @override
+  String get bad_phone_number => 'Yalnızca rakam kullanın (4–15)';
 }

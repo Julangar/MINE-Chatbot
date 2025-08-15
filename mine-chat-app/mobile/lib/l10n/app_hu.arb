@@ -180,5 +180,6 @@
   "style_serio": "Komoly",
   "style_amistoso": "Barátságos",
   "style_profesional": "Professzionális",
-  "style_humoristico": "Humoros"
+  "style_humoristico": "Humoros",
+  "bad_phone_number": "Csak számjegyeket használjon (4–15)"
 }

@@ -180,5 +180,6 @@
   "style_serio": "Nghiêm túc",
   "style_amistoso": "Thân thiện",
   "style_profesional": "Chuyên nghiệp",
-  "style_humoristico": "Hài hước"
+  "style_humoristico": "Hài hước",
+  "bad_phone_number": "Chỉ sử dụng chữ số (4–15)"
 }

@@ -480,4 +480,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get style_humoristico => 'Юмористический';
+
+  @override
+  String get bad_phone_number => 'Используйте только цифры (4–15)';
 }

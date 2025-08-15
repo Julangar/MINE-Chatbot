@@ -480,4 +480,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get style_humoristico => '유머러스한';
+
+  @override
+  String get bad_phone_number => '숫자만 사용 (4–15)';
 }

@@ -480,4 +480,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get style_humoristico => 'הומוריסטי';
+
+  @override
+  String get bad_phone_number => 'השתמש רק בספרות (4–15)';
 }

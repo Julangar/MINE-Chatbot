@@ -180,5 +180,6 @@
   "style_serio": "진지한",
   "style_amistoso": "친근한",
   "style_profesional": "전문적인",
-  "style_humoristico": "유머러스한"
+  "style_humoristico": "유머러스한",
+  "bad_phone_number": "숫자만 사용 (4–15)"
 }

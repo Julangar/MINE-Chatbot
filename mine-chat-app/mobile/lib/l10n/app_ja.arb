@@ -180,5 +180,6 @@
   "style_serio": "真面目",
   "style_amistoso": "フレンドリー",
   "style_profesional": "プロフェッショナル",
-  "style_humoristico": "ユーモラス"
+  "style_humoristico": "ユーモラス",
+  "bad_phone_number": "数字のみを使用 (4–15)"
 }

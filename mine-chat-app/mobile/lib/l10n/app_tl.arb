@@ -180,5 +180,6 @@
   "style_serio": "Seryoso",
   "style_amistoso": "Magiliw",
   "style_profesional": "Propesyonal",
-  "style_humoristico": "Nakakatawa"
+  "style_humoristico": "Nakakatawa",
+  "bad_phone_number": "Gumamit lamang ng mga numero (4–15)"
 }

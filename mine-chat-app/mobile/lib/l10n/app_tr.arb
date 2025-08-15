@@ -180,5 +180,6 @@
   "style_serio": "Ciddi",
   "style_amistoso": "Samimi",
   "style_profesional": "Profesyonel",
-  "style_humoristico": "Esprili"
+  "style_humoristico": "Esprili",
+  "bad_phone_number": "Yalnızca rakam kullanın (4–15)"
 }

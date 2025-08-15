@@ -480,4 +480,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get style_humoristico => '幽默';
+
+  @override
+  String get bad_phone_number => '仅使用数字 (4–15)';
 }
