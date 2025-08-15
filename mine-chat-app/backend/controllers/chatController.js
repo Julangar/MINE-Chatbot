@@ -316,7 +316,7 @@ async function sendVideo(req, res) {
       .doc(userId)
       .collection(avatarType)
       .orderBy('timestamp')
-      .limit(20)
+      .limit(100)
       .get();
     historySnap.forEach(doc => {
       const data = doc.data();
