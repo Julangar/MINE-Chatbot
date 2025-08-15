@@ -54,7 +54,7 @@ class MineApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const SplashScreen(),
-        '/login': (context) => const LoginScreen(),
+        '/login': (context) => const AuthGuard(child: LoginScreen()),
         '/register': (context) => const RegisterScreen(),
         '/forgot_password': (context) => const ForgotPasswordScreen(),
         '/avatar_personality': (context) => const AuthGuard(child: SecureScreen(child: AvatarPersonalityScreen())),

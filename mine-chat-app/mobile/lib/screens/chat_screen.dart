@@ -37,6 +37,7 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final TextEditingController _controller = TextEditingController();
+  final ScrollController _scrollController = ScrollController();
   final List<Map<String, dynamic>> _messages = [];
   bool _isLoading = false;
   late AudioPlayer _audioPlayer;
@@ -69,8 +70,9 @@ class _ChatScreenState extends State<ChatScreen> {
     try {
       // Detener cualquier efecto anterior antes de reproducir el nuevo
       await _sfxPlayer.stop();
-      await _sfxPlayer.play(AssetSource('assets/sounds/$name.mp3'), volume: 1);
-    } catch (_) {
+      await _sfxPlayer.play(AssetSource('sounds/$name.mp3'), volume: 0.5);
+    } catch (e) {
+      debugPrint('play error: $e');
       // Si falla (por ejemplo, archivo no encontrado) no hacemos nada.
     }
   }
@@ -112,7 +114,8 @@ class _ChatScreenState extends State<ChatScreen> {
   void initState() {
     super.initState();
     _audioPlayer = AudioPlayer();
-        // Cargar mensajes previos de la conversación cuando se monta la pantalla.
+    _sfxPlayer = AudioPlayer();
+    // Cargar mensajes previos de la conversación cuando se monta la pantalla.
     _loadPreviousMessages();
   }
 
@@ -123,6 +126,19 @@ class _ChatScreenState extends State<ChatScreen> {
     _sfxPlayer.dispose();
     _videoController?.dispose();
     super.dispose();
+  }
+
+  void _scrollToBottom() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_scrollController.hasClients) {  
+        // Si quieres un desplazamiento suave usa animateTo:
+        _scrollController.animateTo(
+          _scrollController.position.maxScrollExtent,
+          duration: Duration(milliseconds: 500),
+          curve: Curves.easeOut,
+        );
+      }
+    });
   }
 
   Future<String> _getFilePath() async {
@@ -252,11 +268,12 @@ class _ChatScreenState extends State<ChatScreen> {
       if (audioUrl != null && _selectedOutput == 'audio') {
         // Índice del mensaje del avatar recién agregado. Se captura aquí para
         // poder actualizarlo después de que se complete la reproducción.
+        // Establecer estado de habla mientras se reproduce el audio
+        _setStatus('hablando');
         final int msgIndex = _messages.length - 1;
         await _audioPlayer.stop();
         await _audioPlayer.play(UrlSource(audioUrl));
-        // Establecer estado de habla mientras se reproduce el audio
-        _setStatus('hablando');
+
         // Escuchar el evento de finalización de la reproducción y actualizar el
         // mensaje para mostrar solo el texto.
         _audioPlayer.onPlayerComplete.listen((event) {
@@ -271,7 +288,10 @@ class _ChatScreenState extends State<ChatScreen> {
       }
       // Reproducir vídeo si existe
       if (videoUrl != null) {
+        // Establecer estado de habla mientras se reproduce el vídeo
+        _setStatus('hablando');
         // Liberar el controlador anterior si estaba reproduciendo algo
+        await _sfxPlayer.stop();
         await _videoController?.dispose();
         _videoController = VideoPlayerController.networkUrl(Uri.parse(videoUrl));
         await _videoController!.initialize();
@@ -313,8 +333,7 @@ class _ChatScreenState extends State<ChatScreen> {
         setState(() {});
         _videoController!.play();
 
-        // Establecer estado de habla mientras se reproduce el vídeo
-        _setStatus('hablando');
+        
       }
     } catch (e) {
       setState(() => _isLoading = false);
@@ -395,12 +414,14 @@ class _ChatScreenState extends State<ChatScreen> {
       // Retroalimentación al recibir la respuesta
       _vibrate();
       _playEffect('receive');
+      
 
 
       // Si es texto puro, volver al estado de espera. Para audio/video, el
       // estado cambiará al reproducir el contenido.
       if (audioUrl == null && videoUrl == null) {
         _setStatus('esperando');
+        _scrollToBottom();
       }
 
       // Reproducir audio si existe y se seleccionó el modo audio. Tras la
@@ -409,11 +430,12 @@ class _ChatScreenState extends State<ChatScreen> {
       if (audioUrl != null && _selectedOutput == 'audio') {
         // Índice del mensaje del avatar recién agregado. Se captura aquí para
         // poder actualizarlo después de que se complete la reproducción.
+        // Establecer estado de habla mientras se reproduce el audio
+        _setStatus('hablando');
         final int msgIndex = _messages.length - 1;
         await _audioPlayer.stop();
         await _audioPlayer.play(UrlSource(audioUrl));
-        // Establecer estado de habla mientras se reproduce el audio
-        _setStatus('hablando');
+        
         // Escuchar el evento de finalización de la reproducción y actualizar el
         // mensaje para mostrar solo el texto.
         _audioPlayer.onPlayerComplete.listen((event) {
@@ -424,11 +446,15 @@ class _ChatScreenState extends State<ChatScreen> {
           });
           // Al finalizar el audio, volver al estado de espera
           _setStatus('esperando');
+          _scrollToBottom();
         });
       }
       // Reproducir vídeo si existe
       if (videoUrl != null) {
+        // Establecer estado de habla mientras se reproduce el vídeo
+        _setStatus('hablando');
         // Liberar el controlador anterior si estaba reproduciendo algo
+        await _sfxPlayer.stop();
         await _videoController?.dispose();
         _videoController = VideoPlayerController.networkUrl(Uri.parse(videoUrl));
         await _videoController!.initialize();
@@ -470,8 +496,7 @@ class _ChatScreenState extends State<ChatScreen> {
         setState(() {});
         _videoController!.play();
 
-        // Establecer estado de habla mientras se reproduce el vídeo
-        _setStatus('hablando');
+        
       }
     } catch (e) {
       setState(() => _isLoading = false);
@@ -529,6 +554,7 @@ class _ChatScreenState extends State<ChatScreen> {
           _messages.addAll(loaded);
         });
       }
+      _scrollToBottom(); // Desplazar al final de la lista
     } catch (e) {
       // Si hay un error al cargar las conversaciones previas, lo registramos en consola.
       debugPrint('Error al cargar conversaciones previas: $e');
@@ -663,7 +689,7 @@ class _ChatScreenState extends State<ChatScreen> {
               ? NetworkImage(avatar!.imageUrl!)
               : const AssetImage('assets/mineLogo2.png') as ImageProvider,
         ),
-        title: Text(avatar?.name ?? ''),
+        title: Text(avatar?.name ?? '', style: TextStyle(color: Colors.white)),
         actions: [
           IconButton(
             icon: const Icon(Icons.person),
@@ -679,6 +705,7 @@ class _ChatScreenState extends State<ChatScreen> {
           _buildStatusIndicator(),
           Expanded(
             child: ListView.builder(
+              controller: _scrollController,
               padding: const EdgeInsets.symmetric(vertical: 10),
               itemCount: _messages.length,
               itemBuilder: (_, index) => _buildMessage(_messages[index]),
@@ -728,12 +755,10 @@ class _ChatScreenState extends State<ChatScreen> {
                             ),
                           ),
                         ],
-                        onChanged: (value) {
-                          if (value != null) {
-                            setState(() {
-                              _selectedOutput = value;
-                            });
-                          }
+                        onChanged: disabled ? null : (value) {
+                          setState(() {
+                            _selectedOutput = value!;
+                          });
                         },
                       ),
                     ),
@@ -786,18 +811,21 @@ class _ChatScreenState extends State<ChatScreen> {
                       child: TextField(
                         controller: _controller,
                         maxLength: 300,
-                        inputFormatters: [LengthLimitingTextInputFormatter(300)],
-                        onSubmitted: disabled ? null : (_) => _sendMessage(),
+                        inputFormatters: [LengthLimitingTextInputFormatter(300)],                        
+                        onSubmitted: (_) => _sendMessage(),
                         decoration: InputDecoration(
                           hintText: AppLocalizations.of(context)!.inputHint,
                           border: const OutlineInputBorder(),
                         ),
+                        enabled: disabled ? false : true
                       ),
                     ),
                     const SizedBox(width: 8),
                     IconButton(
                       icon: const Icon(Icons.send),
-                      onPressed: disabled ? null : _sendMessage,
+                      onPressed: disabled ? null : () {
+                        _sendMessage();
+                      },
                     ),
                   ],
                 ),
