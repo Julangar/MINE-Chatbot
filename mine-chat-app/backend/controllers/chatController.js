@@ -145,7 +145,7 @@ async function sendMessage(req, res) {
       .doc(userId)
       .collection(avatarType)
       .orderBy('timestamp')
-      .limit(20)
+      .limit(100)
       .get();
     historySnap.forEach(doc => {
       const data = doc.data();
@@ -183,21 +183,24 @@ async function sendMessage(req, res) {
 // Handles an audio message from the user. This function transcribes the audio
 async function sendVoice(req, res) {
   // Espera: multipart/form-data con campo 'audio' (multer), y en body:
-  // userId, avatarType, userLanguage, audioFile
-  const { userId, avatarType, audioFile, userLanguage } = req.body;
-  if (!userId || !avatarType || !userLanguage || !audioFile) {
+  // userId, avatarType, userLanguage, filePath
+  const { userId, avatarType, userLanguage } = req.body;
+  const filePath = req.file?.path;
+  const originalName = req.file?.originalname;
+  const mimeType = req.file?.mimetype;
+  if (!userId || !avatarType || !userLanguage || !filePath) {
     return res.status(400).json({ error: 'Faltan parámetros o archivo de audio.' });
   }
-
+  console.log('Starting audio transcription...', { filePath, originalName, mimeType });
   try {
     // 1) Transcribir con Whisper
-    const userText = await transcribeAudio(audioFile, userLanguage);
-    fs.unlink(audioFile, ()=>{});
+    const userText = await openaiService.transcribeAudio(filePath, userLanguage);
+    fs.unlink(filePath, ()=>{});
     if (!userText) {
       return res.status(400).json({ error: 'No se pudo transcribir el audio.' });
     }
-    if (userText.length > 320) {
-      return res.status(400).json({ error: 'El mensaje transcrito excede 320 caracteres.' });
+    if (userText.length > 300) {
+      return res.status(400).json({ error: 'El mensaje transcrito excede 300 caracteres.' });
     }
     return res.json({ userText });
   } catch (err) {
@@ -235,7 +238,7 @@ async function sendAudio(req, res) {
       .doc(userId)
       .collection(avatarType)
       .orderBy('timestamp')
-      .limit(20)
+      .limit(100)
       .get();
     historySnap.forEach(doc => {
       const data = doc.data();

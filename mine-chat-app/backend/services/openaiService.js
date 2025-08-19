@@ -1,6 +1,8 @@
 const OpenAI = require('openai');
 const { openaiKey } = require('../config');
 const fs = require('fs')
+const path = require('path');
+const mime = require('mime-types');
 
 if (!openaiKey) {
   throw new Error("Missing OpenAI API key. Please set it in config.js");
@@ -9,9 +11,19 @@ if (!openaiKey) {
 const openai = new OpenAI({ apiKey: openaiKey });
 
 async function transcribeAudio(filePath, language) {
+
+  let usablePath = filePath;
+  const hasExt = Boolean(path.extname(filePath));
+  const file = fs.createReadStream(filePath);
+  console.log('Starting audio transcription...', file);
+  if (!hasExt) {
+    const guessed = 'm4a';
+    const tempPath = `${filePath}.${guessed}`;
+    try { fs.renameSync(filePath, tempPath); usablePath = tempPath; } catch (_) {}
+  }
   try {
-    const file = fs.createReadStream(filePath);
     // Whisper
+    const file = fs.createReadStream(usablePath);
     const resp = await openai.audio.transcriptions.create({
       file,
       model: 'whisper-1',
@@ -21,6 +33,10 @@ async function transcribeAudio(filePath, language) {
   } catch (err) {
     console.error('Error in transcribeAudio:', err.message);
     throw new Error('Transcription failed');
+  } finally {
+    if (usablePath !== filePath) {
+      fs.unlinkSync(usablePath);
+    }
   }
 }
 
