@@ -169,8 +169,8 @@ A continuación puedes ver los wireframes principales del proyecto, ubicados en 
 | 25  | Feedback visual, sonoro y táctil                                                         | ✅ Completado |
 | 26  | Optimización de tiempos de carga (precarga de recursos, caché)                           | ✅ Completado |
 | 27  | Mejora de accesibilidad y soporte para gestos                                            | ✅ Completado |
-| 28  | Ajustes de personalidad (UI + backend)                                                   |   |
-| 29  | Selección de temas de conversación e intereses                                           |   |
+| 28  | Ajustes de personalidad (UI + backend)                                                   | ✅ Completado |
+| 29  | Selección de temas de conversación e intereses                                           | ✅ Completado |
 | 30  | Personalización visual del avatar y la interfaz                                          |   |
 | 31  | Guardado y sincronización de configuraciones entre dispositivos                          |   |
 | 32  | Sistema de evolución relacional avatar-usuario                                           |   |
