@@ -54,4 +54,43 @@ async function getChatResponse(messages, model = "gpt-4.1") {
   }
 }
 
-module.exports = { getChatResponse , transcribeAudio};
+async function summarizeTurns(turns, language) {
+  // turns = [{u: '...', a: '...'}, ...]
+  const messages = [
+    { role: 'system', content:
+`Eres un asistente que resume una conversación en ${language}.
+Objetivo: comprimir manteniendo hechos, preferencias, estilo y contexto útil.
+Devuelve 1) "resumen_dia": resumen compacto (<= 350 palabras)
+y 2) "memorias": viñetas con hechos estables a largo plazo (<= 10 bullets).` },
+    { role: 'user', content:
+`Convierte estos turnos en un resumen-día y memorias.
+TURNOS:
+${turns.map((t,i)=>`[${i+1}] U: ${t.u}\nA: ${t.a}`).join('\n')}` }
+  ];
+  const resp = await openai.chat.completions.create({
+    model: 'gpt-4.1',
+    messages,
+  });
+  return resp.choices[0]?.message?.content ?? '';
+}
+
+async function generateEngagementNudge(context, language) {
+  // context: últimos mensajes del usuario, intereses, speakingStyle, etc.
+  const messages = [
+    { role: 'system', content:
+`Eres un redactor de notificaciones push concisas en ${language}.
+Tono: coherente con el estilo del avatar, positivo, personalizado.
+Longitud máxima: 120 caracteres. Incluye una pregunta abierta cuando sea natural.` },
+    { role: 'user', content:
+`Genera 1 notificación breve para invitar a retomar la conversación.
+Contexto:
+${JSON.stringify(context)}` }
+  ];
+  const resp = await openai.chat.completions.create({
+    model: 'gpt-4.1',
+    messages,
+  });
+  return resp.choices[0]?.message?.content ?? '¿Seguimos nuestra conversación?';
+}
+
+module.exports = { getChatResponse , transcribeAudio, summarizeTurns, generateEngagementNudge };

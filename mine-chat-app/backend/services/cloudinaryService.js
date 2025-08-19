@@ -23,13 +23,13 @@ const uploadImage = async (filePath, userId, avatarType, folder = 'avatars') => 
 const uploadAudio = async (filePath, userId, avatarType, folder = 'avatars') => {
   const audio = await cloudinary.uploader.upload(filePath, {
     resource_type: 'video', // ¡Audio va como 'video' en Cloudinary!
-    folder: `${folder}/${userId}/${avatarType}/clonedAudios`,
+    folder: `${folder}/${userId}/${avatarType}/temp/clonedAudios`,
     format: 'mp3' // Forzar formato si lo necesitas
   });
   return audio.secure_url;
 };
 
-// Función para subir audio
+// Función para subir video
 const uploadVideo = async (filePath, userId, avatarType, folder = 'avatars') => {
   const video = await cloudinary.uploader.upload(filePath, {
     resource_type: 'video',
@@ -65,7 +65,7 @@ const uploadAudioBuffer = async (buffer, userId, avatarType, folder = 'avatars')
   return new Promise((resolve, reject) => {
     const uploadOptions = {
       resource_type: 'video', // Cloudinary trata audio como 'video'
-      folder: `${folder}/${userId}/${avatarType}/clonedAudios`,
+      folder: `${folder}/${userId}/${avatarType}/temp/clonedAudios`,
       format: 'mp3'
     };
     const uploadStream = cloudinary.uploader.upload_stream(uploadOptions, (error, result) => {

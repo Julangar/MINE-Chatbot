@@ -137,15 +137,24 @@ async function sendMessage(req, res) {
       return res.status(404).json({ error: 'Avatar no encontrado.' });
     }
     const personality = personalitySnap.data();
-    const systemPrompt = buildSystemPrompt(personality, userLanguage);
+    const memRollingRef = db.collection('conversations_memory')
+      .doc(userId).collection(avatarType).doc('rolling');
+    const memTodayRef = db.collection('conversations_daily')
+      .doc(userId).collection(avatarType).doc(dayjs().format('YYYY-MM-DD'));
+    const [mr, mt] = await Promise.all([memRollingRef.get(), memTodayRef.get()]);
+    const rollingSummary = mr.exists ? maybeDecrypt(mr.data().rollingSummary) : '';
+    const todaySummary = mt.exists ? maybeDecrypt(mt.data().dailySummary) : '';
+    const systemPrompt = buildSystemPrompt(personality, userLanguage)
+    + (rollingSummary ? `\n\n[MEMORIA_ACUMULADA]\n${rollingSummary}` : '')
+    + (todaySummary ? `\n\n[RESUMEN_DIA]\n${todaySummary}` : '');
     // Build the conversation history: system prompt -> historical pairs -> current message
     const messages = [];
     messages.push({ role: 'system', content: systemPrompt });
     const historySnap = await db.collection('conversations')
       .doc(userId)
       .collection(avatarType)
-      .orderBy('timestamp')
-      .limit(100)
+      .orderBy('timestamp', 'desc')
+      .limit(10)
       .get();
     historySnap.forEach(doc => {
       const data = doc.data();
@@ -172,6 +181,9 @@ async function sendMessage(req, res) {
         avatarResponse: encryptText(gptResponse),
         avatarResponseClean: encryptText(cleanResponse)
       });
+    // Guarda el turno en el doc del día y dispara resumen si toca
+    await appendTodayTurn(db, userId, avatarType, message, cleanResponse);
+    await maybeSummarizeDaily(db, userId, avatarType, userLanguage);
 
     return res.json({ response: cleanResponse });
   } catch (err) {
@@ -229,16 +241,24 @@ async function sendAudio(req, res) {
       return res.status(404).json({ error: 'Avatar no encontrado.' });
     }
     const personality = personalitySnap.data();
-    const systemPrompt = buildSystemPrompt(personality, userLanguage);
-
+    const memRollingRef = db.collection('conversations_memory')
+      .doc(userId).collection(avatarType).doc('rolling');
+    const memTodayRef = db.collection('conversations_daily')
+      .doc(userId).collection(avatarType).doc(dayjs().format('YYYY-MM-DD'));
+    const [mr, mt] = await Promise.all([memRollingRef.get(), memTodayRef.get()]);
+    const rollingSummary = mr.exists ? maybeDecrypt(mr.data().rollingSummary) : '';
+    const todaySummary = mt.exists ? maybeDecrypt(mt.data().dailySummary) : '';
+    const systemPrompt = buildSystemPrompt(personality, userLanguage)
+    + (rollingSummary ? `\n\n[MEMORIA_ACUMULADA]\n${rollingSummary}` : '')
+    + (todaySummary ? `\n\n[RESUMEN_DIA]\n${todaySummary}` : '');
     // Rebuild conversation history
     const messages = [];
     messages.push({ role: 'system', content: systemPrompt });
     const historySnap = await db.collection('conversations')
       .doc(userId)
       .collection(avatarType)
-      .orderBy('timestamp')
-      .limit(100)
+      .orderBy('timestamp', 'desc')
+      .limit(10)
       .get();
     historySnap.forEach(doc => {
       const data = doc.data();
@@ -283,6 +303,9 @@ async function sendAudio(req, res) {
         avatarResponseClean: encryptText(cleanResponse),
         audioUrl: audioUrl
       });
+      // Guarda el turno en el doc del día y dispara resumen si toca
+    await appendTodayTurn(db, userId, avatarType, message, cleanResponse);
+    await maybeSummarizeDaily(db, userId, avatarType, userLanguage);
 
     return res.json({ response: cleanResponse, audioUrl });
   } catch (err) {
@@ -310,7 +333,16 @@ async function sendVideo(req, res) {
       return res.status(404).json({ error: 'Avatar no encontrado.' });
     }
     const personality = personalitySnap.data();
-    const systemPrompt = buildSystemPrompt(personality, userLanguage);
+    const memRollingRef = db.collection('conversations_memory')
+      .doc(userId).collection(avatarType).doc('rolling');
+    const memTodayRef = db.collection('conversations_daily')
+      .doc(userId).collection(avatarType).doc(dayjs().format('YYYY-MM-DD'));
+    const [mr, mt] = await Promise.all([memRollingRef.get(), memTodayRef.get()]);
+    const rollingSummary = mr.exists ? maybeDecrypt(mr.data().rollingSummary) : '';
+    const todaySummary = mt.exists ? maybeDecrypt(mt.data().dailySummary) : '';
+    const systemPrompt = buildSystemPrompt(personality, userLanguage)
+    + (rollingSummary ? `\n\n[MEMORIA_ACUMULADA]\n${rollingSummary}` : '')
+    + (todaySummary ? `\n\n[RESUMEN_DIA]\n${todaySummary}` : '');
 
     // Build history
     const messages = [];
@@ -318,8 +350,8 @@ async function sendVideo(req, res) {
     const historySnap = await db.collection('conversations')
       .doc(userId)
       .collection(avatarType)
-      .orderBy('timestamp')
-      .limit(100)
+      .orderBy('timestamp', 'desc')
+      .limit(10)
       .get();
     historySnap.forEach(doc => {
       const data = doc.data();
@@ -386,6 +418,9 @@ async function sendVideo(req, res) {
         audioUrl,
         videoUrl
       });
+    // Guarda el turno en el doc del día y dispara resumen si toca
+    await appendTodayTurn(db, userId, avatarType, message, cleanResponse);
+    await maybeSummarizeDaily(db, userId, avatarType, userLanguage);
 
     return res.json({ response: cleanResponse, audioUrl, videoUrl });
   } catch (err) {
@@ -426,6 +461,58 @@ async function getConversationHistory(req, res) {
     console.error('Error al obtener historial:', err);
     return res.status(500).json({ error: 'Error al obtener historial.' });
   }
+}
+
+const dayjs = require('dayjs');
+
+async function appendTodayTurn(db, userId, avatarType, userMsg, assistantMsg) {
+  const dayId = dayjs().format('YYYY-MM-DD');
+  const ref = db.collection('conversations_daily')
+    .doc(userId).collection(avatarType).doc(dayId);
+
+  const now = admin.firestore.FieldValue.serverTimestamp();
+  await ref.set({
+    updatedAt: now,
+    day: dayId,
+    messages: admin.firestore.FieldValue.arrayUnion({
+      u: encryptText(userMsg),
+      a: encryptText(assistantMsg),
+      t: now,
+    }),
+  }, { merge: true });
+
+  return ref;
+}
+
+async function maybeSummarizeDaily(db, userId, avatarType, language) {
+  const dayId = dayjs().format('YYYY-MM-DD');
+  const ref = db.collection('conversations_daily')
+    .doc(userId).collection(avatarType).doc(dayId);
+  const snap = await ref.get();
+  if (!snap.exists) return;
+
+  const data = snap.data();
+  const msgs = (data.messages || []).map(m => ({
+    u: maybeDecrypt(m.u),
+    a: maybeDecrypt(m.a),
+  }));
+
+  if (msgs.length % 30 === 0) {
+    const out = await openaiService.summarizeTurns(msgs, language);
+    // Espera texto con "resumen_dia" y "memorias". Guardamos todo el bloque.
+    await ref.set({ dailySummary: encryptText(out) }, { merge: true });
+  }
+}
+
+async function upsertRollingMemory(db, userId, avatarType, deltaMemoriesText) {
+  const ref = db.collection('conversations_memory')
+    .doc(userId).collection(avatarType).doc('rolling');
+
+  const snap = await ref.get();
+  const prev = snap.exists ? maybeDecrypt(snap.data().rollingSummary) : '';
+  // concat y truncado "manual" simple; puedes mejorar con otra llamada a OpenAI si lo prefieres
+  const next = (prev + '\n' + deltaMemoriesText).split(/\s+/).slice(0, 2000).join(' ');
+  await ref.set({ rollingSummary: encryptText(next) }, { merge: true });
 }
 
 module.exports = {

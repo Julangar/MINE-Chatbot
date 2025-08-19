@@ -1,6 +1,9 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mine_app/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'widgets/auth_guard.dart';
@@ -19,9 +22,36 @@ import 'screens/chat_screen.dart';
 import 'screens/profile_screen.dart';
 import 'screens/avatar_summary_screen.dart';
 
+/// ------------- BACKGROUND HANDLER (Top-level) -------------
+/// Se ejecuta cuando llega un push y la app está terminada o en background.
+/// Aquí NO navegues directo (no hay contexto). Solo registra logs/analytics si quieres.
+@pragma('vm:entry-point')
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  await Firebase.initializeApp();
+  // Puedes loguear métricas mínimas o actualizar badges.
+  // print('BG message: ${message.data}');
+}
+
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  // Importante: registra el handler ANTES de usar FirebaseMessaging.instance
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+
+  // iOS: solicitar permisos
+  final messaging = FirebaseMessaging.instance;
+  if (Platform.isIOS) {
+    await messaging.requestPermission(
+      alert: true, badge: true, sound: true, provisional: false,
+    );
+    await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
+      alert: true, badge: true, sound: true,
+    );
+  }
+
+  // Obtener/registrar token y escuchar refresh
+  await _ensureFcmTokenRegistered();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(
     MultiProvider(
@@ -34,6 +64,44 @@ void main() async {
       child: const MineApp(),
     ),
   );
+}
+/// Sube el token a Firestore en una subcolección por usuario (server-driven friendly).
+Future<void> _ensureFcmTokenRegistered() async {
+  final user = AuthProvider().user;
+  if (user == null) return; // Llama de nuevo tras login.
+
+  final token = await FirebaseMessaging.instance.getToken();
+  if (token == null) return;
+
+  final tokensRef = FirebaseFirestore.instance
+      .collection('users')
+      .doc(user.uid)
+      .collection('fcmTokens')
+      .doc(token);
+
+  await tokensRef.set({
+    'token': token,
+    'platform': Platform.isIOS ? 'ios' : 'android',
+    'updatedAt': FieldValue.serverTimestamp(),
+    'active': true,
+    // Útil si luego haces segmentación por avatar:
+    // 'avatarType': 'loveOfMine' (si aplica en tu app)
+  }, SetOptions(merge: true));
+
+  // Mantener token actualizado (cambios por reinstalación/refresh)
+  FirebaseMessaging.instance.onTokenRefresh.listen((newToken) async {
+    final ref = FirebaseFirestore.instance
+        .collection('users')
+        .doc(user.uid)
+        .collection('fcmTokens')
+        .doc(newToken);
+    await ref.set({
+      'token': newToken,
+      'platform': Platform.isIOS ? 'ios' : 'android',
+      'updatedAt': FieldValue.serverTimestamp(),
+      'active': true,
+    }, SetOptions(merge: true));
+  });
 }
 
 class MineApp extends StatelessWidget {
