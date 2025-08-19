@@ -196,4 +196,45 @@ class AvatarService {
 
     await docRef.set(data);
   }
+
+  static Future<Map<String, dynamic>?> fetchPersonality(
+    String userId,
+    String avatarType,
+  ) async {
+    final snap = await FirebaseFirestore.instance
+        .collection('avatars').doc(userId)
+        .collection(avatarType).doc('personality')
+        .get();
+    return snap.data();
+  }
+
+  /// Actualiza SOLO campos permitidos dentro del documento 'personality'.
+  /// Campos: personality.commonPhrases (array de strings),
+  ///         personality.interests (array de strings),
+  ///         personality.speakingStyle (string).
+  static Future<void> updateAllowedPersonalityFields({
+    required String userId,
+    required String avatarType,
+    List<String>? commonPhrases,
+    List<String>? interests,
+    String? speakingStyle,
+  }) async {
+    final ref = FirebaseFirestore.instance
+        .collection('avatars').doc(userId)
+        .collection(avatarType).doc('personality');
+
+    final Map<String, dynamic> update = {};
+    if (commonPhrases != null) {
+      update['personality.commonPhrases'] = commonPhrases;
+    }
+    if (interests != null) {
+      update['personality.interests'] = interests;
+    }
+    if (speakingStyle != null) {
+      update['personality.speakingStyle'] = speakingStyle;
+    }
+    if (update.isEmpty) return;
+
+    await ref.set(update, SetOptions(merge: true));
+  }
 }
