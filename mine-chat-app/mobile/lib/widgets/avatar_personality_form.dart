@@ -24,7 +24,7 @@ class _AvatarPersonalityFormState extends State<AvatarPersonalityForm> {
   double extroversion = 0.5;
   double agreeableness = 0.5;
   double conscientiousness = 0.5;
-  String phoneCode = '+57';
+  String phoneCode = '🇺🇸 +1';
 
   final phraseController = TextEditingController();
 

@@ -44,6 +44,7 @@ class _ChatScreenState extends State<ChatScreen> {
   late AudioPlayer _sfxPlayer; // Para efectos de sonido
   VideoPlayerController? _videoController;
   late AudioRecorder _recorder = AudioRecorder();
+  bool _recording = false;
   late Timer _timer;
   int _recordSeconds = 0;
 
@@ -134,7 +135,7 @@ class _ChatScreenState extends State<ChatScreen> {
         // Si quieres un desplazamiento suave usa animateTo:
         _scrollController.animateTo(
           _scrollController.position.maxScrollExtent,
-          duration: Duration(milliseconds: 500),
+          duration: Duration(milliseconds: 200),
           curve: Curves.easeOut,
         );
       }
@@ -142,20 +143,16 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   Future<String> _getFilePath() async {
-    final dir = await getApplicationDocumentsDirectory();
+    final dir = await getTemporaryDirectory();
     final filePath = '${dir.path}/recorded_audio_${DateTime.now().millisecondsSinceEpoch}.m4a';
     return filePath;
   }
 
   Future<void> _startRecording() async {
     if (await _recorder.hasPermission()) {
+      if (_recording) return;
       final path = await _getFilePath();
-      _recordSeconds = 0;
-      _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-        _recordSeconds++;
-        if (_recordSeconds >= 20) _stopRecording(); // máximo 20 s
-        setState(() {}); // actualiza contador en UI
-      });
+      _setStatus('escuchando');
       await _recorder.start(
         RecordConfig(
           encoder: AudioEncoder.aacLc,
@@ -164,15 +161,24 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
         path: path,
       );
-      _setStatus('escuchando');
+      _recordSeconds = 0;
+      _recording = true;
+      Future.delayed(const Duration(seconds: 20), () async {
+        if (_recording) {
+          await _stopRecording();
+        }
+        setState(() {}); // actualiza contador en UI
+      });      
     }
   }
 
   Future<void> _stopRecording() async {
-    _timer.cancel();
     final path = await _recorder.stop(); // devuelve ruta local
-    if (path != null && _recordSeconds >= 1) {
-      _sendVoice(path); // envía al backend (ver abajo)
+    setState(() {
+      _recording = false;
+    });
+    if (path != null) {
+      await _sendVoice(path); // envía al backend usando ChatService.sendVoice()
     }
     _setStatus('pensando');
   }
@@ -680,6 +686,7 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     final avatar = Provider.of<AvatarProvider>(context).avatar;
     final bool disabled = _status == 'escuchando' || _isLoading;
+    final bool _inputLocked = _status == 'pensando' || _status == 'hablando' || _isLoading;
 
     return Scaffold(
       appBar: AppBar(
@@ -807,6 +814,17 @@ class _ChatScreenState extends State<ChatScreen> {
                 const SizedBox(height: 8),
                 Row(
                   children: [
+                    IconButton(
+                      icon: _recording ? const Icon(Icons.stop) : const Icon(Icons.mic),
+                      onPressed: _recording
+                          ? () async {
+                              await _stopRecording();
+                            }
+                          : () async {
+                              await _startRecording();
+                            },
+                      tooltip: _recording ? AppLocalizations.of(context)!.stopRecording : AppLocalizations.of(context)!.startRecording,
+                    ),
                     Expanded(
                       child: TextField(
                         controller: _controller,

@@ -133,7 +133,8 @@ class ChatService {
     if (response.statusCode != 200) {
       throw Exception('Error al transcribir audio: $body');
     }
-    return jsonDecode(body);
+    final data = jsonDecode(body) as Map<String, dynamic>;
+    return data['userText'] as String?;
   }
 
     static Future<String?> fetchClonedAudioUrl(String userId, String avatarType) async {
