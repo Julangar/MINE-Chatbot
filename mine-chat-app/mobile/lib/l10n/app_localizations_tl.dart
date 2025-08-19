@@ -483,4 +483,10 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get bad_phone_number => 'Gumamit lamang ng mga numero (4–15)';
+
+  @override
+  String get stopRecording => 'Itigil';
+
+  @override
+  String get startRecording => 'I-record';
 }

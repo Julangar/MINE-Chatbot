@@ -181,5 +181,7 @@
   "style_amistoso": "Magiliw",
   "style_profesional": "Propesyonal",
   "style_humoristico": "Nakakatawa",
-  "bad_phone_number": "Gumamit lamang ng mga numero (4–15)"
+  "bad_phone_number": "Gumamit lamang ng mga numero (4–15)",
+  "stopRecording": "Itigil",
+  "startRecording": "I-record"
 }

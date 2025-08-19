@@ -181,5 +181,7 @@
   "style_amistoso": "Thân thiện",
   "style_profesional": "Chuyên nghiệp",
   "style_humoristico": "Hài hước",
-  "bad_phone_number": "Chỉ sử dụng chữ số (4–15)"
+  "bad_phone_number": "Chỉ sử dụng chữ số (4–15)",
+  "stopRecording": "Dừng",
+  "startRecording": "Ghi âm"
 }

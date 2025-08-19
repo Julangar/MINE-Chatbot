@@ -483,4 +483,10 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get bad_phone_number => '숫자만 사용 (4–15)';
+
+  @override
+  String get stopRecording => '중지';
+
+  @override
+  String get startRecording => '녹음';
 }

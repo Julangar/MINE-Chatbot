@@ -181,5 +181,7 @@
   "style_amistoso": "친근한",
   "style_profesional": "전문적인",
   "style_humoristico": "유머러스한",
-  "bad_phone_number": "숫자만 사용 (4–15)"
+  "bad_phone_number": "숫자만 사용 (4–15)",
+  "stopRecording": "중지",
+  "startRecording": "녹음"
 }

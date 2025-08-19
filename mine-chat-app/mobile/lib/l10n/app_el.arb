@@ -181,5 +181,7 @@
   "style_amistoso": "Φιλικός",
   "style_profesional": "Επαγγελματικός",
   "style_humoristico": "Χιουμοριστικός",
-  "bad_phone_number": "Χρησιμοποιήστε μόνο ψηφία (4–15)"
+  "bad_phone_number": "Χρησιμοποιήστε μόνο ψηφία (4–15)",
+  "stopRecording": "Σταμάτα",
+  "startRecording": "Εγγραφή"
 }

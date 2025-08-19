@@ -181,5 +181,7 @@
   "style_amistoso": "मित्रतापूर्ण",
   "style_profesional": "पेशेवर",
   "style_humoristico": "हास्यपूर्ण",
-  "bad_phone_number": "केवल अंक उपयोग करें (4–15)"
+  "bad_phone_number": "केवल अंक उपयोग करें (4–15)",
+  "stopRecording": "रोकें",
+  "startRecording": "रिकॉर्ड करें"
 }

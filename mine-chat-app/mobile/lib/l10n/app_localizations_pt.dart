@@ -483,6 +483,12 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get bad_phone_number => 'Use apenas dígitos (4–15)';
+
+  @override
+  String get stopRecording => 'Parar';
+
+  @override
+  String get startRecording => 'Gravar';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -964,4 +970,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get bad_phone_number => 'Use apenas dígitos (4–15)';
+
+  @override
+  String get stopRecording => 'Parar';
+
+  @override
+  String get startRecording => 'Gravar';
 }

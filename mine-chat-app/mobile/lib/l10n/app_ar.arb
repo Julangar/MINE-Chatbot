@@ -181,5 +181,7 @@
   "style_amistoso": "ودود",
   "style_profesional": "محترف",
   "style_humoristico": "فكاهي",
-  "bad_phone_number": "استخدم الأرقام فقط (4–15)"
+  "bad_phone_number": "استخدم الأرقام فقط (4–15)",
+  "stopRecording": "إيقاف",
+  "startRecording": "تسجيل"
 }

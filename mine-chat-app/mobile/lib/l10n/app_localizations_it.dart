@@ -483,4 +483,10 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get bad_phone_number => 'Usa solo cifre (4–15)';
+
+  @override
+  String get stopRecording => 'Ferma';
+
+  @override
+  String get startRecording => 'Registra';
 }

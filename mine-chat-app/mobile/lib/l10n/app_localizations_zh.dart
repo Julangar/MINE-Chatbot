@@ -483,4 +483,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get bad_phone_number => '仅使用数字 (4–15)';
+
+  @override
+  String get stopRecording => '停止';
+
+  @override
+  String get startRecording => '录制';
 }

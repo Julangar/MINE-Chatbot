@@ -483,4 +483,10 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get bad_phone_number => 'Χρησιμοποιήστε μόνο ψηφία (4–15)';
+
+  @override
+  String get stopRecording => 'Σταμάτα';
+
+  @override
+  String get startRecording => 'Εγγραφή';
 }

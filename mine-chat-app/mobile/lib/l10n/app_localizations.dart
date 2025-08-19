@@ -1080,6 +1080,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Use digits only (4–15)'**
   String get bad_phone_number;
+
+  /// No description provided for @stopRecording.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop'**
+  String get stopRecording;
+
+  /// No description provided for @startRecording.
+  ///
+  /// In en, this message translates to:
+  /// **'Record'**
+  String get startRecording;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

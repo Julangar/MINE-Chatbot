@@ -483,4 +483,10 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get bad_phone_number => 'Chỉ sử dụng chữ số (4–15)';
+
+  @override
+  String get stopRecording => 'Dừng';
+
+  @override
+  String get startRecording => 'Ghi âm';
 }

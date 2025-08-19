@@ -483,6 +483,12 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get bad_phone_number => 'Usa solo dígitos (4–15)';
+
+  @override
+  String get stopRecording => 'Detener';
+
+  @override
+  String get startRecording => 'Grabar';
 }
 
 /// The translations for Spanish Castilian, as used in Latin America and the Caribbean (`es_419`).
@@ -964,4 +970,10 @@ class AppLocalizationsEs419 extends AppLocalizationsEs {
 
   @override
   String get bad_phone_number => 'Usa solo dígitos (4–15)';
+
+  @override
+  String get stopRecording => 'Detener';
+
+  @override
+  String get startRecording => 'Grabar';
 }

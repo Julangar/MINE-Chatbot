@@ -483,4 +483,10 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get bad_phone_number => 'השתמש רק בספרות (4–15)';
+
+  @override
+  String get stopRecording => 'עצור';
+
+  @override
+  String get startRecording => 'הקלט';
 }

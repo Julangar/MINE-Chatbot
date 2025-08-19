@@ -181,5 +181,7 @@
   "style_amistoso": "友好",
   "style_profesional": "专业",
   "style_humoristico": "幽默",
-  "bad_phone_number": "仅使用数字 (4–15)"
+  "bad_phone_number": "仅使用数字 (4–15)",
+  "stopRecording": "停止",
+  "startRecording": "录制"
 }

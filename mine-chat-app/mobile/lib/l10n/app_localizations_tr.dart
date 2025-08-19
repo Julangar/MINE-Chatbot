@@ -483,4 +483,10 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get bad_phone_number => 'Yalnızca rakam kullanın (4–15)';
+
+  @override
+  String get stopRecording => 'Durdur';
+
+  @override
+  String get startRecording => 'Kaydet';
 }

@@ -181,5 +181,7 @@
   "style_amistoso": "Дружелюбный",
   "style_profesional": "Профессиональный",
   "style_humoristico": "Юмористический",
-  "bad_phone_number": "Используйте только цифры (4–15)"
+  "bad_phone_number": "Используйте только цифры (4–15)",
+  "stopRecording": "Стоп",
+  "startRecording": "Запись"
 }
