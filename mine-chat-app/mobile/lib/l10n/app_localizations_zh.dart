@@ -489,4 +489,46 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get startRecording => '录制';
+
+  @override
+  String get profile => '我的资料';
+
+  @override
+  String get profileUpdated => '资料已更新';
+
+  @override
+  String get profileMyAvatar => '我的头像';
+
+  @override
+  String get profileUser => '用户';
+
+  @override
+  String get profileSpeakingStyle => '说话风格';
+
+  @override
+  String get profileSpeakingStyleHint => '例如：“温暖而亲近”，“直接而简洁”';
+
+  @override
+  String get profileInterests => '兴趣';
+
+  @override
+  String get profileInterestHint => '添加兴趣...';
+
+  @override
+  String get profileCommonPhrases => '常用短语';
+
+  @override
+  String get profileCommonPhraseHint => '添加常用短语...';
+
+  @override
+  String get generatingVoice => '使用克隆语音生成音频';
+
+  @override
+  String get generatingVideo => '正在用你的头像生成问候';
+
+  @override
+  String get voiceCloning => '语音克隆';
+
+  @override
+  String get voiceCloningInProgress => '语音克隆进行中';
 }

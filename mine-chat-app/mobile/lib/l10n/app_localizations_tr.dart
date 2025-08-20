@@ -489,4 +489,46 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get startRecording => 'Kaydet';
+
+  @override
+  String get profile => 'Profilim';
+
+  @override
+  String get profileUpdated => 'Profil güncellendi';
+
+  @override
+  String get profileMyAvatar => 'Avatarım';
+
+  @override
+  String get profileUser => 'Kullanıcı';
+
+  @override
+  String get profileSpeakingStyle => 'Konuşma tarzı';
+
+  @override
+  String get profileSpeakingStyleHint => 'ör. “sıcak ve yakın”, “doğrudan ve özlü”';
+
+  @override
+  String get profileInterests => 'İlgi alanları';
+
+  @override
+  String get profileInterestHint => 'İlgi ekle...';
+
+  @override
+  String get profileCommonPhrases => 'Yaygın ifadeler';
+
+  @override
+  String get profileCommonPhraseHint => 'Yaygın ifade ekle...';
+
+  @override
+  String get generatingVoice => 'Klonlanmış sesle ses oluşturuluyor';
+
+  @override
+  String get generatingVideo => 'Avatarınızla selamlama oluşturuluyor';
+
+  @override
+  String get voiceCloning => 'Ses klonlama';
+
+  @override
+  String get voiceCloningInProgress => 'Ses klonlama devam ediyor';
 }

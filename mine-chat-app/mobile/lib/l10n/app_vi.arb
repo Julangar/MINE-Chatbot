@@ -183,5 +183,19 @@
   "style_humoristico": "Hài hước",
   "bad_phone_number": "Chỉ sử dụng chữ số (4–15)",
   "stopRecording": "Dừng",
-  "startRecording": "Ghi âm"
+  "startRecording": "Ghi âm",
+  "profile": "Hồ sơ của tôi",
+  "profileUpdated": "Hồ sơ đã được cập nhật",
+  "profileMyAvatar": "Hình đại diện của tôi",
+  "profileUser": "Người dùng",
+  "profileSpeakingStyle": "Phong cách nói",
+  "profileSpeakingStyleHint": "ví dụ: “ấm áp và gần gũi”, “trực tiếp và ngắn gọn”",
+  "profileInterests": "Sở thích",
+  "profileInterestHint": "Thêm sở thích...",
+  "profileCommonPhrases": "Cụm từ thường dùng",
+  "profileCommonPhraseHint": "Thêm cụm từ thường dùng...",
+  "generatingVoice": "Đang tạo âm thanh bằng giọng sao chép",
+  "generatingVideo": "Đang tạo lời chào với avatar của bạn",
+  "voiceCloning": "Sao chép giọng nói",
+  "voiceCloningInProgress": "Đang sao chép giọng nói"
 }

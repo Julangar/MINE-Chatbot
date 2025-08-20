@@ -489,4 +489,46 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get startRecording => 'Felvétel';
+
+  @override
+  String get profile => 'Profilom';
+
+  @override
+  String get profileUpdated => 'Profil frissítve';
+
+  @override
+  String get profileMyAvatar => 'Avatárom';
+
+  @override
+  String get profileUser => 'Felhasználó';
+
+  @override
+  String get profileSpeakingStyle => 'Beszédstílus';
+
+  @override
+  String get profileSpeakingStyleHint => 'pl.: „meleg és közvetlen”, „közvetlen és tömör”';
+
+  @override
+  String get profileInterests => 'Érdeklődések';
+
+  @override
+  String get profileInterestHint => 'Érdeklődés hozzáadása...';
+
+  @override
+  String get profileCommonPhrases => 'Gyakori kifejezések';
+
+  @override
+  String get profileCommonPhraseHint => 'Gyakori kifejezés hozzáadása...';
+
+  @override
+  String get generatingVoice => 'Hang generálása klónozott hanggal';
+
+  @override
+  String get generatingVideo => 'Üdvözlés generálása az avataroddal';
+
+  @override
+  String get voiceCloning => 'Hang klónozása';
+
+  @override
+  String get voiceCloningInProgress => 'Hang klónozása folyamatban';
 }

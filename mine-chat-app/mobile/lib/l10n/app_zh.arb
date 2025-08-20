@@ -183,5 +183,19 @@
   "style_humoristico": "幽默",
   "bad_phone_number": "仅使用数字 (4–15)",
   "stopRecording": "停止",
-  "startRecording": "录制"
+  "startRecording": "录制",
+  "profile": "我的资料",
+  "profileUpdated": "资料已更新",
+  "profileMyAvatar": "我的头像",
+  "profileUser": "用户",
+  "profileSpeakingStyle": "说话风格",
+  "profileSpeakingStyleHint": "例如：“温暖而亲近”，“直接而简洁”",
+  "profileInterests": "兴趣",
+  "profileInterestHint": "添加兴趣...",
+  "profileCommonPhrases": "常用短语",
+  "profileCommonPhraseHint": "添加常用短语...",
+  "generatingVoice": "使用克隆语音生成音频",
+  "generatingVideo": "正在用你的头像生成问候",
+  "voiceCloning": "语音克隆",
+  "voiceCloningInProgress": "语音克隆进行中"
 }

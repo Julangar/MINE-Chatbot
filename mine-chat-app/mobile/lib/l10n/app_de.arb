@@ -183,5 +183,19 @@
   "style_humoristico": "Humorvoll",
   "bad_phone_number": "Nur Ziffern verwenden (4–15)",
   "stopRecording": "Stopp",
-  "startRecording": "Aufnehmen"
+  "startRecording": "Aufnehmen",
+  "profile": "Mein Profil",
+  "profileUpdated": "Profil aktualisiert",
+  "profileMyAvatar": "Mein Avatar",
+  "profileUser": "Benutzer",
+  "profileSpeakingStyle": "Sprechstil",
+  "profileSpeakingStyleHint": "z. B. „warm und nah“, „direkt und prägnant“",
+  "profileInterests": "Interessen",
+  "profileInterestHint": "Interesse hinzufügen...",
+  "profileCommonPhrases": "Gebräuchliche Sätze",
+  "profileCommonPhraseHint": "Gebräuchlichen Satz hinzufügen...",
+  "generatingVoice": "Audio mit geklonter Stimme wird erstellt",
+  "generatingVideo": "Begrüßung mit Ihrem Avatar wird erstellt",
+  "voiceCloning": "Stimme klonen",
+  "voiceCloningInProgress": "Stimmenklonung läuft"
 }

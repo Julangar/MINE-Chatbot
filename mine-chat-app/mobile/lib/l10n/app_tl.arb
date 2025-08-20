@@ -183,5 +183,19 @@
   "style_humoristico": "Nakakatawa",
   "bad_phone_number": "Gumamit lamang ng mga numero (4–15)",
   "stopRecording": "Itigil",
-  "startRecording": "I-record"
+  "startRecording": "I-record",
+  "profile": "Aking profile",
+  "profileUpdated": "Na-update ang profile",
+  "profileMyAvatar": "Aking avatar",
+  "profileUser": "User",
+  "profileSpeakingStyle": "Estilo ng pagsasalita",
+  "profileSpeakingStyleHint": "hal. “mainit at malapit”, “direkta at maigsi”",
+  "profileInterests": "Mga interes",
+  "profileInterestHint": "Magdagdag ng interes...",
+  "profileCommonPhrases": "Karaniwang parirala",
+  "profileCommonPhraseHint": "Magdagdag ng karaniwang parirala...",
+  "generatingVoice": "Pagbuo ng audio gamit ang kinopyang boses",
+  "generatingVideo": "Pagbuo ng pagbati gamit ang iyong avatar",
+  "voiceCloning": "Pag-clone ng boses",
+  "voiceCloningInProgress": "Isinasagawa ang pag-clone ng boses"
 }

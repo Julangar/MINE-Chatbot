@@ -489,6 +489,48 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get startRecording => 'Gravar';
+
+  @override
+  String get profile => 'Meu perfil';
+
+  @override
+  String get profileUpdated => 'Perfil atualizado';
+
+  @override
+  String get profileMyAvatar => 'Meu avatar';
+
+  @override
+  String get profileUser => 'Usuário';
+
+  @override
+  String get profileSpeakingStyle => 'Estilo de fala';
+
+  @override
+  String get profileSpeakingStyleHint => 'ex.: “caloroso e próximo”, “direto e conciso”';
+
+  @override
+  String get profileInterests => 'Interesses';
+
+  @override
+  String get profileInterestHint => 'Adicionar interesse...';
+
+  @override
+  String get profileCommonPhrases => 'Frases comuns';
+
+  @override
+  String get profileCommonPhraseHint => 'Adicionar frase comum...';
+
+  @override
+  String get generatingVoice => 'Gerando áudio com voz clonada';
+
+  @override
+  String get generatingVideo => 'Gerando saudação com seu avatar';
+
+  @override
+  String get voiceCloning => 'Clonagem de voz';
+
+  @override
+  String get voiceCloningInProgress => 'Clonagem de voz em andamento';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -976,4 +1018,46 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get startRecording => 'Gravar';
+
+  @override
+  String get profile => 'Meu perfil';
+
+  @override
+  String get profileUpdated => 'Perfil atualizado';
+
+  @override
+  String get profileMyAvatar => 'Meu avatar';
+
+  @override
+  String get profileUser => 'Usuário';
+
+  @override
+  String get profileSpeakingStyle => 'Estilo de fala';
+
+  @override
+  String get profileSpeakingStyleHint => 'ex.: “caloroso e próximo”, “direto e conciso”';
+
+  @override
+  String get profileInterests => 'Interesses';
+
+  @override
+  String get profileInterestHint => 'Adicionar interesse...';
+
+  @override
+  String get profileCommonPhrases => 'Frases comuns';
+
+  @override
+  String get profileCommonPhraseHint => 'Adicionar frase comum...';
+
+  @override
+  String get generatingVoice => 'Gerando áudio com voz clonada';
+
+  @override
+  String get generatingVideo => 'Gerando saudação com seu avatar';
+
+  @override
+  String get voiceCloning => 'Clonagem de voz';
+
+  @override
+  String get voiceCloningInProgress => 'Clonagem de voz em andamento';
 }

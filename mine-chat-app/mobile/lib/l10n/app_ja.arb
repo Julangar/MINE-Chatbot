@@ -183,5 +183,19 @@
   "style_humoristico": "ユーモラス",
   "bad_phone_number": "数字のみを使用 (4–15)",
   "stopRecording": "停止",
-  "startRecording": "録音"
+  "startRecording": "録音",
+  "profile": "マイプロフィール",
+  "profileUpdated": "プロフィールが更新されました",
+  "profileMyAvatar": "私のアバター",
+  "profileUser": "ユーザー",
+  "profileSpeakingStyle": "話し方のスタイル",
+  "profileSpeakingStyleHint": "例：「温かく親しい」、「率直で簡潔」",
+  "profileInterests": "興味",
+  "profileInterestHint": "興味を追加...",
+  "profileCommonPhrases": "よく使うフレーズ",
+  "profileCommonPhraseHint": "よく使うフレーズを追加...",
+  "generatingVoice": "クローン音声でオーディオを生成中",
+  "generatingVideo": "アバターで挨拶を生成中",
+  "voiceCloning": "声をクローン中",
+  "voiceCloningInProgress": "声のクローンを作成中"
 }

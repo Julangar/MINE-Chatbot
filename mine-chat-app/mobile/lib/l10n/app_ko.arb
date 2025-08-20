@@ -183,5 +183,19 @@
   "style_humoristico": "유머러스한",
   "bad_phone_number": "숫자만 사용 (4–15)",
   "stopRecording": "중지",
-  "startRecording": "녹음"
+  "startRecording": "녹음",
+  "profile": "내 프로필",
+  "profileUpdated": "프로필이 업데이트되었습니다",
+  "profileMyAvatar": "내 아바타",
+  "profileUser": "사용자",
+  "profileSpeakingStyle": "말하기 스타일",
+  "profileSpeakingStyleHint": "예: “따뜻하고 친근한”, “직접적이고 간결한”",
+  "profileInterests": "관심사",
+  "profileInterestHint": "관심사 추가...",
+  "profileCommonPhrases": "자주 쓰는 문구",
+  "profileCommonPhraseHint": "자주 쓰는 문구 추가...",
+  "generatingVoice": "복제된 음성으로 오디오 생성 중",
+  "generatingVideo": "아바타로 인사말 생성 중",
+  "voiceCloning": "음성 복제",
+  "voiceCloningInProgress": "음성 복제 진행 중"
 }

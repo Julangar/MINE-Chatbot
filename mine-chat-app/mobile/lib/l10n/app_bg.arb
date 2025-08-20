@@ -183,5 +183,19 @@
   "style_humoristico": "Хумористичен",
   "bad_phone_number": "Използвайте само цифри (4–15)",
   "stopRecording": "Стоп",
-  "startRecording": "Запис"
+  "startRecording": "Запис",
+  "profile": "Моят профил",
+  "profileUpdated": "Профилът е актуализиран",
+  "profileMyAvatar": "Моят аватар",
+  "profileUser": "Потребител",
+  "profileSpeakingStyle": "Стил на говорене",
+  "profileSpeakingStyleHint": "напр.: „топъл и близък“, „директен и кратък“",
+  "profileInterests": "Интереси",
+  "profileInterestHint": "Добавяне на интерес...",
+  "profileCommonPhrases": "Чести изрази",
+  "profileCommonPhraseHint": "Добавяне на честа фраза...",
+  "generatingVoice": "Генериране на аудио с клониран глас",
+  "generatingVideo": "Генериране на поздрав с вашия аватар",
+  "voiceCloning": "Клониране на глас",
+  "voiceCloningInProgress": "Клонирането на глас е в процес"
 }

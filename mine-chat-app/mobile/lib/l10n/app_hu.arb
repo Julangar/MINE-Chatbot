@@ -183,5 +183,19 @@
   "style_humoristico": "Humoros",
   "bad_phone_number": "Csak számjegyeket használjon (4–15)",
   "stopRecording": "Megállít",
-  "startRecording": "Felvétel"
+  "startRecording": "Felvétel",
+  "profile": "Profilom",
+  "profileUpdated": "Profil frissítve",
+  "profileMyAvatar": "Avatárom",
+  "profileUser": "Felhasználó",
+  "profileSpeakingStyle": "Beszédstílus",
+  "profileSpeakingStyleHint": "pl.: „meleg és közvetlen”, „közvetlen és tömör”",
+  "profileInterests": "Érdeklődések",
+  "profileInterestHint": "Érdeklődés hozzáadása...",
+  "profileCommonPhrases": "Gyakori kifejezések",
+  "profileCommonPhraseHint": "Gyakori kifejezés hozzáadása...",
+  "generatingVoice": "Hang generálása klónozott hanggal",
+  "generatingVideo": "Üdvözlés generálása az avataroddal",
+  "voiceCloning": "Hang klónozása",
+  "voiceCloningInProgress": "Hang klónozása folyamatban"
 }

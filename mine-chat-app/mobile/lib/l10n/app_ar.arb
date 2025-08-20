@@ -183,5 +183,19 @@
   "style_humoristico": "فكاهي",
   "bad_phone_number": "استخدم الأرقام فقط (4–15)",
   "stopRecording": "إيقاف",
-  "startRecording": "تسجيل"
+  "startRecording": "تسجيل",
+  "profile": "ملفي الشخصي",
+  "profileUpdated": "تم تحديث الملف الشخصي",
+  "profileMyAvatar": "صورتي الرمزية",
+  "profileUser": "مستخدم",
+  "profileSpeakingStyle": "أسلوب الكلام",
+  "profileSpeakingStyleHint": "مثال: \"دافئ وقريب\"، \"مباشر وموجز\"",
+  "profileInterests": "الاهتمامات",
+  "profileInterestHint": "أضف اهتمامًا...",
+  "profileCommonPhrases": "عبارات شائعة",
+  "profileCommonPhraseHint": "أضف عبارة شائعة...",
+  "generatingVoice": "إنشاء صوت بصوت مستنسخ",
+  "generatingVideo": "إنشاء تحية باستخدام صورتك الرمزية",
+  "voiceCloning": "استنساخ الصوت",
+  "voiceCloningInProgress": "جارٍ استنساخ الصوت"
 }

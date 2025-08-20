@@ -489,4 +489,46 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get startRecording => '녹음';
+
+  @override
+  String get profile => '내 프로필';
+
+  @override
+  String get profileUpdated => '프로필이 업데이트되었습니다';
+
+  @override
+  String get profileMyAvatar => '내 아바타';
+
+  @override
+  String get profileUser => '사용자';
+
+  @override
+  String get profileSpeakingStyle => '말하기 스타일';
+
+  @override
+  String get profileSpeakingStyleHint => '예: “따뜻하고 친근한”, “직접적이고 간결한”';
+
+  @override
+  String get profileInterests => '관심사';
+
+  @override
+  String get profileInterestHint => '관심사 추가...';
+
+  @override
+  String get profileCommonPhrases => '자주 쓰는 문구';
+
+  @override
+  String get profileCommonPhraseHint => '자주 쓰는 문구 추가...';
+
+  @override
+  String get generatingVoice => '복제된 음성으로 오디오 생성 중';
+
+  @override
+  String get generatingVideo => '아바타로 인사말 생성 중';
+
+  @override
+  String get voiceCloning => '음성 복제';
+
+  @override
+  String get voiceCloningInProgress => '음성 복제 진행 중';
 }

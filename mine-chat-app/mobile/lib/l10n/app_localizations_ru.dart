@@ -489,4 +489,46 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get startRecording => 'Запись';
+
+  @override
+  String get profile => 'Мой профиль';
+
+  @override
+  String get profileUpdated => 'Профиль обновлен';
+
+  @override
+  String get profileMyAvatar => 'Мой аватар';
+
+  @override
+  String get profileUser => 'Пользователь';
+
+  @override
+  String get profileSpeakingStyle => 'Стиль речи';
+
+  @override
+  String get profileSpeakingStyleHint => 'например: «тёплый и близкий», «прямой и краткий»';
+
+  @override
+  String get profileInterests => 'Интересы';
+
+  @override
+  String get profileInterestHint => 'Добавить интерес...';
+
+  @override
+  String get profileCommonPhrases => 'Распространённые фразы';
+
+  @override
+  String get profileCommonPhraseHint => 'Добавить распространённую фразу...';
+
+  @override
+  String get generatingVoice => 'Генерация аудио с клонированным голосом';
+
+  @override
+  String get generatingVideo => 'Генерация приветствия с вашим аватаром';
+
+  @override
+  String get voiceCloning => 'Клонирование голоса';
+
+  @override
+  String get voiceCloningInProgress => 'Идёт клонирование голоса';
 }

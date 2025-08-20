@@ -183,5 +183,19 @@
   "style_humoristico": "हास्यपूर्ण",
   "bad_phone_number": "केवल अंक उपयोग करें (4–15)",
   "stopRecording": "रोकें",
-  "startRecording": "रिकॉर्ड करें"
+  "startRecording": "रिकॉर्ड करें",
+  "profile": "मेरा प्रोफ़ाइल",
+  "profileUpdated": "प्रोफ़ाइल अपडेट किया गया",
+  "profileMyAvatar": "मेरा अवतार",
+  "profileUser": "उपयोगकर्ता",
+  "profileSpeakingStyle": "बोलने की शैली",
+  "profileSpeakingStyleHint": "उदा. “गर्मजोशी और निकटता”, “सीधा और संक्षिप्त”",
+  "profileInterests": "रुचियाँ",
+  "profileInterestHint": "रुचि जोड़ें...",
+  "profileCommonPhrases": "सामान्य वाक्यांश",
+  "profileCommonPhraseHint": "सामान्य वाक्यांश जोड़ें...",
+  "generatingVoice": "क्लोन की गई आवाज़ से ऑडियो बना रहा है",
+  "generatingVideo": "आपके अवतार से अभिवादन बना रहा है",
+  "voiceCloning": "आवाज क्लोन कर रहा है",
+  "voiceCloningInProgress": "आवाज की क्लोनिंग जारी है"
 }

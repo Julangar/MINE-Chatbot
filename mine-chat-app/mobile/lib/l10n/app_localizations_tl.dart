@@ -489,4 +489,46 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get startRecording => 'I-record';
+
+  @override
+  String get profile => 'Aking profile';
+
+  @override
+  String get profileUpdated => 'Na-update ang profile';
+
+  @override
+  String get profileMyAvatar => 'Aking avatar';
+
+  @override
+  String get profileUser => 'User';
+
+  @override
+  String get profileSpeakingStyle => 'Estilo ng pagsasalita';
+
+  @override
+  String get profileSpeakingStyleHint => 'hal. “mainit at malapit”, “direkta at maigsi”';
+
+  @override
+  String get profileInterests => 'Mga interes';
+
+  @override
+  String get profileInterestHint => 'Magdagdag ng interes...';
+
+  @override
+  String get profileCommonPhrases => 'Karaniwang parirala';
+
+  @override
+  String get profileCommonPhraseHint => 'Magdagdag ng karaniwang parirala...';
+
+  @override
+  String get generatingVoice => 'Pagbuo ng audio gamit ang kinopyang boses';
+
+  @override
+  String get generatingVideo => 'Pagbuo ng pagbati gamit ang iyong avatar';
+
+  @override
+  String get voiceCloning => 'Pag-clone ng boses';
+
+  @override
+  String get voiceCloningInProgress => 'Isinasagawa ang pag-clone ng boses';
 }

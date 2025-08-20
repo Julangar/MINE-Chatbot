@@ -489,4 +489,46 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get startRecording => 'Record';
+
+  @override
+  String get profile => 'My profile';
+
+  @override
+  String get profileUpdated => 'Profile updated';
+
+  @override
+  String get profileMyAvatar => 'My avatar';
+
+  @override
+  String get profileUser => 'User';
+
+  @override
+  String get profileSpeakingStyle => 'Speaking style';
+
+  @override
+  String get profileSpeakingStyleHint => 'e.g. “warm and close”, “direct and concise”';
+
+  @override
+  String get profileInterests => 'Interests';
+
+  @override
+  String get profileInterestHint => 'Add interest...';
+
+  @override
+  String get profileCommonPhrases => 'Common phrases';
+
+  @override
+  String get profileCommonPhraseHint => 'Add common phrase...';
+
+  @override
+  String get generatingVoice => 'Generating audio with cloned voice';
+
+  @override
+  String get generatingVideo => 'Generating greeting with your avatar';
+
+  @override
+  String get voiceCloning => 'Cloning Voice';
+
+  @override
+  String get voiceCloningInProgress => 'Cloning voice in progress';
 }

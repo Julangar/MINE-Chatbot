@@ -183,5 +183,19 @@
   "style_humoristico": "Юмористический",
   "bad_phone_number": "Используйте только цифры (4–15)",
   "stopRecording": "Стоп",
-  "startRecording": "Запись"
+  "startRecording": "Запись",
+  "profile": "Мой профиль",
+  "profileUpdated": "Профиль обновлен",
+  "profileMyAvatar": "Мой аватар",
+  "profileUser": "Пользователь",
+  "profileSpeakingStyle": "Стиль речи",
+  "profileSpeakingStyleHint": "например: «тёплый и близкий», «прямой и краткий»",
+  "profileInterests": "Интересы",
+  "profileInterestHint": "Добавить интерес...",
+  "profileCommonPhrases": "Распространённые фразы",
+  "profileCommonPhraseHint": "Добавить распространённую фразу...",
+  "generatingVoice": "Генерация аудио с клонированным голосом",
+  "generatingVideo": "Генерация приветствия с вашим аватаром",
+  "voiceCloning": "Клонирование голоса",
+  "voiceCloningInProgress": "Идёт клонирование голоса"
 }

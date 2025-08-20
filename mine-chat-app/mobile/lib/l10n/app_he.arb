@@ -183,5 +183,19 @@
   "style_humoristico": "הומוריסטי",
   "bad_phone_number": "השתמש רק בספרות (4–15)",
   "stopRecording": "עצור",
-  "startRecording": "הקלט"
+  "startRecording": "הקלט",
+  "profile": "הפרופיל שלי",
+  "profileUpdated": "הפרופיל עודכן",
+  "profileMyAvatar": "האווטאר שלי",
+  "profileUser": "משתמש",
+  "profileSpeakingStyle": "סגנון דיבור",
+  "profileSpeakingStyleHint": "לדוגמה: \"חמים וקרוב\", \"ישיר ותמציתי\"",
+  "profileInterests": "תחומי עניין",
+  "profileInterestHint": "הוסף תחום עניין...",
+  "profileCommonPhrases": "ביטויים נפוצים",
+  "profileCommonPhraseHint": "הוסף ביטוי נפוץ...",
+  "generatingVoice": "יוצר שמע עם קול משובט",
+  "generatingVideo": "יוצר ברכה עם האווטאר שלך",
+  "voiceCloning": "שכפול קול",
+  "voiceCloningInProgress": "תהליך שכפול קול מתבצע"
 }

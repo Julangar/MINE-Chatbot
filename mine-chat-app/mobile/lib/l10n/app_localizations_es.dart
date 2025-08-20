@@ -489,6 +489,48 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get startRecording => 'Grabar';
+
+  @override
+  String get profile => 'Mi perfil';
+
+  @override
+  String get profileUpdated => 'Perfil actualizado';
+
+  @override
+  String get profileMyAvatar => 'Mi avatar';
+
+  @override
+  String get profileUser => 'Usuario';
+
+  @override
+  String get profileSpeakingStyle => 'Estilo de habla';
+
+  @override
+  String get profileSpeakingStyleHint => 'ej. “cálido y cercano”, “directo y conciso”';
+
+  @override
+  String get profileInterests => 'Intereses';
+
+  @override
+  String get profileInterestHint => 'Añadir interés...';
+
+  @override
+  String get profileCommonPhrases => 'Frases comunes';
+
+  @override
+  String get profileCommonPhraseHint => 'Añadir frase común...';
+
+  @override
+  String get generatingVoice => 'Generando audio con voz clonada';
+
+  @override
+  String get generatingVideo => 'Generando saludo con tu avatar';
+
+  @override
+  String get voiceCloning => 'Clonando voz';
+
+  @override
+  String get voiceCloningInProgress => 'Clonación de voz en progreso';
 }
 
 /// The translations for Spanish Castilian, as used in Latin America and the Caribbean (`es_419`).
@@ -976,4 +1018,46 @@ class AppLocalizationsEs419 extends AppLocalizationsEs {
 
   @override
   String get startRecording => 'Grabar';
+
+  @override
+  String get profile => 'Mi perfil';
+
+  @override
+  String get profileUpdated => 'Perfil actualizado';
+
+  @override
+  String get profileMyAvatar => 'Mi avatar';
+
+  @override
+  String get profileUser => 'Usuario';
+
+  @override
+  String get profileSpeakingStyle => 'Estilo de habla';
+
+  @override
+  String get profileSpeakingStyleHint => 'ej. “cálido y cercano”, “directo y conciso”';
+
+  @override
+  String get profileInterests => 'Intereses';
+
+  @override
+  String get profileInterestHint => 'Añadir interés...';
+
+  @override
+  String get profileCommonPhrases => 'Frases comunes';
+
+  @override
+  String get profileCommonPhraseHint => 'Añadir frase común...';
+
+  @override
+  String get generatingVoice => 'Generando audio con voz clonada';
+
+  @override
+  String get generatingVideo => 'Generando saludo con tu avatar';
+
+  @override
+  String get voiceCloning => 'Clonando voz';
+
+  @override
+  String get voiceCloningInProgress => 'Clonación de voz en progreso';
 }

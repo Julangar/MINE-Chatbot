@@ -489,4 +489,46 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get startRecording => 'रिकॉर्ड करें';
+
+  @override
+  String get profile => 'मेरा प्रोफ़ाइल';
+
+  @override
+  String get profileUpdated => 'प्रोफ़ाइल अपडेट किया गया';
+
+  @override
+  String get profileMyAvatar => 'मेरा अवतार';
+
+  @override
+  String get profileUser => 'उपयोगकर्ता';
+
+  @override
+  String get profileSpeakingStyle => 'बोलने की शैली';
+
+  @override
+  String get profileSpeakingStyleHint => 'उदा. “गर्मजोशी और निकटता”, “सीधा और संक्षिप्त”';
+
+  @override
+  String get profileInterests => 'रुचियाँ';
+
+  @override
+  String get profileInterestHint => 'रुचि जोड़ें...';
+
+  @override
+  String get profileCommonPhrases => 'सामान्य वाक्यांश';
+
+  @override
+  String get profileCommonPhraseHint => 'सामान्य वाक्यांश जोड़ें...';
+
+  @override
+  String get generatingVoice => 'क्लोन की गई आवाज़ से ऑडियो बना रहा है';
+
+  @override
+  String get generatingVideo => 'आपके अवतार से अभिवादन बना रहा है';
+
+  @override
+  String get voiceCloning => 'आवाज क्लोन कर रहा है';
+
+  @override
+  String get voiceCloningInProgress => 'आवाज की क्लोनिंग जारी है';
 }

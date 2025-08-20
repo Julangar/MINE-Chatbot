@@ -1092,6 +1092,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Record'**
   String get startRecording;
+
+  /// No description provided for @profile.
+  ///
+  /// In en, this message translates to:
+  /// **'My profile'**
+  String get profile;
+
+  /// No description provided for @profileUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile updated'**
+  String get profileUpdated;
+
+  /// No description provided for @profileMyAvatar.
+  ///
+  /// In en, this message translates to:
+  /// **'My avatar'**
+  String get profileMyAvatar;
+
+  /// No description provided for @profileUser.
+  ///
+  /// In en, this message translates to:
+  /// **'User'**
+  String get profileUser;
+
+  /// No description provided for @profileSpeakingStyle.
+  ///
+  /// In en, this message translates to:
+  /// **'Speaking style'**
+  String get profileSpeakingStyle;
+
+  /// No description provided for @profileSpeakingStyleHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. “warm and close”, “direct and concise”'**
+  String get profileSpeakingStyleHint;
+
+  /// No description provided for @profileInterests.
+  ///
+  /// In en, this message translates to:
+  /// **'Interests'**
+  String get profileInterests;
+
+  /// No description provided for @profileInterestHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Add interest...'**
+  String get profileInterestHint;
+
+  /// No description provided for @profileCommonPhrases.
+  ///
+  /// In en, this message translates to:
+  /// **'Common phrases'**
+  String get profileCommonPhrases;
+
+  /// No description provided for @profileCommonPhraseHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Add common phrase...'**
+  String get profileCommonPhraseHint;
+
+  /// No description provided for @generatingVoice.
+  ///
+  /// In en, this message translates to:
+  /// **'Generating audio with cloned voice'**
+  String get generatingVoice;
+
+  /// No description provided for @generatingVideo.
+  ///
+  /// In en, this message translates to:
+  /// **'Generating greeting with your avatar'**
+  String get generatingVideo;
+
+  /// No description provided for @voiceCloning.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloning Voice'**
+  String get voiceCloning;
+
+  /// No description provided for @voiceCloningInProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloning voice in progress'**
+  String get voiceCloningInProgress;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

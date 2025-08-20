@@ -489,4 +489,46 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get startRecording => 'Запис';
+
+  @override
+  String get profile => 'Моят профил';
+
+  @override
+  String get profileUpdated => 'Профилът е актуализиран';
+
+  @override
+  String get profileMyAvatar => 'Моят аватар';
+
+  @override
+  String get profileUser => 'Потребител';
+
+  @override
+  String get profileSpeakingStyle => 'Стил на говорене';
+
+  @override
+  String get profileSpeakingStyleHint => 'напр.: „топъл и близък“, „директен и кратък“';
+
+  @override
+  String get profileInterests => 'Интереси';
+
+  @override
+  String get profileInterestHint => 'Добавяне на интерес...';
+
+  @override
+  String get profileCommonPhrases => 'Чести изрази';
+
+  @override
+  String get profileCommonPhraseHint => 'Добавяне на честа фраза...';
+
+  @override
+  String get generatingVoice => 'Генериране на аудио с клониран глас';
+
+  @override
+  String get generatingVideo => 'Генериране на поздрав с вашия аватар';
+
+  @override
+  String get voiceCloning => 'Клониране на глас';
+
+  @override
+  String get voiceCloningInProgress => 'Клонирането на глас е в процес';
 }

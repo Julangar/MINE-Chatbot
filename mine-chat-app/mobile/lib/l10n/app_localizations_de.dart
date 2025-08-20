@@ -489,4 +489,46 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get startRecording => 'Aufnehmen';
+
+  @override
+  String get profile => 'Mein Profil';
+
+  @override
+  String get profileUpdated => 'Profil aktualisiert';
+
+  @override
+  String get profileMyAvatar => 'Mein Avatar';
+
+  @override
+  String get profileUser => 'Benutzer';
+
+  @override
+  String get profileSpeakingStyle => 'Sprechstil';
+
+  @override
+  String get profileSpeakingStyleHint => 'z. B. „warm und nah“, „direkt und prägnant“';
+
+  @override
+  String get profileInterests => 'Interessen';
+
+  @override
+  String get profileInterestHint => 'Interesse hinzufügen...';
+
+  @override
+  String get profileCommonPhrases => 'Gebräuchliche Sätze';
+
+  @override
+  String get profileCommonPhraseHint => 'Gebräuchlichen Satz hinzufügen...';
+
+  @override
+  String get generatingVoice => 'Audio mit geklonter Stimme wird erstellt';
+
+  @override
+  String get generatingVideo => 'Begrüßung mit Ihrem Avatar wird erstellt';
+
+  @override
+  String get voiceCloning => 'Stimme klonen';
+
+  @override
+  String get voiceCloningInProgress => 'Stimmenklonung läuft';
 }

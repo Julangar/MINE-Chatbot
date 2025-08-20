@@ -489,4 +489,46 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get startRecording => 'Ghi âm';
+
+  @override
+  String get profile => 'Hồ sơ của tôi';
+
+  @override
+  String get profileUpdated => 'Hồ sơ đã được cập nhật';
+
+  @override
+  String get profileMyAvatar => 'Hình đại diện của tôi';
+
+  @override
+  String get profileUser => 'Người dùng';
+
+  @override
+  String get profileSpeakingStyle => 'Phong cách nói';
+
+  @override
+  String get profileSpeakingStyleHint => 'ví dụ: “ấm áp và gần gũi”, “trực tiếp và ngắn gọn”';
+
+  @override
+  String get profileInterests => 'Sở thích';
+
+  @override
+  String get profileInterestHint => 'Thêm sở thích...';
+
+  @override
+  String get profileCommonPhrases => 'Cụm từ thường dùng';
+
+  @override
+  String get profileCommonPhraseHint => 'Thêm cụm từ thường dùng...';
+
+  @override
+  String get generatingVoice => 'Đang tạo âm thanh bằng giọng sao chép';
+
+  @override
+  String get generatingVideo => 'Đang tạo lời chào với avatar của bạn';
+
+  @override
+  String get voiceCloning => 'Sao chép giọng nói';
+
+  @override
+  String get voiceCloningInProgress => 'Đang sao chép giọng nói';
 }

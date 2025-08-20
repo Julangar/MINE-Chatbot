@@ -489,4 +489,46 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get startRecording => 'Εγγραφή';
+
+  @override
+  String get profile => 'Το προφίλ μου';
+
+  @override
+  String get profileUpdated => 'Το προφίλ ενημερώθηκε';
+
+  @override
+  String get profileMyAvatar => 'Το avatar μου';
+
+  @override
+  String get profileUser => 'Χρήστης';
+
+  @override
+  String get profileSpeakingStyle => 'Στυλ ομιλίας';
+
+  @override
+  String get profileSpeakingStyleHint => 'π.χ. «ζεστός και κοντινός», «άμεσος και συνοπτικός»';
+
+  @override
+  String get profileInterests => 'Ενδιαφέροντα';
+
+  @override
+  String get profileInterestHint => 'Προσθήκη ενδιαφέροντος...';
+
+  @override
+  String get profileCommonPhrases => 'Κοινές φράσεις';
+
+  @override
+  String get profileCommonPhraseHint => 'Προσθήκη κοινής φράσης...';
+
+  @override
+  String get generatingVoice => 'Δημιουργία ήχου με κλωνοποιημένη φωνή';
+
+  @override
+  String get generatingVideo => 'Δημιουργία χαιρετισμού με το avatar σας';
+
+  @override
+  String get voiceCloning => 'Κλωνοποίηση φωνής';
+
+  @override
+  String get voiceCloningInProgress => 'Κλωνοποίηση φωνής σε εξέλιξη';
 }

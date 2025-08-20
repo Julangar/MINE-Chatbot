@@ -489,4 +489,46 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get startRecording => 'تسجيل';
+
+  @override
+  String get profile => 'ملفي الشخصي';
+
+  @override
+  String get profileUpdated => 'تم تحديث الملف الشخصي';
+
+  @override
+  String get profileMyAvatar => 'صورتي الرمزية';
+
+  @override
+  String get profileUser => 'مستخدم';
+
+  @override
+  String get profileSpeakingStyle => 'أسلوب الكلام';
+
+  @override
+  String get profileSpeakingStyleHint => 'مثال: \"دافئ وقريب\"، \"مباشر وموجز\"';
+
+  @override
+  String get profileInterests => 'الاهتمامات';
+
+  @override
+  String get profileInterestHint => 'أضف اهتمامًا...';
+
+  @override
+  String get profileCommonPhrases => 'عبارات شائعة';
+
+  @override
+  String get profileCommonPhraseHint => 'أضف عبارة شائعة...';
+
+  @override
+  String get generatingVoice => 'إنشاء صوت بصوت مستنسخ';
+
+  @override
+  String get generatingVideo => 'إنشاء تحية باستخدام صورتك الرمزية';
+
+  @override
+  String get voiceCloning => 'استنساخ الصوت';
+
+  @override
+  String get voiceCloningInProgress => 'جارٍ استنساخ الصوت';
 }

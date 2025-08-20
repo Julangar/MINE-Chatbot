@@ -183,5 +183,19 @@
   "style_humoristico": "Esprili",
   "bad_phone_number": "Yalnızca rakam kullanın (4–15)",
   "stopRecording": "Durdur",
-  "startRecording": "Kaydet"
+  "startRecording": "Kaydet",
+  "profile": "Profilim",
+  "profileUpdated": "Profil güncellendi",
+  "profileMyAvatar": "Avatarım",
+  "profileUser": "Kullanıcı",
+  "profileSpeakingStyle": "Konuşma tarzı",
+  "profileSpeakingStyleHint": "ör. “sıcak ve yakın”, “doğrudan ve özlü”",
+  "profileInterests": "İlgi alanları",
+  "profileInterestHint": "İlgi ekle...",
+  "profileCommonPhrases": "Yaygın ifadeler",
+  "profileCommonPhraseHint": "Yaygın ifade ekle...",
+  "generatingVoice": "Klonlanmış sesle ses oluşturuluyor",
+  "generatingVideo": "Avatarınızla selamlama oluşturuluyor",
+  "voiceCloning": "Ses klonlama",
+  "voiceCloningInProgress": "Ses klonlama devam ediyor"
 }

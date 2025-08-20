@@ -489,4 +489,46 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get startRecording => 'הקלט';
+
+  @override
+  String get profile => 'הפרופיל שלי';
+
+  @override
+  String get profileUpdated => 'הפרופיל עודכן';
+
+  @override
+  String get profileMyAvatar => 'האווטאר שלי';
+
+  @override
+  String get profileUser => 'משתמש';
+
+  @override
+  String get profileSpeakingStyle => 'סגנון דיבור';
+
+  @override
+  String get profileSpeakingStyleHint => 'לדוגמה: \"חמים וקרוב\", \"ישיר ותמציתי\"';
+
+  @override
+  String get profileInterests => 'תחומי עניין';
+
+  @override
+  String get profileInterestHint => 'הוסף תחום עניין...';
+
+  @override
+  String get profileCommonPhrases => 'ביטויים נפוצים';
+
+  @override
+  String get profileCommonPhraseHint => 'הוסף ביטוי נפוץ...';
+
+  @override
+  String get generatingVoice => 'יוצר שמע עם קול משובט';
+
+  @override
+  String get generatingVideo => 'יוצר ברכה עם האווטאר שלך';
+
+  @override
+  String get voiceCloning => 'שכפול קול';
+
+  @override
+  String get voiceCloningInProgress => 'תהליך שכפול קול מתבצע';
 }

@@ -489,4 +489,46 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get startRecording => '録音';
+
+  @override
+  String get profile => 'マイプロフィール';
+
+  @override
+  String get profileUpdated => 'プロフィールが更新されました';
+
+  @override
+  String get profileMyAvatar => '私のアバター';
+
+  @override
+  String get profileUser => 'ユーザー';
+
+  @override
+  String get profileSpeakingStyle => '話し方のスタイル';
+
+  @override
+  String get profileSpeakingStyleHint => '例：「温かく親しい」、「率直で簡潔」';
+
+  @override
+  String get profileInterests => '興味';
+
+  @override
+  String get profileInterestHint => '興味を追加...';
+
+  @override
+  String get profileCommonPhrases => 'よく使うフレーズ';
+
+  @override
+  String get profileCommonPhraseHint => 'よく使うフレーズを追加...';
+
+  @override
+  String get generatingVoice => 'クローン音声でオーディオを生成中';
+
+  @override
+  String get generatingVideo => 'アバターで挨拶を生成中';
+
+  @override
+  String get voiceCloning => '声をクローン中';
+
+  @override
+  String get voiceCloningInProgress => '声のクローンを作成中';
 }
