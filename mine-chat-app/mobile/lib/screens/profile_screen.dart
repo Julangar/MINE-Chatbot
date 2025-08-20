@@ -55,7 +55,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Perfil actualizado')),
+      SnackBar(content: Text(AppLocalizations.of(context)!.profileUpdated)),
     );
   }
 
@@ -64,6 +64,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     final auth = Provider.of<AuthProvider>(context);
     final avatar = Provider.of<AvatarProvider>(context).avatar;
     final user = auth.user;
+    final l10n = AppLocalizations.of(context);
 
   if (!auth.isLoggedIn) {
     Future.microtask(() => Navigator.pushReplacementNamed(context, '/login'));
@@ -71,7 +72,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Perfil'),
+        title: Text(l10n!.profile),
         actions: [
           IconButton(
             icon: const Icon(Icons.save),
@@ -97,26 +98,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   leading: avatar?.imageUrl != null
                       ? CircleAvatar(backgroundImage: NetworkImage(avatar!.imageUrl!))
                       : const CircleAvatar(child: Icon(Icons.person)),
-                  title: Text(avatar?.name ?? 'Mi avatar'),
-                  subtitle: Text('Usuario: ${avatar?.userReference ?? '—'}'),
+                  title: Text(avatar?.name ?? l10n.profileMyAvatar),
+                  subtitle: Text('${l10n.profileUser}: ${avatar?.userReference ?? '—'}'),
                 ),
                 const SizedBox(height: 16),
 
                 // Estilo de habla
-                Text('Estilo de habla', style: Theme.of(context).textTheme.titleMedium),
+                Text(l10n.profileSpeakingStyle, style: Theme.of(context).textTheme.titleMedium),
                 const SizedBox(height: 8),
                 TextFormField(
                   initialValue: _speakingStyle,
                   onChanged: (v) => _speakingStyle = v.trim(),
-                  decoration: const InputDecoration(
-                    hintText: 'ej. “cálido y cercano”, “directo y conciso”',
-                    border: OutlineInputBorder(),
+                  decoration: InputDecoration(
+                    hintText: l10n.profileSpeakingStyleHint,
+                    border: const OutlineInputBorder(),
                   ),
                 ),
                 const SizedBox(height: 16),
 
                 // Intereses
-                Text('Intereses', style: Theme.of(context).textTheme.titleMedium),
+                Text(l10n.profileInterests, style: Theme.of(context).textTheme.titleMedium),
                 Wrap(
                   spacing: 8,
                   children: _interests
@@ -133,8 +134,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Expanded(
                       child: TextField(
                         controller: _interestCtrl,
-                        decoration: const InputDecoration(
-                          hintText: 'Añadir interés...',
+                        decoration: InputDecoration(
+                          hintText: l10n.profileInterestHint,
                         ),
                       ),
                     ),
@@ -154,7 +155,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 const SizedBox(height: 16),
 
                 // Palabras frecuentes
-                Text('Palabras frecuentes', style: Theme.of(context).textTheme.titleMedium),
+                Text(l10n.profileCommonPhrases, style: Theme.of(context).textTheme.titleMedium),
                 Wrap(
                   spacing: 8,
                   children: _commonPhrases
@@ -171,8 +172,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Expanded(
                       child: TextField(
                         controller: _phraseCtrl,
-                        decoration: const InputDecoration(
-                          hintText: 'Añadir frase característica...',
+                        decoration: InputDecoration(
+                          hintText: l10n.profileCommonPhraseHint,
                         ),
                       ),
                     ),

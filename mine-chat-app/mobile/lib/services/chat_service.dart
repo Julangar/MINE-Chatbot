@@ -137,7 +137,21 @@ class ChatService {
     return data['userText'] as String?;
   }
 
-    static Future<String?> fetchClonedAudioUrl(String userId, String avatarType) async {
+  static Future<String> uploadVoiceToCloudinary(String filePath, String userId, String avatarType) async {
+    final urlResponse = await http.post(Uri.parse('$baseUrl/api/chat/upload-voice'
+    ), body: jsonEncode({
+      'filePath': filePath,
+      'userId': userId,
+      'avatarType': avatarType,
+    }), headers: {'Content-Type': 'application/json'});
+    if (urlResponse.statusCode == 200) {
+      return jsonDecode(urlResponse.body)['audioUrl'];
+    } else {
+      throw Exception("Error al subir audio a Cloudinary");
+    }
+  }
+
+  static Future<String?> fetchClonedAudioUrl(String userId, String avatarType) async {
     final doc = await FirebaseFirestore.instance
         .collection('avatars')
         .doc(userId)

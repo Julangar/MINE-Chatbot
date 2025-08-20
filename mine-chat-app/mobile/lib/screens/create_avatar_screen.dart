@@ -555,6 +555,18 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
           _avatarType,
           audioUrlCloudinary,
         );
+        return showDialog(context: context, builder: (context) {
+          return AlertDialog(
+            title: Text(AppLocalizations.of(context)!.voiceCloning),
+            content: Text(AppLocalizations.of(context)!.voiceCloningInProgress),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: Text(AppLocalizations.of(context)!.cancel),
+              ),
+            ],
+          );
+        });
       }
     } catch (e) {
       // Ignorar errores de generación; se podrán consultar en la pantalla de
@@ -611,8 +623,8 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
         ),
       );
 
-      // Esperar 2 segundos para que el usuario vea el mensaje
-      await Future.delayed(const Duration(seconds: 2));
+      // Esperar 1 segundo para que el usuario vea el mensaje
+      await Future.delayed(const Duration(seconds: 1));
 
     // Navegar a la ruta '/avatar_summary' después de subir los archivos
       Navigator.pushNamed(context, '/avatar_summary');

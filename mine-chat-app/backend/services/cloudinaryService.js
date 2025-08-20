@@ -29,6 +29,16 @@ const uploadAudio = async (filePath, userId, avatarType, folder = 'avatars') => 
   return audio.secure_url;
 };
 
+// Función para subir audio del usuario
+const uploadVoice = async (filePath, userId, avatarType, folder = 'avatars') => {
+  const audio = await cloudinary.uploader.upload(filePath, {
+    resource_type: 'video', // ¡Audio va como 'video' en Cloudinary!
+    folder: `${folder}/${userId}/${avatarType}/temp/voices`,
+    format: 'mp3' // Forzar formato si lo necesitas
+  });
+  return audio.secure_url;
+};
+
 // Función para subir video
 const uploadVideo = async (filePath, userId, avatarType, folder = 'avatars') => {
   const video = await cloudinary.uploader.upload(filePath, {
@@ -93,6 +103,7 @@ const uploadAudioBase = async (filePath, userId, avatarType, folder = 'avatars')
 module.exports = {
   uploadImage,
   uploadAudio,
+  uploadVoice,
   uploadVideo,
   uploadAudioBase,
   uploadAudioBuffer,

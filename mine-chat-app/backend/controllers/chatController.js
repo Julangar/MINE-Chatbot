@@ -2,6 +2,7 @@ const admin = require('firebase-admin');
 const path = require('path');
 const fs = require('fs');
 const { buildSystemPrompt } = require('../utils/generatePrompt');
+const cloudinaryService = require('../services/cloudinaryService');
 const openaiService = require('../services/openaiService');
 const elevenlabsService = require('../services/elevenlabsService');
 const didService = require('../services/didService');
@@ -64,6 +65,21 @@ function removeEmojis(text) {
   return text.replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F1E6}-\u{1F1FF}\u{2700}-\u{27BF}\u{1FA70}-\u{1FAFF}]/gu, '');
 }
 
+async function uploadVoiceToCloudinary(req, res) {
+  const { filePath, userId, avatarType } = req.body;
+
+  if (!filePath || !userId || !avatarType) {
+    return res.status(400).json({ error: 'Faltan campos requeridos' });
+  }
+
+  try {
+    const audioUrl = await cloudinaryService.uploadVoice(filePath, userId, avatarType);
+    res.json({ success: true, audioUrl });
+  } catch (err) {
+    console.error('Error al subir audio a Cloudinary:', err);
+    res.status(500).json({ error: 'Error al subir audio a Cloudinary' });
+  }
+};
 
 async function generateGreeting(req, res) {
   const { userId, avatarType, userLanguage } = req.body;
@@ -517,6 +533,7 @@ async function upsertRollingMemory(db, userId, avatarType, deltaMemoriesText) {
 
 module.exports = {
   generateGreeting,
+  uploadVoiceToCloudinary,
   sendMessage,
   sendVoice,
   sendAudio,

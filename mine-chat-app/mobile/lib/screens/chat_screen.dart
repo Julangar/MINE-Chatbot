@@ -10,7 +10,8 @@ import 'package:record/record.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import '../providers/avatar_provider.dart';
 import '../services/chat_service.dart';
 
@@ -47,6 +48,8 @@ class _ChatScreenState extends State<ChatScreen> {
   bool _recording = false;
   late Timer _timer;
   int _recordSeconds = 0;
+  final user = FirebaseAuth.instance.currentUser;
+
 
   /// Tipo de salida seleccionado por el usuario.
   ///
@@ -129,13 +132,27 @@ class _ChatScreenState extends State<ChatScreen> {
     super.dispose();
   }
 
+  /// Solicita un permiso y muestra un SnackBar si no se concede. Devuelve
+  /// `true` si el permiso fue otorgado, de lo contrario `false`.
+  Future<bool> _ensurePermission(Permission permission, String message) async {
+    final status = await permission.request();
+    if (status == PermissionStatus.granted) {
+      return true;
+    }
+    if (!mounted) return false;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message), backgroundColor: Colors.red),
+    );
+    return false;
+  }
+
   void _scrollToBottom() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (_scrollController.hasClients) {  
         // Si quieres un desplazamiento suave usa animateTo:
         _scrollController.animateTo(
           _scrollController.position.maxScrollExtent,
-          duration: Duration(milliseconds: 200),
+          duration: Duration(milliseconds: 800),
           curve: Curves.easeOut,
         );
       }
@@ -144,11 +161,16 @@ class _ChatScreenState extends State<ChatScreen> {
 
   Future<String> _getFilePath() async {
     final dir = await getTemporaryDirectory();
-    final filePath = '${dir.path}/recorded_audio_${DateTime.now().millisecondsSinceEpoch}.m4a';
+    final filePath = '${dir.path}/recorded_audio_${DateTime.now().millisecondsSinceEpoch}.mp3';
     return filePath;
   }
 
   Future<void> _startRecording() async {
+    final hasMic = await _ensurePermission(
+      Permission.microphone,
+      AppLocalizations.of(context)!.microphonePermissionDenied,
+    );
+    if (!hasMic) return;
     if (await _recorder.hasPermission()) {
       if (_recording) return;
       final path = await _getFilePath();
@@ -186,15 +208,26 @@ class _ChatScreenState extends State<ChatScreen> {
   Future<void> _sendVoice(String localPath) async {
     // Evita doble envío
     if (_isLoading) return;
+    final userId = user?.uid;
+    final storage = FirebaseStorage.instanceFor(
+      bucket: "mine-app-test",
+    );
     final avatar = Provider.of<AvatarProvider>(context, listen: false).avatar;
     final audioFile = File(localPath);
-
     if (avatar == null) return;
 
+    dynamic voiceUrl;
+    dynamic voiceUrlCloudinary;
+    final ref = storage.ref().child('avatars/$userId/${avatar.avatarType}/voice/audio.mp3');
+        await ref.putFile(audioFile);
+        final url = await ref.getDownloadURL();
+        final urlCloud = await ChatService.uploadVoiceToCloudinary(url, avatar.userId, avatar.avatarType);
+        voiceUrl = url;
+        voiceUrlCloudinary = urlCloud;
     final text = await ChatService.sendVoice(
       avatar.userId,
       avatar.avatarType,
-      audioFile,
+      voiceUrlCloudinary,
       avatar.userLanguage!,
     );
 
