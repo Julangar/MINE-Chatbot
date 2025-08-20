@@ -12,6 +12,7 @@ import 'providers/locale_provider.dart';
 import 'providers/auth_provider.dart';
 import 'providers/avatar_provider.dart';
 import 'controllers/avatar_controller.dart';
+import 'services/fcm_service.dart';
 import 'screens/splash_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/register_screen.dart';
@@ -27,15 +28,14 @@ import 'screens/avatar_summary_screen.dart';
 /// Aquí NO navegues directo (no hay contexto). Solo registra logs/analytics si quieres.
 @pragma('vm:entry-point')
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  await Firebase.initializeApp();
   // Puedes loguear métricas mínimas o actualizar badges.
   // print('BG message: ${message.data}');
 }
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+ 
   // Importante: registra el handler ANTES de usar FirebaseMessaging.instance
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
-
+import '../services/fcm_service.dart';
 import 'package:mine_app/l10n/app_localizations.dart';
 import '../models/avatar.dart';
 import '../providers/avatar_provider.dart';
@@ -220,6 +220,10 @@ class _AvatarPersonalityScreenState extends State<AvatarPersonalityScreen> {
 
   @override
   Widget build(BuildContext context) {
+     // Iniciar FCM una vez tenemos sesión iniciada
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      FcmService.instance.initAndRegisterToken(context);
+    });
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
