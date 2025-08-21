@@ -40,6 +40,10 @@ dependencies:
 
   path_provider: ^2.1.2
 
+  cached_network_image: ^3.4.1
+
+  shared_preferences: ^2.0.13
+
   # Subida y selección de imágenes, videos y archivos
   image_picker: ^1.0.7
   file_selector: ^1.0.0
@@ -116,6 +120,10 @@ flutter:
     - assets/sounds/speaking.mp3
     - assets/sounds/thinking.mp3
     - assets/sounds/waiting.mp3
+    - assets/backgrounds/bg1.png
+    - assets/backgrounds/bg2.png
+    - assets/backgrounds/bg3.png
+    - assets/backgrounds/bg4.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
