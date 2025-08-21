@@ -12,6 +12,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import '../providers/background_provider.dart';
 import '../providers/avatar_provider.dart';
 import '../services/chat_service.dart';
 
@@ -717,6 +718,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final background = context.watch<ChatBackgroundProvider>().backgroundPath;
     final avatar = Provider.of<AvatarProvider>(context).avatar;
     final bool disabled = _status == 'escuchando' || _isLoading;
     final bool _inputLocked = _status == 'pensando' || _status == 'hablando' || _isLoading;
@@ -849,7 +851,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   children: [
                     IconButton(
                       icon: _recording ? const Icon(Icons.stop) : const Icon(Icons.mic),
-                      onPressed: _recording
+                      onPressed: _inputLocked
                           ? () async {
                               await _stopRecording();
                             }

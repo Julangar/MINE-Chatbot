@@ -12,6 +12,7 @@ import 'providers/locale_provider.dart';
 import 'providers/auth_provider.dart';
 import 'providers/avatar_provider.dart';
 import 'controllers/avatar_controller.dart';
+import 'controllers/chat_appearance_controller.dart';
 import 'services/fcm_service.dart';
 import 'screens/splash_screen.dart';
 import 'screens/login_screen.dart';
@@ -22,6 +23,7 @@ import 'screens/avatar_personality_screen.dart';
 import 'screens/chat_screen.dart';
 import 'screens/profile_screen.dart';
 import 'screens/avatar_summary_screen.dart';
+import 'screens/chat_background_picker_screen.dart';
 
 /// ------------- BACKGROUND HANDLER (Top-level) -------------
 /// Se ejecuta cuando llega un push y la app está terminada o en background.
@@ -60,6 +62,7 @@ void main() async {
         ChangeNotifierProvider(create: (_) => AvatarProvider()),
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => LocaleProvider()),
+        ChangeNotifierProvider(create: (_) => ChatAppearanceController(userId: AuthProvider().user?.uid)),
       ],
       child: const MineApp(),
     ),
