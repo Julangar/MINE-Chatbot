@@ -38,6 +38,11 @@ async function generateAvatarVideo({ source_image_url, voice_id, text }) {
       }
     },
     config: {
+      /*logo: {
+        url: 'https://res.cloudinary.com/dfadgzgff/image/upload/v1754688992/My%20Brand/LogoMineTransparente_ab9mhk.png',
+        position: 'top-left',
+        size: 'small'
+      },///Scale o Enterprise Subscription*/
       fluent: false
     }
   };

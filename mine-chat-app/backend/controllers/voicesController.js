@@ -48,7 +48,7 @@ async function listVoices(req, res) {
     const { lang, limit = 50 } = req.query;
     const apiKey = process.env.ELEVENLABS_API_KEY;
     // Endpoint típico (puede variar según versión)
-    const r = await fetch('https://api.elevenlabs.io/v1/voices', {
+    const r = await fetch('https://api.elevenlabs.io/v2/voices', {
       headers: { 'xi-api-key': apiKey }
     });
     if (!r.ok) return res.status(500).json({ error: 'No se pudo obtener voces' });

@@ -49,8 +49,12 @@ async function textToSpeech(text, userId, voiceId) {
     {
       text,
       model_id: 'eleven_multilingual_v2',
+      //enable_logging: false, //Solo Enterprise Customers
       voice_settings: {
-        similarity_boost: 0.75
+        stability: 0.25,
+        similarity_boost: 0.95,
+        style: 0.3,
+        use_speaker_boost: true
       }
     },
     { responseType: 'arraybuffer' }
@@ -79,6 +83,7 @@ async function generateSpeechFromClonedVoice(text, userId, avatarType, voiceId) 
       {
         text,
         model_id: 'eleven_multilingual_v2',
+        //enable_logging: false, //Solo Enterprise Customers
         voice_settings: {
           stability: 0.25,
           similarity_boost: 0.95,
