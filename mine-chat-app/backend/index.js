@@ -12,7 +12,7 @@ app.use(express.json());
 app.use('/api', require('./routes/health'));
 app.use('/api/user', require('./routes/user'));
 app.use('/api/chat', require('./routes/chat'));
-app.use('/api/voice', require('./routes/voice'));
+app.use('/api/voices', require('./routes/voices'));
 app.use('/api/avatar', require('./routes/avatar'));
 app.use('/api/avatar-video', require('./routes/avatarVideo'));
 app.use('/api/avatar-profile', require('./routes/avatarProfile'));
