@@ -1,10 +1,14 @@
 import 'dart:io';
 import 'dart:async';
+import 'dart:convert';
+import 'dart:typed_data';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../models/avatar.dart';
 import '../providers/avatar_provider.dart';
 import '../services/avatar_service.dart';
+import '../services/voice_service.dart';
 import 'package:mine_app/l10n/app_localizations.dart';
 import 'package:image_picker/image_picker.dart';
 // Para recorte de imágenes
@@ -21,6 +25,23 @@ import '../widgets/banner_message.dart';
 
 // Gestión de permisos en tiempo de ejecución
 import 'package:permission_handler/permission_handler.dart';
+
+// === Modelos para selección de voz genérica ===
+enum VoiceInputMode { customUpload, generic }
+
+class VoiceItem {
+  final String voiceId;
+  final String name;
+  final String? language;
+  final String? previewUrl;
+  VoiceItem({required this.voiceId, required this.name, this.language, this.previewUrl});
+  factory VoiceItem.fromJson(Map<String, dynamic> j) => VoiceItem(
+    voiceId: j['voiceId'],
+    name: j['name'],
+    language: j['language'],
+    previewUrl: j['previewUrl'],
+  );
+}
 
 // Future: audio trimming functionality could be added using packages like
 // `audio_trimmer` or `ffmpeg_kit_flutter`. For now we only provide playback
@@ -47,6 +68,16 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
   Duration _audioDuration = Duration.zero;
   Duration _audioPosition = Duration.zero;
   bool _isPlayingAudio = false;
+
+  // === Selección de voz genérica (estado/UI) ===
+  VoiceInputMode _voiceMode = VoiceInputMode.customUpload;
+  List<VoiceItem> _voices = [];
+  VoiceItem? _selectedVoice;
+  String _voiceLang = 'es';
+  bool _loadingVoices = false;
+
+  // Reproductor para preview de voces genéricas
+  final AudioPlayer _genericPreviewPlayer = AudioPlayer();
 
   /// Solicita un permiso y muestra un SnackBar si no se concede. Devuelve
   /// `true` si el permiso fue otorgado, de lo contrario `false`.
@@ -307,6 +338,13 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
     _avatarType = ModalRoute.of(context)!.settings.arguments as String;
   }
 
+  @override
+  void dispose() {
+    _audioPreviewPlayer?.dispose();
+    _genericPreviewPlayer.dispose();
+    super.dispose();
+  }
+
   // Foto desde cámara
   Future<void> _takePhoto() async {
     // Solicitar permiso de cámara antes de intentar abrirla
@@ -458,6 +496,7 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
       await _setupAudioPreview(File(path));
     }
   }
+
   // Botón para grabar o parar
   Widget _audioRecorderButton() {
     return Flexible(
@@ -469,6 +508,63 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
       )
     );
   }
+
+
+  // === VOCES GENÉRICAS ===
+  Future<void> _fetchVoices() async {
+    setState(() { _loadingVoices = true; });
+    try {
+      // Reemplazar por tu base URL real
+      const String baseUrl = String.fromEnvironment('API_BASE_URL', defaultValue: 'https://your-backend.example.com');
+      final uri = Uri.parse('$baseUrl/api/voices?lang=$_voiceLang&limit=20');
+      final r = await http.get(uri);
+      if (r.statusCode != 200) throw Exception('HTTP ${r.statusCode} ${r.body}');
+      final data = jsonDecode(r.body);
+      final List list = data['voices'] ?? [];
+      setState(() {
+        _voices = list.map((e) => VoiceItem.fromJson(e)).toList().cast<VoiceItem>();
+      });
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error cargando voces: $e')),
+        );
+      }
+    } finally {
+      if (mounted) setState(() { _loadingVoices = false; });
+    }
+  }
+
+  Future<void> _previewGenericVoice(VoiceItem v) async {
+    try {
+      if (v.previewUrl != null && v.previewUrl!.isNotEmpty) {
+        await _genericPreviewPlayer.stop();
+        await _genericPreviewPlayer.play(UrlSource(v.previewUrl!));
+        return;
+      }
+      const String baseUrl = String.fromEnvironment('API_BASE_URL', defaultValue: 'https://your-backend.example.com');
+      final uri = Uri.parse('$baseUrl/api/voices/preview');
+      final r = await http.post(
+        uri,
+        headers: {'Content-Type':'application/json'},
+        body: jsonEncode({'voiceId': v.voiceId, 'text': 'Hola, soy tu nuevo avatar.'}),
+      );
+      if (r.statusCode != 200) throw Exception('HTTP ${r.statusCode} ${r.body}');
+      final data = jsonDecode(r.body);
+      final b64 = data['base64'];
+      if (b64 == null) throw Exception('Respuesta sin audio');
+      final bytes = base64Decode(b64);
+      await _genericPreviewPlayer.stop();
+      await _genericPreviewPlayer.play(BytesSource(bytes));
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('No se pudo pre‑escuchar: $e')),
+        );
+      }
+    }
+  }
+
   // Upload files to Firebase
   Future<void> _uploadAll() async {
     setState(() => _loading = true);
@@ -517,7 +613,7 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
         imageUrlCloudinary = urlCloud;
       }());
     }
-    if (_audio != null) {
+    if (_voiceMode == VoiceInputMode.customUpload && _audio != null) {
       uploadTasks.add(() async {
         final ref = storage.ref().child('avatars/$userId/$_avatarType/audio/audio.mp3');
         await ref.putFile(_audio!);
@@ -547,7 +643,15 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
     // AvatarService (p. ej. cloneVoice). Si
     // no están disponibles, se omitirán silenciosamente.
     try {
-      if (_audio != null && _photo != null) {
+      if (_voiceMode == VoiceInputMode.customUpload && _audio != null && _photo != null) {
+        showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (_) => AlertDialog(
+            title: Text(AppLocalizations.of(context)!.voiceCloning),
+            content: Text(AppLocalizations.of(context)!.voiceCloningInProgress),
+          ),
+        );
         // El usuario subió imagen y audio (y posiblemente video). Se clona la
         // voz para usarla mas adelante.
         await AvatarService.cloneVoice(
@@ -555,23 +659,30 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
           _avatarType,
           audioUrlCloudinary,
         );
-        return showDialog(context: context, builder: (context) {
-          return AlertDialog(
-            title: Text(AppLocalizations.of(context)!.voiceCloning),
-            content: Text(AppLocalizations.of(context)!.voiceCloningInProgress),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: Text(AppLocalizations.of(context)!.cancel),
-              ),
-            ],
-          );
-        });
+        
       }
     } catch (e) {
       // Ignorar errores de generación; se podrán consultar en la pantalla de
       // resumen del avatar. Se imprime en consola para depuración.
       debugPrint('Error al clonar la voz: $e');
+    }
+
+    // Si el usuario eligió voz genérica, persiste la selección.
+    if (_voiceMode == VoiceInputMode.generic && _selectedVoice != null) {
+      await FirebaseFirestore.instance
+        .collection('avatars').doc(userId)
+        .collection(_avatarType).doc('personality')
+        .set({
+          'voice': {
+            'type': 'generic',
+            'provider': 'elevenlabs',
+            'voiceId': _selectedVoice!.voiceId,
+            'voiceName': _selectedVoice!.name,
+            'language': _voiceLang,
+            'stability': 0.5,
+            'similarityBoost': 0.6,
+          }
+        }, SetOptions(merge: true));
     }
 
     setState(() => _loading = false);
@@ -700,8 +811,122 @@ class _CreateAvatarScreenState extends State<CreateAvatarScreen> {
                 ),
               ),
             const SizedBox(height: 16),
+            // SELECCIÓN DEL MODO DE VOZ
+            Row(
+              children: [
+                const Text('Voz para el avatar:', style: TextStyle(color: Colors.white)),
+                const SizedBox(width: 8),
+                ChoiceChip(
+                  label: const Text('Subir audio'),
+                  selected: _voiceMode == VoiceInputMode.customUpload,
+                  onSelected: (v) => setState(() => _voiceMode = VoiceInputMode.customUpload),
+                ),
+                const SizedBox(width: 8),
+                ChoiceChip(
+                  label: const Text('Elegir voz genérica'),
+                  selected: _voiceMode == VoiceInputMode.generic,
+                  onSelected: (v) async {
+                    setState(() => _voiceMode = VoiceInputMode.generic);
+                    if (_voices.isEmpty) { await _fetchVoices(); }
+                  },
+                ),
+                const Spacer(),
+                if (_voiceMode == VoiceInputMode.generic)
+                  DropdownButton<String>(
+                    value: _voiceLang,
+                    dropdownColor: const Color(0xFF2A2238),
+                    items: const [
+                      DropdownMenuItem(value: 'es', child: Text('ES', style: TextStyle(color: Colors.white))),
+                      DropdownMenuItem(value: 'en', child: Text('EN', style: TextStyle(color: Colors.white))),
+                      DropdownMenuItem(value: 'pt', child: Text('PT', style: TextStyle(color: Colors.white))),
+                      DropdownMenuItem(value: 'fr', child: Text('FR', style: TextStyle(color: Colors.white))),
+                    ],
+                    onChanged: (v) async {
+                      if (v == null) return;
+                      setState(() => _voiceLang = v);
+                      await _fetchVoices();
+                    },
+                  ),
+              ],
+            ),
+            const SizedBox(height: 12),
 
+            if (_voiceMode == VoiceInputMode.generic)
+              Container(
+                decoration: BoxDecoration(
+                  color: const Color(0xFF2A2238),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                padding: const EdgeInsets.all(8),
+                constraints: const BoxConstraints(maxHeight: 260),
+                child: _loadingVoices
+                  ? const Center(child: CircularProgressIndicator())
+                  : _voices.isEmpty
+                    ? const Center(child: Text('No hay voces disponibles', style: TextStyle(color: Colors.white70)))
+                    : ListView.builder(
+                        itemCount: _voices.length,
+                        itemBuilder: (context, index) {
+                          final v = _voices[index];
+                          final selected = _selectedVoice?.voiceId == v.voiceId;
+                          return ListTile(
+                            dense: true,
+                            title: Text(v.name, style: const TextStyle(color: Colors.white)),
+                            subtitle: Text(v.language ?? '-', style: const TextStyle(color: Colors.white70)),
+                            trailing: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                IconButton(
+                                  icon: const Icon(Icons.play_arrow, color: Colors.white),
+                                  onPressed: () => _previewGenericVoice(v),
+                                  tooltip: 'Escuchar',
+                                ),
+                                IconButton(
+                                  icon: Icon(selected ? Icons.check_circle : Icons.radio_button_unchecked, color: selected ? Colors.greenAccent : Colors.white70),
+                                  onPressed: () => setState(() => _selectedVoice = v),
+                                  tooltip: 'Seleccionar',
+                                )
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+              ),
+
+            const SizedBox(height: 16),
             // AUDIO
+            if (_voiceMode == VoiceInputMode.customUpload) ...[
+              Row(
+                children: [
+                  Text('${AppLocalizations.of(context)!.audio}:', style: const TextStyle(color: Colors.white)),
+                  const Spacer(),
+                  Flexible(
+                    child: ElevatedButton.icon(
+                      onPressed: _pickAudio,
+                      icon: const Icon(Icons.upload_file, size: 18),
+                      label: Text(_audio == null ? AppLocalizations.of(context)!.uploadAudio : AppLocalizations.of(context)!.change),
+                      style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 8)),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                ],
+              ),
+              if (_audio != null)
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '${AppLocalizations.of(context)!.archive}: ${_audio!.path.split('/').last}',
+                        style: const TextStyle(color: Colors.white70),
+                      ),
+                      const SizedBox(height: 8),
+                      _buildAudioPreview(),
+                    ],
+                  ),
+                ),
+              if (_audio == null) const SizedBox(height: 16),
+            ],
             Row(
               children: [
                 Text('${AppLocalizations.of(context)!.audio}:', style: const TextStyle(color: Colors.white)),
