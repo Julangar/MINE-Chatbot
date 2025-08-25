@@ -11,6 +11,7 @@ import 'widgets/secure_screen.dart';
 import 'providers/locale_provider.dart';
 import 'providers/auth_provider.dart';
 import 'providers/avatar_provider.dart';
+import 'providers/chat_background_provider.dart';
 import 'controllers/avatar_controller.dart';
 import 'controllers/chat_appearance_controller.dart';
 import 'services/fcm_service.dart';
@@ -62,7 +63,7 @@ void main() async {
         ChangeNotifierProvider(create: (_) => AvatarProvider()),
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => LocaleProvider()),
-        ChangeNotifierProvider(create: (_) => ChatAppearanceController(userId: AuthProvider().user?.uid)),
+        ChangeNotifierProvider(create: (_) => ChatBackgroundProvider()),
       ],
       child: const MineApp(),
     ),
@@ -133,6 +134,7 @@ class MineApp extends StatelessWidget {
         '/avatar_summary': (context) => const AuthGuard(child: AvatarSummaryScreen()),
         '/chat': (context) => const AuthGuard(child: ChatScreen()),
         '/profile': (context) => const AuthGuard(child: ProfileScreen()),
+        '/chat/chat_background_picker': (context) => const AuthGuard(child: ChatBackgroundPickerScreen()),
         //'/avatar_personality': (context) => const AuthGuard(child: SecureScreen(child: AvatarPersonalityScreen())),
         //'/avatar': (context) => const AuthGuard(child: SecureScreen(child: CreateAvatarScreen())),
         //'/avatar_summary': (context) => const AuthGuard(child: SecureScreen(child: AvatarSummaryScreen())),

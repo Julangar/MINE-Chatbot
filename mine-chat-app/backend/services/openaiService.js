@@ -10,6 +10,12 @@ if (!openaiKey) {
 
 const openai = new OpenAI({ apiKey: openaiKey });
 
+// ==== Util: estimación de “tokens” por caracteres (aprox) ====
+const CHAR_PER_TOKEN = 4; // aproximación segura
+function approxTokensFromChars(str = '') {
+  return Math.ceil((str?.length || 0) / CHAR_PER_TOKEN);
+}
+
 async function transcribeAudio(filePath, language) {
 
   let usablePath = filePath;

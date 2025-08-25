@@ -12,10 +12,10 @@ import 'package:path_provider/path_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import '../providers/background_provider.dart';
+import '../providers/chat_background_provider.dart';
 import '../providers/avatar_provider.dart';
 import '../services/chat_service.dart';
-
+import 'chat_background_picker_screen.dart';
 // Import generated localization class. This import assumes that the project
 // uses the `flutter_gen` tooling to generate the localization classes from
 // ARB files. If your project uses a different import path, adjust it
@@ -718,7 +718,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final background = context.watch<ChatBackgroundProvider>().backgroundPath;
+    final background = context.watch<ChatBackgroundProvider>().backgroundId;
     final avatar = Provider.of<AvatarProvider>(context).avatar;
     final bool disabled = _status == 'escuchando' || _isLoading;
     final bool _inputLocked = _status == 'pensando' || _status == 'hablando' || _isLoading;
@@ -734,159 +734,178 @@ class _ChatScreenState extends State<ChatScreen> {
         title: Text(avatar?.name ?? '', style: TextStyle(color: Colors.white)),
         actions: [
           IconButton(
+            icon: Icon(Icons.wallpaper),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => ChatBackgroundPickerScreen(),
+                ),
+              );
+            },
+          ),
+          IconButton(
             icon: const Icon(Icons.person),
             onPressed: () => Navigator.pushNamed(context, '/profile'),
           ),
         ],
       ),
-      body: Column(
-        children: [
-          // Mostrar vídeo si está inicializado
-          _buildAvatarMedia(),
-          // Indicador de estado (escuchando, pensando, hablando, esperando)
-          _buildStatusIndicator(),
-          Expanded(
-            child: ListView.builder(
-              controller: _scrollController,
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              itemCount: _messages.length,
-              itemBuilder: (_, index) => _buildMessage(_messages[index]),
-            ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(background),
+            fit: BoxFit.cover,
           ),
-          if (_isLoading)
-            const Padding(
-              padding: EdgeInsets.only(bottom: 8),
-              child: CircularProgressIndicator(),
+        ),
+        child: Column(
+          children: [
+            // Mostrar vídeo si está inicializado
+            _buildAvatarMedia(),
+            // Indicador de estado (escuchando, pensando, hablando, esperando)
+            _buildStatusIndicator(),
+            Expanded(
+              child: ListView.builder(
+                controller: _scrollController,
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                itemCount: _messages.length,
+                itemBuilder: (_, index) => _buildMessage(_messages[index]),
+              ),
             ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
-            child: Column(
-              children: [
-                // Selector de tipo de salida
-                Row(
-                  children: [
-                    // Etiqueta y selector para el tipo de respuesta. Usamos
-                    // Flexible y Expanded para evitar desbordes de texto en
-                    // idiomas con etiquetas largas.
-                    Flexible(
-                      flex: 2,
-                      child: Text(AppLocalizations.of(context)!.replyLabel),
-                    ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: DropdownButton<String>(
-                        value: _selectedOutput,
-                        isExpanded: true,
-                        items: [
-                          DropdownMenuItem(
-                            value: 'text',
-                            child: Text(
-                              AppLocalizations.of(context)!.textOption,
+            if (_isLoading)
+              const Padding(
+                padding: EdgeInsets.only(bottom: 8),
+                child: CircularProgressIndicator(),
+              ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+              child: Column(
+                children: [
+                  // Selector de tipo de salida
+                  Row(
+                    children: [
+                      // Etiqueta y selector para el tipo de respuesta. Usamos
+                      // Flexible y Expanded para evitar desbordes de texto en
+                      // idiomas con etiquetas largas.
+                      Flexible(
+                        flex: 2,
+                        child: Text(AppLocalizations.of(context)!.replyLabel),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: DropdownButton<String>(
+                          value: _selectedOutput,
+                          isExpanded: true,
+                          items: [
+                            DropdownMenuItem(
+                              value: 'text',
+                              child: Text(
+                                AppLocalizations.of(context)!.textOption,
+                              ),
                             ),
-                          ),
-                          DropdownMenuItem(
-                            value: 'audio',
-                            child: Text(
-                              AppLocalizations.of(context)!.audioOption,
+                            DropdownMenuItem(
+                              value: 'audio',
+                              child: Text(
+                                AppLocalizations.of(context)!.audioOption,
+                              ),
                             ),
-                          ),
-                          DropdownMenuItem(
-                            value: 'video',
-                            child: Text(
-                              AppLocalizations.of(context)!.videoOption,
+                            DropdownMenuItem(
+                              value: 'video',
+                              child: Text(
+                                AppLocalizations.of(context)!.videoOption,
+                              ),
                             ),
+                          ],
+                          onChanged: disabled ? null : (value) {
+                            setState(() {
+                              _selectedOutput = value!;
+                            });
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  // Controles para activar o desactivar vibración y sonidos
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                AppLocalizations.of(context)!.enableVibration,
+                              ),
+                            ),
+                            Switch(
+                              value: _vibrationEnabled,
+                              onChanged: (value) {
+                                setState(() => _vibrationEnabled = value);
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                AppLocalizations.of(context)!.enableSound,
+                              ),
+                            ),
+                            Switch(
+                              value: _soundEnabled,
+                              onChanged: (value) {
+                                setState(() => _soundEnabled = value);
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      IconButton(
+                        icon: _recording ? const Icon(Icons.stop) : const Icon(Icons.mic),
+                        onPressed: _inputLocked
+                            ? () async {
+                                await _stopRecording();
+                              }
+                            : () async {
+                                await _startRecording();
+                              },
+                        tooltip: _recording ? AppLocalizations.of(context)!.stopRecording : AppLocalizations.of(context)!.startRecording,
+                      ),
+                      Expanded(
+                        child: TextField(
+                          controller: _controller,
+                          maxLength: 300,
+                          inputFormatters: [LengthLimitingTextInputFormatter(300)],                        
+                          onSubmitted: (_) => _sendMessage(),
+                          decoration: InputDecoration(
+                            hintText: AppLocalizations.of(context)!.inputHint,
+                            border: const OutlineInputBorder(),
                           ),
-                        ],
-                        onChanged: disabled ? null : (value) {
-                          setState(() {
-                            _selectedOutput = value!;
-                          });
+                          enabled: disabled ? false : true
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      IconButton(
+                        icon: const Icon(Icons.send),
+                        onPressed: disabled ? null : () {
+                          _sendMessage();
                         },
                       ),
-                    ),
-                  ],
-                ),
-                // Controles para activar o desactivar vibración y sonidos
-                const SizedBox(height: 8),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Text(
-                              AppLocalizations.of(context)!.enableVibration,
-                            ),
-                          ),
-                          Switch(
-                            value: _vibrationEnabled,
-                            onChanged: (value) {
-                              setState(() => _vibrationEnabled = value);
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Text(
-                              AppLocalizations.of(context)!.enableSound,
-                            ),
-                          ),
-                          Switch(
-                            value: _soundEnabled,
-                            onChanged: (value) {
-                              setState(() => _soundEnabled = value);
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 8),
-                Row(
-                  children: [
-                    IconButton(
-                      icon: _recording ? const Icon(Icons.stop) : const Icon(Icons.mic),
-                      onPressed: _inputLocked
-                          ? () async {
-                              await _stopRecording();
-                            }
-                          : () async {
-                              await _startRecording();
-                            },
-                      tooltip: _recording ? AppLocalizations.of(context)!.stopRecording : AppLocalizations.of(context)!.startRecording,
-                    ),
-                    Expanded(
-                      child: TextField(
-                        controller: _controller,
-                        maxLength: 300,
-                        inputFormatters: [LengthLimitingTextInputFormatter(300)],                        
-                        onSubmitted: (_) => _sendMessage(),
-                        decoration: InputDecoration(
-                          hintText: AppLocalizations.of(context)!.inputHint,
-                          border: const OutlineInputBorder(),
-                        ),
-                        enabled: disabled ? false : true
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    IconButton(
-                      icon: const Icon(Icons.send),
-                      onPressed: disabled ? null : () {
-                        _sendMessage();
-                      },
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
+      )
     );
   }
 }

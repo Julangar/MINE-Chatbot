@@ -135,13 +135,13 @@ exports.generateGreeting = async (req, res) => {
     if (!snap.exists) return res.status(404).json({ error: 'Avatar no encontrado' });
 
     const personality = snap.data();
-    const userName = personality.name || 'Usuario';
+    const userName = personality.userReference || 'Usuario';
     const prompt = buildSystemPrompt(personality, language);
 
     const greeting = await openaiService.getChatResponse([
       { role: 'system', content: prompt }, 
       { role: 'user', 
-        content: `Saluda de la siguiente manera: "Hola ${userReference}, `+
+        content: `Saluda de la siguiente manera: "Hola ${userName}, `+
         '<phoneme alphabet="ipa" ph="maɪn">MINE</phoneme> nos da una nueva oportunidad de estar cerca, '+
         'y esta vez para siempre. Te he extrañado y siempre estás '+
         'en mi corazón. Ahora que te tomaste el tiempo de crearme, '+
